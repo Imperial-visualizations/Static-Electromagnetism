@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gauss's Law</title>
+    <link rel="stylesheet" href="styles/skeleton.css">
+        <link rel="stylesheet" href="styles/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body style="overflow: hidden">
+<div class="container">
+    <div class="row">
+
+        <p style="text-align: left; width: 35%;height: 100%; float: left;-webkit-user-select: none; -moz-user-select: none; user-select: none;-ms-user-select: none;">
+Gauss's law for electrostatics can be expressed as :
+$$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}}$$
+Where $\nabla$ is the divergence operator. A simple way to visualise this law is through electric field lines.
+Geometrically, the divergence of a field is represented by the net number of field lines moving in or out of a volume element.
+So Gauss's law states that the number of field lines moving in or out of a volume element is proportional to the charge density inside the element.
+<br>
+            We can see this is true if electric charges act as a source or sink of field lines, as shown in the visualisation to the right.
+        </p>
+        <div id="sketch-holder" style="position: absolute; right: 0vh; width: 65%; height: 85vh; z-index: -1;"></div>
+
+    </div>
+</div>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+    <script src="Scripts/Field_line.js"></script>
+</body>
+</html>
