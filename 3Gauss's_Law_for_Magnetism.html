@@ -25,10 +25,8 @@
 </head>
 
 <body style="overflow: hidden">
-    <div class="container">
-        <div class="row" style="float: left; position: relative; left: 10px; top: 10px; width: 35%; height: 100%;">
-            <!--Theory explanation text-->
-            <p style="text-align: left; -webkit-user-select: none; -moz-user-select: none; user-select: none;-ms-user-select: none;">
+    <div class="container_journey">
+        <p style="text-align: left; -webkit-user-select: none; -moz-user-select: none; user-select: none;-ms-user-select: none;">
                 Gauss's law for magnetism can be expressed as :
                 $$ \nabla \cdot \mathbf{B} = 0$$
                 Where $\nabla$ is the divergence operator.
@@ -37,15 +35,18 @@
                 <br>
                 Come on give me some idea
             </p>
-        </div>    
+    </div>
+
+
+    <div class="container_vis">
         <!--Draw charge and field lines-->
-        <div id="sketch-holder" style="float:right; position: relative; width: 65%; height: 55vh;">
+        <div id="sketch-holder" style="height: 100vh; margin-top: -5vh;">
             <!--Charge input slider-->
             <div style="position: relative; width: 100%">
-                <label class="slider" style="position: relative; left: 530px; top: 43px; width: 40%; height: 0vh;">
+                <label class="slider" style="position: relative; left: 38em; top: 4em; width: 40%; height: 0vh;">
                     <input id="magnit" class="inputs" type="range" value="1" min="0.0001" max="1" step="0.0001" oninput="amount.value=magnit.value"/>
                 </label>
-                <label style="position: relative; left: 850px; top: 48px; width: 40%; ">
+                <label style="position: relative; left: 37.5em; top: 3.5em; width: 2%; ">
                     <!--Display user input-->
                     <output id="amount" name="amount" for="magnit">1</output>
                 </label>

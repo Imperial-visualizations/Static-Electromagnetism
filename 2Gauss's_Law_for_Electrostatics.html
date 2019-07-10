@@ -25,10 +25,8 @@
 </head>
 
 <body style="overflow: hidden">
-    <div class="container">
-        <div class="row" style="float: left; position: relative; left: 10px; top: 10px; width: 35%; height: 100%;">
-            <!--Theory explanation text-->
-            <p style="text-align: left; -webkit-user-select: none; -moz-user-select: none; user-select: none;-ms-user-select: none;">
+    <div class="container_journey">
+        <p style="text-align: left; -webkit-user-select: none; -moz-user-select: none; user-select: none;-ms-user-select: none;">
                 Gauss's law for electrostatics can be expressed as :
                 $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}}$$
                 Where $\nabla$ is the divergence operator. A simple way to visualise this law is through electric field lines.
@@ -36,22 +34,25 @@
                 So Gauss's law states that the number of field lines moving in or out of a volume element is proportional to the charge density inside the element.
                 <br>
                 We can see this is true if electric charges act as a source or sink of field lines, as shown in the visualisation to the right.
-            </p>
-        </div>    
-        <!--Draw charge and field lines-->
-        <div id="sketch-holder" style="float:right; position: relative; width: 65%; height: 55vh;">
+        </p>
+    </div>
+
+
+    <div class="container_vis">
+        <div id="sketch-holder" style="height: 100vh; margin-top: -5vh;">
             <!--Charge input slider-->
             <div style="position: relative; width: 100%">
-                <label class="slider" style="position: relative; left: 530px; top: 43px; width: 40%; height: 0vh;">
+                <label class="slider" style="position: relative; left: 26em; top: 3em; width: 40%; height: 0vh;">
                     <input id="magnit" class="inputs" type="range" value="1" min="-1" max="1" step="0.01" oninput="amount.value=magnit.value"/>
                 </label>
-                <label style="position: relative; left: 850px; top: 48px; width: 40%; ">
+                <label style="position: relative; left: 43em; top: 3.4em; width: 2%; ">
                     <!--Display user input-->
                     <output id="amount" name="amount" for="magnit">1</output>
                 </label>
             </div>
         </div>
     </div>
+
 
 
 </body>
