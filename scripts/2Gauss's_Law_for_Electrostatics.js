@@ -19,7 +19,7 @@ class charge {
         this.y = y;
         this.r = R;
         this.clicked = false;
-
+        
         //Colour of charge
         if (q == 0){
             this.color = "#00FF00";
@@ -180,30 +180,14 @@ function mousePressed() {
     for (let i = 0; i < activepoints.length; i++) {
         activepoints[i].pressed();
     }
-
 }
 
 function mouseReleased() {
-
     for (let i = 0; i < activepoints.length; i++) {
         if (activepoints[i].y < rect_height || activepoints[i].y > height|| activepoints[i].x > width || activepoints[i].x < 0 ){
             activepoints.splice(i,1);
         } else {
         activepoints[i].clicked = false;
-        }
-    }
-        for (let i = 0; i < activenegpoints.length; i++) {
-        if (activenegpoints[i].y < ect_height || activenegpoints[i].y > height || activenegpoints[i].x > width || activenegpoints[i].x < 0 ){
-            activenegpoints.splice(i,1);
-        } else {
-        activepoints[i].clicked = false;
-        }
-    }
-        for (let i = 0; i < activepospoints.length; i++) {
-        if (activepospoints[i].y<rect_height || activepospoints[i].y>height || activepospoints[i].x> width || activepospoints[i].x<0 ){
-            activepospoints.splice(i,1);
-        } else {
-        activepospoints[i].clicked = false;
         }
     }
 }
@@ -231,6 +215,7 @@ function draw() {
 
     for (let i = 0; i < activepoints.length; i++) {
         if (activepoints[i].clicked == true && activepoints[i].intersect() == false){
+            console.log(activepoints[i]);
             activepoints[i].dragposition();
         }
     }
@@ -238,6 +223,7 @@ function draw() {
     for (let i = 0; i < activepospoints.length; i++) {
         let [x0, y0] = initial_fieldpoints([activepospoints[i].x, activepospoints[i].y], activepospoints[i].r, activepospoints[i].n_lines);
         for (let j = 0; j < x0.length; j++) {
+            console.log(activepospoints[i].q);
             draw_fieldlines(x0[j], y0[j], activepospoints[i].q);
         }
     }
