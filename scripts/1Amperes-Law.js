@@ -34,7 +34,7 @@ would then require only one calculation and therefore not slow viz down
 let currentContainer = [], circuitContainer=[], arrows = [], myCanvas, countingFrames = 0, notChangeAngle=false, stepLength=1,t=10;
 let vectorB, circuit, arc1,arc2, rectangle1, square1, theta = -Math.PI / 2, magFieldScaling = 200;
 const dTheta = 0.01, dt=1, mu0 = 4 * Math.PI * Math.pow(10, -7);
-let fieldDisplay = false, playing = false, mouseWasPressed = false, someWireClose = false, wireSelected = 0, circuitSelected = 0;
+let fieldDisplay = true, playing = false, mouseWasPressed = false, someWireClose = false, wireSelected = 0, circuitSelected = 0;
 
 /* Now the plotly part of declaration */
 let trace = {x: [], y: []}, layout, trace2 = {x: [], y: []}, trace3 = {x:[], y:[]};
@@ -48,7 +48,9 @@ function setup() {
     $('#buttonField').click(buttonFieldFunction);
     $('#buttonAddWire').click(buttonAddWireFunction);
     $('#buttonRemoveWires').click(buttonRemoveWiresFunction);
+    $('#buttonRemoveWires').hide();
     $('#buttonReset').click(buttonResetFunction);
+    $('#buttonReset').hide();
     $("#circuitSelectList").on('change', function(){
         circuitSelected = this.value;
         buttonResetFunction();
@@ -615,7 +617,11 @@ function args_plot_Bdl(loop, wires) {
 //initial plot
 function initialPlot() {
     layout = {
-        title: 'Line integral of <b>B.dl</b> around the loop',
+        title: {
+        text: 'Line integral of <b>B.dl</b> around the loop',
+        y: 0.7
+        },
+        autosize: true,
         xaxis: {
             title: 'θ',
             range: [-0.2, 2 * Math.PI + 0.2],
@@ -646,6 +652,7 @@ function buttonPlayFunction() {
     playing = !playing;
     if (playing){
         $('#buttonPlay').html('Pause');
+        $('#buttonReset').show();
     } else {
         $('#buttonPlay').html('Play');
     }
@@ -655,7 +662,13 @@ function buttonPlayFunction() {
 
 function buttonFieldFunction() {
     fieldDisplay = !fieldDisplay;
+    if (fieldDisplay){
+        $('#buttonField').html('Hide Magnetic Field');
+    } else {
+        $('#buttonField').html('Show Magnetic Field');
+    }
 }
+
 function buttonAddWireFunction() {
     //only in start condition:
     if (checkStartPos()) {
@@ -664,18 +677,23 @@ function buttonAddWireFunction() {
         if (currentContainer.length >= 11) {
             $('#buttonAddWire').hide();
         }
-        $('#buttonField').hide();
-        fieldDisplay = false;
     }
+    //disable field lines and field line button when more than 1 wire
+    $('#buttonField').prop( "disabled", true );
+    fieldDisplay = true;
+    buttonFieldFunction();
 }
 function buttonRemoveWiresFunction() {
     if (checkStartPos()) {
         let currents = currentContainer.length;
         currentContainer.splice(1, currents - 1);
         $('#buttonRemoveWires').hide();
-        $('#buttonField').show;
         $('#buttonAddWire').show();
+        //$('#buttonField').show();
         wireSelected = 0;
+
+        $('#buttonField').prop( "disabled", false );
+        buttonFieldFunction();
     }
 }
 function buttonResetFunction() {
@@ -691,6 +709,7 @@ function buttonResetFunction() {
     Plotly.react('graph-holder', [trace, trace3,trace2], layout, {displayModeBar: false});
     $( "#circuitSelectList, #diameterSlider, #currentSlider, #buttonAddWire, #buttonRemoveWires" ).prop( "disabled", false );
     $('#buttonPlay').html('Play');
+    $('#buttonReset').hide();
 }
 
 function updateValuesFromSlider() {
@@ -772,7 +791,7 @@ function draw() {
     //when we are in start position:
     if (checkStartPos()) {
         updateValuesFromSlider();
-        $('#wireSelected').html(wireSelected.toString());
+        $('#wireSelected').html(parseInt(wireSelected.toString())+1);
         $('#buttonPlay').html('Play');
 
         //plotly parameters:
