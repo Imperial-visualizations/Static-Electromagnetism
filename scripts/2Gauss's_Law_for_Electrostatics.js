@@ -63,29 +63,29 @@ class charge {
                 }
             }
         }
-            if (parseFloat(Math.abs(mouseX-v1.x)) <= R && v1.y - R <= mouseY && mouseY <= v1.y + v1.l + R){
+        if (parseFloat(Math.abs(mouseX-v1.x)) <= R && v1.y - R <= mouseY && mouseY <= v1.y + v1.l + R){
             areintersecting = true;
-            }
-            if (parseFloat(Math.abs(mouseX-v1.x - v1.w)) <= R && v1.y - R <= mouseY && mouseY <= v1.y + v1.l + R){
+        }
+        if (parseFloat(Math.abs(mouseX-v1.x - v1.w)) <= R && v1.y - R <= mouseY && mouseY <= v1.y + v1.l + R){
             areintersecting = true;
-            }
-            if (parseFloat(Math.abs(mouseY-v1.y - v1.l)) <= R && v1.x - R <= mouseX && mouseX <= v1.x + v1.w + R){
+        }
+        if (parseFloat(Math.abs(mouseY-v1.y - v1.l)) <= R && v1.x - R <= mouseX && mouseX <= v1.x + v1.w + R){
             areintersecting = true;
-            }
-            if (parseFloat(Math.abs(mouseY - v1.y)) <= R && v1.x - R <= mouseX && mouseX <= v1.x + v1.w + R){
+        }
+        if (parseFloat(Math.abs(mouseY - v1.y)) <= R && v1.x - R <= mouseX && mouseX <= v1.x + v1.w + R){
             areintersecting = true;
-            }
+        }
         return areintersecting;
     }
 }
 
 class charge_selector{
     constructor(q,x,y){
-    this.q = q;
-    this.x = x;
-    this.y = y;
-    this.r = R;
-    this.clicked = false;
+        this.q = q;
+        this.x = x;
+        this.y = y;
+        this.r = R;
+        this.clicked = false;
 
         //Colour of charge
         if (q == 0){
@@ -131,6 +131,14 @@ function initial_fieldpoints(Qposition, R, n_lines){
         y0.push(Qposition[1] + R*Math.sin(theta));
     }
     return([x0,y0]);
+}
+
+function withinCanvas(x, y){
+    if (y < (rect_height) || y > (height)|| x > (width) || x < (0) ){
+        return false;
+    } else {
+        return true;
+    }
 }
 
 function draw_fieldlines(initialx, initialy, q){
@@ -184,10 +192,13 @@ function mousePressed() {
 
 function mouseReleased() {
     for (let i = 0; i < activepoints.length; i++) {
-        if (activepoints[i].y < rect_height || activepoints[i].y > height|| activepoints[i].x > width || activepoints[i].x < 0 ){
-            activepoints.splice(i,1);
+        if (withinCanvas(activepoints[i].x, activepoints[i].y)){
+            activepoints[i].clicked = false;
         } else {
-        activepoints[i].clicked = false;
+            activepoints.splice(i,1);
+            //activepoints[i].clicked = false;
+            draw();
+            //console.log(activepoints.length);
         }
     }
 }
@@ -215,16 +226,20 @@ function draw() {
 
     for (let i = 0; i < activepoints.length; i++) {
         if (activepoints[i].clicked == true && activepoints[i].intersect() == false){
-            console.log(activepoints[i]);
+            //console.log(activepoints[i]);
             activepoints[i].dragposition();
         }
     }
 
     for (let i = 0; i < activepospoints.length; i++) {
         let [x0, y0] = initial_fieldpoints([activepospoints[i].x, activepospoints[i].y], activepospoints[i].r, activepospoints[i].n_lines);
-        for (let j = 0; j < x0.length; j++) {
-            console.log(activepospoints[i].q);
-            draw_fieldlines(x0[j], y0[j], activepospoints[i].q);
+        if (withinCanvas(x0, y0)){
+            //console.log("within canvas");
+            for (let j = 0; j < x0.length; j++) {
+                //console.log(activepospoints[i].q);
+                
+                draw_fieldlines(x0[j], y0[j], activepospoints[i].q);
+            }
         }
     }
 
