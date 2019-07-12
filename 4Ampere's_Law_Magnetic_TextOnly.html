@@ -1,10 +1,22 @@
 <!doctype html>
 <html>
 <head>
+        <style>
+                .divclass
+                { width: 33vw;}
+                .solidline {
+                    /* Indicates a drop down box to hide stuff */
+                    border-style: outset;
+                    border-color: coral;
+                    border-width: 3px;
+                    padding: 20px;
+                    border-radius: 20px;
+                }
+            </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!--Page Info-->
-    <title>Static Magnetism</title>
+    <title>Electrostatics</title>
     <!--css link-->
     <link rel="stylesheet" href="styles/skeleton.css">
     <link rel="stylesheet" href="styles/style.css">
@@ -25,37 +37,32 @@
 </head>
 
 <body style="overflow: hidden">
-    <div class="container_journey">
+    <div class="container_journey divclass">
         <p style="text-align: left; -webkit-user-select: none; -moz-user-select: none; user-select: none;-ms-user-select: none;">
-                Gauss's law for magnetism can be expressed as :
-                $$ \nabla \cdot \mathbf{B} = 0$$
-                Where $\nabla$ is the divergence operator.
-                Geometrically, the divergence of a field is represented by the net number of field lines moving in or out of a volume element.
-                Gauss's law states that magnetic field lines do not have a beginning or ending but they form loops or extend to infinity.
-                <br>
-                Come on give me some idea
-            </p>
+               
+                $$ \nabla \times \mathbf{B} = \mu_0 \mathbf{J}$$
+        </p>
     </div>
 
 
-    <div class="container_vis">
-        <!--Draw charge and field lines-->
+  <!--  <div class="container_vis">
         <div id="sketch-holder" style="height: 100vh; margin-top: -5vh;">
-            <!--Charge input slider-->
+            <!--Charge input slider
             <div style="position: relative; width: 100%">
-                <label class="slider" style="position: relative; left: 29em; top: 3.35em; width: 40%; height: 0vh;">
-                    <input id="magnit" class="inputs" type="range" value="1" min="0" max="1" step="0.01" oninput="amount.value=magnit.value"/>
+                <label class="slider" style="position: relative; left: 38em; top: 4em; width: 40%; height: 0vh;">
+                    <input id="magnit" class="inputs" type="range" value="1" min="-1" max="1" step="0.0001" oninput="amount.value=magnit.value"/>
                 </label>
-                <label style="position: relative; left: 48em; top: 3.6em; width: 2%; ">
-                    <!--Display user input-->
+                <label style="position: relative; left: 37.5em; top: 3.5em; width: 2%; ">
+                    <!--Display user input
                     <output id="amount" name="amount" for="magnit">1</output>
                 </label>
             </div>
         </div>
-    </div>
+    </div>-->
+
+
 
 </body>
-
     <!--THE BRAINS-->
-    <script src="scripts/3Gauss's_Law_for_Magnetism.js"></script>
+    <script src="scripts/2Gauss's_Law_for_Electrostatics.js"></script>
 </html>
