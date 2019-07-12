@@ -2,7 +2,7 @@
 //set global variables
 //activepoints for charges, neutralpoints for neutral "charges", allpoints = activepoints + neutralpoints, maxpoints to limit total n of activepoints
 
-let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), activepoints = [], neutralpoints = [], allpoints = [], maxpoints = 10;
+let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), neutralpoints = [], allpoints = [], maxpoints = 10; //activepoints = []
 const Nvertices = 1700, max_range = 1500, R = 16, square_size = 100, padding = 50, rect_height = height/8, arrow_size = 5;
 
 class volume_element {
@@ -28,10 +28,12 @@ class charge {
             let tune1 = Math.round(180 - 120*(1-Math.exp(-Math.abs(q))));
             let tune2 = Math.round(90*(Math.exp(-Math.abs(q))));
             this.color = "rgb(255," + tune1.toString() + "," + tune2.toString() + ")";
-        } else {
+        } else if (q < 0){
             let tune1 = Math.round(120*(Math.exp(-Math.abs(q))));
             let tune2 = Math.round((180 - 120*(1-Math.exp(-Math.abs(q)))));
             this.color = "rgb(" + tune1.toString() + "," + tune2.toString() + ",255)";
+        }else{
+            this.color = "#00FF00";
         }
 
         //Relate the number of field lines to the magnitude of the charge
@@ -153,15 +155,15 @@ class charge_selector{
     
     pressed(){
         if (dist(mouseX,mouseY,this.x,this.y)<this.r){
-            if (this.q == 0){
-                let n = new neutral(this.x,this.y);
-                neutralpoints.push(n);
-                allpoints.push(n);
-            } else {
-                let q = new charge(this.q,this.x,this.y);
-                activepoints.push(q);
-                allpoints.push(q);
-            }
+            //if (this.q == 0){
+                //let n = new neutral(this.x,this.y);
+                //neutralpoints.push(n);
+                //allpoints.push(n);
+            //} else {
+            let q = new charge(this.q,this.x,this.y);
+                //activepoints.push(q);
+            allpoints.push(q);
+            //}
         }
     }
 }
@@ -199,13 +201,13 @@ function draw_fieldlines(initialx, initialy, q){
     for (let i = 0; i < Nvertices; i++) {
         if(xfield0 > width+padding||xfield0 < 0 - padding||yfield0 > height+padding||yfield0 < 0-padding){return;}
         let Fx = 0, Fy = 0, Ftotal;
-        for (let k = 0; k < activepoints.length; k++) {
-            let r = Math.sqrt(((xfield0 - activepoints[k].x) ** 2 + (yfield0 - activepoints[k].y) ** 2));
+        for (let k = 0; k < allpoints.length; k++) {
+            let r = Math.sqrt(((xfield0 - allpoints[k].x) ** 2 + (yfield0 - allpoints[k].y) ** 2));
             if (r < 1) {
                 return;
             }
-            Fx += (activepoints[k].q)*(xfield0 - activepoints[k].x) / (Math.pow(r,3));
-            Fy += (activepoints[k].q)*(yfield0 - activepoints[k].y) / (Math.pow(r,3));
+            Fx += (allpoints[k].q)*(xfield0 - allpoints[k].x) / (Math.pow(r,3));
+            Fy += (allpoints[k].q)*(yfield0 - allpoints[k].y) / (Math.pow(r,3));
         }
         Ftotal = Math.sqrt(Fx ** 2 + Fy ** 2);
         let dx = q * (max_range / Nvertices) * (Fx / Ftotal),
@@ -224,8 +226,8 @@ function draw_fieldlines(initialx, initialy, q){
 }
 
 //functions that 'move' a charge when it is clicked
-function mousePressed() {
-    if (activepoints.length < maxpoints){
+function mousePressed(){
+    if (allpoints.length < maxpoints){
         sel.pressed();
     }
     for (let i = 0; i < allpoints.length; i++) {
@@ -240,6 +242,8 @@ function mouseReleased() {
         } else {
             console.log("removing charge");
             allpoints.splice(i,1);
+            //activepoints.splice(i,1);
+            //console.log(allpoints)
             //x0.splice(i,1);
             //y0.splice(i,1);
             //activepoints.splice(i,1);
@@ -277,18 +281,20 @@ function draw() {
     }
 
     //draws fieldlines of charges 
-    for (let i = 0; i < activepoints.length; i++){
-        let [x0, y0] = initial_fieldpoints([activepoints[i].x, activepoints[i].y], activepoints[i].r, activepoints[i].n_lines);
-        //if (withinCanvas(x0[i], y0[i])) {
-        for (let j = 0; j < x0.length; j++) {
-            draw_fieldlines(x0[j], y0[j], activepoints[i].q);
+    for (let i = 0; i < allpoints.length; i++){
+        if (allpoints[i].q != 0){
+            let [x0, y0] = initial_fieldpoints([allpoints[i].x, allpoints[i].y], allpoints[i].r, allpoints[i].n_lines);
+            //if (withinCanvas(x0[i], y0[i])) {
+            for (let j = 0; j < x0.length; j++) {
+                draw_fieldlines(x0[j], y0[j], allpoints[i].q);
+            }
+            //}else{
+                // console.log("outside canvas");
+                // x0.splice(i,1);
+                // y0.splice(i,1);
+                //activepoints.splice(i,1);
+            //}
         }
-        //}else{
-            // console.log("outside canvas");
-            // x0.splice(i,1);
-            // y0.splice(i,1);
-            //activepoints.splice(i,1);
-        //}
     }
 
     //draw and colour all the points
@@ -305,7 +311,7 @@ function draw() {
     stroke(72, 99, 95);
     line(0, rect_height, width, rect_height);
 
-    if (activepoints.length < maxpoints){
+    if (allpoints.length < maxpoints){
         noStroke();
         fill(color(sel.color));
         ellipse(sel.x, sel.y, R*2);

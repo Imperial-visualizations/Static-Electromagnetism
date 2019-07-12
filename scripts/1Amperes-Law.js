@@ -490,6 +490,35 @@ function calculateB(setOfWires, x, y) {
     return [Bx, By];
 }
 
+function GetBVector(WirePositions, Currents, Point){
+    //WirePositions is an array of wire positions
+    //Currents is an array of the currents in the same order as WirePositions
+    //Point is an array containing the x and y of a single position
+
+    let n = WirePositions.length; //number of wires
+    let x = Point[0]; //x coord of point of interest
+    let y = Point[1]; //y coord of point of interest
+    let r = 0;
+    let B = 0;
+    let Mu0 = 4*Math.PI* 10**(-7); 
+    let CurrentBVector = [0,0];
+    let TotalBVector = [0,0];
+
+    for (let i = 0; i < n; i ++){ //loop through all the wires
+        //r is the distance from the point to the current wire
+        r = Math.sqrt((x - WirePositions[i][0])**2 + (y - WirePositions[i][1])**2);
+        //Find magnitude of B vector at that point due to current wire
+        B = Mu0*abs(Currents[i])/(2*Math.PI*r);
+        //Find angle of vector - may be incorrect type of arctan...
+        Theta = atan2((y - WirePositions[i][1]), (x - WirePositions[i][0])) + (Current[i]/abs(Current[i]))*0.5*Math.PI;
+        //get vector in cartesian format
+        CurrentBVector = [B*Math.cos(Theta), B*Math.sin(Theta)];
+        //sum up contributions from each wire
+        TotalBVector += CurrentBVector; 
+    }
+    return TotalBVector;
+}
+
 /*calculate B.dl at an angle of rotation alpha (equivalent to method using [posX, posY] */
 function calculateBdl(loop, wires, B, angle) {
     let k=false
