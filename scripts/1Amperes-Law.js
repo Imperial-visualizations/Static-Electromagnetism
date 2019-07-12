@@ -521,7 +521,7 @@ function calculateBdl(loop, wires, B, angle) {
         }
     }
     // return dlLength;
-    return B[0] * dl[0] + B[1] * dl[1]; //return the value of B.dl
+    return (B[0] * dl[0] + B[1] * dl[1])*(5*Math.pow(10, 8)); //return the value of B.dl
 }
 
 function calculateIntBdl(loop, wires, x, y){
