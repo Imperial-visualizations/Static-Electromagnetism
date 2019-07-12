@@ -494,7 +494,7 @@ function GetBVector(WirePositions, Currents, Point){
     //WirePositions is an array of wire positions
     //Currents is an array of the currents in the same order as WirePositions
     //Point is an array containing the x and y of a single position
-    
+
     let n = WirePositions.length; //number of wires
     let x = Point[0]; //x coord of point of interest
     let y = Point[1]; //y coord of point of interest
@@ -510,7 +510,7 @@ function GetBVector(WirePositions, Currents, Point){
         //Find magnitude of B vector at that point due to current wire
         B = Mu0*abs(Currents[i])/(2*Math.PI*r);
         //Find angle of vector - may be incorrect type of arctan...
-        Theta = atan2((y - WirePositions[i][1]), (x - WirePositions[i][0]))+ (Current[i]/abs(Current[i]))*0.5*Math.PI;
+        Theta = atan2((y - WirePositions[i][1]), (x - WirePositions[i][0])) + (Current[i]/abs(Current[i]))*0.5*Math.PI;
         //get vector in cartesian format
         CurrentBVector = [B*Math.cos(Theta), B*Math.sin(Theta)];
         //sum up contributions from each wire
