@@ -2,7 +2,7 @@
 //set global variables
 //activepoints for charges, neutralpoints for neutral "magnet", allpoints = activepoints + neutralpoints, maxpoints to limit total n of activepoints
 
-let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), activepoints = [], neutralpoints = [], allpoints = [], maxpoints = 10;
+let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), activepoints = [], neutralpoints = [], allpoints = [], maxpoints = 5;
 const Nvertices = 1700, max_range = 1500, R = 16, square_size = 100, padding = 50, rect_height = height/8, arrow_size = 5, dipdist = 1.2*R;
 
 class volume_element {
@@ -14,27 +14,28 @@ class volume_element {
     }
 }
 
-//For q =! 0
+//For m =! 0
 class dipole {
-    constructor(q,x,y){
-        this.q = q;
+    constructor(m,x,y){
+        this.m = m;
+        this.mvec = [m, 0];
         this.x = x;
         this.y = y;
         this.r = 2*R;
         this.clicked = false;
         
         //Colour of dipole
-        let tune1 = Math.round(100*(1 - Math.sqrt(Math.abs(q))));
+        let tune1 = Math.round(100*(1 - Math.sqrt(Math.abs(m))));
         this.redcolor = "rgb(255," + tune1.toString() + "," + tune1.toString() + ")";
 
-        let tune3 = Math.round(70*(1 - Math.sqrt(Math.abs(q))));
-        let tune4 = Math.round(90 - 60*(Math.sqrt(Math.abs(q))));
+        let tune3 = Math.round(70*(1 - Math.sqrt(Math.abs(m))));
+        let tune4 = Math.round(90 - 60*(Math.sqrt(Math.abs(m))));
         this.bluecolor = "rgb(" + tune3.toString() + "," + tune4.toString() + ",255)";
 
         //Relate the number of field lines to the magnitude of the dipole
-        if (Math.abs(q) <= 0.33) {
+        if (Math.abs(m) <= 0.33) {
             this.n_lines = 8;
-        } else if (Math.abs(q) > 0.33 && Math.abs(q) <= 0.66) {
+        } else if (Math.abs(m) > 0.33 && Math.abs(m) <= 0.66) {
             this.n_lines = 16;
         } else {
             this.n_lines = 32;
@@ -88,7 +89,7 @@ class neutral {
         this.redcolor = "#00FF00";
         this.bluecolor = "#00FF00";
     }
-
+ 
     pressed(){
         if (dist(mouseX, mouseY, this.x, this.y) < this.r){
             this.clicked = true;
@@ -128,35 +129,36 @@ class neutral {
 
 //Selects a charge or neutral "charge"
 class dipole_selector{
-    constructor(q,x,y){
-        this.q = q;
+    constructor(m,x,y){
+        this.m = m;
+        this.mvec = [m, 0];
         this.x = x;
         this.y = y;
         this.r = 2*R;
         this.clicked = false;
 
         //Colour of dipole
-        if (q == 0){
+        if (m == 0){
             this.redcolor = "#00FF00";
             this.bluecolor = "#00FF00";
         } else {
-        let tune1 = Math.round(100*(1 - Math.sqrt(Math.abs(q))));
+        let tune1 = Math.round(100*(1 - Math.sqrt(Math.abs(m))));
         this.redcolor = "rgb(255," + tune1.toString() + "," + tune1.toString() + ")";
 
-        let tune3 = Math.round(70*(1 - Math.sqrt(Math.abs(q))));
-        let tune4 = Math.round(90 - 60*(Math.sqrt(Math.abs(q))));
+        let tune3 = Math.round(70*(1 - Math.sqrt(Math.abs(m))));
+        let tune4 = Math.round(90 - 60*(Math.sqrt(Math.abs(m))));
         this.bluecolor = "rgb(" + tune3.toString() + "," + tune4.toString() + ",255)";
         }
     }
-    
+
     pressed(){
         if (dist(mouseX,mouseY,this.x,this.y)<this.r){
-            if (this.q == 0){
+            if (this.m == 0){
                 let n = new neutral(this.x,this.y);
                 neutralpoints.push(n);
                 allpoints.push(n);
             } else {
-                let dip = new dipole(this.q,this.x,this.y);
+                let dip = new dipole(this.m,this.x,this.y);
                 activepoints.push(dip);
                 allpoints.push(dip);
             }
@@ -193,8 +195,8 @@ function initial_rightfieldpoints(Qposition, R, n_lines){
 
 //Draw fieldlines with given initial points
 //Left side
-function draw_leftfieldlines(initialx, initialy, q){
-    let mvec = [q,0], xfield0 = initialx, yfield0 = initialy, xfield1 = 0, yfield1 = 0;
+function draw_leftfieldlines(initialx, initialy, mvec){
+    let xfield0 = initialx, yfield0 = initialy, xfield1 = 0, yfield1 = 0;
 
     for (let i = 0; i < Nvertices; i++) {
         if(xfield0 > width+padding||xfield0 < 0 - padding||yfield0 > height+padding||yfield0 < 0-padding){return;}
@@ -232,8 +234,8 @@ function draw_leftfieldlines(initialx, initialy, q){
 }
 
 //Right side
-function draw_rightfieldlines(initialx, initialy, q){
-    let mvec = [q,0], xfield0 = initialx, yfield0 = initialy, xfield1 = 0, yfield1 = 0;
+function draw_rightfieldlines(initialx, initialy, mvec){
+    let xfield0 = initialx, yfield0 = initialy, xfield1 = 0, yfield1 = 0;
 
     for (let i = 0; i < Nvertices; i++) {
         if(xfield0 > width+padding||xfield0 < 0 - padding||yfield0 > height+padding||yfield0 < 0-padding){return;}
@@ -323,7 +325,7 @@ function draw() {
     for (let i = 0; i < activepoints.length; i++) {
         let [x0, y0] = initial_leftfieldpoints([activepoints[i].x, activepoints[i].y], activepoints[i].r, activepoints[i].n_lines);
         for (let j = 0; j < x0.length; j++) {
-            draw_leftfieldlines(x0[j], y0[j], activepoints[i].q);
+            draw_leftfieldlines(x0[j], y0[j], activepoints[i].mvec);
         }
     }
 
@@ -331,7 +333,7 @@ function draw() {
     for (let i = 0; i < activepoints.length; i++) {
         let [x0, y0] = initial_rightfieldpoints([activepoints[i].x, activepoints[i].y], activepoints[i].r, activepoints[i].n_lines);
         for (let j = 0; j < x0.length; j++) {
-            draw_rightfieldlines(x0[j], y0[j], activepoints[i].q);
+            draw_rightfieldlines(x0[j], y0[j], activepoints[i].mvec);
         }
     }
 
@@ -364,5 +366,5 @@ function draw() {
     textAlign(CENTER);
     fill(1);
     text("Drag to add", width/6, rect_height/1.5);
-    text("Charge:", width/2.1, rect_height/1.5);
+    text("Dipole:", width/2.1, rect_height/1.5);
 }
