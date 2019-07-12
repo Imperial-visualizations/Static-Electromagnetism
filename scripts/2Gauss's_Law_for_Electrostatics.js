@@ -238,7 +238,11 @@ function mouseReleased() {
         if (withinCanvas(allpoints[i].x, allpoints[i].y)){
             allpoints[i].clicked = false;
         } else {
+            console.log("removing charge");
             allpoints.splice(i,1);
+            //x0.splice(i,1);
+            //y0.splice(i,1);
+            //activepoints.splice(i,1);
             draw();
         }
     }
@@ -253,7 +257,7 @@ function setup() {
     frameRate(60);
 }
 
-//main function that repeats as soon as the last line is called
+//main function thjat repeats as soon as the last line is called
 function draw() {
     clear();
     background('#ffffff');
@@ -273,11 +277,18 @@ function draw() {
     }
 
     //draws fieldlines of charges 
-    for (let i = 0; i < activepoints.length; i++) {
+    for (let i = 0; i < activepoints.length; i++){
         let [x0, y0] = initial_fieldpoints([activepoints[i].x, activepoints[i].y], activepoints[i].r, activepoints[i].n_lines);
+        //if (withinCanvas(x0[i], y0[i])) {
         for (let j = 0; j < x0.length; j++) {
             draw_fieldlines(x0[j], y0[j], activepoints[i].q);
         }
+        //}else{
+            // console.log("outside canvas");
+            // x0.splice(i,1);
+            // y0.splice(i,1);
+            //activepoints.splice(i,1);
+        //}
     }
 
     //draw and colour all the points
