@@ -16,9 +16,10 @@ class volume_element {
 
 //For m =! 0
 class dipole {
-    constructor(m,x,y){
+    constructor(m,theta,x,y){
         this.m = m;
-        this.mvec = [m, 0];
+        this.mvec = [m*Math.cos(theta), m*Math.sin(theta)];
+        this.theta = theta;
         this.x = x;
         this.y = y;
         this.r = 2*R;
@@ -81,7 +82,8 @@ class dipole {
 
 //For silly q = 0 neutral "magnet"
 class neutral {
-    constructor(x,y){
+    constructor(theta,x,y){
+        this.theta = theta;
         this.x = x;
         this.y = y;
         this.r = 2*R;
@@ -129,9 +131,10 @@ class neutral {
 
 //Selects a charge or neutral "charge"
 class dipole_selector{
-    constructor(m,x,y){
+    constructor(m,theta,x,y){
         this.m = m;
-        this.mvec = [m, 0];
+        this.mvec = [m*Math.cos(theta), m*Math.sin(theta)];
+        this.theta = theta;
         this.x = x;
         this.y = y;
         this.r = 2*R;
@@ -152,13 +155,13 @@ class dipole_selector{
     }
 
     pressed(){
-        if (dist(mouseX,mouseY,this.x,this.y)<this.r){
+        if (dist(mouseX,mouseY,this.x,this.y) < this.r){
             if (this.m == 0){
-                let n = new neutral(this.x,this.y);
+                let n = new neutral(this.theta,this.x,this.y);
                 neutralpoints.push(n);
                 allpoints.push(n);
             } else {
-                let dip = new dipole(this.m,this.x,this.y);
+                let dip = new dipole(this.m,this.theta,this.x,this.y);
                 activepoints.push(dip);
                 allpoints.push(dip);
             }
@@ -168,27 +171,27 @@ class dipole_selector{
 
 //Adds the starting points of the field lines around the dipole
 //Left side
-function initial_leftfieldpoints(Qposition, R, n_lines){
+function initial_leftfieldpoints(Qposition, theta, R, n_lines){
     let x0=[],y0=[];
 
     for (let i = 0; i < n_lines/4; i++) {
-        x0.push(Qposition[0] - R);
-        y0.push(Qposition[1] + i*3);
-        x0.push(Qposition[0] - R);
-        y0.push(Qposition[1] - i*3);
+        x0.push(Qposition[0] - R*Math.cos(theta) - i*3*Math.sin(theta));
+        y0.push(Qposition[1] - R*Math.sin(theta) + i*3*Math.cos(theta));
+        x0.push(Qposition[0] - R*Math.cos(theta) + i*3*Math.sin(theta));
+        y0.push(Qposition[1] - R*Math.sin(theta) - i*3*Math.cos(theta));
     }
     return([x0,y0]);
 }
 
 //Right side
-function initial_rightfieldpoints(Qposition, R, n_lines){
+function initial_rightfieldpoints(Qposition, theta, R, n_lines){
     let x0=[],y0=[];
 
     for (let i = 0; i < n_lines/4; i++) {
-        x0.push(Qposition[0] + R);
-        y0.push(Qposition[1] + i*3);
-        x0.push(Qposition[0] + R);
-        y0.push(Qposition[1] - i*3);
+        x0.push(Qposition[0] + R*Math.cos(theta) - i*3*Math.sin(theta));
+        y0.push(Qposition[1] + R*Math.sin(theta) + i*3*Math.cos(theta));
+        x0.push(Qposition[0] + R*Math.cos(theta) + i*3*Math.sin(theta));
+        y0.push(Qposition[1] + R*Math.sin(theta) - i*3*Math.cos(theta));
     }
     return([x0,y0]);
 }
@@ -205,14 +208,14 @@ function draw_leftfieldlines(initialx, initialy, mvec){
 
             //Area inside the magnet to not draw fieldlines
             let delX = Math.abs(xfield0 - activepoints[k].x), delY = Math.abs(yfield0 - activepoints[k].y);
-            if (delX < 32 && delY < 20) {
+            if (delX < 20 && delY < 20) {
                 return;
             }
 
             let rvec = [xfield0 - activepoints[k].x, yfield0 - activepoints[k].y];
             let absr = Math.sqrt(rvec[0]**2 + rvec[1]**2);
             let rvechat = math.divide(rvec, absr);
-            let Bvec = math.divide(math.subtract(math.multiply(3*math.dot(mvec,rvechat),rvechat),mvec),Math.pow(absr, 3));
+            let Bvec = math.divide(math.subtract(math.multiply(3*math.dot(activepoints[k].mvec,rvechat),rvechat),activepoints[k].mvec),Math.pow(absr, 3));
             Bx += Bvec[0];
             By += Bvec[1]; 
 
@@ -234,7 +237,7 @@ function draw_leftfieldlines(initialx, initialy, mvec){
 }
 
 //Right side
-function draw_rightfieldlines(initialx, initialy, mvec){
+function draw_rightfieldlines(initialx, initialy){
     let xfield0 = initialx, yfield0 = initialy, xfield1 = 0, yfield1 = 0;
 
     for (let i = 0; i < Nvertices; i++) {
@@ -244,14 +247,14 @@ function draw_rightfieldlines(initialx, initialy, mvec){
 
             //Area inside the magnet to not draw fieldlines
             let delX = Math.abs(xfield0 - activepoints[k].x), delY = Math.abs(yfield0 - activepoints[k].y);
-            if (delX < 32 && delY < 20) {
+            if (delX < 20 && delY < 20) {
                 return;
             }
-            
+
             let rvec = [xfield0 - activepoints[k].x, yfield0 - activepoints[k].y];
             let absr = Math.sqrt(rvec[0]**2 + rvec[1]**2);
             let rvechat = math.divide(rvec, absr);
-            let Bvec = math.divide(math.subtract(math.multiply(3*math.dot(mvec,rvechat),rvechat),mvec),Math.pow(absr, 3));
+            let Bvec = math.divide(math.subtract(math.multiply(3*math.dot(activepoints[k].mvec,rvechat),rvechat),activepoints[k].mvec),Math.pow(absr, 3));
             Bx += Bvec[0];
             By += Bvec[1]; 
 
@@ -298,6 +301,7 @@ v1 = new volume_element(width/2, height/2, width/8, width/8);
 function setup() {
     let canvas = createCanvas(width,height);
     canvas.parent('sketch-holder');
+    rectMode(CENTER);
     frameRate(60);
 }
 
@@ -310,9 +314,13 @@ function draw() {
     fill("#ffffff");
     //rect(v1.x, v1.y, v1.l,v1.w);
 
+    let translatex = 270; translatey = 38;
+    //translate(translatex, translatey);
+    //rotate(dip.theta);
     //Brings in user input and turn it into a charge
-    dip = new dipole_selector(parseFloat(document.getElementById('magnit').value), width/3, rect_height/2);
-
+    dip = new dipole_selector(parseFloat(document.getElementById('magnit').value), parseFloat(document.getElementById('angle').value)*3.14/180, 0, 0);
+    //rotate(-dip.theta);
+    //translate(-translatex, -translatey);
     //any points cannot overlap graphically
     for (let i = 0; i < allpoints.length; i++) {
         if (allpoints[i].clicked == true && allpoints[i].intersect() == false){
@@ -323,7 +331,7 @@ function draw() {
     //Draws fieldlines of charges 
     //Left side
     for (let i = 0; i < activepoints.length; i++) {
-        let [x0, y0] = initial_leftfieldpoints([activepoints[i].x, activepoints[i].y], activepoints[i].r, activepoints[i].n_lines);
+        let [x0, y0] = initial_leftfieldpoints([activepoints[i].x, activepoints[i].y], activepoints[i].theta, activepoints[i].r, activepoints[i].n_lines);
         for (let j = 0; j < x0.length; j++) {
             draw_leftfieldlines(x0[j], y0[j], activepoints[i].mvec);
         }
@@ -331,7 +339,7 @@ function draw() {
 
     //Right side
     for (let i = 0; i < activepoints.length; i++) {
-        let [x0, y0] = initial_rightfieldpoints([activepoints[i].x, activepoints[i].y], activepoints[i].r, activepoints[i].n_lines);
+        let [x0, y0] = initial_rightfieldpoints([activepoints[i].x, activepoints[i].y], activepoints[i].theta, activepoints[i].r, activepoints[i].n_lines);
         for (let j = 0; j < x0.length; j++) {
             draw_rightfieldlines(x0[j], y0[j], activepoints[i].mvec);
         }
@@ -340,31 +348,42 @@ function draw() {
     //draw and colour all the magnets
     for (let i = 0; i < allpoints.length; i++) {
         noStroke(1);
+        rotate(allpoints[i].theta);
+
         fill(color(allpoints[i].bluecolor));
-        rect(allpoints[i].x - 31, allpoints[i].y - 20, 32, 40);
+        rect(allpoints[i].x - 16, allpoints[i].y, 32, 40);
         fill(color(allpoints[i].redcolor));
-        rect(allpoints[i].x + 1, allpoints[i].y - 20, 32, 40);
+        rect(allpoints[i].x + 16, allpoints[i].y, 32, 40);
+
+        rotate(-allpoints[i].theta);
     }
 
     noStroke();
     fill(247, 252, 251);
-    rect(0, 0, width, rect_height);
+    rect(0, 0, 2*width, 2*rect_height);
 
     stroke(72, 99, 95);
     line(0, rect_height, width, rect_height);
 
+    translate(translatex, translatey);
+    rotate(dip.theta);
+
     if (activepoints.length < maxpoints){
         noStroke();
         fill(color(dip.bluecolor));
-        rect(dip.x - 31, dip.y - 20, 32, 40);
+        rect(dip.x - 16, dip.y, 32, 40);
         fill(color(dip.redcolor));
-        rect(dip.x + 1, dip.y - 20, 32, 40);
+        rect(dip.x + 16, dip.y, 32, 40);
     }
 
+    rotate(-dip.theta);
+    translate(-translatex, -translatey);
+    
     textSize(25);
     textFont("Fira Sans");
     textAlign(CENTER);
     fill(1);
-    text("Drag to add", width/6, rect_height/1.5);
-    text("Dipole:", width/2.1, rect_height/1.5);
+    text("Drag to add", width/7, rect_height/1.8);
+    text("Magnet Strength:", width/2.3, rect_height/2.8);
+    text("Angle:", width/2.01, rect_height/1.3);
 }

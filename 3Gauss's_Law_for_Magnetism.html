@@ -40,15 +40,24 @@
 
     <div class="container_vis">
         <!--Draw charge and field lines-->
-        <div id="sketch-holder" style="height: 100vh; margin-top: -5vh;">
+        <div id="sketch-holder" style="height: 100vh; margin-top: -10vh;">
             <!--Charge input slider-->
             <div style="position: relative; width: 100%">
-                <label class="slider" style="position: relative; left: 29em; top: 3.35em; width: 40%; height: 0vh;">
-                    <input id="magnit" class="inputs" type="range" value="1" min="0" max="1" step="0.01" oninput="amount.value=magnit.value"/>
+                <!--User input magnet strength-->
+                <label class="slider" style="position: relative; left: 29em; top: 3.9em; width: 40%; height: 0vh;">
+                    <input id="magnit" class="inputs" type="range" value="1" min="0" max="1" step="0.01" oninput="amount1.value=magnit.value"/>
                 </label>
-                <label style="position: relative; left: 48em; top: 3.6em; width: 2%; ">
+                <label style="position: relative; left: 48em; top: 4em; width: 2%; ">
                     <!--Display user input-->
-                    <output id="amount" name="amount" for="magnit">1</output>
+                    <output id="amount1" name="amount1" for="magnit">1</output>
+                </label>
+                <!--User input rotation angle-->
+                <label class="slider" style="position: relative; left: 29em; top: 3.9em; width: 40%; height: 0vh;">
+                    <input id="angle" class="inputs" type="range" value="0" min="0" max="360" step="1" oninput="amount2.value=angle.value"/>
+                </label>
+                <label style="position: relative; left: 48em; top: 4em; width: 2%; ">
+                    <!--Display user input-->
+                    <output id="amount2" name="amount2" for="angle">0</output><span>°</span>
                 </label>
             </div>
         </div>
