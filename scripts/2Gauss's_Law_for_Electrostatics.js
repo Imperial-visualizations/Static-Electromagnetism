@@ -2,7 +2,7 @@
 //set global variables
 //activepoints for charges, neutralpoints for neutral "charges", allpoints = activepoints + neutralpoints, maxpoints to limit total n of activepoints
 
-let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), neutralpoints = [], allpoints = [], maxpoints = 10; //activepoints = []
+let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 10;
 const Nvertices = 1700, max_range = 1500, R = 16, square_size = 100, padding = 50, rect_height = height/8, arrow_size = 5;
 
 class volume_element {
@@ -14,7 +14,6 @@ class volume_element {
     }
 }
 
-//For q =! 0
 class charge {
     constructor(q,x,y){
         this.q = q;
@@ -83,52 +82,6 @@ class charge {
     }
 }
 
-//For silly q = 0 neutral "charge"
-class neutral {
-    constructor(x,y){
-        this.x = x;
-        this.y = y;
-        this.r = R;
-        this.clicked = false;
-        this.color = "#00FF00";
-    }
-
-    pressed(){
-        if (dist(mouseX, mouseY, this.x, this.y) < this.r){
-            this.clicked = true;
-        }
-    }
-
-    dragposition(){
-        let thisFrameMouseX = mouseX, thisFrameMouseY = mouseY;
-            this.x = thisFrameMouseX;
-            this.y = thisFrameMouseY;
-    }
-
-    intersect(){
-        let areintersecting = false;
-            for (let i = 0; i < allpoints.length; i++) {
-                if(allpoints[i] != this){
-                    if (parseFloat(dist(mouseX, mouseY, allpoints[i].x, allpoints[i].y)) <= R*2){
-                        areintersecting = true;
-                    }
-                }
-            }
-            if (parseFloat(Math.abs(mouseX-v1.x)) <= R && v1.y - R <= mouseY && mouseY <= v1.y + v1.l + R){
-            areintersecting = true;
-        }
-        if (parseFloat(Math.abs(mouseX-v1.x - v1.w)) <= R && v1.y - R <= mouseY && mouseY <= v1.y + v1.l + R){
-            areintersecting = true;
-        }
-        if (parseFloat(Math.abs(mouseY-v1.y - v1.l)) <= R && v1.x - R <= mouseX && mouseX <= v1.x + v1.w + R){
-            areintersecting = true;
-        }
-        if (parseFloat(Math.abs(mouseY - v1.y)) <= R && v1.x - R <= mouseX && mouseX <= v1.x + v1.w + R){
-            areintersecting = true;
-        }
-        return areintersecting;
-    }
-}
 
 //Selects a charge or neutral "charge"
 class charge_selector{
@@ -155,15 +108,8 @@ class charge_selector{
     
     pressed(){
         if (dist(mouseX,mouseY,this.x,this.y)<this.r){
-            //if (this.q == 0){
-                //let n = new neutral(this.x,this.y);
-                //neutralpoints.push(n);
-                //allpoints.push(n);
-            //} else {
             let q = new charge(this.q,this.x,this.y);
-                //activepoints.push(q);
             allpoints.push(q);
-            //}
         }
     }
 }
@@ -284,16 +230,9 @@ function draw() {
     for (let i = 0; i < allpoints.length; i++){
         if (allpoints[i].q != 0){
             let [x0, y0] = initial_fieldpoints([allpoints[i].x, allpoints[i].y], allpoints[i].r, allpoints[i].n_lines);
-            //if (withinCanvas(x0[i], y0[i])) {
             for (let j = 0; j < x0.length; j++) {
                 draw_fieldlines(x0[j], y0[j], allpoints[i].q);
             }
-            //}else{
-                // console.log("outside canvas");
-                // x0.splice(i,1);
-                // y0.splice(i,1);
-                //activepoints.splice(i,1);
-            //}
         }
     }
 
