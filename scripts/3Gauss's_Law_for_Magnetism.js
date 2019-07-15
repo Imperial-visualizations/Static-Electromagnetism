@@ -56,7 +56,7 @@ class dipole {
     dragposition(){
         this.x = mouseX;
         this.y = mouseY;
-}
+    }
 
     intersect(){
         let areintersecting = false;
@@ -109,17 +109,16 @@ class dipole_selector{
     }
 
     pressed(){
-        if (dist(mouseX,mouseY,this.x,this.y) < this.r){
-            let dip = new dipole(this.m,this.theta,this.x,this.y);
+        if (dist(mouseX, mouseY, this.x, this.y) < this.r){
+            let dip = new dipole(this.m, this.theta, this.x, this.y);
             allpoints.push(dip);
-            
         }
     }
 }
 
 //loopX and loopY are the initial central coordinates of the loop
 //diceX and diceY are to randomise the curve of the polygon
-let diceX = [], diceY = [], loopX = 200 + 600*Math.random(), loopY = 200 + 300*Math.random(), polygonradius = 40 + 20*Math.random(), polygonvertice = 25;
+let diceX = [], diceY = [], loopX = 200 + 600*Math.random(), loopY = 200 + 300*Math.random(), polygonradius = 60, polygonvertice = 25;
 for (let i = 0; i < polygonvertice; i++) {
     diceX[i] = 1 + 0.5*Math.random();
     diceY[i] = 1 + 0.5*Math.random();
@@ -279,20 +278,6 @@ function setup() {
 //main function that repeats as soon as the last line is called
 function draw() {
     clear();
-    background('#ffffff');
-    stroke("#48A9A6");
-    fill("#ffffff");
-
-    loop = new weird_shape(loopX, loopY);
-
-    //Draw the loop
-    noFill();
-    curveTightness(1);
-    beginShape();
-    for (let i = 0; i < polygonvertice; i++) {
-        curveVertex(loop.nodeX[i], loop.nodeY[i]);
-    }
-    endShape(CLOSE);
 
     //any points cannot overlap graphically
     for (let i = 0; i < allpoints.length; i++) {
@@ -365,4 +350,22 @@ function draw() {
 
     rotate(-angle);
     translate(-translatex, -translatey);
+
+    loop = new weird_shape(loopX, loopY);
+
+    //Draw the loop
+    noFill();
+    stroke("#48A9A6");
+    curveTightness(1);
+    beginShape();
+    for (let i = 0; i < polygonvertice; i++) {
+        curveVertex(loop.nodeX[i], loop.nodeY[i]);
+    }
+    endShape(CLOSE);
+
+    let fluxcounter = 0;
+
+    fill(0, 0, 0);
+    textSize(20);
+    text(fluxcounter, loop.x, loop.y);
 }

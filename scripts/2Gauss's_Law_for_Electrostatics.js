@@ -106,8 +106,8 @@ class charge_selector{
     }
     
     pressed(){
-        if (dist(mouseX,mouseY,this.x,this.y)<this.r){
-            let q = new charge(this.q,this.x,this.y);
+        if (dist(mouseX, mouseY, this.x, this.y) < this.r){
+            let q = new charge(this.q, this.x, this.y);
             allpoints.push(q);
         }
     }
@@ -115,7 +115,7 @@ class charge_selector{
 
 //loopX and loopY are the initial central coordinates of the loop
 //diceX and diceY are to randomise the curve of the polygon
-let diceX = [], diceY = [], loopX = 200 + 600*Math.random(), loopY = 200 + 300*Math.random(), polygonradius = 40 + 20*Math.random(), polygonvertice = 25;
+let diceX = [], diceY = [], loopX = 200 + 600*Math.random(), loopY = 200 + 300*Math.random(), polygonradius = 60, polygonvertice = 25;
 for (let i = 0; i < polygonvertice; i++) {
     diceX[i] = 1 + 0.5*Math.random();
     diceY[i] = 1 + 0.5*Math.random();
@@ -225,20 +225,6 @@ function setup() {
 //main function that repeats as soon as the last line is called
 function draw() {
     clear();
-    background('#ffffff');
-    stroke("#48A9A6");
-    fill("#ffffff");
-
-    loop = new weird_shape(loopX, loopY);
-
-    //Draw the loop
-    noFill();
-    curveTightness(1);
-    beginShape();
-    for (let i = 0; i < polygonvertice; i++) {
-        curveVertex(loop.nodeX[i], loop.nodeY[i]);
-    }
-    endShape(CLOSE);
 
     //Brings in user input and turn it into a charge
     sel = new charge_selector(parseFloat(document.getElementById('magnit').value), 330, 38);
@@ -279,4 +265,33 @@ function draw() {
         fill(color(sel.color));
         ellipse(sel.x, sel.y, R*2);
     }
+
+    loop = new weird_shape(loopX, loopY);
+
+    //Draw the loop
+    noFill();
+    stroke("#48A9A6");
+    curveTightness(1);
+    beginShape();
+    for (let i = 0; i < polygonvertice; i++) {
+        curveVertex(loop.nodeX[i], loop.nodeY[i]);
+    }
+    endShape(CLOSE);
+
+    //Start counting the number of net field lines into or out of the loop
+    let fluxcounter = 0;
+    for (let i = 0; i < allpoints.length; i++) {
+        if (dist(allpoints[i].x, allpoints[i].y, loop.x, loop.y) < loop.r){
+            if (allpoints[i].q > 0) {
+                fluxcounter += allpoints[i].n_lines;
+            }   else if (allpoints[i].q < 0) {
+                fluxcounter -= allpoints[i].n_lines;
+            } 
+        }
+    }
+
+    fill(0, 0, 0);
+    textSize(20);
+    text(fluxcounter, loop.x, loop.y);
+
 }
