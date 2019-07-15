@@ -1,9 +1,9 @@
 /*jshint esversion:7*/
 //set global variables
-//allpoints for charges, neutralpoints for neutral "magnet", allpoints = allpoints + neutralpoints, maxpoints to limit total n of allpoints
+//allpoints for storing dipoles, maxpoints to limit total n of allpoints
 
 let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 5;
-const Nvertices = 1700, max_range = 1500, R = 16, square_size = 100, padding = 50, rect_height = height/8, arrow_size = 5, dipdist = 1.2*R;
+const Nvertices = 1700, max_range = 1500, R = 16, square_size = 100, padding = 50, rect_height = height/8, arrow_size = 5;
 
 class volume_element {
     constructor(x,y,w,l) {
@@ -29,21 +29,21 @@ class dipole {
             this.redcolor = "#00FF00";
             this.bluecolor = "#00FF00";
         } else {
-            let tune1 = Math.round(100*(1 - Math.sqrt(Math.abs(m))));
+            let tune1 = Math.round(100*(1 - Math.sqrt(Math.abs(m/100))));
             this.redcolor = "rgb(255," + tune1.toString() + "," + tune1.toString() + ")";
 
-            let tune3 = Math.round(70*(1 - Math.sqrt(Math.abs(m))));
-            let tune4 = Math.round(90 - 60*(Math.sqrt(Math.abs(m))));
+            let tune3 = Math.round(70*(1 - Math.sqrt(Math.abs(m/100))));
+            let tune4 = Math.round(90 - 60*(Math.sqrt(Math.abs(m/100))));
             this.bluecolor = "rgb(" + tune3.toString() + "," + tune4.toString() + ",255)";
         }
 
         //Relate the number of field lines to the magnitude of the dipole
-        if (Math.abs(m) <= 0.33) {
+        if (Math.abs(m) <= 33) {
+            this.n_lines = 4;
+        } else if (Math.abs(m) > 33 && Math.abs(m) <= 66) {
             this.n_lines = 8;
-        } else if (Math.abs(m) > 0.33 && Math.abs(m) <= 0.66) {
-            this.n_lines = 16;
         } else {
-            this.n_lines = 32;
+            this.n_lines = 16;
         }
     }
 
@@ -100,11 +100,11 @@ class dipole_selector{
             this.redcolor = "#00FF00";
             this.bluecolor = "#00FF00";
         } else {
-            let tune1 = Math.round(100*(1 - Math.sqrt(Math.abs(m))));
+            let tune1 = Math.round(100*(1 - Math.sqrt(Math.abs(m/100))));
             this.redcolor = "rgb(255," + tune1.toString() + "," + tune1.toString() + ")";
 
-            let tune3 = Math.round(70*(1 - Math.sqrt(Math.abs(m))));
-            let tune4 = Math.round(90 - 60*(Math.sqrt(Math.abs(m))));
+            let tune3 = Math.round(70*(1 - Math.sqrt(Math.abs(m/100))));
+            let tune4 = Math.round(90 - 60*(Math.sqrt(Math.abs(m/100))));
             this.bluecolor = "rgb(" + tune3.toString() + "," + tune4.toString() + ",255)";
         }
     }
@@ -121,7 +121,7 @@ class dipole_selector{
 //Adds the starting points of the field lines around the dipole
 //Left side
 function initial_leftfieldpoints(Qposition, theta, R, n_lines){
-    let x0=[],y0=[];
+    let x0=[], y0=[];
 
     for (let i = 0; i < n_lines/4; i++) {
         x0.push(Qposition[0] - R*Math.cos(theta) - i*3*Math.sin(theta));
@@ -134,7 +134,7 @@ function initial_leftfieldpoints(Qposition, theta, R, n_lines){
 
 //Right side
 function initial_rightfieldpoints(Qposition, theta, R, n_lines){
-    let x0=[],y0=[];
+    let x0=[], y0=[];
 
     for (let i = 0; i < n_lines/4; i++) {
         x0.push(Qposition[0] + R*Math.cos(theta) - i*3*Math.sin(theta));
@@ -322,7 +322,7 @@ function draw() {
     rotate(angle);
 
     //Brings in user input and turn it into a charge
-    dip = new dipole_selector(parseFloat(document.getElementById('magnit').value), parseFloat(document.getElementById('angle').value)*3.14/180, translatex, translatey);
+    dip = new dipole_selector(100*parseFloat(document.getElementById('magnit').value), parseFloat(document.getElementById('angle').value)*3.14/180, translatex, translatey);
 
     if (allpoints.length < maxpoints){
         noStroke();

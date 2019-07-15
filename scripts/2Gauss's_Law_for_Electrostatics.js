@@ -1,6 +1,6 @@
 /*jshint esversion:7*/
 //set global variables
-//activepoints for charges, neutralpoints for neutral "charges", allpoints = activepoints + neutralpoints, maxpoints to limit total n of activepoints
+//allpoints for storing charges, maxpoints to limit total n of allpoints
 
 let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 10;
 const Nvertices = 1700, max_range = 1500, R = 16, square_size = 100, padding = 50, rect_height = height/8, arrow_size = 5;
@@ -116,7 +116,7 @@ class charge_selector{
 
 //Adds the starting points of the field lines around the charge
 function initial_fieldpoints(Qposition, R, n_lines){
-    let x0=[],y0=[];
+    let x0=[], y0=[];
 
     for (let i = 0; i < n_lines; i++) {
         let theta = 2*i*(Math.PI/n_lines);
@@ -183,17 +183,10 @@ function mousePressed(){
 
 function mouseReleased() {
     for (let i = 0; i < allpoints.length; i++) {
-        if (withinCanvas(allpoints[i].x, allpoints[i].y)){
-            allpoints[i].clicked = false;
-        } else {
-            console.log("removing charge");
+        if (allpoints[i].y < rect_height || allpoints[i].y > height|| allpoints[i].x > width || allpoints[i].x < 0 ){
             allpoints.splice(i,1);
-            //activepoints.splice(i,1);
-            //console.log(allpoints)
-            //x0.splice(i,1);
-            //y0.splice(i,1);
-            //activepoints.splice(i,1);
-            draw();
+        } else {
+            allpoints[i].clicked = false;
         }
     }
 }
@@ -207,7 +200,7 @@ function setup() {
     frameRate(60);
 }
 
-//main function thjat repeats as soon as the last line is called
+//main function that repeats as soon as the last line is called
 function draw() {
     clear();
     background('#ffffff');
