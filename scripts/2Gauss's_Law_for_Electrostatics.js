@@ -241,7 +241,7 @@ function draw() {
     endShape(CLOSE);
 
     //Brings in user input and turn it into a charge
-    sel = new charge_selector(parseFloat(document.getElementById('magnit').value), width/3, rect_height/2);
+    sel = new charge_selector(parseFloat(document.getElementById('magnit').value), 330, 38);
 
     //any points cannot overlap graphically
     for (let i = 0; i < allpoints.length; i++) {
@@ -279,11 +279,4 @@ function draw() {
         fill(color(sel.color));
         ellipse(sel.x, sel.y, R*2);
     }
-
-    textSize(25);
-    textFont("Fira Sans");
-    textAlign(CENTER);
-    fill(1);
-    text("Drag to add", width/6, rect_height/1.5);
-    text("Charge:", width/2.1, rect_height/1.5);
 }

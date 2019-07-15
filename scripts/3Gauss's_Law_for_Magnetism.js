@@ -348,7 +348,7 @@ function draw() {
     stroke(72, 99, 95);
     line(0, rect_height, width, rect_height);
 
-    let angle = parseFloat(document.getElementById('angle').value)*3.14/180, translatex = 270, translatey = 38;
+    let angle = parseFloat(document.getElementById('angle').value)*3.14/180, translatex = 330, translatey = 38;
     translate(translatex, translatey);
     rotate(angle);
 
@@ -365,12 +365,4 @@ function draw() {
 
     rotate(-angle);
     translate(-translatex, -translatey);
-    
-    textSize(25);
-    textFont("Fira Sans");
-    textAlign(CENTER);
-    fill(1);
-    text("Drag to add", width/7, rect_height/1.8);
-    text("Magnet Strength:", width/2.3, rect_height/2.8);
-    text("Angle:", width/2.01, rect_height/1.3);
 }
