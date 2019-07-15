@@ -29,11 +29,12 @@ Maybe only setting calculations when need display, and avoid wires moving while 
 would then require only one calculation and therefore not slow viz down
 */
 
-
+let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), neutralpoints = [], allpoints = [], maxpoints = 10; //activepoints = []
+const Nvertices = 1700, max_range = 1500, R = 16, square_size = 100, padding = 50, rect_height = height/8, arrow_size = 5;
 
 let currentContainer = [], circuitContainer=[], arrows = [], myCanvas, countingFrames = 0, notChangeAngle=false, stepLength=1,t=10;
 let vectorB, circuit, arc1,arc2, rectangle1, square1, theta = -Math.PI / 2, magFieldScaling = 200;
-const dTheta = 0.01, dt=1, mu0 = 4 * Math.PI * Math.pow(10, -7);
+const dTheta = 0.05, dt=1, mu0 = 4 * Math.PI * Math.pow(10, -7);
 let fieldDisplay = true, playing = false, mouseWasPressed = false, someWireClose = false, wireSelected = 0, circuitSelected = 0;
 
 /* Now the plotly part of declaration */
@@ -41,6 +42,7 @@ let trace = {x: [], y: []}, layout, trace2 = {x: [], y: []}, trace3 = {x:[], y:[
 let x = [], y = [], r = [];
 let B, Bdl = 0, intBdl = 0;
 
+var arr = [];
 function setup() {
     let width = $('#sketch-holder').width(), height = $('#sketch-holder').height();
     //link the functions to the buttons
@@ -61,6 +63,13 @@ function setup() {
     frameRate(60);
     currentContainer.push(new Wire(circuit.x, circuit.y, 5, 0));
     initialPlot();
+
+    //Create field of arrows
+    for(i=0; i<width; i+=20) {
+        for(j=0; j<height; j+=20){
+            arr.push(new Arrow(i, j, 10));
+        }
+    }
 }
 
 //defining the loop
@@ -96,8 +105,8 @@ const Circuit = class {
     //if want to change the shape of the circuit, this is to alter
     drawCircuit() {
         push();
-        stroke(100);
-        strokeWeight(1);
+        stroke('red');
+        strokeWeight(3);
         noFill();
         translate(this.x, this.y);
         if (this.type==="circle"){
@@ -128,8 +137,8 @@ const Circuit = class {
     drawPath() {
         //have arc being bolder as we go on it--> from angle -PI/2 to angle
         push();
-        strokeWeight(2);
-        stroke(100, 40, 100);
+        strokeWeight(3);
+        stroke('green');
         noFill();
         translate(this.x, this.y);
         if (this.type ==="circle") {
@@ -244,6 +253,7 @@ const Wire = class {
         if ((!this.intersect()) && this.clicked) {
             this.x = mouseX;
             this.y = mouseY;
+
         }
     }
 
@@ -277,29 +287,6 @@ const Wire = class {
         pop();
     }
 
-    static drawField(wires) { //for now only works for 1 wire since we only have concentric circles
-        if (fieldDisplay) {
-            stroke(0, 150, 50);
-            // if (wires.length === 1) {//concentric circles
-            if (wires[0].value !== 0) {
-                for (let r = magFieldScaling / 3 / Math.abs(wires[0].value); r <= $('#sketch-holder').width() || r <= $('#sketch-holder').width(); r += r) {
-                    push();
-                    translate(wires[0].x, wires[0].y);
-                    let sign = wires[0].valueSign;
-                    noFill();
-                    //draw small arrow to indicate direction
-                    ellipse(0, 0, 2 * r, 2 * r);
-                    //draw arrows to show direction of magnetic fields
-                    line(r, 0, r - sign * 4, -sign * 4);
-                    line(r, 0, r + sign * 4, -sign * 4);
-                    line(-r, 0, -r - sign * 4, sign * 4);
-                    line(-r, 0, -r + sign * 4, sign * 4);
-                    pop();
-                }
-            }
-            // }
-        }
-    }
 };
 
 circuit= new Circuit($('#sketch-holder').width() / 2, $('#sketch-holder').height() / 2, "circle", {diam:200});
@@ -390,8 +377,8 @@ vectorB = { //describes the green vector B and the small increase element dl at 
 
         //update the angle for the arrow
         let Bvect = calculateB(wires, this.x, this.y);
-        this.length = vectorLength(Bvect) / mu0 * this.scaling;
-
+        this.length = Math.pow(vectorLength(Bvect), 0.4) / mu0 * this.scaling*0.00003;
+0
         //draw the arrow
         let angle = (atan2(Bvect[1], Bvect[0])); //orientate geometry to the position of the cursor (draw arrows pointing to cursor)
         push(); //move the grid
@@ -490,7 +477,7 @@ function calculateB(setOfWires, x, y) {
     return [Bx, By];
 }
 
-function GetBVector(WirePositions, Currents, Point){
+function getBVector(WirePositions, Currents, Point){
     //WirePositions is an array of wire positions
     //Currents is an array of the currents in the same order as WirePositions
     //Point is an array containing the x and y of a single position
@@ -501,23 +488,94 @@ function GetBVector(WirePositions, Currents, Point){
     let r = 0;
     let B = 0;
     let Mu0 = 4*Math.PI* 10**(-7); 
-    let CurrentBVector = [0,0];
+    let currentBVector = [0,0];
     let TotalBVector = [0,0];
+    let TotalBx = 0;
+    let TotalBy = 0;
 
     for (let i = 0; i < n; i ++){ //loop through all the wires
         //r is the distance from the point to the current wire
         r = Math.sqrt((x - WirePositions[i][0])**2 + (y - WirePositions[i][1])**2);
+
         //Find magnitude of B vector at that point due to current wire
         B = Mu0*abs(Currents[i])/(2*Math.PI*r);
+
         //Find angle of vector - may be incorrect type of arctan...
-        Theta = atan2((y - WirePositions[i][1]), (x - WirePositions[i][0])) + (Current[i]/abs(Current[i]))*0.5*Math.PI;
+        Theta = atan2((y - WirePositions[i][1]), (x - WirePositions[i][0])) + (Currents[i]/abs(Currents[i]))*0.5*Math.PI;
         //get vector in cartesian format
-        CurrentBVector = [B*Math.cos(Theta), B*Math.sin(Theta)];
+        currentBVector = [B*Math.cos(Theta), B*Math.sin(Theta)];
+        TotalBx += currentBVector[0];
+        TotalBy += currentBVector[1];
         //sum up contributions from each wire
-        TotalBVector += CurrentBVector; 
+        //TotalBVector += CurrentBVector;
     }
+    TotalBVector = [TotalBx, TotalBy]
     return TotalBVector;
 }
+
+function calculateFieldLines(initialPosition) {
+    let fieldLines = [];
+    let currentPosition = initialPosition;
+    let notInitialPosition = true;
+    let stepNum = 0;
+
+    //allows for errors due to inexact following of field lines (non-infinitesimal step size)
+    //Variable error size account for higher error with stronger field but allows larger loops to not be cut by min-terms condition
+    //Total error is proportional to severity of curve which is proportional to field strength
+    BvalInit = calculateB(currentContainer, initialPosition[0], initialPosition[1]);
+    BvalMod = Math.pow((Math.pow(BvalInit[0], 2) + Math.pow(BvalInit[1], 2)), 0.5);
+    errorAllowed = ((BvalMod)*Math.pow(10, 9));
+    //errorAllowed = 1;
+
+    //Follow field lines and add each successive position to array
+    while(notInitialPosition) {
+        Bval = calculateB(currentContainer, currentPosition[0], currentPosition[1]);
+        BvalMod = Math.pow((Math.pow(BvalInit[0], 2) + Math.pow(BvalInit[1], 2)), 0.5);
+        stepAmplitude = (1/BvalMod)*0.3*Math.pow(10, -8);
+        //stepAmplitude = 0.5;
+        dx = ((Bval[0])*stepAmplitude*Math.pow(10, 7));
+        dy = ((Bval[1])*stepAmplitude*Math.pow(10, 7));
+        //console.log(dx, dy);
+
+        currentPosition = [currentPosition[0]+dx, currentPosition[1]+dy];
+        fieldLines.push(currentPosition);
+
+        //errorAllowed = ((BvalMod)*Math.pow(10, 8));
+
+        //end loop if initial position reached (loop completed)
+        if ((Math.abs(currentPosition[0]-initialPosition[0]) + Math.abs(currentPosition[1]-initialPosition[1]))< errorAllowed && stepNum>500) {
+            notInitialPosition = false;
+        };
+        stepNum += 1;
+
+        //Maximum number of steps (prevents some crashes)
+        if(stepNum > 200000) {
+            notInitialPosition = false;
+        };
+    };
+    //console.log(fieldLines);
+    return fieldLines;
+};
+
+
+//const width = $('#sketch-holder').width();
+const centerY = $('#sketch-holder').height()/2;
+function getInitialPositions () {
+
+    let initialPositions = [];
+    for(i = 0; i < width; i += 0.01) {
+        Bval = calculateB(currentContainer, i, centerY);
+        BvalMod = Math.pow((Math.pow(Bval[0], 2) + Math.pow(Bval[1], 2)), 0.5);
+
+        if(((BvalMod*Math.pow(10,7))%0.1) < 0.00001){
+            initialPositions.push([i, centerY]);
+        }
+    }
+    //console.log(initialPositions);
+    return(initialPositions);
+
+};
+
 
 /*calculate B.dl at an angle of rotation alpha (equivalent to method using [posX, posY] */
 function calculateBdl(loop, wires, B, angle) {
@@ -550,7 +608,7 @@ function calculateBdl(loop, wires, B, angle) {
         }
     }
     // return dlLength;
-    return (B[0] * dl[0] + B[1] * dl[1])*(5*Math.pow(10, 8)); //return the value of B.dl
+    return (B[0] * dl[0] + B[1] * dl[1]); //return the value of B.dl
 }
 
 function calculateIntBdl(loop, wires, x, y){
@@ -566,7 +624,7 @@ function calculateIntBdl(loop, wires, x, y){
         B = calculateB(wires, posX, posY);
         Bdl = calculateBdl(loop, wires, B, i);
         x.push(i + Math.PI / 2); // + PI/2 so that plot starts at 0, but does not affect calculations
-        y.push(Bdl);
+        y.push(Bdl*(Math.pow(10, 8)));
         intBdl += (Bdl + Bdl2) / 2;
     }
     if (loop.type==="arcs"){
@@ -592,6 +650,7 @@ function calculateIntBdl(loop, wires, x, y){
     }
     return intBdl;
 }
+
 
 /* Now the plotly part */
 
@@ -707,10 +766,6 @@ function buttonAddWireFunction() {
             $('#buttonAddWire').hide();
         }
     }
-    //disable field lines and field line button when more than 1 wire
-    $('#buttonField').prop( "disabled", true );
-    fieldDisplay = true;
-    buttonFieldFunction();
 }
 function buttonRemoveWiresFunction() {
     if (checkStartPos()) {
@@ -718,11 +773,8 @@ function buttonRemoveWiresFunction() {
         currentContainer.splice(1, currents - 1);
         $('#buttonRemoveWires').hide();
         $('#buttonAddWire').show();
-        //$('#buttonField').show();
+        $('#buttonField').show();
         wireSelected = 0;
-
-        $('#buttonField').prop( "disabled", false );
-        buttonFieldFunction();
     }
 }
 function buttonResetFunction() {
@@ -797,8 +849,112 @@ function mouseShape() {
     }
 }
 
+
+
+function drawFieldLinesActual(initialPosition){
+    fieldLines = calculateFieldLines(initialPosition);
+
+    let fieldLines2 = [];
+    for(i = 0; i < fieldLines.length; i += Math.round(fieldLines.length / 80) /*limit number of lines for performance */) {
+    //for(i = 0; i < fieldLines.length; i += 200) /*variable line number (looks better) */ {
+        fieldLines2.push(fieldLines[i]);
+    };
+
+    stroke(0, 150, 50);
+    for(i=1; i<fieldLines2.length; i +=2){
+        line(fieldLines2[i-1][0], fieldLines2[i-1][1], fieldLines2[i][0], fieldLines2[i][1]);
+    };
+};
+
+function Arrow(x, y, length) {
+    this.x = x;
+    this.y = y;
+
+    this.update = function(){
+        push();
+        translate(this.x,this.y);
+        Bvec = calculateB(currentContainer, this.x, this.y);
+        let angle = atan2(Bvec[1], Bvec[0]);
+        amplitude = vectorLength(Bvec);
+        this.length = Math.pow(amplitude, 0.5)*3*10000;
+        if(this.length > 18){
+            this.length = 18;
+        }
+
+        //change colour of wire based on field strength
+        fill(255 - amplitude*4000000000, 255 - amplitude*1500000000, 255);
+
+        rotate(angle);
+        beginShape();
+        vertex(0, -0.5*this.length);
+        vertex(3*this.length, 0);
+        vertex(0, 0.5*this.length);
+        //vertex(5*this.length, -0.5*this.length);
+        //vertex(5*this.length, -1.5*this.length);
+        //vertex(9*this.length, 0);
+        //vertex(5*this.length, 1.5*this.length);
+        //vertex(5*this.length, 0.5*this.length);
+        //vertex(0, 0);
+        endShape(CLOSE);
+        pop();//reset the grid
+    }
+};
+
+
+
+function drawFieldlines(initialx, initialy, q){
+
+    let xfield0 = initialx, yfield0 = initialy, xfield1 = 0, yfield1 = 0;
+
+    //Change the magnitude of charge to fix the sizes of arrows and field lines
+    if (q > 0) {
+        q = +1;
+    } else {
+        q = -1;
+    }
+
+    for (let i = 0; i < Nvertices; i++) {
+        if(xfield0 > width+padding||xfield0 < 0 - padding||yfield0 > height+padding||yfield0 < 0-padding){return;}
+        let Fx = 0, Fy = 0, Ftotal;
+        for (let k = 0; k < allpoints.length; k++) {
+            let r = Math.sqrt(((xfield0 - allpoints[k].x) ** 2 + (yfield0 - allpoints[k].y) ** 2));
+            if (r < 1) {
+                return;
+            }
+            Fx += (allpoints[k].q)*(xfield0 - allpoints[k].x) / (Math.pow(r,3));
+            Fy += (allpoints[k].q)*(yfield0 - allpoints[k].y) / (Math.pow(r,3));
+        }
+        Ftotal = Math.sqrt(Fx ** 2 + Fy ** 2);
+        let dx = q * (max_range / Nvertices) * (Fx / Ftotal),
+            dy = q * (max_range / Nvertices) * (Fy / Ftotal);
+        xfield1 = xfield0 + dx;
+        yfield1 = yfield0 + dy;
+        stroke("rgb(120, 120, 120)");
+        line(xfield0, yfield0, xfield1, yfield1);
+        if (i == Math.round(Nvertices/12)) {
+            line(xfield0 - q*dy*arrow_size, yfield0 + q*dx*arrow_size, xfield0 + arrow_size*q*dx, yfield0 + arrow_size*q*dy);
+            line(xfield0 + q*dy*arrow_size, yfield0 - q*dx*arrow_size, xfield0 + arrow_size*q*dx, yfield0 + arrow_size*q*dy);
+        }
+        xfield0 = parseFloat(xfield1);
+        yfield0 = parseFloat(yfield1);
+    }
+}
+
+let done=false;
+
 function draw() {
     background(255);
+
+    if(fieldDisplay){
+        fill(255-100,255-0,255-0);
+        for(k=0; k<arr.length; k++){
+            arr[k].update();
+        }
+        Arrow(width/2,height/2,20);
+    };
+
+
+
     circuitContainer[circuitSelected].drawCircuit();
     for (let i = 0; i < currentContainer.length; i++) {
         if (checkStartPos()) {
@@ -813,7 +969,69 @@ function draw() {
         }
         currentContainer[i].drawWire(); //always draw the wires
     }
-    Wire.drawField(currentContainer);
+
+
+    //initialPositions = getInitialPositions();
+
+
+    //draw each magnetic field line from each initial position
+
+
+    /*
+    if(initialPositions.length >= 1) {
+        drawFieldLinesActual(initialPositions[0]);
+    }
+    if(initialPositions.length >= 2) {
+        drawFieldLinesActual(initialPositions[1]);
+    }
+    if(initialPositions.length >= 3) {
+        drawFieldLinesActual(initialPositions[2]);
+    }
+    if(initialPositions.length >= 4) {
+        drawFieldLinesActual(initialPositions[3]);
+    }
+    if(initialPositions.length >= 5) {
+        drawFieldLinesActual(initialPositions[4]);
+    }
+    if(initialPositions.length >= 6) {
+        drawFieldLinesActual(initialPositions[5]);
+    }
+    if(initialPositions.length >= 7) {
+        drawFieldLinesActual(initialPositions[6]);
+    }
+    if(initialPositions.length >= 8) {
+        drawFieldLinesActual(initialPositions[7]);
+    }
+    if(initialPositions.length >= 9) {
+        drawFieldLinesActual(initialPositions[8]);
+    }
+    if(initialPositions.length >= 10) {
+        drawFieldLinesActual(initialPositions[9]);
+    }
+    //drawFieldLinesActual(initialPositions[2]);
+    */
+
+    //wire0 = currentContainer[0];
+    //Bval2 = calculateB(currentContainer, 200, 200);
+    //console.log(Bval2);
+    //drawFieldlines(wire0.x +10, wire0.y, currentContainer[0].value );
+    /*
+    for(i=0; i < 300; i+100){
+        for(j=0; j < 300; j+100){
+            x=[];
+            y=[];
+            x.push(i);
+            y.push(j);
+
+            BField = calculateB(currentContainer, wire0.x +10, wire0.y);
+            x.push(BField[0]*10000000);
+            y.push(BField[1]*10000000);
+
+        }
+    }
+    */
+
+
     vectorB.update(currentContainer, circuitContainer[circuitSelected]); //redraw the arrows
     mouseShape();
 
@@ -849,3 +1067,4 @@ function draw() {
         }
     }
 }
+
