@@ -1,6 +1,8 @@
 /*jshint esversion:7*/
 //set global variables
-let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), activepoints = [], activenegpoints = [], activepospoints = [], maxpoints = 10;
+//allpoints for storing dipoles, maxpoints to limit total n of allpoints
+
+let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 5;
 const Nvertices = 1700, max_range = 1500, R = 16, square_size = 100, padding = 50, rect_height = height/8, arrow_size = 5;
 
 class volume_element {
@@ -13,28 +15,32 @@ class volume_element {
 }
 
 class dipole {
-    constructor(q,x,y){
-        this.q = q;
-        this.posq = q;
-        this.negq = -q;
+    constructor(m,theta,x,y){
+        this.m = m;
+        this.mvec = [m*Math.cos(theta), m*Math.sin(theta)];
+        this.theta = theta;
         this.x = x;
         this.y = y;
-        this.r = R;
+        this.r = 2*R;
         this.clicked = false;
+        
+        //Colour of dipole
+        if (m == 0){
+            this.redcolor = "#00FF00";
+            this.bluecolor = "#00FF00";
+        } else {
+            let tune1 = Math.round(100*(1 - Math.sqrt(Math.abs(m/100))));
+            this.redcolor = "rgb(255," + tune1.toString() + "," + tune1.toString() + ")";
 
-        //Colour of charge
-        let tune1 = Math.round(180 - 120*(1-Math.exp(-Math.abs(q))));
-        let tune2 = Math.round(90*(Math.exp(-Math.abs(q))));
-        this.poscolor = "rgb(255," + tune1.toString() + "," + tune2.toString() + ")";
-
-        let tune3 = Math.round(120*(Math.exp(-Math.abs(q))));
-        let tune4 = Math.round((180 - 120*(1-Math.exp(-Math.abs(q)))));
-        this.negcolor = "rgb(" + tune3.toString() + "," + tune4.toString() + ",255)";
+            let tune3 = Math.round(70*(1 - Math.sqrt(Math.abs(m/100))));
+            let tune4 = Math.round(90 - 60*(Math.sqrt(Math.abs(m/100))));
+            this.bluecolor = "rgb(" + tune3.toString() + "," + tune4.toString() + ",255)";
+        }
 
         //Relate the number of field lines to the magnitude of the dipole
-        if (Math.abs(q) <= 0.33) {
+        if (Math.abs(m) <= 33) {
             this.n_lines = 4;
-        } else if (Math.abs(q) > 0.33 && Math.abs(q) <= 0.66) {
+        } else if (Math.abs(m) > 33 && Math.abs(m) <= 66) {
             this.n_lines = 8;
         } else {
             this.n_lines = 16;
@@ -42,195 +48,209 @@ class dipole {
     }
 
     pressed(){
-        if (dist(mouseX, mouseY, this.x, this.y) < 2*this.r){
+        if (dist(mouseX, mouseY, this.x, this.y) < this.r){
             this.clicked = true;
         }
     }
-    dragposition(mx,my){
-        let pointsnearmouse = 0, thisFrameMouseX = mouseX, thisFrameMouseY = mouseY;
-                this.x = thisFrameMouseX;
-                this.y = thisFrameMouseY;
+
+    dragposition(){
+        let thisFrameMouseX = mouseX, thisFrameMouseY = mouseY;
+            this.x = thisFrameMouseX;
+            this.y = thisFrameMouseY;
     }
 
     intersect(){
         let areintersecting = false;
-        for (let i = 0; i < activepoints.length; i++) {
-            if(activepoints[i] != this){
-                if (parseFloat(dist(mouseX, mouseY, activepoints[i].x, activepoints[i].y)) <= R*2){
+        for (let i = 0; i < allpoints.length; i++) {
+            if(allpoints[i] != this){
+                if (parseFloat(dist(mouseX, mouseY, allpoints[i].x, allpoints[i].y)) <= R*2){
                     areintersecting = true;
                 }
             }
         }
-            if (parseFloat(Math.abs(mouseX-v1.x)) <= R && v1.y - R <= mouseY && mouseY <= v1.y + v1.l + R){
-            areintersecting = true;
-            }
-            if (parseFloat(Math.abs(mouseX-v1.x - v1.w)) <= R && v1.y - R <= mouseY && mouseY <= v1.y + v1.l + R){
-            areintersecting = true;
-            }
-            if (parseFloat(Math.abs(mouseY-v1.y - v1.l)) <= R && v1.x - R <= mouseX && mouseX <= v1.x + v1.w + R){
-            areintersecting = true;
-            }
-            if (parseFloat(Math.abs(mouseY - v1.y)) <= R && v1.x - R <= mouseX && mouseX <= v1.x + v1.w + R){
-            areintersecting = true;
-            }
+        if (parseFloat(Math.abs(mouseX-v1.x)) <= R && v1.y - R <= mouseY && mouseY <= v1.y + v1.l + R){
+        areintersecting = true;
+        }
+        if (parseFloat(Math.abs(mouseX-v1.x - v1.w)) <= R && v1.y - R <= mouseY && mouseY <= v1.y + v1.l + R){
+        areintersecting = true;
+        }
+        if (parseFloat(Math.abs(mouseY-v1.y - v1.l)) <= R && v1.x - R <= mouseX && mouseX <= v1.x + v1.w + R){
+        areintersecting = true;
+        }
+        if (parseFloat(Math.abs(mouseY - v1.y)) <= R && v1.x - R <= mouseX && mouseX <= v1.x + v1.w + R){
+        areintersecting = true;
+        }
         return areintersecting;
     }
 }
 
+//Selects a magnet or neutral "magnet"
 class dipole_selector{
-    constructor(q,x,y){
-    this.q = q;
-    this.posq = q;
-    this.negq = -q;
-    this.x = x;
-    this.y = y;
-    this.r = R;
-    this.clicked = false;
+    constructor(m,theta,x,y){
+        this.m = m;
+        this.mvec = [m*Math.cos(theta), m*Math.sin(theta)];
+        this.theta = theta;
+        this.x = x;
+        this.y = y;
+        this.r = 2*R;
+        this.clicked = false;
 
-    //Colour of charge
-    let tune1 = Math.round(180 - 120*(1-Math.exp(-Math.abs(q))));
-    let tune2 = Math.round(90*(Math.exp(-Math.abs(q))));
-    this.poscolor = "rgb(255," + tune1.toString() + "," + tune2.toString() + ")";
-
-    let tune3 = Math.round(120*(Math.exp(-Math.abs(q))));
-    let tune4 = Math.round((180 - 120*(1-Math.exp(-Math.abs(q)))));
-    this.negcolor = "rgb(" + tune3.toString() + "," + tune4.toString() + ",255)";
-
-
-        //Relate the number of field lines to the magnitude of the dipole
-        if (Math.abs(q) <= 0.33) {
-            this.n_lines = 4;
-        } else if (Math.abs(q) > 0.33 && Math.abs(q) <= 0.66) {
-            this.n_lines = 8;
+        //Colour of dipole
+        if (m == 0){
+            this.redcolor = "#00FF00";
+            this.bluecolor = "#00FF00";
         } else {
-            this.n_lines = 16;
+            let tune1 = Math.round(100*(1 - Math.sqrt(Math.abs(m/100))));
+            this.redcolor = "rgb(255," + tune1.toString() + "," + tune1.toString() + ")";
+
+            let tune3 = Math.round(70*(1 - Math.sqrt(Math.abs(m/100))));
+            let tune4 = Math.round(90 - 60*(Math.sqrt(Math.abs(m/100))));
+            this.bluecolor = "rgb(" + tune3.toString() + "," + tune4.toString() + ",255)";
         }
     }
-    
+
     pressed(){
-        if (dist(mouseX,mouseY,this.x,this.y)<2*this.r){
-            let dip = new dipole(this.q,this.x,this.y);
-            dip.pressed();
-            activepoints.push(dip);
-            activepospoints.push(dip);
-            activenegpoints.push(dip);
+        if (dist(mouseX,mouseY,this.x,this.y) < this.r){
+            let dip = new dipole(this.m,this.theta,this.x,this.y);
+            allpoints.push(dip);
+            
         }
     }
 }
 
-function initial_fieldpoints(Dposition, R, n_lines){
+//Adds the starting points of the field lines around the dipole
+//Left side
+function initial_leftfieldpoints(Qposition, theta, R, n_lines){
     let x0=[],y0=[];
 
-    for (let i = 0; i < n_lines; i++) {
-        let theta = 2*i*(Math.PI/n_lines);
-        x0.push(Dposition[0] + R*Math.cos(theta));
-        y0.push(Dposition[1] + R*Math.sin(theta));
+    for (let i = 0; i < n_lines/4; i++) {
+        x0.push(Qposition[0] - R*Math.cos(theta) - i*3*Math.sin(theta));
+        y0.push(Qposition[1] - R*Math.sin(theta) + i*3*Math.cos(theta));
+        x0.push(Qposition[0] - R*Math.cos(theta) + i*3*Math.sin(theta));
+        y0.push(Qposition[1] - R*Math.sin(theta) - i*3*Math.cos(theta));
     }
     return([x0,y0]);
 }
 
-function draw_fieldlines(initialx, initialy, q){
-    let xfield0 = initialx, yfield0 = initialy, xfield1 = 0, yfield1 = 0;
-    
-    //Change the magnitude of dipole to fix the sizes of arrows and field lines 
-    if (q == 0) {
-        return;
-    } else if (q > 0) {
-        q = +1;
-    } else {
-        q = -1;
+//Right side
+function initial_rightfieldpoints(Qposition, theta, R, n_lines){
+    let x0=[],y0=[];
+
+    for (let i = 0; i < n_lines/4; i++) {
+        x0.push(Qposition[0] + R*Math.cos(theta) - i*3*Math.sin(theta));
+        y0.push(Qposition[1] + R*Math.sin(theta) + i*3*Math.cos(theta));
+        x0.push(Qposition[0] + R*Math.cos(theta) + i*3*Math.sin(theta));
+        y0.push(Qposition[1] + R*Math.sin(theta) - i*3*Math.cos(theta));
     }
+    return([x0,y0]);
+}
+
+//Draw fieldlines with given initial points
+//Left side
+function draw_leftfieldlines(initialx, initialy){
+    let xfield0 = initialx, yfield0 = initialy, xfield1 = 0, yfield1 = 0;
 
     for (let i = 0; i < Nvertices; i++) {
         if(xfield0 > width+padding||xfield0 < 0 - padding||yfield0 > height+padding||yfield0 < 0-padding){return;}
-        let Fx = 0, Fy = 0, Ftotal;
-        for (let k = 0; k < activepoints.length; k++) {
-            let r = Math.sqrt(((xfield0 - activepoints[k].x) ** 2 + (yfield0 - activepoints[k].y) ** 2));
-            if(r < 1){
+        let Bx = 0, By = 0, Btotal;
+        for (let k = 0; k < allpoints.length; k++) {
+
+            //Area inside the magnet to not draw fieldlines
+            let delX = Math.abs(xfield0 - allpoints[k].x), delY = Math.abs(yfield0 - allpoints[k].y);
+            if (delX < 20 && delY < 20) {
                 return;
             }
-            Fx += (activepoints[k].q)*(xfield0 - activepoints[k].x) / (Math.pow(r,3));
-            Fy += (activepoints[k].q)*(yfield0 - activepoints[k].y) / (Math.pow(r,3));
+
+            let rvec = [xfield0 - allpoints[k].x, yfield0 - allpoints[k].y];
+            let absr = Math.sqrt(rvec[0]**2 + rvec[1]**2);
+            let rvechat = math.divide(rvec, absr);
+            let Bvec = math.divide(math.subtract(math.multiply(3*math.dot(allpoints[k].mvec,rvechat),rvechat),allpoints[k].mvec),Math.pow(absr, 3));
+            Bx += Bvec[0];
+            By += Bvec[1]; 
+
         }
-        Ftotal = Math.sqrt(Fx ** 2 + Fy ** 2);
-        let dx = q * (max_range / Nvertices) * (Fx / Ftotal),
-            dy = q * (max_range / Nvertices) * (Fy / Ftotal);
-        xfield1 = xfield0 + dx;
-        yfield1 = yfield0 + dy;
+        Btotal = Math.sqrt(Bx ** 2 + By ** 2);
+        let dx = (max_range / Nvertices) * (Bx / Btotal),
+            dy = (max_range / Nvertices) * (By / Btotal);
+        xfield1 = xfield0 - dx;
+        yfield1 = yfield0 - dy;
         stroke("rgb(120, 120, 120)");
-        line(xfield0-16*q, yfield0, xfield1-16*q, yfield1);
+        line(xfield0, yfield0, xfield1, yfield1);
         if (i == Math.round(Nvertices/12)) {
-            line(xfield0 - q*dy*arrow_size-16*q, yfield0 + q*dx*arrow_size, xfield0 + arrow_size*q*dx-16*q, yfield0 + arrow_size*q*dy);
-            line(xfield0 + q*dy*arrow_size-16*q, yfield0 - q*dx*arrow_size, xfield0 + arrow_size*q*dx-16*q, yfield0 + arrow_size*q*dy);
+            line(xfield0 - dy*arrow_size, yfield0 + dx*arrow_size, xfield0 + arrow_size*dx, yfield0 + arrow_size*dy);
+            line(xfield0 + dy*arrow_size, yfield0 - dx*arrow_size, xfield0 + arrow_size*dx, yfield0 + arrow_size*dy);
         }
         xfield0 = parseFloat(xfield1);
         yfield0 = parseFloat(yfield1);
     }
 }
-function draw_fieldlines(initialx, initialy, q){
+
+//Right side
+function draw_rightfieldlines(initialx, initialy){
     let xfield0 = initialx, yfield0 = initialy, xfield1 = 0, yfield1 = 0;
-    
-    //Change the magnitude of dipole to fix the sizes of arrows and field lines 
-    if (q == 0) {
-        return;
-    } else if (q > 0) {
-        q = +1;
-    } else {
-        q = -1;
-    }
 
     for (let i = 0; i < Nvertices; i++) {
         if(xfield0 > width+padding||xfield0 < 0 - padding||yfield0 > height+padding||yfield0 < 0-padding){return;}
-        let Fx = 0, Fy = 0, Ftotal;
-        for (let k = 0; k < activepoints.length; k++) {
-            let r = Math.sqrt(((xfield0 - activepoints[k].x) ** 2 + (yfield0 - activepoints[k].y) ** 2));
-            if(r < 1){
+        let Bx = 0, By = 0, Btotal;
+        for (let k = 0; k < allpoints.length; k++) {
+
+            //Area inside the magnet to not draw fieldlines
+            let delX = Math.abs(xfield0 - allpoints[k].x), delY = Math.abs(yfield0 - allpoints[k].y);
+            if (delX < 20 && delY < 20) {
                 return;
             }
-            Fx += (activepoints[k].q)*(xfield0 - activepoints[k].x) / (Math.pow(r,3));
-            Fy += (activepoints[k].q)*(yfield0 - activepoints[k].y) / (Math.pow(r,3));
+
+            let rvec = [xfield0 - allpoints[k].x, yfield0 - allpoints[k].y];
+            let absr = Math.sqrt(rvec[0]**2 + rvec[1]**2);
+            let rvechat = math.divide(rvec, absr);
+            let Bvec = math.divide(math.subtract(math.multiply(3*math.dot(allpoints[k].mvec,rvechat),rvechat),allpoints[k].mvec),Math.pow(absr, 3));
+            Bx += Bvec[0];
+            By += Bvec[1]; 
+
         }
-        Ftotal = Math.sqrt(Fx ** 2 + Fy ** 2);
-        let dx = q * (max_range / Nvertices) * (Fx / Ftotal),
-            dy = q * (max_range / Nvertices) * (Fy / Ftotal);
+        Btotal = Math.sqrt(Bx ** 2 + By ** 2);
+        let dx = (max_range / Nvertices) * (Bx / Btotal),
+            dy = (max_range / Nvertices) * (By / Btotal);
         xfield1 = xfield0 + dx;
         yfield1 = yfield0 + dy;
         stroke("rgb(120, 120, 120)");
-        line(xfield0-16*q, yfield0, xfield1-16*q, yfield1);
+        line(xfield0, yfield0, xfield1, yfield1);
         if (i == Math.round(Nvertices/12)) {
-            line(xfield0 - q*dy*arrow_size-16*q, yfield0 + q*dx*arrow_size, xfield0 + arrow_size*q*dx-16*q, yfield0 + arrow_size*q*dy);
-            line(xfield0 + q*dy*arrow_size-16*q, yfield0 - q*dx*arrow_size, xfield0 + arrow_size*q*dx-16*q, yfield0 + arrow_size*q*dy);
+            line(xfield0 - dy*arrow_size, yfield0 + dx*arrow_size, xfield0 + arrow_size*dx, yfield0 + arrow_size*dy);
+            line(xfield0 + dy*arrow_size, yfield0 - dx*arrow_size, xfield0 + arrow_size*dx, yfield0 + arrow_size*dy);
         }
         xfield0 = parseFloat(xfield1);
         yfield0 = parseFloat(yfield1);
     }
 }
-//functions that 'move' a dipole when it is clicked
+
+//Functions that 'move' a charge when it is clicked
 function mousePressed() {
-    if (activepoints.length < maxpoints){
+    if (allpoints.length < maxpoints){
         dip.pressed();
     }
-    for (let i = 0; i < activepoints.length; i++) {
-        activepoints[i].pressed();
+    for (let i = 0; i < allpoints.length; i++) {
+        allpoints[i].pressed();
     }
 }
 
 function mouseReleased() {
-    for (let i = 0; i < activepoints.length; i++) {
-        if (activepoints[i].y < rect_height || activepoints[i].y > height|| activepoints[i].x > width || activepoints[i].x < 0 ){
-            activepoints.splice(i,1);
+    for (let i = 0; i < allpoints.length; i++) {
+        if (allpoints[i].y < rect_height || allpoints[i].y > height|| allpoints[i].x > width || allpoints[i].x < 0 ){
+            allpoints.splice(i,1);
         } else {
-        activepoints[i].clicked = false;
+            allpoints[i].clicked = false;
         }
     }
 }
 
 v1 = new volume_element(width/2, height/2, width/8, width/8);
 
-//draw canvas in which everything p5.js happens
+//Draw canvas in which everything p5.js happens
 function setup() {
-    let canvas = createCanvas(width, height);
+    let canvas = createCanvas(width,height);
     canvas.parent('sketch-holder');
+    rectMode(CENTER);
     frameRate(60);
 }
 
@@ -243,63 +263,83 @@ function draw() {
     fill("#ffffff");
     //rect(v1.x, v1.y, v1.l,v1.w);
 
-    //Brings in user input and turn it into a dipole
-    dip = new dipole_selector(parseFloat(document.getElementById('magnit').value), width/3, rect_height/2);
-
-    for (let i = 0; i < activepoints.length; i++) {
-        if (activepoints[i].clicked == true && activepoints[i].intersect() == false){
-            console.log(activepoints[i]);
-            activepoints[i].dragposition();
+    //any points cannot overlap graphically
+    for (let i = 0; i < allpoints.length; i++) {
+        if (allpoints[i].clicked == true && allpoints[i].intersect() == false){
+            allpoints[i].dragposition();
         }
     }
 
-    for (let i = 0; i < activenegpoints.length; i++) {
-        let [x0, y0] = initial_fieldpoints([activenegpoints[i].x, activenegpoints[i].y], activenegpoints[i].r, activenegpoints[i].n_lines);
-        for (let j = 0; j < x0.length; j++) {
-            console.log(activenegpoints[i].negq);
-            draw_fieldlines(x0[j], y0[j], activenegpoints[i].posq);
-        }
-    }
-    
-    for (let i = 0; i < activepospoints.length; i++) {
-        let [x0, y0] = initial_fieldpoints([activepospoints[i].x, activepospoints[i].y], activepospoints[i].r, activepospoints[i].n_lines);
-        for (let j = 0; j < x0.length; j++) {
-            console.log(activepospoints[i].posq);
-            draw_fieldlines(x0[j], y0[j], activepospoints[i].posq);
+    //Draws fieldlines of charges 
+    //Left side
+    for (let i = 0; i < allpoints.length; i++) {
+        if (allpoints[i].m != 0){
+            let [x0, y0] = initial_leftfieldpoints([allpoints[i].x, allpoints[i].y], allpoints[i].theta, allpoints[i].r, allpoints[i].n_lines);
+            for (let j = 0; j < x0.length; j++) {
+                draw_leftfieldlines(x0[j], y0[j]);
+            }
         }
     }
 
-    for (let i = 0; i < activenegpoints.length; i++) {
+    //Right side
+    for (let i = 0; i < allpoints.length; i++) {
+        if (allpoints[i].m != 0){
+            let [x0, y0] = initial_rightfieldpoints([allpoints[i].x, allpoints[i].y], allpoints[i].theta, allpoints[i].r, allpoints[i].n_lines);
+            for (let j = 0; j < x0.length; j++) {
+                draw_rightfieldlines(x0[j], y0[j]);
+            }
+        }
+    }
+
+    //draw and colour all the magnets
+    for (let i = 0; i < allpoints.length; i++) {
         noStroke(1);
-        fill(color(activenegpoints[i].negcolor));
-        ellipse(activenegpoints[i].x+16, activenegpoints[i].y, R*2);
-    }
 
-    for (let i = 0; i < activepospoints.length; i++) {
-        noStroke(1);
-        fill(color(activepospoints[i].poscolor));
-        ellipse(activepospoints[i].x-16, activepospoints[i].y, R*2);
+        translate(allpoints[i].x, allpoints[i].y);
+        rotate(allpoints[i].theta);
+        fill(color(allpoints[i].bluecolor));
+        rect(-16, 0, 32, 40);
+        rotate(-allpoints[i].theta);
+        translate(-allpoints[i].x, -allpoints[i].y);
+
+        translate(allpoints[i].x, allpoints[i].y);
+        rotate(allpoints[i].theta);
+        fill(color(allpoints[i].redcolor));
+        rect(16, 0, 32, 40);
+        rotate(-allpoints[i].theta);
+        translate(-allpoints[i].x, -allpoints[i].y);
     }
 
     noStroke();
     fill(247, 252, 251);
-    rect(0, 0, width, rect_height);
+    rect(0, 0, 2*width, 2*rect_height);
 
     stroke(72, 99, 95);
     line(0, rect_height, width, rect_height);
 
-    if (activepoints.length < maxpoints){
+    let angle = parseFloat(document.getElementById('angle').value)*3.14/180, translatex = 270, translatey = 38;
+    translate(translatex, translatey);
+    rotate(angle);
+
+    //Brings in user input and turn it into a charge
+    dip = new dipole_selector(100*parseFloat(document.getElementById('magnit').value), parseFloat(document.getElementById('angle').value)*3.14/180, translatex, translatey);
+
+    if (allpoints.length < maxpoints){
         noStroke();
-        fill(color(dip.poscolor));
-        ellipse(dip.x-16, dip.y, R*2);
-        fill(color(dip.negcolor));
-        ellipse(dip.x+16, dip.y, R*2);
+        fill(color(dip.bluecolor));
+        rect(- 16, 0, 32, 40);
+        fill(color(dip.redcolor));
+        rect(16, 0, 32, 40);
     }
 
+    rotate(-angle);
+    translate(-translatex, -translatey);
+    
     textSize(25);
     textFont("Fira Sans");
     textAlign(CENTER);
     fill(1);
-    text("Drag to add", width/6, rect_height/1.5);
-    text("Dipole:", width/2.1, rect_height/1.5);
+    text("Drag to add", width/7, rect_height/1.8);
+    text("Magnet Strength:", width/2.3, rect_height/2.8);
+    text("Angle:", width/2.01, rect_height/1.3);
 }
