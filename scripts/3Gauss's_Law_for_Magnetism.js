@@ -39,11 +39,11 @@ class dipole {
 
         //Relate the number of field lines to the magnitude of the dipole
         if (Math.abs(m) <= 33) {
-            this.n_lines = 4;
-        } else if (Math.abs(m) > 33 && Math.abs(m) <= 66) {
             this.n_lines = 8;
-        } else {
+        } else if (Math.abs(m) > 33 && Math.abs(m) <= 66) {
             this.n_lines = 16;
+        } else {
+            this.n_lines = 32;
         }
     }
 
