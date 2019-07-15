@@ -6,7 +6,7 @@ let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), 
 const Nvertices = 1700, max_range = 1500, R = 16, square_size = 100, padding = 50, rect_height = height/8, arrow_size = 5;
 
 class volume_element {
-    constructor(x,y,w,l) {
+    constructor(x, y, w, l) {
         this.y = y;
         this.x = x;
         this.w = w;
@@ -15,13 +15,13 @@ class volume_element {
 }
 
 class dipole {
-    constructor(m,theta,x,y){
+    constructor(m, theta, x, y){
         this.m = m;
         this.mvec = [m*Math.cos(theta), m*Math.sin(theta)];
         this.theta = theta;
         this.x = x;
         this.y = y;
-        this.r = 2*R;
+        this.r = 2 * R;
         this.clicked = false;
         
         //Colour of dipole
@@ -54,10 +54,9 @@ class dipole {
     }
 
     dragposition(){
-        let thisFrameMouseX = mouseX, thisFrameMouseY = mouseY;
-            this.x = thisFrameMouseX;
-            this.y = thisFrameMouseY;
-    }
+        this.x = mouseX;
+        this.y = mouseY;
+}
 
     intersect(){
         let areintersecting = false;
@@ -86,13 +85,13 @@ class dipole {
 
 //Selects a magnet or neutral "magnet"
 class dipole_selector{
-    constructor(m,theta,x,y){
+    constructor(m, theta, x, y){
         this.m = m;
         this.mvec = [m*Math.cos(theta), m*Math.sin(theta)];
         this.theta = theta;
         this.x = x;
         this.y = y;
-        this.r = 2*R;
+        this.r = 2 * R;
         this.clicked = false;
 
         //Colour of dipole
@@ -114,6 +113,29 @@ class dipole_selector{
             let dip = new dipole(this.m,this.theta,this.x,this.y);
             allpoints.push(dip);
             
+        }
+    }
+}
+
+//loopX and loopY are the initial central coordinates of the loop
+//diceX and diceY are to randomise the curve of the polygon
+let diceX = [], diceY = [], loopX = 200 + 600*Math.random(), loopY = 200 + 300*Math.random(), polygonradius = 40 + 20*Math.random(), polygonvertice = 25;
+for (let i = 0; i < polygonvertice; i++) {
+    diceX[i] = 1 + 0.5*Math.random();
+    diceY[i] = 1 + 0.5*Math.random();
+}
+
+class weird_shape{
+    constructor(x, y){
+        this.x = x;
+        this.y = y;
+        this.r = 1.5 * polygonradius;
+        this.nodeX = [];
+        this.nodeY = [];
+        for (let i = 0; i < polygonvertice; i++) {
+            let theta = 2*i*(Math.PI/polygonvertice);
+            this.nodeX[i] = x + polygonradius*diceX[i]*Math.cos(theta);
+            this.nodeY[i] = y + polygonradius*diceY[i]*Math.sin(theta);
         }
     }
 }
@@ -258,10 +280,19 @@ function setup() {
 function draw() {
     clear();
     background('#ffffff');
-    //noStroke();
     stroke("#48A9A6");
     fill("#ffffff");
-    //rect(v1.x, v1.y, v1.l,v1.w);
+
+    loop = new weird_shape(loopX, loopY);
+
+    //Draw the loop
+    noFill();
+    curveTightness(1);
+    beginShape();
+    for (let i = 0; i < polygonvertice; i++) {
+        curveVertex(loop.nodeX[i], loop.nodeY[i]);
+    }
+    endShape(CLOSE);
 
     //any points cannot overlap graphically
     for (let i = 0; i < allpoints.length; i++) {

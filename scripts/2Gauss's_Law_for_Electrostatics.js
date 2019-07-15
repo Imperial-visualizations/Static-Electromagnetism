@@ -6,7 +6,7 @@ let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), 
 const Nvertices = 1700, max_range = 1500, R = 16, square_size = 100, padding = 50, rect_height = height/8, arrow_size = 5;
 
 class volume_element {
-    constructor(x,y,w,l) {
+    constructor(x, y, w, l) {
         this.y = y;
         this.x = x;
         this.w = w;
@@ -15,7 +15,7 @@ class volume_element {
 }
 
 class charge {
-    constructor(q,x,y){
+    constructor(q, x, y){
         this.q = q;
         this.x = x;
         this.y = y;
@@ -52,9 +52,8 @@ class charge {
     }
 
     dragposition(){
-        let thisFrameMouseX = mouseX, thisFrameMouseY = mouseY;
-            this.x = thisFrameMouseX;
-            this.y = thisFrameMouseY;
+            this.x = mouseX;
+            this.y = mouseY;
     }
 
     intersect(){
@@ -85,7 +84,7 @@ class charge {
 
 //Selects a charge or neutral "charge"
 class charge_selector{
-    constructor(q,x,y){
+    constructor(q, x, y){
         this.q = q;
         this.x = x;
         this.y = y;
@@ -110,6 +109,29 @@ class charge_selector{
         if (dist(mouseX,mouseY,this.x,this.y)<this.r){
             let q = new charge(this.q,this.x,this.y);
             allpoints.push(q);
+        }
+    }
+}
+
+//loopX and loopY are the initial central coordinates of the loop
+//diceX and diceY are to randomise the curve of the polygon
+let diceX = [], diceY = [], loopX = 200 + 600*Math.random(), loopY = 200 + 300*Math.random(), polygonradius = 40 + 20*Math.random(), polygonvertice = 25;
+for (let i = 0; i < polygonvertice; i++) {
+    diceX[i] = 1 + 0.5*Math.random();
+    diceY[i] = 1 + 0.5*Math.random();
+}
+
+class weird_shape{
+    constructor(x, y){
+        this.x = x;
+        this.y = y;
+        this.r = 1.5 * polygonradius;
+        this.nodeX = [];
+        this.nodeY = [];
+        for (let i = 0; i < polygonvertice; i++) {
+            let theta = 2*i*(Math.PI/polygonvertice);
+            this.nodeX[i] = x + polygonradius*diceX[i]*Math.cos(theta);
+            this.nodeY[i] = y + polygonradius*diceY[i]*Math.sin(theta);
         }
     }
 }
@@ -204,10 +226,19 @@ function setup() {
 function draw() {
     clear();
     background('#ffffff');
-    //noStroke();
     stroke("#48A9A6");
     fill("#ffffff");
-    //rect(v1.x, v1.y, v1.l,v1.w);
+
+    loop = new weird_shape(loopX, loopY);
+
+    //Draw the loop
+    noFill();
+    curveTightness(1);
+    beginShape();
+    for (let i = 0; i < polygonvertice; i++) {
+        curveVertex(loop.nodeX[i], loop.nodeY[i]);
+    }
+    endShape(CLOSE);
 
     //Brings in user input and turn it into a charge
     sel = new charge_selector(parseFloat(document.getElementById('magnit').value), width/3, rect_height/2);
