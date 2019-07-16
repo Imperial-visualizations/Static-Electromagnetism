@@ -227,7 +227,7 @@ function draw() {
     clear();
 
     //Brings in user input and turn it into a charge
-    sel = new charge_selector(parseFloat(document.getElementById('magnit').value), 330, 38);
+    sel = new charge_selector(parseFloat(document.getElementById('magnit').value), 240, 38);
 
     //any points cannot overlap graphically
     for (let i = 0; i < allpoints.length; i++) {
@@ -266,32 +266,34 @@ function draw() {
         ellipse(sel.x, sel.y, R*2);
     }
 
-    loop = new weird_shape(loopX, loopY);
+    if (document.getElementById('loopOption').checked == true) {
+        loop = new weird_shape(loopX, loopY);
 
-    //Draw the loop
-    noFill();
-    stroke("#48A9A6");
-    curveTightness(1);
-    beginShape();
-    for (let i = 0; i < polygonvertice; i++) {
-        curveVertex(loop.nodeX[i], loop.nodeY[i]);
-    }
-    endShape(CLOSE);
-
-    //Start counting the number of net field lines into or out of the loop
-    let fluxcounter = 0;
-    for (let i = 0; i < allpoints.length; i++) {
-        if (dist(allpoints[i].x, allpoints[i].y, loop.x, loop.y) < loop.r){
-            if (allpoints[i].q > 0) {
-                fluxcounter += allpoints[i].n_lines;
-            }   else if (allpoints[i].q < 0) {
-                fluxcounter -= allpoints[i].n_lines;
-            } 
+        //Draw the loop
+        noFill();
+        stroke("#48A9A6");
+        curveTightness(1);
+        beginShape();
+        for (let i = 0; i < polygonvertice; i++) {
+            curveVertex(loop.nodeX[i], loop.nodeY[i]);
         }
+        endShape(CLOSE);
+
+
+        //Start counting the number of net field lines into or out of the loop
+        let fluxcounter = 0;
+        for (let i = 0; i < allpoints.length; i++) {
+            if (dist(allpoints[i].x, allpoints[i].y, loop.x, loop.y) < loop.r){
+                if (allpoints[i].q > 0) {
+                    fluxcounter += allpoints[i].n_lines;
+                }   else if (allpoints[i].q < 0) {
+                    fluxcounter -= allpoints[i].n_lines;
+                } 
+            }
+        }
+
+        fill(0, 0, 0);
+        textSize(20);
+        text(fluxcounter, loop.x, loop.y);
     }
-
-    fill(0, 0, 0);
-    textSize(20);
-    text(fluxcounter, loop.x, loop.y);
-
 }

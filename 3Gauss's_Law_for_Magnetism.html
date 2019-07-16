@@ -39,36 +39,39 @@
 
 
     <div class="container_vis">
+        <!--Charge input slider-->
+        <div style="position: relative; width: 100%; margin-top: -11.5vh">
+            <label class="text" style="position: relative; left: 1.5em; top: 5em; width: 40%; height: 0vh;">
+                <font size="5">Drag to add</font>
+            </label>
+            <!--User input magnet strength-->
+            <label class="text" style="position: relative; left: 16.1em; top: 4em; width: 40%; height: 0vh;">
+                <font size="4">Relative strength:</font>
+            </label>
+            <label class="slider" style="position: relative; left: 27em; top: 3.6em; width: 35%; height: 0vh;">
+                <input id="magnit" class="inputs" type="range" value="1" min="0" max="1" step="0.01" oninput="amount1.value=magnit.value"/>
+            </label>
+            <label style="position: relative; left: 44em; top: 4em; width: 2%; ">
+                <!--Display user input-->
+                <output id="amount1" name="amount1" for="magnit">1</output>
+            </label>
+            <!--User input rotation angle-->
+            <label class="text" style="position: relative; left: 22.775em; top: 3.6em; width: 40%; height: 0vh;">
+                <font size="4">Angle:</font>
+            </label>
+            <label class="slider" style="position: relative; left: 27em; top: 3.2em; width: 35%; height: 0vh;">
+                <input id="angle" class="inputs" type="range" value="0" min="0" max="360" step="1" oninput="amount2.value=angle.value"/>
+            </label>
+            <label style="position: relative; left: 44em; top: 3.6em; width: 2%; ">
+                <!--Display user input-->
+                <output id="amount2" name="amount2" for="angle">0</output><span>°</span>
+            </label>
+            <!--Loop option-->
+            <input type="checkbox" id="loopOption" name="loopOption" style="position: relative; left: 65em; top: 2.85em; width: 35%" checked>
+            <label for="checkLoop" style="position: relative; left: 48.5em; top: -0.5em; width: 2%">Loop</label>
+        </div>
         <!--Draw charge and field lines-->
-        <div id="sketch-holder" style="height: 100vh; width: 160vh; margin-top: -13.5vh;">
-            <!--Charge input slider-->
-            <div style="position: relative; width: 100%">
-                <label class="text" style="position: relative; left: 4em; top: 5.7em; width: 40%; height: 0vh;">
-                    <font size="5">Drag to add</font>
-                </label>
-                <!--User input magnet strength-->
-                <label class="text" style="position: relative; left: 21.5em; top: 4.4em; width: 40%; height: 0vh;">
-                    <font size="4">Magnet strength:</font>
-                </label>
-                <label class="slider" style="position: relative; left: 32em; top: 4.2em; width: 35%; height: 0vh;">
-                    <input id="magnit" class="inputs" type="range" value="1" min="0" max="1" step="0.01" oninput="amount1.value=magnit.value"/>
-                </label>
-                <label style="position: relative; left: 49em; top: 4.4em; width: 2%; ">
-                    <!--Display user input-->
-                    <output id="amount1" name="amount1" for="magnit">1</output>
-                </label>
-                <!--User input rotation angle-->
-                <label class="text" style="position: relative; left: 27.775em; top: 4em; width: 40%; height: 0vh;">
-                    <font size="4">Angle:</font>
-                </label>
-                <label class="slider" style="position: relative; left: 32em; top: 3.9em; width: 35%; height: 0vh;">
-                    <input id="angle" class="inputs" type="range" value="0" min="0" max="360" step="1" oninput="amount2.value=angle.value"/>
-                </label>
-                <label style="position: relative; left: 49em; top: 4.1em; width: 2%; ">
-                    <!--Display user input-->
-                    <output id="amount2" name="amount2" for="angle">0</output><span>°</span>
-                </label>
-            </div>
+        <div id="sketch-holder" style="height: 100vh; width: 160vh; margin-top: -14vh;">
         </div>
     </div>
 

@@ -333,7 +333,7 @@ function draw() {
     stroke(72, 99, 95);
     line(0, rect_height, width, rect_height);
 
-    let angle = parseFloat(document.getElementById('angle').value)*3.14/180, translatex = 330, translatey = 38;
+    let angle = parseFloat(document.getElementById('angle').value)*3.14/180, translatex = 245, translatey = 38;
     translate(translatex, translatey);
     rotate(angle);
 
@@ -351,21 +351,23 @@ function draw() {
     rotate(-angle);
     translate(-translatex, -translatey);
 
-    loop = new weird_shape(loopX, loopY);
+    if (document.getElementById('loopOption').checked == true) {
+        loop = new weird_shape(loopX, loopY);
 
-    //Draw the loop
-    noFill();
-    stroke("#48A9A6");
-    curveTightness(1);
-    beginShape();
-    for (let i = 0; i < polygonvertice; i++) {
-        curveVertex(loop.nodeX[i], loop.nodeY[i]);
+        //Draw the loop
+        noFill();
+        stroke("#48A9A6");
+        curveTightness(1);
+        beginShape();
+        for (let i = 0; i < polygonvertice; i++) {
+            curveVertex(loop.nodeX[i], loop.nodeY[i]);
+        }
+        endShape(CLOSE);
+    
+        let fluxcounter = 0;
+    
+        fill(0, 0, 0);
+        textSize(20);
+        text(fluxcounter, loop.x, loop.y);
     }
-    endShape(CLOSE);
-
-    let fluxcounter = 0;
-
-    fill(0, 0, 0);
-    textSize(20);
-    text(fluxcounter, loop.x, loop.y);
 }
