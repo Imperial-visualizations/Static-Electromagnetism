@@ -107,10 +107,24 @@ class charge_selector{
     
     pressed(){
         if (dist(mouseX, mouseY, this.x, this.y) < this.r){
-            let q = new charge(this.q, this.x, this.y);
-            allpoints.push(q);
+            if (this.q != 0) {
+                let q = new charge(this.q, this.x, this.y);
+                allpoints.push(q);
+            }
         }
     }
+}
+
+function smiley(x, y) {
+    noStroke();
+    // smiley face
+    fill(247, 202, 24);
+    ellipse(x, y, 2*R, 2*R);
+    //smiley eyes & mouth
+    fill(0);
+    ellipse(x - 8, y - 4, 5, 5);
+    ellipse(x + 8, y - 4, 5, 5);
+    arc(x, y + 1, 20, 20, radians(0), radians(180));
 }
 
 //loopX and loopY are the initial central coordinates of the loop
@@ -261,9 +275,15 @@ function draw() {
     line(0, rect_height, width, rect_height);
 
     if (allpoints.length < maxpoints){
-        noStroke();
-        fill(color(sel.color));
-        ellipse(sel.x, sel.y, R*2);
+        if (sel.q != 0){
+            noStroke();
+            fill(color(sel.color));
+            ellipse(sel.x, sel.y, R*2);
+        } else {
+            smiley(sel.x, sel.y);
+        }
+    } else {
+        smiley(sel.x, sel.y);
     }
 
     if (document.getElementById('loopOption').checked == true) {
