@@ -110,8 +110,10 @@ class dipole_selector{
 
     pressed(){
         if (dist(mouseX, mouseY, this.x, this.y) < this.r){
-            let dip = new dipole(this.m, this.theta, this.x, this.y);
-            allpoints.push(dip);
+            if (this.m != 0) {
+                let dip = new dipole(this.m, this.theta, this.x, this.y);
+                allpoints.push(dip);
+            }
         }
     }
 }
@@ -137,6 +139,18 @@ class weird_shape{
             this.nodeY[i] = y + polygonradius*diceY[i]*Math.sin(theta);
         }
     }
+}
+
+function smiley(x, y) {
+    noStroke();
+    // smiley face
+    fill(247, 202, 24);
+    ellipse(x, y, 2*R, 2*R);
+    //smiley eyes & mouth
+    fill(0);
+    ellipse(x - 8, y - 4, 5, 5);
+    ellipse(x + 8, y - 4, 5, 5);
+    arc(x, y + 1, 20, 20, radians(0), radians(180));
 }
 
 //Adds the starting points of the field lines around the dipole
@@ -341,11 +355,17 @@ function draw() {
     dip = new dipole_selector(100*parseFloat(document.getElementById('magnit').value), parseFloat(document.getElementById('angle').value)*3.14/180, translatex, translatey);
 
     if (allpoints.length < maxpoints){
-        noStroke();
-        fill(color(dip.bluecolor));
-        rect(- 16, 0, 32, 40);
-        fill(color(dip.redcolor));
-        rect(16, 0, 32, 40);
+        if (dip.m != 0){
+            noStroke();
+            fill(color(dip.bluecolor));
+            rect(- 16, 0, 32, 40);
+            fill(color(dip.redcolor));
+            rect(16, 0, 32, 40);
+        } else {
+            smiley(0, 0);
+        }
+    } else {
+        smiley(0, 0);
     }
 
     rotate(-angle);
