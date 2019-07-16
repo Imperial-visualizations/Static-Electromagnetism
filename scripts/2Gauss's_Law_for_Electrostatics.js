@@ -1,8 +1,8 @@
 /*jshint esversion:7*/
 //set global variables
-//allpoints for storing charges, maxpoints to limit total n of allpoints
+//allpoints for storing charges, maxpoints to limit total n of allpoints, newchargex/y for position of new charge on top
 
-let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 10;
+let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 10, newchargex = 240, newchargey = 38;
 const Nvertices = 1700, max_range = 1500, R = 16, square_size = 100, padding = 50, rect_height = height/8, arrow_size = 5;
 
 class volume_element {
@@ -115,16 +115,42 @@ class charge_selector{
     }
 }
 
-function smiley(x, y) {
-    noStroke();
-    // smiley face
-    fill(247, 202, 24);
-    ellipse(x, y, 2*R, 2*R);
-    //smiley eyes & mouth
-    fill(0);
-    ellipse(x - 8, y - 4, 5, 5);
-    ellipse(x + 8, y - 4, 5, 5);
-    arc(x, y + 1, 20, 20, radians(0), radians(180));
+function structural(n) {
+    let x = newchargex, y = newchargey;
+    fill(50);
+    textSize(10);
+    textAlign(CENTER);
+    text('Authors: Cyd Cowley, Darren Lean', x, y + 30);
+    if (dist(mouseX, mouseY, x, y) < R) {
+        text("You can't catch me!", x, y - 22);
+        textSize(15);
+        text('Poofff  : p', x, y);
+        textSize(10);
+        text("By the way, why neutral 'charge'", x + 300, y - 20);
+    } else {
+        if (n < maxpoints) {
+            text('Peek a boo!', x, y - 22);
+            noStroke();
+            fill(247, 202, 24);
+            ellipse(x, y, 2*R, 2*R);
+            fill(0);
+            ellipse(x - 8, y - 4, 5, 5);
+            ellipse(x + 8, y - 4, 5, 5);
+            arc(x, y + 1, 20, 20, radians(0), radians(180));
+        } else {
+            text('Oh no! You run out of charge.', x, y - 22);
+            noStroke();
+            fill(247, 202, 24);
+            ellipse(x, y, 2*R, 2*R);
+            stroke(51);
+            line(x - 8, y - 6, x - 4, y - 2);
+            line(x - 8, y - 2, x - 4, y - 6);
+            line(x + 4, y - 6, x + 8, y - 2);
+            line(x + 4, y - 2, x + 8, y - 6);
+            fill(153, 153, 0);
+            ellipse(x, y + 6, 6, 6);
+        }
+    }
 }
 
 //loopX and loopY are the initial central coordinates of the loop
@@ -241,7 +267,7 @@ function draw() {
     clear();
 
     //Brings in user input and turn it into a charge
-    sel = new charge_selector(parseFloat(document.getElementById('magnit').value), 240, 38);
+    sel = new charge_selector(parseFloat(document.getElementById('magnit').value), newchargex, newchargey);
 
     //any points cannot overlap graphically
     for (let i = 0; i < allpoints.length; i++) {
@@ -280,10 +306,10 @@ function draw() {
             fill(color(sel.color));
             ellipse(sel.x, sel.y, R*2);
         } else {
-            smiley(sel.x, sel.y);
+            structural(allpoints.length);
         }
     } else {
-        smiley(sel.x, sel.y);
+        structural(allpoints.length);
     }
 
     if (document.getElementById('loopOption').checked == true) {

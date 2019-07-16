@@ -1,8 +1,8 @@
 /*jshint esversion:7*/
 //set global variables
-//allpoints for storing dipoles, maxpoints to limit total n of allpoints
+//allpoints for storing dipoles, maxpoints to limit total n of allpoints, newdipolex/y for position of new magnet on top
 
-let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 5;
+let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 5, newdipolex = 245, newdipoley = 38;
 const Nvertices = 1700, max_range = 1500, R = 16, square_size = 100, padding = 50, rect_height = height/8, arrow_size = 5;
 
 class volume_element {
@@ -141,16 +141,82 @@ class weird_shape{
     }
 }
 
-function smiley(x, y) {
-    noStroke();
-    // smiley face
-    fill(247, 202, 24);
-    ellipse(x, y, 2*R, 2*R);
-    //smiley eyes & mouth
-    fill(0);
-    ellipse(x - 8, y - 4, 5, 5);
-    ellipse(x + 8, y - 4, 5, 5);
-    arc(x, y + 1, 20, 20, radians(0), radians(180));
+function structural(n, angle) {
+    let x = 0, y = 0;
+    fill(50);
+    textAlign(CENTER);
+    textSize(10);
+    rotate(-angle);
+    text('Author: Darren Lean', x, y + 30);
+    rotate(angle);
+    if (dist(mouseX, mouseY, newdipolex, newdipoley) < R) {
+        text("You can't catch me!", x, y - 22);
+        textSize(15);
+        text('Poofff  : p', x, y);
+        textSize(10);
+        text("By the way, why 0", x + 400, y - 20);
+    } else {
+        if (n < maxpoints) {
+            if (angle == 0 ){
+                fill(50);
+                text('Peek a boo!', x, y - 22);
+                noStroke();
+                fill(247, 202, 24);
+                ellipse(x, y, 2*R, 2*R);
+                fill(0);
+                ellipse(x - 8, y - 4, 5, 5);
+                ellipse(x + 8, y - 4, 5, 5);
+                arc(x, y + 1, 20, 20, radians(0), radians(180));
+            } else if (angle == 6.28) {
+                noStroke();
+                fill(50);
+                text('Ugh.', x, y - 22);
+                fill(247, 202, 24);
+                ellipse(x, y, 2*R, 2*R);
+                stroke(51);
+                line(x - 8, y - 6, x - 4, y - 2);
+                line(x - 8, y - 2, x - 4, y - 6);
+                line(x + 4, y - 6, x + 8, y - 2);
+                line(x + 4, y - 2, x + 8, y - 6);
+                line(x - 6, y + 6, x + 6, y + 6);
+            } else {
+                noStroke();
+                fill(247, 202, 24);
+                ellipse(x, y, 2*R, 2*R);
+                stroke(51);
+                line(x - 8, y - 6, x - 4, y - 2);
+                line(x - 8, y - 2, x - 4, y - 6);
+                line(x + 4, y - 6, x + 8, y - 2);
+                line(x + 4, y - 2, x + 8, y - 6);
+                fill(153, 153, 0);
+                ellipse(x, y + 6, 6, 6);
+                rotate(-angle);
+                fill(255, 0, 0);
+                textSize(20);
+                text('STOP it!', x, y - 22);
+                rotate(angle);
+            }
+        } else {
+            rotate(-angle);
+            fill(50);
+            if (angle == 0) {
+                text('Oh no! You run out of magnets.', x, y - 22);
+            } else {
+                text("Sorry, I can't help.", x, y - 22);
+            }
+            rotate(angle);
+            noStroke();
+            fill(247, 202, 24);
+            ellipse(x, y, 2*R, 2*R);
+            stroke(51);
+            line(x - 8, y - 6, x - 4, y - 2);
+            line(x - 8, y - 2, x - 4, y - 6);
+            line(x + 4, y - 6, x + 8, y - 2);
+            line(x + 4, y - 2, x + 8, y - 6);
+            fill(153, 153, 0);
+            ellipse(x, y + 6, 6, 6);
+        }
+    }
 }
 
 //Adds the starting points of the field lines around the dipole
@@ -347,12 +413,12 @@ function draw() {
     stroke(72, 99, 95);
     line(0, rect_height, width, rect_height);
 
-    let angle = parseFloat(document.getElementById('angle').value)*3.14/180, translatex = 245, translatey = 38;
-    translate(translatex, translatey);
+    let angle = parseFloat(document.getElementById('angle').value)*3.14/180;
+    translate(newdipolex, newdipoley);
     rotate(angle);
 
     //Brings in user input and turn it into a charge
-    dip = new dipole_selector(100*parseFloat(document.getElementById('magnit').value), parseFloat(document.getElementById('angle').value)*3.14/180, translatex, translatey);
+    dip = new dipole_selector(100*parseFloat(document.getElementById('magnit').value), parseFloat(document.getElementById('angle').value)*3.14/180, newdipolex, newdipoley);
 
     if (allpoints.length < maxpoints){
         if (dip.m != 0){
@@ -362,14 +428,14 @@ function draw() {
             fill(color(dip.redcolor));
             rect(16, 0, 32, 40);
         } else {
-            smiley(0, 0);
+            structural(allpoints.length, angle);
         }
     } else {
-        smiley(0, 0);
+        structural(allpoints.length, angle);
     }
 
     rotate(-angle);
-    translate(-translatex, -translatey);
+    translate(-newdipolex, -newdipoley);
 
     if (document.getElementById('loopOption').checked == true) {
         loop = new weird_shape(loopX, loopY);
