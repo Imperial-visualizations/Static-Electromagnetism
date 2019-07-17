@@ -36,13 +36,8 @@ class charge {
         }
 
         //Relate the number of field lines to the magnitude of the charge
-        if (Math.abs(q) <= 0.33) {
-            this.n_lines = 4;
-        } else if (Math.abs(q) > 0.33 && Math.abs(q) <= 0.66) {
-            this.n_lines = 8;
-        } else {
-            this.n_lines = 16;
-        }
+        this.n_lines = 3 + 10*Math.abs(q);
+
     }
 
     pressed(){
@@ -153,9 +148,46 @@ function structural(n) {
     }
 }
 
+function field(x, y){
+    let Fx = 0, Fy = 0;
+    for (let k = 0; k < allpoints.length; k++) {
+        let r = Math.sqrt(((x - allpoints[k].x) ** 2 + (y - allpoints[k].y) ** 2));
+        Fx += (allpoints[k].q)*(x - allpoints[k].x) / (Math.pow(r,2));
+        Fy += (allpoints[k].q)*(y - allpoints[k].y) / (Math.pow(r,2));
+    }
+    return [Fx, Fy];
+}
+
+//For calculating net flux through the loop
+//The loop must be specified by N number of nodes 
+//This function takes in two arrays, one for all the x of the nodes and the other for y
+//A field(x, y) function that calculates the field at (x,y) is required 
+function lineCrossIntegral(Xnode, Ynode){
+    let sum = 0, resolution = 1000; //resolution for the line element in path vector
+
+    for (let i = 0; i < Xnode.length - 1; i++){                         //for the going around the loop
+        pathsection = [Xnode[i+1] - Xnode[i], Ynode[i+1] - Ynode[i]];   //path vector assumes straight line formed by the two nodes
+        dl = [pathsection[0]/resolution, pathsection[1]/resolution, 0]; //dividing the path into smaller line elements, third dimension for cross product
+        for (let j = 0; j < resolution - 1; j++){                       //integration along the path vector by moving in line element steps
+            F = field(Xnode[i] + (j/resolution)*pathsection[0], Ynode[i] + (j/resolution)*pathsection[1]); //gives [Fx, Fy]
+            newF = [F[0], F[1], 0];                                     //third dimension for cross product
+            sum += math.cross(newF, dl)[2];                             //taking just the third dimension
+        }
+    }
+    //The end case for closing the loop
+    pathsection = [Xnode[0] - Xnode[Xnode.length - 1], Ynode[0] - Ynode[Ynode.length - 1]]; //path vector from last node to the first
+    dl = [pathsection[0]/resolution, pathsection[1]/resolution, 0];                         //same procedure as above
+    for (let j = 0; j < resolution - 1; j++){
+        F = field(Xnode[Xnode.length - 1] + (j/resolution)*pathsection[0], Ynode[Ynode.length - 1] + (j/resolution)*pathsection[1]);
+        newF = [F[0], F[1], 0];
+        sum += math.cross(newF, dl)[2];
+    }
+    return sum;
+}
+
 //loopX and loopY are the initial central coordinates of the loop
 //diceX and diceY are to randomise the curve of the polygon
-let diceX = [], diceY = [], loopX = 200 + 600*Math.random(), loopY = 200 + 300*Math.random(), polygonradius = 60, polygonvertice = 25;
+let diceX = [], diceY = [], loopX = 200 + 600*Math.random(), loopY = 200 + 300*Math.random(), polygonradius = 60, polygonvertice = 30;
 for (let i = 0; i < polygonvertice; i++) {
     diceX[i] = 1 + 0.5*Math.random();
     diceY[i] = 1 + 0.5*Math.random();
@@ -325,21 +357,9 @@ function draw() {
         }
         endShape(CLOSE);
 
-
-        //Start counting the number of net field lines into or out of the loop
-        let fluxcounter = 0;
-        for (let i = 0; i < allpoints.length; i++) {
-            if (dist(allpoints[i].x, allpoints[i].y, loop.x, loop.y) < loop.r){
-                if (allpoints[i].q > 0) {
-                    fluxcounter += allpoints[i].n_lines;
-                }   else if (allpoints[i].q < 0) {
-                    fluxcounter -= allpoints[i].n_lines;
-                } 
-            }
-        }
-
-        fill(0, 0, 0);
+        let Cross = Math.round(100*lineCrossIntegral(loop.nodeX, loop.nodeY)/6.27)/100;
         textSize(20);
-        text(fluxcounter, loop.x, loop.y);
+        fill(0, 0, 0);
+        text(Cross, loop.x, loop.y);
     }
 }

@@ -29,22 +29,17 @@ class dipole {
             this.redcolor = "#00FF00";
             this.bluecolor = "#00FF00";
         } else {
-            let tune1 = Math.round(100*(1 - Math.sqrt(Math.abs(m/100))));
+            let tune1 = Math.round(100*(1 - Math.sqrt(Math.abs(m))));
             this.redcolor = "rgb(255," + tune1.toString() + "," + tune1.toString() + ")";
 
-            let tune3 = Math.round(70*(1 - Math.sqrt(Math.abs(m/100))));
-            let tune4 = Math.round(90 - 60*(Math.sqrt(Math.abs(m/100))));
+            let tune3 = Math.round(70*(1 - Math.sqrt(Math.abs(m))));
+            let tune4 = Math.round(90 - 60*(Math.sqrt(Math.abs(m))));
             this.bluecolor = "rgb(" + tune3.toString() + "," + tune4.toString() + ",255)";
         }
 
         //Relate the number of field lines to the magnitude of the dipole
-        if (Math.abs(m) <= 33) {
-            this.n_lines = 8;
-        } else if (Math.abs(m) > 33 && Math.abs(m) <= 66) {
-            this.n_lines = 16;
-        } else {
-            this.n_lines = 32;
-        }
+        this.n_lines = 4 + 20*m;
+
     }
 
     pressed(){
@@ -99,11 +94,11 @@ class dipole_selector{
             this.redcolor = "#00FF00";
             this.bluecolor = "#00FF00";
         } else {
-            let tune1 = Math.round(100*(1 - Math.sqrt(Math.abs(m/100))));
+            let tune1 = Math.round(100*(1 - Math.sqrt(Math.abs(m))));
             this.redcolor = "rgb(255," + tune1.toString() + "," + tune1.toString() + ")";
 
-            let tune3 = Math.round(70*(1 - Math.sqrt(Math.abs(m/100))));
-            let tune4 = Math.round(90 - 60*(Math.sqrt(Math.abs(m/100))));
+            let tune3 = Math.round(70*(1 - Math.sqrt(Math.abs(m))));
+            let tune4 = Math.round(90 - 60*(Math.sqrt(Math.abs(m))));
             this.bluecolor = "rgb(" + tune3.toString() + "," + tune4.toString() + ",255)";
         }
     }
@@ -120,7 +115,7 @@ class dipole_selector{
 
 //loopX and loopY are the initial central coordinates of the loop
 //diceX and diceY are to randomise the curve of the polygon
-let diceX = [], diceY = [], loopX = 200 + 600*Math.random(), loopY = 200 + 300*Math.random(), polygonradius = 60, polygonvertice = 25;
+let diceX = [], diceY = [], loopX = 200 + 600*Math.random(), loopY = 200 + 300*Math.random(), polygonradius = 60, polygonvertice = 30;
 for (let i = 0; i < polygonvertice; i++) {
     diceX[i] = 1 + 0.5*Math.random();
     diceY[i] = 1 + 0.5*Math.random();
@@ -141,7 +136,7 @@ class weird_shape{
     }
 }
 
-function structural(n, angle) {
+function structural(n, angle, m) {
     let x = 0, y = 0;
     fill(50);
     textAlign(CENTER);
@@ -153,8 +148,10 @@ function structural(n, angle) {
         text("You can't catch me!", x, y - 22);
         textSize(15);
         text('Poofff  : p', x, y);
-        textSize(10);
-        text("By the way, why 0", x + 400, y - 20);
+        if (m == 0){
+            textSize(10);
+            text("By the way, why 0", x + 400, y - 20);
+        }
     } else {
         if (n < maxpoints) {
             if (angle == 0 ){
@@ -418,7 +415,7 @@ function draw() {
     rotate(angle);
 
     //Brings in user input and turn it into a charge
-    dip = new dipole_selector(100*parseFloat(document.getElementById('magnit').value), parseFloat(document.getElementById('angle').value)*3.14/180, newdipolex, newdipoley);
+    dip = new dipole_selector(parseFloat(document.getElementById('magnit').value), parseFloat(document.getElementById('angle').value)*3.14/180, newdipolex, newdipoley);
 
     if (allpoints.length < maxpoints){
         if (dip.m != 0){
@@ -428,10 +425,10 @@ function draw() {
             fill(color(dip.redcolor));
             rect(16, 0, 32, 40);
         } else {
-            structural(allpoints.length, angle);
+            structural(allpoints.length, angle, dip.m);
         }
     } else {
-        structural(allpoints.length, angle);
+        structural(allpoints.length, angle, dip.m);
     }
 
     rotate(-angle);
