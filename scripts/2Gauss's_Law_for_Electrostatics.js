@@ -5,6 +5,7 @@
 let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 10, newchargex = 240, newchargey = 38;
 const Nvertices = 1700, max_range = 1500, R = 16, square_size = 100, padding = 50, rect_height = height/8, arrow_size = 5;
 
+//Used to prevent things from overlapping one another
 class volume_element {
     constructor(x, y, w, l) {
         this.y = y;
@@ -14,6 +15,7 @@ class volume_element {
     }
 }
 
+//de charge
 class charge {
     constructor(q, x, y){
         this.q = q;
@@ -22,7 +24,7 @@ class charge {
         this.r = R;
         this.clicked = false;
         
-        //Colour of charge
+        //Colour of charge in relation to magnitude and polarity
         if (q > 0){
             let tune1 = Math.round(180 - 120*(1-Math.exp(-Math.abs(q))));
             let tune2 = Math.round(90*(Math.exp(-Math.abs(q))));
@@ -31,15 +33,15 @@ class charge {
             let tune1 = Math.round(120*(Math.exp(-Math.abs(q))));
             let tune2 = Math.round((180 - 120*(1-Math.exp(-Math.abs(q)))));
             this.color = "rgb(" + tune1.toString() + "," + tune2.toString() + ",255)";
-        }else{
+        } else {
             this.color = "#00FF00";
         }
 
         //Relate the number of field lines to the magnitude of the charge
         this.n_lines = 3 + 10*Math.abs(q);
-
     }
 
+    //Cursor interactivity
     pressed(){
         if (dist(mouseX, mouseY, this.x, this.y) < this.r){
             this.clicked = true;
@@ -76,8 +78,7 @@ class charge {
     }
 }
 
-
-//Selects a charge or neutral "charge"
+//Selects the charge that user wants
 class charge_selector{
     constructor(q, x, y){
         this.q = q;
@@ -86,7 +87,7 @@ class charge_selector{
         this.r = R;
         this.clicked = false;
 
-        //Colour of charge
+        //Colour of charge in relation to magnitude and polarity
         if (q == 0){
             this.color = "#00FF00";
         } else if (q > 0){
@@ -100,6 +101,7 @@ class charge_selector{
         }
     }
     
+    //God's hand to pull charge out of thin air 
     pressed(){
         if (dist(mouseX, mouseY, this.x, this.y) < this.r){
             if (this.q != 0) {
@@ -110,6 +112,32 @@ class charge_selector{
     }
 }
 
+//To specify the loop
+//loopX and loopY are the initial central coordinates of the loop
+//diceX and diceY are to randomise the vertices of the polygon
+let diceX = [], diceY = [], loopX = 200 + 600*Math.random(), loopY = 200 + 300*Math.random(), polygonradius = 60 + 20*Math.random(), polygonvertice = 30 + Math.round(10*Math.random());
+for (let i = 0; i < polygonvertice; i++) {
+    diceX[i] = 1 + 0.3*Math.random();
+    diceY[i] = 1 + 0.3*Math.random();
+}
+
+//Still the loop thing
+class weird_shape{
+    constructor(x, y){
+        this.x = x;
+        this.y = y;
+        this.r = polygonradius;
+        this.nodeX = [];
+        this.nodeY = [];
+        for (let i = 0; i < polygonvertice; i++) {
+            let theta = 2*i*(Math.PI/polygonvertice);
+            this.nodeX[i] = x + polygonradius*diceX[i]*Math.cos(theta);
+            this.nodeY[i] = y + polygonradius*diceY[i]*Math.sin(theta);
+        }
+    }
+}
+
+//The special case care taker, delete at your own peril
 function structural(n) {
     let x = newchargex, y = newchargey;
     fill(50);
@@ -148,18 +176,20 @@ function structural(n) {
     }
 }
 
+//This field calculator is sligthly different from that in the draw_fieldlines function
+//Do not change the power
 function field(x, y){
     let Fx = 0, Fy = 0;
     for (let k = 0; k < allpoints.length; k++) {
         let r = Math.sqrt(((x - allpoints[k].x) ** 2 + (y - allpoints[k].y) ** 2));
-        Fx += (allpoints[k].q)*(x - allpoints[k].x) / (Math.pow(r,2));
-        Fy += (allpoints[k].q)*(y - allpoints[k].y) / (Math.pow(r,2));
+        Fx += (allpoints[k].q)*(x - allpoints[k].x) / (Math.pow(r,2));      //Note inverse r and not r^2 because this is 2D Gauss's Law
+        Fy += (allpoints[k].q)*(y - allpoints[k].y) / (Math.pow(r,2));      //Math.pow 2 because one power comes from resolving the forces
     }
     return [Fx, Fy];
 }
 
 //For calculating net flux through the loop
-//The loop must be specified by N number of nodes 
+//The loop must be specified by N number of nodes, this function will close the loop for you so don't repeat the first node at last
 //This function takes in two arrays, one for all the x of the nodes and the other for y
 //A field(x, y) function that calculates the field at (x,y) is required 
 function lineCrossIntegral(Xnode, Ynode){
@@ -185,53 +215,23 @@ function lineCrossIntegral(Xnode, Ynode){
     return sum;
 }
 
-//loopX and loopY are the initial central coordinates of the loop
-//diceX and diceY are to randomise the curve of the polygon
-let diceX = [], diceY = [], loopX = 200 + 600*Math.random(), loopY = 200 + 300*Math.random(), polygonradius = 60, polygonvertice = 30;
-for (let i = 0; i < polygonvertice; i++) {
-    diceX[i] = 1 + 0.5*Math.random();
-    diceY[i] = 1 + 0.5*Math.random();
-}
-
-class weird_shape{
-    constructor(x, y){
-        this.x = x;
-        this.y = y;
-        this.r = 1.5 * polygonradius;
-        this.nodeX = [];
-        this.nodeY = [];
-        for (let i = 0; i < polygonvertice; i++) {
-            let theta = 2*i*(Math.PI/polygonvertice);
-            this.nodeX[i] = x + polygonradius*diceX[i]*Math.cos(theta);
-            this.nodeY[i] = y + polygonradius*diceY[i]*Math.sin(theta);
-        }
-    }
-}
-
 //Adds the starting points of the field lines around the charge
 function initial_fieldpoints(Qposition, R, n_lines){
     let x0=[], y0=[];
 
     for (let i = 0; i < n_lines; i++) {
-        let theta = 2*i*(Math.PI/n_lines);
+        let theta = 2*i*(Math.PI/n_lines);          //putting the dots around the circle
         x0.push(Qposition[0] + R*Math.cos(theta));
         y0.push(Qposition[1] + R*Math.sin(theta));
     }
     return([x0,y0]);
 }
 
-function withinCanvas(x, y){
-    if (y < (rect_height) || y > (height)|| x > (width) || x < (0) ){
-        return false;
-    } else {
-        return true;
-    }
-}
-
 function draw_fieldlines(initialx, initialy, q){
     let xfield0 = initialx, yfield0 = initialy, xfield1 = 0, yfield1 = 0;
     
     //Change the magnitude of charge to fix the sizes of arrows and field lines 
+    //The polarity of q determines the direction of the arrow
     if (q > 0) {
         q = +1;
     } else {
@@ -239,35 +239,42 @@ function draw_fieldlines(initialx, initialy, q){
     }
 
     for (let i = 0; i < Nvertices; i++) {
+        //Area inside the top blue box to not draw fieldlines
         if(xfield0 > width+padding||xfield0 < 0 - padding||yfield0 > height+padding||yfield0 < 0-padding){return;}
         let Fx = 0, Fy = 0, Ftotal;
         for (let k = 0; k < allpoints.length; k++) {
             let r = Math.sqrt(((xfield0 - allpoints[k].x) ** 2 + (yfield0 - allpoints[k].y) ** 2));
+            
+            //Area inside the charge to not draw fieldlines
             if (r < 1) {
                 return;
             }
+
+            //Calcuating the field strength
             Fx += (allpoints[k].q)*(xfield0 - allpoints[k].x) / (Math.pow(r,3));
             Fy += (allpoints[k].q)*(yfield0 - allpoints[k].y) / (Math.pow(r,3));
         }
         Ftotal = Math.sqrt(Fx ** 2 + Fy ** 2);
+        //Scaling the step size
         let dx = q * (max_range / Nvertices) * (Fx / Ftotal),
             dy = q * (max_range / Nvertices) * (Fy / Ftotal);
+        //Prepare to draw the line
         xfield1 = xfield0 + dx;
         yfield1 = yfield0 + dy;
         stroke("rgb(120, 120, 120)");
-        line(xfield0, yfield0, xfield1, yfield1);
-        if (i == Math.round(Nvertices/12)) {
+        line(xfield0, yfield0, xfield1, yfield1);       //Draw the field line
+        if (i == Math.round(Nvertices/12)) {            //Draw the arrow if condition is met
             line(xfield0 - q*dy*arrow_size, yfield0 + q*dx*arrow_size, xfield0 + arrow_size*q*dx, yfield0 + arrow_size*q*dy);
             line(xfield0 + q*dy*arrow_size, yfield0 - q*dx*arrow_size, xfield0 + arrow_size*q*dx, yfield0 + arrow_size*q*dy);
         }
-        xfield0 = parseFloat(xfield1);
+        xfield0 = parseFloat(xfield1);                  //Prepare the initial coordinates for drawing next bit of field line
         yfield0 = parseFloat(yfield1);
     }
 }
 
-//functions that 'move' a charge when it is clicked
+//function that 'move' a charge when it is clicked
 function mousePressed(){
-    if (allpoints.length < maxpoints){
+    if (allpoints.length < maxpoints){          //limits the number of magnet that can be dragged into the canvas
         sel.pressed();
     }
     for (let i = 0; i < allpoints.length; i++) {
@@ -285,6 +292,7 @@ function mouseReleased() {
     }
 }
 
+//Used to prevent things from overlapping one another
 v1 = new volume_element(width/2, height/2, width/8, width/8);
 
 //draw canvas in which everything p5.js happens
@@ -325,6 +333,7 @@ function draw() {
         ellipse(allpoints[i].x, allpoints[i].y, R*2);
     }
 
+    //draw the top blue rectangle box that contains the text, slider and new charge
     noStroke();
     fill(247, 252, 251);
     rect(0, 0, width, rect_height);
@@ -332,18 +341,20 @@ function draw() {
     stroke(72, 99, 95);
     line(0, rect_height, width, rect_height);
 
+    //draw the charges that are already inside the canvas
     if (allpoints.length < maxpoints){
         if (sel.q != 0){
             noStroke();
             fill(color(sel.color));
             ellipse(sel.x, sel.y, R*2);
         } else {
-            structural(allpoints.length);
+            structural(allpoints.length); 
         }
     } else {
         structural(allpoints.length);
     }
 
+    //draw the loop if user wants it
     if (document.getElementById('loopOption').checked == true) {
         loop = new weird_shape(loopX, loopY);
 
@@ -357,9 +368,13 @@ function draw() {
         }
         endShape(CLOSE);
 
-        let Cross = Math.round(100*lineCrossIntegral(loop.nodeX, loop.nodeY)/6.27)/100;
+        //flux calculator
+        let flux = Math.round(100*lineCrossIntegral(loop.nodeX, loop.nodeY)/6.27)/100;
+
+        //display the flux at the center of the loop
         textSize(20);
         fill(0, 0, 0);
-        text(Cross, loop.x, loop.y);
+        text(flux, loop.x, loop.y);
     }
+    
 }

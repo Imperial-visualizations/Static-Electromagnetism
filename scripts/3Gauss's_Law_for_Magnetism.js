@@ -5,6 +5,7 @@
 let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 5, newdipolex = 245, newdipoley = 38;
 const Nvertices = 1700, max_range = 1500, R = 16, square_size = 100, padding = 50, rect_height = height/8, arrow_size = 5;
 
+//Used to prevent things from overlapping one another
 class volume_element {
     constructor(x, y, w, l) {
         this.y = y;
@@ -14,6 +15,7 @@ class volume_element {
     }
 }
 
+//de magnet
 class dipole {
     constructor(m, theta, x, y){
         this.m = m;
@@ -24,7 +26,7 @@ class dipole {
         this.r = 2 * R;
         this.clicked = false;
         
-        //Colour of dipole
+        //Colour of dipole in relation to the magnet strength
         if (m == 0){
             this.redcolor = "#00FF00";
             this.bluecolor = "#00FF00";
@@ -39,9 +41,9 @@ class dipole {
 
         //Relate the number of field lines to the magnitude of the dipole
         this.n_lines = 4 + 20*m;
-
     }
 
+    //Cursor interactivity
     pressed(){
         if (dist(mouseX, mouseY, this.x, this.y) < this.r){
             this.clicked = true;
@@ -78,7 +80,7 @@ class dipole {
     }
 }
 
-//Selects a magnet or neutral "magnet"
+//Selects the magnet that user wants
 class dipole_selector{
     constructor(m, theta, x, y){
         this.m = m;
@@ -89,7 +91,7 @@ class dipole_selector{
         this.r = 2 * R;
         this.clicked = false;
 
-        //Colour of dipole
+        //Colour of dipole in relation to the magnet strength
         if (m == 0){
             this.redcolor = "#00FF00";
             this.bluecolor = "#00FF00";
@@ -103,6 +105,7 @@ class dipole_selector{
         }
     }
 
+    //God's hand to pull magnet out of thin air 
     pressed(){
         if (dist(mouseX, mouseY, this.x, this.y) < this.r){
             if (this.m != 0) {
@@ -113,19 +116,21 @@ class dipole_selector{
     }
 }
 
+//To specify the loop
 //loopX and loopY are the initial central coordinates of the loop
-//diceX and diceY are to randomise the curve of the polygon
-let diceX = [], diceY = [], loopX = 200 + 600*Math.random(), loopY = 200 + 300*Math.random(), polygonradius = 60, polygonvertice = 30;
+//diceX and diceY are to randomise the vertices of the polygon
+let diceX = [], diceY = [], loopX = 200 + 600*Math.random(), loopY = 200 + 300*Math.random(), polygonradius = 60 + 20*Math.random(), polygonvertice = 30 + Math.round(10*Math.random());
 for (let i = 0; i < polygonvertice; i++) {
-    diceX[i] = 1 + 0.5*Math.random();
-    diceY[i] = 1 + 0.5*Math.random();
+    diceX[i] = 1 + 0.3*Math.random();
+    diceY[i] = 1 + 0.3*Math.random();
 }
 
+//Still the loop thing
 class weird_shape{
     constructor(x, y){
         this.x = x;
         this.y = y;
-        this.r = 1.5 * polygonradius;
+        this.r = polygonradius;
         this.nodeX = [];
         this.nodeY = [];
         for (let i = 0; i < polygonvertice; i++) {
@@ -136,6 +141,7 @@ class weird_shape{
     }
 }
 
+//The special case care taker, delete at your own peril
 function structural(n, angle, m) {
     let x = 0, y = 0;
     fill(50);
@@ -221,7 +227,7 @@ function structural(n, angle, m) {
 function initial_leftfieldpoints(Qposition, theta, R, n_lines){
     let x0=[], y0=[];
 
-    for (let i = 0; i < n_lines/4; i++) {
+    for (let i = 0; i < n_lines/4; i++) {  //theta is used in the rotation transformation matrix
         x0.push(Qposition[0] - R*Math.cos(theta) - i*3*Math.sin(theta));
         y0.push(Qposition[1] - R*Math.sin(theta) + i*3*Math.cos(theta));
         x0.push(Qposition[0] - R*Math.cos(theta) + i*3*Math.sin(theta));
@@ -234,7 +240,7 @@ function initial_leftfieldpoints(Qposition, theta, R, n_lines){
 function initial_rightfieldpoints(Qposition, theta, R, n_lines){
     let x0=[], y0=[];
 
-    for (let i = 0; i < n_lines/4; i++) {
+    for (let i = 0; i < n_lines/4; i++) {  //theta is used in the rotation transformation matrix
         x0.push(Qposition[0] + R*Math.cos(theta) - i*3*Math.sin(theta));
         y0.push(Qposition[1] + R*Math.sin(theta) + i*3*Math.cos(theta));
         x0.push(Qposition[0] + R*Math.cos(theta) + i*3*Math.sin(theta));
@@ -249,6 +255,7 @@ function draw_leftfieldlines(initialx, initialy){
     let xfield0 = initialx, yfield0 = initialy, xfield1 = 0, yfield1 = 0;
 
     for (let i = 0; i < Nvertices; i++) {
+        //Area inside the top blue box to not draw fieldlines
         if(xfield0 > width+padding||xfield0 < 0 - padding||yfield0 > height+padding||yfield0 < 0-padding){return;}
         let Bx = 0, By = 0, Btotal;
         for (let k = 0; k < allpoints.length; k++) {
@@ -259,6 +266,7 @@ function draw_leftfieldlines(initialx, initialy){
                 return;
             }
 
+            //Calcuating the field strength
             let rvec = [xfield0 - allpoints[k].x, yfield0 - allpoints[k].y];
             let absr = Math.sqrt(rvec[0]**2 + rvec[1]**2);
             let rvechat = math.divide(rvec, absr);
@@ -268,17 +276,19 @@ function draw_leftfieldlines(initialx, initialy){
 
         }
         Btotal = Math.sqrt(Bx ** 2 + By ** 2);
+        //Scaling the step size
         let dx = (max_range / Nvertices) * (Bx / Btotal),
             dy = (max_range / Nvertices) * (By / Btotal);
+        //Prepare to draw the line
         xfield1 = xfield0 - dx;
         yfield1 = yfield0 - dy;
         stroke("rgb(120, 120, 120)");
-        line(xfield0, yfield0, xfield1, yfield1);
-        if (i == Math.round(Nvertices/12)) {
+        line(xfield0, yfield0, xfield1, yfield1);       //Draw the field line
+        if (i == Math.round(Nvertices/12)) {            //Draw the arrow if condition is met
             line(xfield0 - dy*arrow_size, yfield0 + dx*arrow_size, xfield0 + arrow_size*dx, yfield0 + arrow_size*dy);
             line(xfield0 + dy*arrow_size, yfield0 - dx*arrow_size, xfield0 + arrow_size*dx, yfield0 + arrow_size*dy);
         }
-        xfield0 = parseFloat(xfield1);
+        xfield0 = parseFloat(xfield1);           //Prepare the initial coordinates for drawing next bit of field line
         yfield0 = parseFloat(yfield1);
     }
 }
@@ -288,6 +298,7 @@ function draw_rightfieldlines(initialx, initialy){
     let xfield0 = initialx, yfield0 = initialy, xfield1 = 0, yfield1 = 0;
 
     for (let i = 0; i < Nvertices; i++) {
+        //Area inside the top blue box to not draw fieldlines
         if(xfield0 > width+padding||xfield0 < 0 - padding||yfield0 > height+padding||yfield0 < 0-padding){return;}
         let Bx = 0, By = 0, Btotal;
         for (let k = 0; k < allpoints.length; k++) {
@@ -298,6 +309,7 @@ function draw_rightfieldlines(initialx, initialy){
                 return;
             }
 
+            //Calcuating the field strength
             let rvec = [xfield0 - allpoints[k].x, yfield0 - allpoints[k].y];
             let absr = Math.sqrt(rvec[0]**2 + rvec[1]**2);
             let rvechat = math.divide(rvec, absr);
@@ -307,24 +319,26 @@ function draw_rightfieldlines(initialx, initialy){
 
         }
         Btotal = Math.sqrt(Bx ** 2 + By ** 2);
+        //Scaling the step size
         let dx = (max_range / Nvertices) * (Bx / Btotal),
             dy = (max_range / Nvertices) * (By / Btotal);
+        //Prepare to draw the line
         xfield1 = xfield0 + dx;
         yfield1 = yfield0 + dy;
         stroke("rgb(120, 120, 120)");
-        line(xfield0, yfield0, xfield1, yfield1);
-        if (i == Math.round(Nvertices/12)) {
+        line(xfield0, yfield0, xfield1, yfield1);       //Draw the field line
+        if (i == Math.round(Nvertices/12)) {            //Draw the arrow if condition is met
             line(xfield0 - dy*arrow_size, yfield0 + dx*arrow_size, xfield0 + arrow_size*dx, yfield0 + arrow_size*dy);
             line(xfield0 + dy*arrow_size, yfield0 - dx*arrow_size, xfield0 + arrow_size*dx, yfield0 + arrow_size*dy);
         }
-        xfield0 = parseFloat(xfield1);
+        xfield0 = parseFloat(xfield1);          //Prepare the initial coordinates for drawing next bit of field line
         yfield0 = parseFloat(yfield1);
     }
 }
 
-//Functions that 'move' a charge when it is clicked
+//Function that 'move' a charge when it is clicked
 function mousePressed() {
-    if (allpoints.length < maxpoints){
+    if (allpoints.length < maxpoints){  //limits the number of charge that can be dragged into the canvas
         dip.pressed();
     }
     for (let i = 0; i < allpoints.length; i++) {
@@ -342,6 +356,7 @@ function mouseReleased() {
     }
 }
 
+//Used to prevent things from overlapping one another
 v1 = new volume_element(width/2, height/2, width/8, width/8);
 
 //Draw canvas in which everything p5.js happens
@@ -403,6 +418,7 @@ function draw() {
         translate(-allpoints[i].x, -allpoints[i].y);
     }
 
+    //draw the top blue rectangle box that contains the text, slider and new magnet
     noStroke();
     fill(247, 252, 251);
     rect(0, 0, 2*width, 2*rect_height);
@@ -410,6 +426,7 @@ function draw() {
     stroke(72, 99, 95);
     line(0, rect_height, width, rect_height);
 
+    //WARNING: do not change the order of the transformations, i.e. translate and rotate
     let angle = parseFloat(document.getElementById('angle').value)*3.14/180;
     translate(newdipolex, newdipoley);
     rotate(angle);
@@ -417,6 +434,7 @@ function draw() {
     //Brings in user input and turn it into a charge
     dip = new dipole_selector(parseFloat(document.getElementById('magnit').value), parseFloat(document.getElementById('angle').value)*3.14/180, newdipolex, newdipoley);
 
+    //draw the magnets that are already inside the canvas
     if (allpoints.length < maxpoints){
         if (dip.m != 0){
             noStroke();
@@ -434,6 +452,7 @@ function draw() {
     rotate(-angle);
     translate(-newdipolex, -newdipoley);
 
+    //draw the loop if user wants it
     if (document.getElementById('loopOption').checked == true) {
         loop = new weird_shape(loopX, loopY);
 
@@ -447,10 +466,11 @@ function draw() {
         }
         endShape(CLOSE);
     
-        let fluxcounter = 0;
+        let flux = 0;       //Always 0 by Gauss's Law
     
+        //display the flux at the center of the loop
         fill(0, 0, 0);
         textSize(20);
-        text(fluxcounter, loop.x, loop.y);
+        text(flux, loop.x, loop.y);
     }
 }
