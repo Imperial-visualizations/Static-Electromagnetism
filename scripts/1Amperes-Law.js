@@ -34,7 +34,7 @@ const Nvertices = 1700, max_range = 1500, R = 16, square_size = 100, padding = 5
 
 let currentContainer = [], circuitContainer=[], arrows = [], myCanvas, countingFrames = 0, notChangeAngle=false, stepLength=1,t=10;
 let vectorB, circuit, arc1,arc2, rectangle1, square1, theta = -Math.PI / 2, magFieldScaling = 200;
-const dTheta = 0.01, dt=1, mu0 = 4 * Math.PI * Math.pow(10, -7);
+let dTheta = 0.1, dt=10, mu0 = 4 * Math.PI * Math.pow(10, -7);
 let fieldDisplay = true, playing = false, mouseWasPressed = false, someWireClose = false, wireSelected = 0, circuitSelected = 0;
 
 /* Now the plotly part of declaration */
@@ -85,7 +85,7 @@ const Circuit = class {
             this.diam1=args.diam;
         } else if (type === "arcs" ){
             this.args = {
-                diam:args.diam, //each of them is an array of the same lenght containaing the starting angle and diameter of the arcs
+                diam:args.diam, //each of them is an array of the same length containing the starting angle and diameter of the arcs
                 theta:args.theta.sort(),
                 diam1:args.diam.splice(0),
             };
@@ -146,7 +146,7 @@ const Circuit = class {
         if (this.type ==="circle") {
             arc(0, 0, this.diam, this.diam, 3 * Math.PI / 2, theta);
         } else if (this.type==="arcs") {
-            let maxM = -1; //draw further than maxM
+            /*let maxM = -1; //draw further than maxM
             for (let m = 0; m < this.args.theta.length; m++) {
                 if (theta >= this.args.theta[m]) {
                     maxM = m;
@@ -170,7 +170,7 @@ const Circuit = class {
             }
             else if (theta>=-Math.PI/2 && this.args.theta[maxM]<=-Math.PI/2){
                 arc(0, 0, this.args.diam[maxM], this.args.diam[maxM], -Math.PI/2, theta);
-            }
+            }*/
         } else if (this.type ==="rectangle"){
             let h = this.h, w = this.w
             let alpha = atan2(h,w);
@@ -321,16 +321,21 @@ function getPath() { //create array of (x,y) for each path
             Path = []
             //console.log('update path');
             if (circuitSelected == 0) { //Circle path
-            stepSize = 0.05;
-            for(i=0; i>-2*Math.PI; i-=stepSize){
+            stepSize = 0.1;
+            for(i=-Math.PI; i<Math.PI; i+=stepSize){
                 x = scale*Math.cos(i + Math.PI/2) + width/2;
                 y = scale*Math.sin(i + Math.PI/2) + height/2;
                 Path.push([x,y]);
             };
+
+            //Ensures green trace matches with arrow
+            dTheta = 2*Math.PI/Path.length;
     }
 
             else if(circuitSelected == 1){ //Arc1 Path
                 stepSize = 0.05;
+                correction =0;
+
                 for(i=-Math.PI/2; i<-Math.PI/3; i+= stepSize){
                     x = 0.75*scale*Math.cos(i) + width/2;
                     y = 0.75*scale*Math.sin(i) + height/2;
@@ -341,6 +346,7 @@ function getPath() { //create array of (x,y) for each path
                     x = i*scale*Math.cos(-Math.PI/3) + width/2;
                     y = i*scale*Math.sin(-Math.PI/3) + height/2;
                     Path.push([x,y]);
+                    correction ++;
                 }
 
                 for(i=-Math.PI/3; i < Math.PI/2; i+= stepSize) {
@@ -353,6 +359,7 @@ function getPath() { //create array of (x,y) for each path
                     x = i*scale*Math.cos(Math.PI/2) + width/2;
                     y = i*scale*Math.sin(Math.PI/2) + height/2;
                     Path.push([x,y]);
+                    correction ++;
                 }
 
                 for(i=Math.PI/2; i < 2*Math.PI/3; i+= stepSize) {
@@ -365,6 +372,7 @@ function getPath() { //create array of (x,y) for each path
                     x = i*scale*Math.cos(2*Math.PI/3) + width/2;
                     y = i*scale*Math.sin(2*Math.PI/3) + height/2;
                     Path.push([x,y]);
+                    correction ++;
                 }
 
                 for(i=2*Math.PI/3; i < 8*Math.PI/7; i+= stepSize) {
@@ -377,6 +385,7 @@ function getPath() { //create array of (x,y) for each path
                     x = i*scale*Math.cos(8*Math.PI/7) + width/2;
                     y = i*scale*Math.sin(8*Math.PI/7) + height/2;
                     Path.push([x,y]);
+                    correction ++;
                 }
 
                 for(i=8*Math.PI/7; i < 3*Math.PI/2; i+= stepSize) {
@@ -384,10 +393,15 @@ function getPath() { //create array of (x,y) for each path
                     y = 0.75*scale*Math.sin(i) + height/2;
                     Path.push([x,y]);
                 }
+
+                //Ensures green trace matches with arrow (correcting for radial out/in parts)
+                dTheta = 2*Math.PI/(Path.length -correction+6);
+
             }
 
             else if(circuitSelected == 2){ //Arc2 Path
                 stepSize = 0.05;
+                correction=0;
 
                 for(i=-Math.PI/2; i<-Math.PI/3; i+= stepSize){
                     x = 0.625*scale*Math.cos(i) + width/2;
@@ -399,6 +413,7 @@ function getPath() { //create array of (x,y) for each path
                     x = i*scale*Math.cos(-Math.PI/3) + width/2;
                     y = i*scale*Math.sin(-Math.PI/3) + height/2;
                     Path.push([x,y]);
+                    correction ++;
                 }
 
                 for(i=-Math.PI/3; i<Math.PI/6; i+= stepSize){
@@ -411,6 +426,7 @@ function getPath() { //create array of (x,y) for each path
                     x = i*scale*Math.cos(Math.PI/6) + width/2;
                     y = i*scale*Math.sin(Math.PI/6) + height/2;
                     Path.push([x,y]);
+                    correction ++;
                 }
 
                 for(i=Math.PI/6; i<6*Math.PI/7; i+= stepSize){
@@ -423,6 +439,7 @@ function getPath() { //create array of (x,y) for each path
                     x = i*scale*Math.cos(6*Math.PI/7) + width/2;
                     y = i*scale*Math.sin(6*Math.PI/7) + height/2;
                     Path.push([x,y]);
+                    correction ++;
                 }
 
                 for(i=6*Math.PI/7; i< 4*Math.PI/3; i+= stepSize){
@@ -435,6 +452,7 @@ function getPath() { //create array of (x,y) for each path
                     x = i*scale*Math.cos(4*Math.PI/3) + width/2;
                     y = i*scale*Math.sin(4*Math.PI/3) + height/2;
                     Path.push([x,y]);
+                    correction ++;
                 }
 
                 for(i=4*Math.PI/3; i< 3*Math.PI/2; i+= stepSize){
@@ -442,46 +460,53 @@ function getPath() { //create array of (x,y) for each path
                     y = 0.625*scale*Math.sin(i) + height/2;
                     Path.push([x,y]);
                 }
+
+            dTheta = 2*Math.PI/(Path.length -correction+8);
             }
 
             else if(circuitSelected == 3){ //Rectangle Path
-                stepSize = 1;
-                for(i=0; i < 1.5*scale - 0.2; i+=stepSize){
-                    Path.push([i + width/2, 0.5*scale + height/2]);}
-                for(i=0; i < scale - 0.2; i+=stepSize){
-                    Path.push([1.5*scale + width/2, 0.5*scale - i + height/2]);}
-                for(i=0; i < 3*scale - 0.2; i+=stepSize){
-                    Path.push([1.5*scale - i + width/2, -0.5*scale + height/2]);}
-                for(i=0; i < scale - 0.2; i+=stepSize){
-                    Path.push([-1.5*scale + width/2, i -0.5*scale + height/2]);}
-                for(i=0; i < 1.5*scale - 0.2; i+=stepSize){
-                    Path.push([i -1.5*scale + width/2, 0.5*scale + height/2]);}
+                stepSize = 15;
+
+                for(i=0; i < 1.5*scale; i+=stepSize){
+                    Path.push([i + width/2, -0.5*scale + height/2]);}
+                for(i=0; i < scale; i+=stepSize){
+                    Path.push([1.5*scale + width/2, -0.5*scale + i + height/2]);}
+                for(i=0; i < 3*scale; i+=stepSize){
+                    Path.push([1.5*scale - i + width/2, 0.5*scale + height/2]);}
+                for(i=0; i < scale; i+=stepSize){
+                    Path.push([-1.5*scale + width/2, -i +0.5*scale + height/2]);}
+                for(i=0; i < 1.5*scale; i+=stepSize){
+                    Path.push([i -1.5*scale + width/2, -0.5*scale + height/2]);}
+
+                //Ensures green trace matches with arrow
+                dTheta = 2*Math.PI/Path.length;
             }
 
             else if(circuitSelected == 4){ //Square Path
-                stepSize = 1;
-                for(i=0; i<scale; i+=stepSize) {
-                    Path.push([i + width/2, scale + height/2])}
-                for(i=0; i < 2*scale; i+=stepSize){
-                    Path.push([scale + width/2, scale - i + height/2]);}
-                for(i=0; i < 2*scale; i+=stepSize){
-                    Path.push([scale - i + width/2, -scale + height/2]);}
-                for(i=0; i < 2*scale; i+=stepSize){
-                    Path.push([-scale + width/2, i -scale + height/2]);}
-                for(i=0; i < scale; i+=stepSize){
-                    Path.push([i -scale + width/2, scale + height/2]);}
+                stepSize = 15;
+                for(i=0; i<scale - 0.2; i+=stepSize) {
+                    Path.push([i + width/2, -scale + height/2])}
+                for(i=0; i < 2*scale - 0.2; i+=stepSize){
+                    Path.push([scale + width/2, -scale + i + height/2]);}
+                for(i=0; i < 2*scale - 0.2; i+=stepSize){
+                    Path.push([scale - i + width/2, scale + height/2]);}
+                for(i=0; i < 2*scale - 0.2; i+=stepSize){
+                    Path.push([-scale + width/2, -i + scale + height/2]);}
+                for(i=0; i < scale - 0.2; i+=stepSize){
+                    Path.push([i -scale + width/2, -scale + height/2]);}
+
+                //Ensures green trace matches with arrow
+                dTheta = 2*Math.PI/Path.length;
             }
 
             else (console.log('No circuit selected'));
+
+
     } else {};
 
     oldType = circuitSelected;
     oldScale = scale;
 }
-
-
-
-
 
 vectorB = { //describes the green vector B and the small increase element dl at position (diam/2, theta)
     x: circuit.x,
@@ -518,8 +543,8 @@ vectorB = { //describes the green vector B and the small increase element dl at 
             for (let i=0; i<loop.args.theta.length; i++){
                 if (theta>=loop.args.theta[i]-dTheta*5/6 &&theta <=loop.args.theta[i]+dTheta/6){ //we are around the value of loop.args.theta[i], angle to change in diameter
                     notChangeAngle=true;
-                    if (i){stepLength = loop.args.diam[i]-loop.args.diam[i-1];}
-                    else{stepLength = loop.args.diam[0]-loop.args.diam[loop.args.diam.length-1];}
+                    if (i){stepLength = (loop.args.diam[i]-loop.args.diam[i-1]);}
+                    else{stepLength = (loop.args.diam[0]-loop.args.diam[loop.args.diam.length-1]);}
                     t=0;
                 }
             }
@@ -540,30 +565,42 @@ vectorB = { //describes the green vector B and the small increase element dl at 
                 playing = false;
                 theta = -Math.PI / 2;
             }
-            countingFrames++;
         }
         else {
             t+=dt;
         }
+        //Progresses green area in Bdl graph
+        countingFrames += 1;
     },
 
     update(wires, loop) { //update will redraw each arrow
         //update the position as we change the angle or the diameter
         let signIfStop=1;
         if (stepLength<0){signIfStop=-1;}
-        let distance=this.findDistanceToCenter(loop, theta);
-        if (notChangeAngle){
-            distance += signIfStop*t;
+
+        if(!notChangeAngle){
+            distance=this.findDistanceToCenter(loop, theta-dTheta);
         }
+
+        if (notChangeAngle){
+            thetaOld = theta - dTheta;
+            distance=this.findDistanceToCenter(loop, thetaOld);
+
+            distance += signIfStop*t;
+
+        }
+
+
         this.x = loop.x + distance / 2 * Math.cos(theta);
         this.y = loop.y + distance / 2 * Math.sin(theta);
 
         //update the angle for the arrow
         let Bvect = calculateB(wires, this.x, this.y);
+        //scales arrow to reasonable size
         this.length = Math.pow(vectorLength(Bvect), 0.4) / mu0 * this.scaling*0.00003;
 0
         //draw the arrow
-        let angle = (atan2(Bvect[1], Bvect[0])); //orientate geometry to the position of the cursor (draw arrows pointing to cursor)
+        let angle = (atan2(Bvect[1], Bvect[0]));
         push(); //move the grid
 
         translate(this.x, this.y);
@@ -586,10 +623,14 @@ vectorB = { //describes the green vector B and the small increase element dl at 
         stroke(200, 0, 200);
         fill(0);
         push();
+
+
+        //Rotates dl arrow as we go around loop
         if (loop.type==="arcs"||loop.type==="circle") {
             if (!notChangeAngle) {
                 rotate(theta); //arrow on the circuit
             } else {
+                //Rotates dl to radial out direction if going radially out
                 rotate(theta-signIfStop*Math.PI/2);
             }
         }
@@ -630,7 +671,6 @@ function addWire(wires) {
     if (index > 10) { //maximum amount of wires we can add
         $('#buttonAddWire').hide();
     }
-
 }
 
 //tool to calculate the length of a vector as an array
@@ -717,47 +757,11 @@ function calculateBdl(loop, wires, B, angle, distance) {
 
     deltaTheta = angleDl-angleB;
 
-    Bdl = -magDl*magB*Math.cos(deltaTheta);
+    Bdl = magDl*magB*Math.cos(deltaTheta);
 
 
     return Bdl;
 }
-/*
-
-
-
-    if (angle >= Math.PI){angle -= 2*Math.PI;}
-    let dlLength;
-    if (loop.type==="circle"){
-        dlLength = circuit.diam / 2 * dTheta; //dl is a fraction of the circle
-    } else if (loop.type ==="arcs"){
-        let distance= vectorB.findDistanceToCenter(loop, angle);
-        dlLength = distance/2*dTheta;
-    } else if (loop.type ==="rectangle"){
-        let distance = vectorB.findDistanceToCenter(loop, angle);
-        let ratio = (loop.h+loop.w)/Math.PI/circuit.diam;
-        dlLength = distance*dTheta*ratio;
-    }
-
-
-    let dl;
-    if (loop.type=== "circle" ||loop.type=== "arcs") {
-        dl = [Math.cos(angle), Math.sin(angle)];
-        const dl2 = dl.slice(0); //create a copy of dl
-        //rotate by  PI/2 to the right and scale by the length
-        dl[0] = -dl2[1] * dlLength;
-        dl[1] = dl2[0] * dlLength;
-    } else if (loop.type ==="rectangle"){
-        let alpha = atan2(loop.h,loop.w);
-        if (angle >= alpha-Math.PI && angle< -alpha){dl = [dlLength, 0];
-        } else if (angle>=-alpha&&angle<alpha){dl = [0, dlLength];
-        } else if (angle>=alpha && angle<Math.PI-alpha){dl = [-dlLength, 0];
-        } else if (angle>= Math.PI-alpha || angle < alpha-Math.PI){dl = [0, -dlLength];
-        }
-    }
-    // return dlLength;
-    return (B[0] * dl[0] + B[1] * dl[1])*ratio; //return the value of B.dl
-}*/
 
 function calculateIntBdl(loop, wires, x, y){
     let intBdl=0;
@@ -775,45 +779,30 @@ function calculateIntBdl(loop, wires, x, y){
         y.push(Bdl*(Math.pow(10, 8)));
         intBdl += (Bdl + Bdl2) / 2;
     }
-    /*for (let i = -Math.PI / 2; i <= 3 * Math.PI / 2; i += dTheta){
-        Bdl2=Bdl;
-        let adjust=0;
-        if (i>=Math.PI){adjust=1;}
-        let distance=vectorB.findDistanceToCenter(loop, i-adjust*2*Math.PI);
-        let posX = loop.x + distance / 2 * Math.cos(i);
-        let posY = loop.y + distance / 2 * Math.sin(i);
-        B = calculateB(wires, posX, posY);
-        Bdl = calculateBdl(loop, wires, B, i, distance);
-        x.push(i + Math.PI / 2); // + PI/2 so that plot starts at 0, but does not affect calculations
-        y.push(Bdl*(Math.pow(10, 8)));
-        intBdl += (Bdl + Bdl2) / 2;
-    }*/
-    /*if (loop.type==="arcs"){
-        let stepLength2=0, stepLength2Sign=1;
-        let t2;
-        for (let i=0; i<loop.args.theta.length; i++){
-            stepLength2Sign=1;
-            if (i){stepLength2=loop.args.diam[i]-loop.args.diam[i-1];
-            }
-            else {stepLength2=loop.args.diam[0]-loop.args.diam[loop.args.theta.length];
-            }
-            if (stepLength2<0){stepLength2Sign=-1}
-            for (t2=0; Math.abs(t2)<Math.abs(stepLength2); t2+=stepLength2Sign*dt){
-                Bdl2=Bdl;
-                let distance=vectorB.findDistanceToCenter(loop, loop.args.theta[i])+t2;
-                let posX = loop.x + distance / 2 * Math.cos(loop.args.theta[i]);
-                let posY = loop.y + distance / 2 * Math.sin(loop.args.theta[i]);
-                B = calculateB(wires, posX, posY);
-                Bdl = calculateBdl(loop, wires, B, i);
-                intBdl += (Bdl + Bdl2) / 2;
-            }
-        }
-    }*/
     return intBdl;
 }
 
+function integration_simps(x, y) {
+    //Integration by Simpson's rule
+    var a = x[0];
+    var b = x[x.length - 1];
+    var N = x.length;
+    var h = (b - a) / N;
+    var A = 0;
+    for (var i = 1; i < x.length; ++i) {
+        if (i % 2 === 0) {
+            A += 2 * y[i];
+        } else {
+            A += 4 * y[i];
+        }
+    }
+    A += y[0] + y[y.length - 1];
+    A = A * h / 3;
+    return A *0.0081
+}
 
 /* Now the plotly part */
+var simpsIntBdl = 0;
 
 //return plotly parameters for x and y:
 function args_plot_Bdl(loop, wires) {
@@ -823,7 +812,10 @@ function args_plot_Bdl(loop, wires) {
     trace2 = {};
     trace3={};
 
-   intBdl= calculateIntBdl(loop, wires, x, y);
+    intBdl = calculateIntBdl(loop, wires, x, y);
+    //console.log(integration_simps(x,y));
+    //intBdl = integration_simps(x,y);
+    //console.log(simpsIntBdl);
 
     trace = {x: x, y: y, name: 'B.dl', type: 'scatter', width:5 };
     //trace3 shows the results as if all wires were located in the center
@@ -872,12 +864,14 @@ function initialPlot() {
         },
         autosize: true,
         xaxis: {
+            rangemode: 'tozero',
+            autorange: true,
             title: 'Number of Steps',
-            range: [-10, scale*8+10],//2 * Math.PI + 0.2],
+            //range: [-10, scale*8+10],//2 * Math.PI + 0.2],
             autotick: true,
-            ticks: 'outside',
-            tick0: 0,
-            dtick: Math.PI / 2,
+            //ticks: 'outside',
+            //tick0: 0,
+            //dtick: Math.PI / 2,
         },
         yaxis: {
             title: 'B.dl',
@@ -941,6 +935,7 @@ function buttonRemoveWiresFunction() {
 function buttonResetFunction() {
     playing = false;
     theta = -Math.PI / 2;
+    notChangeAngle = false;
     vectorB.x = circuit.x;
     vectorB.y = circuit.y - circuit.diam / 2;
     currentContainer[0].x = circuit.x;
@@ -1040,17 +1035,10 @@ function Arrow(x, y, length) {
         vertex(0, -0.5*this.length);
         vertex(3*this.length, 0);
         vertex(0, 0.5*this.length);
-        //vertex(5*this.length, -0.5*this.length);
-        //vertex(5*this.length, -1.5*this.length);
-        //vertex(9*this.length, 0);
-        //vertex(5*this.length, 1.5*this.length);
-        //vertex(5*this.length, 0.5*this.length);
-        //vertex(0, 0);
         endShape(CLOSE);
         pop();//reset the grid
     }
 };
-
 
 
 function drawFieldlines(initialx, initialy, q){
@@ -1144,7 +1132,7 @@ function draw() {
         let intBdl2 = intBdl;
         args_plot_Bdl(circuitContainer[circuitSelected], currentContainer);
         if (intBdl2 !== intBdl) { // only if there's update of data
-            printIntBdl = Math.round((intBdl / mu0)*10)/10;
+            printIntBdl = Math.round((intBdl/mu0));
             $('#Bdl-text').html(`${(printIntBdl).toString().slice(0, 4)}*&mu;<sub>0<\sub>`); //print the value of Bdl on the page
             Plotly.react('graph-holder', [trace,trace3, trace2], layout, {displayModeBar: false});
         }
