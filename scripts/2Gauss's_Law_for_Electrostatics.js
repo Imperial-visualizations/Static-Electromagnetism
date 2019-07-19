@@ -3,7 +3,7 @@
 //allpoints for storing charges, maxpoints to limit total n of allpoints, newchargex/y for position of new charge on top
 
 let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 10, newchargex = 240, newchargey = 38;
-const Nvertices = 1700, max_range = 1500, R = 16, square_size = 100, padding = 50, rect_height = height/8, arrow_size = 5;
+const Nvertices = 700, max_range = 2000, R = 16, square_size = 100, padding = 50, rect_height = height/8, arrow_size = 2;
 
 //Used to prevent things from overlapping one another
 class volume_element {
@@ -256,8 +256,8 @@ function draw_fieldlines(initialx, initialy, q){
         }
         Ftotal = Math.sqrt(Fx ** 2 + Fy ** 2);
         //Scaling the step size
-        let dx = q * (max_range / Nvertices) * (Fx / Ftotal),
-            dy = q * (max_range / Nvertices) * (Fy / Ftotal);
+        let dx = q * (max_range/Nvertices) * (Fx / Ftotal),
+            dy = q * (max_range/Nvertices) * (Fy / Ftotal);
         //Prepare to draw the line
         xfield1 = xfield0 + dx;
         yfield1 = yfield0 + dy;
