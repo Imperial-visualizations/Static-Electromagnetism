@@ -3,7 +3,7 @@
 //allpoints for storing dipoles, maxpoints to limit total n of allpoints, newdipolex/y for position of new magnet on top
 
 let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 5, newdipolex = 245, newdipoley = 38;
-const Nvertices = 1700, max_range = 1500, R = 16, square_size = 100, padding = 50, rect_height = height/8, arrow_size = 5;
+const Nvertices = 700, max_range = 1500, R = 16, square_size = 100, padding = 50, rect_height = height/8, arrow_size = 2.5;
 
 //Used to prevent things from overlapping one another
 class volume_element {
@@ -150,7 +150,8 @@ function structural(n, angle, m) {
     rotate(-angle);
     text('Author: Darren Lean', x, y + 30);
     rotate(angle);
-    if (dist(mouseX, mouseY, newdipolex, newdipoley) < R) {
+    if (dist(mouseX, mouseY, newdipolex, newdipoley) < 2*R) {
+        rotate(-angle);
         text("You can't catch me!", x, y - 22);
         textSize(15);
         text('Poofff  : p', x, y);
@@ -158,6 +159,7 @@ function structural(n, angle, m) {
             textSize(10);
             text("By the way, why 0", x + 400, y - 20);
         }
+        rotate(angle);
     } else {
         if (n < maxpoints) {
             if (angle == 0 ){
@@ -170,34 +172,39 @@ function structural(n, angle, m) {
                 ellipse(x - 8, y - 4, 5, 5);
                 ellipse(x + 8, y - 4, 5, 5);
                 arc(x, y + 1, 20, 20, radians(0), radians(180));
-            } else if (angle == 6.28) {
-                noStroke();
-                fill(50);
-                text('Ugh.', x, y - 22);
-                fill(247, 202, 24);
-                ellipse(x, y, 2*R, 2*R);
-                stroke(51);
-                line(x - 8, y - 6, x - 4, y - 2);
-                line(x - 8, y - 2, x - 4, y - 6);
-                line(x + 4, y - 6, x + 8, y - 2);
-                line(x + 4, y - 2, x + 8, y - 6);
-                line(x - 6, y + 6, x + 6, y + 6);
             } else {
-                noStroke();
-                fill(247, 202, 24);
-                ellipse(x, y, 2*R, 2*R);
-                stroke(51);
-                line(x - 8, y - 6, x - 4, y - 2);
-                line(x - 8, y - 2, x - 4, y - 6);
-                line(x + 4, y - 6, x + 8, y - 2);
-                line(x + 4, y - 2, x + 8, y - 6);
-                fill(153, 153, 0);
-                ellipse(x, y + 6, 6, 6);
-                rotate(-angle);
-                fill(255, 0, 0);
-                textSize(20);
-                text('STOP it!', x, y - 22);
-                rotate(angle);
+                if (document.getElementById("angleChange").value == true){
+                    noStroke();
+                    fill(247, 202, 24);
+                    ellipse(x, y, 2*R, 2*R);
+                    stroke(51);
+                    line(x - 8, y - 6, x - 4, y - 2);
+                    line(x - 8, y - 2, x - 4, y - 6);
+                    line(x + 4, y - 6, x + 8, y - 2);
+                    line(x + 4, y - 2, x + 8, y - 6);
+                    fill(153, 153, 0);
+                    ellipse(x, y + 6, 6, 6);
+                    rotate(-angle);
+                    fill(255, 0, 0);
+                    textSize(20);
+                    text('STOP it!', x, y - 22);
+                    rotate(angle);
+                } else {
+                    noStroke();
+                    fill(247, 202, 24);
+                    ellipse(x, y, 2*R, 2*R);
+                    stroke(51);
+                    line(x - 8, y - 6, x - 4, y - 2);
+                    line(x - 8, y - 2, x - 4, y - 6);
+                    line(x + 4, y - 6, x + 8, y - 2);
+                    line(x + 4, y - 2, x + 8, y - 6);
+                    line(x - 6, y + 6, x + 6, y + 6);
+                    rotate(-angle);
+                    noStroke();
+                    fill(50);
+                    text('Ugh.', x, y - 22);
+                    rotate(angle);
+                }
             }
         } else {
             rotate(-angle);
@@ -283,7 +290,12 @@ function draw_leftfieldlines(initialx, initialy){
         xfield1 = xfield0 - dx;
         yfield1 = yfield0 - dy;
         stroke("rgb(120, 120, 120)");
-        line(xfield0, yfield0, xfield1, yfield1);       //Draw the field line
+        let delX = Math.abs(xfield0 - initialx), delY = Math.abs(yfield0 - initialy);
+        if (i < Math.round(0.9*Nvertices)){
+            line(xfield0, yfield0, xfield1, yfield1);       //Draw the field line
+        } else if (i > Math.round(0.9*Nvertices) && delX > 1 && delY > 1){
+            return;
+        }
         if (i == Math.round(Nvertices/12)) {            //Draw the arrow if condition is met
             line(xfield0 - dy*arrow_size, yfield0 + dx*arrow_size, xfield0 + arrow_size*dx, yfield0 + arrow_size*dy);
             line(xfield0 + dy*arrow_size, yfield0 - dx*arrow_size, xfield0 + arrow_size*dx, yfield0 + arrow_size*dy);
@@ -326,7 +338,12 @@ function draw_rightfieldlines(initialx, initialy){
         xfield1 = xfield0 + dx;
         yfield1 = yfield0 + dy;
         stroke("rgb(120, 120, 120)");
-        line(xfield0, yfield0, xfield1, yfield1);       //Draw the field line
+        let delX = Math.abs(xfield1 - initialx), delY = Math.abs(yfield1 - initialy);
+        if (i < Math.round(0.9*Nvertices)){
+            line(xfield0, yfield0, xfield1, yfield1);       //Draw the field line
+        } else if (i > Math.round(0.9*Nvertices) && delX > 1 && delY > 1){
+            return;
+        }
         if (i == Math.round(Nvertices/12)) {            //Draw the arrow if condition is met
             line(xfield0 - dy*arrow_size, yfield0 + dx*arrow_size, xfield0 + arrow_size*dx, yfield0 + arrow_size*dy);
             line(xfield0 + dy*arrow_size, yfield0 - dx*arrow_size, xfield0 + arrow_size*dx, yfield0 + arrow_size*dy);
