@@ -43,13 +43,41 @@
 <body>
 <div id="MathJax_Message" style="display: none;"></div>
 <div class="container_journey">
-    $\displaystyle\int$
-    <label class="switch" style="margin_top=-2vh;">
-        <input type="checkbox">
-        <span class="toggle round"></span>
-    </label>
     $\displaystyle\nabla$
-    $$ \nabla \times \mathbf{B} = \mu_0 \mathbf{J}$$
+    <label class="switch" style="position:relative; top:-2vh;">
+        <input type="checkbox">
+        <span class="toggle round" id="buttonLoopToggle"></span>
+    </label>
+    $\int$
+    <p id="DifferentialForm">
+        The differential form of Ampere's law is:
+        $$ \nabla \times \mathbf{B} = \mu_0 \mathbf{J}$$
+
+        In the visualisation on the right you can add wires and see the effect they have on the magnetic field (which
+        is represented by the blue arrows).
+        Adding currents into or out of the page induces a curl in the magnetic field.
+        Increasing the value of the current for a particular wire increases the current density, and as a result
+        increases the curl caused by that particular wire.
+        <br><br>
+        You can learn more about curl
+        <a href="https://www.imperialvisualisations.com/visualisations/divergence-and-curl/curl/">here.</a>
+    </p>
+    <p id="IntegralForm">
+        The integral form of Ampere's law is:
+        $$ \oint \mathbf{B.dl} = \mu_0 I$$
+
+        In the visualisation on the right you can add wires, change their currents and move them around to see how they contribute to the integral of
+        $\displaystyle \mathbf{B.dl}$ around the loop. If you click the <strong>"play"</strong> button, you can watch the integral carried out around the loop.
+        You can also select different shapes of loop to see how the
+        integral is affected.
+        <br><br>
+        You can also see that when you move the wires out of the loop, they no longer contribute to the total value of
+        the integral, since the contributions at different points in the loop cancel. This is similar to Gauss' Law.
+        <br><br>
+        Note: the scale on the graph is relative.
+
+    </p>
+
 </div>
 
 <div class="container_vis">
@@ -81,7 +109,7 @@
             Reset
         </button>
         <button id="buttonField">
-            Hide Magnetic fields
+            Hide Magnetic Field
         </button>
 
     <div id="Current-modifiers">
@@ -93,7 +121,7 @@
      <button id="buttonRemoveWires">
       Remove Wires
      </button>
-     <button id="buttonLoopToggle">
+     <button id="buttonLoopToggle" style="display:none;">
          Remove Loop
      </button>
      <button id="buttonFieldFlow" style="display:none;">
@@ -336,7 +364,8 @@
      <span id="Bdl-text">5.0*μ<sub>0<sub></sub></sub></span>
     </p>
     <p>
-     Where $\displaystyle\mathbf{B.dl} =$ $\displaystyle r\mathbf{B.d\theta}$, and θ is the clockwise angle between the start location and the current location.</script>
+        We are using a Riemann sum to integrate, so the number of steps is referring to the number of steps used in the numerical integration.
+     </script>
   </div>
 </div>
 

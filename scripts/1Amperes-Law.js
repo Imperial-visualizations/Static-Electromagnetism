@@ -62,6 +62,10 @@ function setup() {
     });
     $('#buttonLoopToggle').click(buttonLoopToggleFunction);
     $('#buttonFieldFlow').click(buttonFieldFlowFunction);
+    buttonLoopToggleFunction();
+
+    $('#IntegralForm').hide();
+    $('#DifferentialForm').show();
 
     myCanvas = createCanvas(width, height);
     myCanvas.parent('sketch-holder');
@@ -901,19 +905,28 @@ function buttonLoopToggleFunction() {
         if(loopActive){
             $('#graph-holder').hide();
             $('#B-dl-text-holder').hide();
-            $('#buttonLoopToggle').html('Add Loop');
+            //$('#buttonLoopToggle').html('Add Loop');
             $('#circuit-modifiers').hide();
             $('#desc').hide();
             $('#buttonPlay').hide();
             $('#diameter-modifiers').hide();
+            Plotly.react('graph-holder', [trace, trace3,trace2], layout, {displayModeBar: false});
+
+            $('#IntegralForm').hide();
+            $('#DifferentialForm').show();
+
         } else {
             $('#graph-holder').show();
             $('#B-dl-text-holder').show();
-            $('#buttonLoopToggle').html('Remove Loop');
+            //$('#buttonLoopToggle').html('Remove Loop');
             $('#circuit-modifiers').show();
             $('#desc').show();
             $('#buttonPlay').show();
             $('#diameter-modifiers').show();
+            Plotly.react('graph-holder', [trace, trace3,trace2], layout, {displayModeBar: false});
+
+            $('#IntegralForm').show();
+            $('#DifferentialForm').hide();
         }
     loopActive = !loopActive;
     }
