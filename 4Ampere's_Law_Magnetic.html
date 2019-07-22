@@ -55,9 +55,9 @@
 <div class="container_vis">
     <div class="three columns" id="buttons-holder" style="position:inherit; margin-left: 1vw; margin-top: 5vh;">
     <div id="settings">
-        Loop type:
+    <p style="margin-top:-2vh;" id="desc">Loop type:</p>
     <div id="circuit-modifiers" style="margin-left: 6vw; margin-top: -2vw;">
-     <select class="form-control" id="circuitSelectList">
+     <select class="form-control" id="circuitSelectList" style="margin-top: -3vh">
       <option value="0">
        circle
       </option>
@@ -73,9 +73,10 @@
       <option value="4">
        square
       </option>
+
      </select>
     </div>
-        <button id="buttonPlay" type="button">Play</button>
+        <button id="buttonPlay">Play</button>
         <button id="buttonReset">
             Reset
         </button>
@@ -91,6 +92,12 @@
      <br>
      <button id="buttonRemoveWires">
       Remove Wires
+     </button>
+     <button id="buttonLoopToggle">
+         Remove Loop
+     </button>
+     <button id="buttonFieldFlow" style="display:none;">
+         Field Flow
      </button>
      <!--<br>
      <p>
@@ -115,7 +122,7 @@
       Diameter of loop:
      </label>
      <label class="slider" >
-      <input id="diameterSlider" max="290" min="1" step="5" type="range" >
+      <input id="diameterSlider" max="290" min="20" step="20" type="range" >
      </label>
     </div>
    </div>

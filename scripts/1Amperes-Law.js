@@ -34,8 +34,9 @@ const Nvertices = 1700, max_range = 1500, R = 16, square_size = 100, padding = 5
 
 let currentContainer = [], circuitContainer=[], arrows = [], myCanvas, countingFrames = 0, notChangeAngle=false, stepLength=1,t=10;
 let vectorB, circuit, arc1,arc2, rectangle1, square1, theta = -Math.PI / 2, magFieldScaling = 200;
-let dTheta = 0.1, dt=10, mu0 = 4 * Math.PI * Math.pow(10, -7);
-let fieldDisplay = true, playing = false, mouseWasPressed = false, someWireClose = false, wireSelected = 0, circuitSelected = 0;
+let dTheta = 0.5, dt=10, mu0 = 4 * Math.PI * Math.pow(10, -7);
+let fieldDisplay = true, playing = false, mouseWasPressed = false, someWireClose = false, wireSelected = 0, circuitSelected = 0, loopActive = true, hasPlayed = false;
+let fieldFlow = false;
 
 /* Now the plotly part of declaration */
 let trace = {x: [], y: []}, layout, trace2 = {x: [], y: []}, trace3 = {x:[], y:[]};
@@ -59,10 +60,12 @@ function setup() {
         circuitSelected = this.value;
         buttonResetFunction();
     });
+    $('#buttonLoopToggle').click(buttonLoopToggleFunction);
+    $('#buttonFieldFlow').click(buttonFieldFlowFunction);
 
     myCanvas = createCanvas(width, height);
     myCanvas.parent('sketch-holder');
-    frameRate(60);
+    frameRate(120);
     currentContainer.push(new Wire(circuit.x, circuit.y, 5, 0));
     initialPlot();
 
@@ -321,7 +324,7 @@ function getPath() { //create array of (x,y) for each path
             Path = []
             //console.log('update path');
             if (circuitSelected == 0) { //Circle path
-            stepSize = 0.1;
+            stepSize = 0.03;
             for(i=-Math.PI; i<Math.PI; i+=stepSize){
                 x = scale*Math.cos(i + Math.PI/2) + width/2;
                 y = scale*Math.sin(i + Math.PI/2) + height/2;
@@ -333,7 +336,7 @@ function getPath() { //create array of (x,y) for each path
     }
 
             else if(circuitSelected == 1){ //Arc1 Path
-                stepSize = 0.05;
+                stepSize = 0.025;
                 correction =0;
 
                 for(i=-Math.PI/2; i<-Math.PI/3; i+= stepSize){
@@ -400,7 +403,7 @@ function getPath() { //create array of (x,y) for each path
             }
 
             else if(circuitSelected == 2){ //Arc2 Path
-                stepSize = 0.05;
+                stepSize = 0.025;
                 correction=0;
 
                 for(i=-Math.PI/2; i<-Math.PI/3; i+= stepSize){
@@ -465,7 +468,7 @@ function getPath() { //create array of (x,y) for each path
             }
 
             else if(circuitSelected == 3){ //Rectangle Path
-                stepSize = 15;
+                stepSize = 2;
 
                 for(i=0; i < 1.5*scale; i+=stepSize){
                     Path.push([i + width/2, -0.5*scale + height/2]);}
@@ -483,16 +486,16 @@ function getPath() { //create array of (x,y) for each path
             }
 
             else if(circuitSelected == 4){ //Square Path
-                stepSize = 15;
-                for(i=0; i<scale - 0.2; i+=stepSize) {
+                stepSize = 2;
+                for(i=0; i<= scale -stepSize; i+=stepSize) {
                     Path.push([i + width/2, -scale + height/2])}
-                for(i=0; i < 2*scale - 0.2; i+=stepSize){
+                for(i=0; i <= 2*scale -stepSize ; i+=stepSize){
                     Path.push([scale + width/2, -scale + i + height/2]);}
-                for(i=0; i < 2*scale - 0.2; i+=stepSize){
+                for(i=0; i <= 2*scale - stepSize ; i+=stepSize){
                     Path.push([scale - i + width/2, scale + height/2]);}
-                for(i=0; i < 2*scale - 0.2; i+=stepSize){
+                for(i=0; i <= 2*scale - stepSize ; i+=stepSize){
                     Path.push([-scale + width/2, -i + scale + height/2]);}
-                for(i=0; i < scale - 0.2; i+=stepSize){
+                for(i=0; i <= scale - stepSize ; i+=stepSize){
                     Path.push([i -scale + width/2, -scale + height/2]);}
 
                 //Ensures green trace matches with arrow
@@ -891,6 +894,31 @@ function initialPlot() {
 }
 
 //button functions:
+
+function buttonLoopToggleFunction() {
+
+        //console.log(loopActive);
+        if(loopActive){
+            $('#graph-holder').hide();
+            $('#B-dl-text-holder').hide();
+            $('#buttonLoopToggle').html('Add Loop');
+            $('#circuit-modifiers').hide();
+            $('#desc').hide();
+            $('#buttonPlay').hide();
+            $('#diameter-modifiers').hide();
+        } else {
+            $('#graph-holder').show();
+            $('#B-dl-text-holder').show();
+            $('#buttonLoopToggle').html('Remove Loop');
+            $('#circuit-modifiers').show();
+            $('#desc').show();
+            $('#buttonPlay').show();
+            $('#diameter-modifiers').show();
+        }
+    loopActive = !loopActive;
+    }
+
+
 function buttonPlayFunction() {
     playing = !playing;
     if (playing){
@@ -947,6 +975,16 @@ function buttonResetFunction() {
     $( "#circuitSelectList, #diameterSlider, #currentSlider, #buttonAddWire, #buttonRemoveWires" ).prop( "disabled", false );
     $('#buttonPlay').html('Play');
     $('#buttonReset').hide();
+}
+
+function buttonFieldFlowFunction() {
+    fieldFlow = !fieldFlow;
+    arr = []
+    for(i=0; i<width; i+=20) {
+        for(j=0; j<height; j+=20){
+            arr.push(new Arrow(i, j, 10));
+        }
+    }
 }
 
 function updateValuesFromSlider() {
@@ -1011,15 +1049,28 @@ function mouseShape() {
     }
 }
 
+var Bxdisp = 0;
+var Bydisp = 0;
 
 function Arrow(x, y, length) {
     this.x = x;
     this.y = y;
+    this.Bxdisp = Bxdisp;
+    this.Bydisp = Bydisp;
 
     this.update = function(){
         push();
-        translate(this.x,this.y);
+
         Bvec = calculateB(currentContainer, this.x, this.y);
+
+        if(fieldFlow){
+            this.Bxdisp = (Bvec[0]/mu0)*50;
+            this.Bydisp = (Bvec[1]/mu0)*50;
+            this.x = this.x + this.Bxdisp;
+            this.y = this.y + this.Bydisp;
+        };
+
+        translate(this.x, this.y);
         let angle = atan2(Bvec[1], Bvec[0]);
         amplitude = vectorLength(Bvec);
         this.length = Math.pow(amplitude, 0.5)*3*10000;
@@ -1101,8 +1152,10 @@ function draw() {
     };
 
 
+    if(loopActive){
+        circuitContainer[circuitSelected].drawCircuit();
+    }
 
-    circuitContainer[circuitSelected].drawCircuit();
     for (let i = 0; i < currentContainer.length; i++) {
         if (checkStartPos()) {
             currentContainer[i].selectingWire(); //checks if we are currently selecting the wire
@@ -1117,15 +1170,19 @@ function draw() {
         currentContainer[i].drawWire(); //always draw the wires
     }
 
+    if(loopActive){
+        vectorB.update(currentContainer, circuitContainer[circuitSelected]); //redraw the arrows
+    }
 
-    vectorB.update(currentContainer, circuitContainer[circuitSelected]); //redraw the arrows
     mouseShape();
+
+    if(playing){hasPlayed = true;}
 
     //when we are in start position:
     if (checkStartPos()) {
         updateValuesFromSlider();
         $('#wireSelected').html(parseInt(wireSelected.toString())+1);
-        $('#buttonPlay').html('Play');
+        if(hasPlayed === true){$('#buttonPlay').html('Play');}
 
         //plotly parameters:
         countingFrames = 0; //not started the animation

@@ -42,24 +42,24 @@
     <div class="container_vis">
         <div style="position: relative; width: 100%">
             <!--Text next to new charge-->
-            <label class="text" style="position: relative; left: 1.5em; top: 0.95em; width: 40%; height: 0vh;">
-                <font size="5">Drag to add</font>
+            <label class="text" style="position: relative; left: 5vw; top: 3vh; width: 40%; height: -0.5vh;">
+                <font size="5" style="border-top: 5vh">Drag to add</font>
             </label>
             <!--Text next to slider for user to choose charge strength and polarity-->
-            <label class="text" style="position: relative; left: 17em; top: 0.9em; width: 40%; height: 0vh;">
+            <label class="text" style="position: relative; left: 20vw; top: -2vh; width: 40%; height: 0vh;">
                 <font size="4">Relative charge:</font>
             </label>
             <!--Slider for user to choose charge strength and polarity-->
-            <label class="slider" style="position: relative; left: 27em; top: 0.5em; width: 35%; height: 0vh;">
+            <label class="slider" style="position: relative; left: 29vw; top: -3.5vh; width: 35%; height: 0vh;">
                 <input id="magnit" class="inputs" type="range" value="1" min="-1" max="1" step="0.1" oninput="amount.value=magnit.value"/>
             </label>
             <!--Display user input on RHS of slider-->
-            <label style="position: relative; left: 43em; top: 0.8em; width: 100%; ">
+            <label style="position: relative; left: 50vw; top: -2vh; width: 100%; ">
                 <label>Q = <output id="amount" name="amount" for="magnit">1</output></label>
             </label>
             <!--Loop option-->
-            <input type="checkbox" id="loopOption" name="loopOption" style="position: relative; left: 80em; top: -1.85em;" checked>
-            <label for="checkLoop" style="position: relative; left: 48.5em; top: -3.3em; width: 2%">Loop</label>
+            <input type="checkbox" id="loopOption" name="loopOption" style="position: relative; left: 61vw; top: -7.25vh;" checked>
+            <label for="checkLoop" style="position: relative; left: 58vw; top: -12vh; width: 2%">Loop</label>
         </div>
         <!--p5 canvas for drawing charges, fieldlines and loop-->
         <div id="sketch-holder" style="height: 100vh; width: 160vh; margin-top: -19vh;">
