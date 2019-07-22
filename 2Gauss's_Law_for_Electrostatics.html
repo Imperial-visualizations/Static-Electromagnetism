@@ -18,38 +18,82 @@
     <script src="scripts/math.min.js"></script>
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
-          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+        },
         });
     </script>
 
 </head>
 
 <body style="overflow: hidden">
+<div class="verticalline">&nbsp;</div>
     <div class="container_journey">
         <p style="text-align: left; -webkit-user-select: none; -moz-user-select: none; user-select: none;-ms-user-select: none;">
                 Gauss's law for electrostatics can be expressed as :
                 $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}}$$
-                Where $\nabla$ is the divergence operator. A simple way to visualise this law is through electric field lines.
+                Where $\displaystyle \nabla $ is the divergence operator. A simple way to visualise this law is through electric field lines.
                 Geometrically, the divergence of a field is represented by the net number of field lines moving in or out of a volume element.
                 So Gauss's law states that the number of field lines moving in or out of a volume element is proportional to the charge density inside the element.
                 <br>
                 We can see this is true if electric charges act as a source or sink of field lines, as shown in the visualisation to the right.
         </p>
+
+        <p>
+            Consider a sphere of radius $R$ and non-uniform density $\displaystyle \rho $, defined by;
+            $$ \rho = r^3 e^{-cos\theta}$$.
+            What is the Electric field of the sphere in the radial direction?
+        </p>
+        <p>
+            Solution:
+            We want $E_r$ (Electric field in radial direction) as a function of $r, \theta, and \phi$
+            1) Use Gauss Law in integral form;
+            $$\int \int E \cdot dS = \frac{1}{\epsilon_0} \int \int \int \rho dV $$
+            2) For the RHS use $\displaystyle dQ=\rho dV$ and hence
+            $$ Q= \int\rho dv = \int r^3 e^{cos\theta} dV $$
+            where $\displaystyle dV=r^2 sin\theta d\theta dr d\phi$ in spherical polar coordinates.
+            3) Compute the integral
+            4) We now deal with the LHS. Since we only want the E-field in the radial direction we only
+            need to consider the dot product of $\displaystyle E_r$ with $\displaystyle dS$. Recall from
+            vector calculus (insert hyperlink?) that for spherical polar co-ordinates, in the $\displaystyle
+            \tilda{r}$ direction, $\displaystyle dS$ is given by;
+            $$ dS= r^2 sin \theta d\theta d\phi \tilda{r}$$
+            5)Compute the integral of $\displaystyle E \cdot dS$
+            6) Divide by $\displaystyle 4 \pi r^2$ and in the wise words of VJT, VOILA! We obtain
+            $$ E=\frac{k R^6}{6 \epsilon_0 r^2} sinh(1) $$
+
+        </p>
     </div>
 
-
+    <!--Visualisation for right 2/3-->
     <div class="container_vis">
-        <div id="sketch-holder" style="height: 100vh; margin-top: -5vh;">
-            <!--Charge input slider-->
-            <div style="position: relative; width: 100%">
-                <label class="slider" style="position: relative; left: 29em; top: 3.35em; width: 40%; height: 0vh;">
-                    <input id="magnit" class="inputs" type="range" value="1" min="-1" max="1" step="0.01" oninput="amount.value=magnit.value"/>
-                </label>
-                <label style="position: relative; left: 48em; top: 3.6em; width: 2%; ">
-                    <!--Display user input-->
-                    <output id="amount" name="amount" for="magnit">1</output>
-                </label>
-            </div>
+        <div style="position: relative; width: 100%">
+            <!--Text next to new charge-->
+            <label class="text" style="position: relative; left: 5vw; top: 3vh; width: 40%; height: -0.5vh;">
+                <font size="5" style="border-top: 5vh">Drag to add</font>
+            </label>
+            <!--Text next to slider for user to choose charge strength and polarity-->
+            <label class="text" style="position: relative; left: 20vw; top: -2vh; width: 40%; height: 0vh;">
+                <font size="4">Relative charge:</font>
+            </label>
+            <!--Slider for user to choose charge strength and polarity-->
+            <label class="slider" style="position: relative; left: 29vw; top: -3.5vh; width: 35%; height: 0vh;">
+                <input id="magnit" class="inputs" type="range" value="1" min="-1" max="1" step="0.1" oninput="amount.value=magnit.value"/>
+            </label>
+            <!--Display user input on RHS of slider-->
+            <label style="position: relative; left: 50vw; top: -2vh; width: 100%; ">
+                <label>Q = <output id="amount" name="amount" for="magnit">1</output></label>
+            </label>
+            <!--Loop option-->
+            <input type="checkbox" id="loopOption" name="loopOption" style="position: relative; left: 61vw; top: -7.25vh;" checked>
+            <label for="checkLoop" style="position: relative; left: 58vw; top: -12vh; width: 2%">Loop</label>
+        </div>
+        <!--p5 canvas for drawing charges, fieldlines and loop-->
+        <div id="sketch-holder" style="height: 100vh; width: 160vh; margin-top: -19vh;">
         </div>
     </div>
 
