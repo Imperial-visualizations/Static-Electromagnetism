@@ -42,7 +42,7 @@
     <div class="container_vis">
         <div style="position: relative; width: 100%; margin-top: -11.5vh">
             <!--Text next to new magnet-->
-            <label class="text" style="position: relative; left: 1.5em; top: 5em; width: 40%; height: 0vh;">
+            <label class="text" style="position: relative; left: 5vw; top: 10vh; width: 40%; height: 0vh;">
                 <font size="5">Drag to add</font>
             </label>
             <!--Text next to slider for user to choose magnet strength-->
@@ -62,8 +62,8 @@
                 <font size="4">Orientation:</font>
             </label>
             <!--Slider for user to choose magnet orientation-->
-            <label id="angleSlider" class="slider" style="position: relative; left: 27em; top: 3.2em; width: 35%; height: 0vh;"> 
-                <input id="angle" class="inputs" type="range" value="0" min="0" max="360" step="1" oninput="amount2.value=angle.value"/>
+            <label id="angleChange"class="slider" style="position: relative; left: 27em; top: 3.2em; width: 35%; height: 0vh;" value=false> 
+                <input id="angle" class="inputs" onmousedown="angleChange.value=true" onmouseup="angleChange.value = false" type="range" value="0" min="0" max="360" step="1" oninput="amount2.value=angle.value"/>
             </label>
             <!--Display user input for magnet orientation on RHS of slider-->
             <label style="position: relative; left: 44em; top: 3.6em; width: 2%; ">
