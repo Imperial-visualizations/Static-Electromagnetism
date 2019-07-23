@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Page Info-->
+    <title>2aDiv_interactive</title>
+    <!--css link-->
+    <link rel="stylesheet"
+          href="styles/skeleton.css">
+    <link rel="stylesheet"
+          href="styles/style.css">
+    <!--Required JS resources-->
+    <!--NB: better to have resources before the main body but still works even if they are not-->
+    <script src="scripts/plotly-1.47.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="scripts/numeric/src/numeric.js"></script>
+    <script src="scripts/math.min.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { fonts: ["TeX"] }
+  });
+
+    </script>
+    <script type="text/javascript" src="scripts/MathJax-master/MathJax.js">
+    </script>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+
+<div class="container_journey" style="background-color: white;"></div>
+<div class="container">
+    <div class="row">
+        <!-- Graph -->
+        <div class="one-third column" style="padding-left: 2em;">
+
+            <div id='graph' style="width:30vw; height:70vh;">
+                <!-- Legend -->
+                <ul style="margin-top: -4em;">
+                    <li style="color: rgb(28,34,255);">Target Vector</li>
+                 </ul>
+            </div>
+        </div>
+
+
+        <!--Buttons/Sliders-->
+        <div class="one-third column" style="padding-left: 50px;">
+
+            <!--Main body contents-->
+            <div class="tab-content">
+                    <h6 style="border-left: solid 0px rgb(28,34,255); padding-left: 0px; margin: 5px; padding-top: 1vh; ">Relative divergence </h6>
+                    <!--BEGIN Slider-->
+                    <label class="slider" style="position: relative; float: left; width: 100%; top: 10px;">
+                        <input id="x3Controller" class="inputs" type="range" value="1" min="-1" max="1" step="0.01" oninput="x3.value=x3Controller.value"/></input>
+                        <br>
+                        <span> $\nabla \cdot $  =  <output id="x3" for="x3Controller">1</output></span>
+                    </label>
+                    <!--END Slider-->
+
+                    <!--BEGIN Slider-->
+                    <label class="slider">
+                        <input id="y3Controller" >
+                    </label>
+                    <!--END Slider-->
+
+                    <!--Unique Areas-->
+                    <!--BEGIN Basis Vector Area-->
+                    <div class="tab-pane active" id="basis"></div> <!--NB: Also need 'active' here-->
+                    <!--END Basis-->
+                    <!--END Area-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--THE BRAINS-->
+<script src=scripts/Static_electromagnetism_Objects.js></script>
+<script src=scripts/3Gauss_Law_Magnetic.js></script>
+</body>
+</html>
