@@ -10,13 +10,6 @@ let O11 = 1;
 
 //console.log(mu0);
 
-function setup() {
-    let C = createCanvas(windowWidth / 2.5, windowWidth / 2.5);
-    C.parent('sketch-holder');
-    frameRate(frame_no);
-    //noLoop();
-}
-
 function getDiameter(a = 200) {
     return [sliderVal * a, BsliderVal * a];
 }
@@ -263,6 +256,10 @@ function hideFunction() {
 }
 
 function draw() {
+    let C = createCanvas(windowWidth / 2.5, windowWidth / 2.5);
+    C.parent('sketch-holder');
+    frameRate(frame_no);
+
     O11 = document.getElementById("circuitSelectList").value;
     //console.log(O11);
 
