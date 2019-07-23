@@ -43,13 +43,16 @@
 <body>
 <div id="MathJax_Message" style="display: none;"></div>
 <div class="container_journey">
-    $\displaystyle\nabla$
-    <label class="switch" style="position:relative; top:-2vh;">
+    <!--<p>
+        $\displaystyle\nabla$
+        <label class="switch" style="position:relative; top:-2vh;">
         <input type="checkbox">
         <span class="toggle round" id="buttonLoopToggle"></span>
-    </label>
-    $\int$
-    <p id="DifferentialForm">
+        </label>
+        $\int$
+    </p>-->
+    <h5>Ampere's Law - Integral</h5>
+    <p id="DifferentialForm" style="display:none;">
         The differential form of Ampere's law is:
         $$ \nabla \times \mathbf{B} = \mu_0 \mathbf{J}$$
 
@@ -73,8 +76,6 @@
         <br><br>
         You can also see that when you move the wires out of the loop, they no longer contribute to the total value of
         the integral, since the contributions at different points in the loop cancel. This is similar to Gauss' Law.
-        <br><br>
-        Note: the scale on the graph is relative.
 
     </p>
 
@@ -82,7 +83,9 @@
 
 <div class="container_vis">
     <div class="three columns" id="buttons-holder" style="position:inherit; margin-left: 1vw; margin-top: 5vh;">
+
     <div id="settings">
+
     <p style="margin-top:-2vh;" id="desc">Loop type:</p>
     <div id="circuit-modifiers" style="margin-left: 6vw; margin-top: -2vw;">
      <select class="form-control" id="circuitSelectList" style="margin-top: -3vh">
@@ -103,6 +106,7 @@
       </option>
 
      </select>
+
     </div>
         <button id="buttonPlay">Play</button>
         <button id="buttonReset">
@@ -111,7 +115,7 @@
         <button id="buttonField">
             Hide Magnetic Field
         </button>
-
+    <button id="buttonLoopToggle">Add Loop</button>
     <div id="Current-modifiers">
 
      <button id="buttonAddWire">
