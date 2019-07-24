@@ -1205,24 +1205,18 @@ function initialPlot() {
     layout = {
         title: {
         text: 'Line integral of <b>B.dl</b> around the loop',
-        y: 0.7
+        y: 0.9
         },
         autosize: true,
         xaxis: {
             rangemode: 'tozero',
             autorange: true,
             title: 'Number of Steps',
-            //range: [-10, scale*8+10],//2 * Math.PI + 0.2],
             autotick: true,
-            //ticks: 'outside',
-            //tick0: 0,
-            //dtick: Math.PI / 2,
         },
         yaxis: {
             title: 'B.dl',
-            range: [-10 * Math.pow(10, -7), 10 * Math.pow(10, -7)],
-            exponentformat: 'e',
-            showexponent: 'all'
+            autorange: true,
         },
         showlegend: true,
         legend: {
