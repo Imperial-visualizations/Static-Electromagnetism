@@ -1355,12 +1355,15 @@ function buttonExamplesFunction() {
     if (Examples) {
         $('#buttons-holder').show();
         $('#buttons-holder-examples').hide();
-
+        $('#Theory').show();
+        $('#Examples').hide();
 
 
     } else{
         $('#buttons-holder').hide();
         $('#buttons-holder-examples').show();
+        $('#Theory').hide();
+        $('#Examples').show();
         loopActive = true;
         buttonLoopToggleFunction();
     }
