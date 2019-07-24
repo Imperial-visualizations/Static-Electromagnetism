@@ -102,14 +102,16 @@ input:checked + .slider:before {
     </label>
 
     <div id="Vis1_text">
-      
-        Insert text for the first visualisation here.
+        $$ \nabla \times \mathbf{E} = 0$$
+        <p align = "center">The curl of $\mathbf{E}$ is 0 because it is a conservative field. A conservative field can be described by a potential such that
+            $\mathbf{E} = \nabla \phi$. The curl of the gradient of a scalar field ($\nabla \times \nabla \phi$) is 0; Hence, the curl of $\mathbf{E}$ is 0. 
+        </p>
 
     </div>
 
     <div id="Vis2_text" style="display: none;">
 
-        Insert text for the second visualisation here.
+      $$\oint _{\partial \Sigma }\mathbf {E} \cdot \mathrm {d} {\boldsymbol {l}} = 0$$
 
     </div>
 
@@ -128,7 +130,65 @@ input:checked + .slider:before {
   <!--Vis 2-->
   <div id="Vis2_interactive" class="container_vis" style="display: none;">
 
-      Insert interactive part for the second visualisation here.
+      <div class="three columns" id="buttons-holder" style="position:inherit; margin-left: 1vw; margin-top: 5vh;">
+          <div id="settings">
+      
+          <p style="margin-top:-2vh;" id="desc">Background <br>Field:</p>
+          <div id="circuit-modifiers" style="margin-left: 6vw; margin-top: -3vw;">
+           <select class="form-control" id="fieldList" style="margin-top: -3vh">
+            <option value="0">
+             None
+            </option>
+            <option value="1">
+             Constant
+            </option>
+            <option value="2">
+             Linear
+            </option>
+            <option value="3">
+             Sine Squared
+            </option>
+      
+           </select>
+          </div>
+          <div id="Current-modifiers">
+      
+           <button id="buttonAddWire">
+            Add Charge
+           </button>
+           <br>
+           <button id="buttonRemoveWires">
+            Remove Charges
+           </button>
+      
+      
+           <!--<br>
+           <p>
+            Wires Selected:
+            <b>
+             <span id="wireSelected" style="color:blue;">1</span>
+            </b>
+           </p>-->
+           <label class="sliderTitle" for="currentSlider" id="tagCurrentSlider" style="margin-bottom:0.1vh">
+            Charge:
+            <b>
+             <span data-unit="Amps" id="currentDynamicDisplay">0 Coulombs</span>
+            </b>
+           </label>
+           <label>
+              <input id="currentSlider" max="10" min="-10" name="currentSlider" step="1" type="range" value="0" >
+           </label>
+          </div>
+      
+         </div>
+        </div>
+      
+       <div class="eight columns" id="graphics-holder" style="position:relative; right:5vw">
+         <div id="sketch-holder" style="position: relative; top: -36vh; right: -2vw; width: 55vw; height: 80vh; cursor: default;">
+         <canvas id="defaultCanvas0" class="p5Canvas" width="1524" height="521" style="width: 762.047px; height: 260.5px;"></canvas></div>
+         <div id="graph-holder" style="position:relative; left: -14vw; top:0vh; width:100%; height:40vh; display:none;" class="js-plotly-plot">
+         </div>
+         </div>
 
   </div>
 
