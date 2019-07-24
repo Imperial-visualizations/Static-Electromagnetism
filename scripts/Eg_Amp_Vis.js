@@ -1,14 +1,13 @@
 //global var
 let angle_Eg = 0;
 let frame_no = 60;
-let mu0 = 1; //Number(Math.PI * 4E-7);
+let mu0_1 = 1; //Number(Math.PI * 4E-7);
 let arrowNo = 1;
 let index = 0;
 let nostep = 50;
 let sign = 0;
 let O11 = 1;
 
-//console.log(mu0);
 
 function getDiameter(a = 200) {
     return [sliderVal * a, BsliderVal * a];
@@ -26,7 +25,7 @@ class currentLoop {
     bField(R) {
         let r = ((R[1] - this.y) ** 2 + (R[0] - this.x) ** 2) ** (1 / 2);
         //console.log(r)
-        let B_mag = mu0 * this.In / (2 * Math.PI * r);
+        let B_mag = mu0_1 * this.In / (2 * Math.PI * r);
         //console.log(B_mag);
         let angle = Math.atan2((R[1] - this.y), (R[0] - this.x));
         //console.log(Math.cos(angle));
