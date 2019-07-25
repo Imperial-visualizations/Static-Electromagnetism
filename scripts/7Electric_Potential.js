@@ -225,7 +225,7 @@ function setLayout(sometitlex, sometitley, sometitlez, Mode, x_max){
 
                 camera: {
                     up: {x: 0, y: 0, z: 1},//sets which way is up
-                    eye: {x: 0, y: -1, z: 0.2}//adjust camera starting view
+                    eye: {x: 0, y: -2, z: 0.4}//adjust camera starting view
                 }
             },
         };
@@ -310,11 +310,34 @@ function GetScalarData(Q, x_max, PlotStep){
     let ScalarData = [{
         type: 'surface',
         showscale: false,
+        hoverinfo: "skip",
         x: x,
         y: y,
         z: z,
 
     }];
+    
+    //attempt to draw sphere to represent charge
+    // spherex = [0];
+    // spherey = [0];
+    // spherez = [1];
+    // for (let theta = Math.PI/4; theta <= Math.PI; theta += Math.PI/4){
+    //     for (let phi = 0; phi <= 2*Math.PI; phi += Math.PI/4){
+    //         spherex.push(Math.cos(phi));
+    //         spherey.push(Math.sin(phi));
+    //         spherez.push(Math.cos(theta));
+    //     }
+    // }
+
+    // let SphereData = [{
+    //     type: "mesh3d",
+    //     x: spherex,
+    //     y: spherey,
+    //     z: spherez
+
+    // }];
+
+    // ScalarData.push(SphereData);
 
     return ScalarData;
 }
@@ -345,12 +368,15 @@ function GetVectorData(Q, x_max, PlotStep){
             x2 = Temp*i;
             y2 = Temp*j;
 
+            x2 = 2*x2;
+            y2 = 2*y2;
+
             x[1] = x[0] + x2;
             y[1] = y[0] + y2;
         
             ArrowData = [x, y];
 
-            CurrentArrow = new Arrow(ArrowData[0][0], ArrowData[1][0], ArrowData[0][1], ArrowData[1][1], 2);
+            CurrentArrow = new Arrow(ArrowData[0][0], ArrowData[1][0], ArrowData[0][1], ArrowData[1][1], 0.5);
             LineStuff = CurrentArrow.GetDrawData2D();
             
             VectorData.push(LineStuff[0]);
@@ -382,12 +408,11 @@ function GetNewInputs(){
 function Refresh(PlotNew = false){
     //Define a few constants
     let x_max = 10; //max x value permitted on graph.  Will be mirrored and also same in y
-    let ScalarPlotStep = x_max/50;//x_max/100; //distance between points that are plotted
+    let ScalarPlotStep = 0.25;//x_max/100; //distance between points that are plotted
     let VectorPlotStep = 2.5;
 
 
     let Q = GetNewInputs();//coefficient to change gradient
-
     //now get graph data
     let ScalarData = GetScalarData(Q, x_max, ScalarPlotStep);
     let VectorData = GetVectorData(Q, x_max, VectorPlotStep);
@@ -395,6 +420,7 @@ function Refresh(PlotNew = false){
     if (PlotNew){
         NewPlots(ScalarData, VectorData, x_max);
     }else{
+        console.log(ScalarData);
         UpdatePlots(ScalarData, VectorData, x_max);
     }
 }
@@ -409,6 +435,7 @@ function Setup7Potential() {
     });
 
     Refresh(PlotNew = true);
+    //Refresh();
 }
 
 

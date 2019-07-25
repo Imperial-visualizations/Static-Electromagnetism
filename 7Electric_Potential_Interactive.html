@@ -32,77 +32,47 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 </head>
 <body>
-
-<!--<div class="container_journey" style="background-color: white;"></div>-->
-<!--<div class="container">-->
-<!--    <div class="row">-->
-<!--        &lt;!&ndash; Graph &ndash;&gt;-->
-<!--        <div class="one-third column" style="padding-left: 2em;">-->
-<div style="width:65%; float:right;">
-    <div class="row">
-        <div style="width:40%; float:right;">
-            
-
-            <label class="sliderTitle" style="padding-bottom:20px;">$Q$:
-                <span id="Slider_1Display" data-unit="">-10</span>
-            </label>
-            <label class="slider">
-                <span class="sliderMin">-20</span>
-                <input id="Slider_1" class="inputs" type="range" value="-10" min="-20" max="20" step="1">
-                <span class="sliderMax">20</span>
-            </label>  
-
-            <div>
-                <div id="A_function_eqn" style="display:none">
-                    $$\displaystyle f(x,y)= \frac{a}{ \sqrt{(bx)^2 + (by)^2} }$$
-                </div>
-
-                <div id="B_function_eqn" style="display:none">
-                    $$\displaystyle f(x,y) = ae^{-b((x+c)^2+y^2)} - ae^{-b((x-c)^2+y^2)}$$
-                </div>
-
-                <div id="C_function_eqn" style="display:none">
-                    $$\displaystyle f(x,y)= a\cos(bx) $$
+    <div style="width:65%; float:right;">
+        <div style="width:100%">
+            <div style="width:40%; float:right;">
+                <br/>
+                <label class="sliderTitle" style="padding-bottom:20px;">$Q$:
+                    <span id="Slider_1Display" data-unit="">-10</span>
+                </label>
+                <label class="slider">
+                    <span class="sliderMin">-20</span>
+                    <input id="Slider_1" class="inputs" type="range" value="-10" min="-20" max="20" step="1">
+                    <span class="sliderMax">20</span>
+                </label>
+                <div>
+                    <div>
+                        <p align="center">$V(x,y)= \frac{Q}{4\pi\epsilon_0 \sqrt{x^2 + y^2}}$,</p>
+                    </div>
                 </div>
             </div>
-
-        <!--<div id='Scalar_Graph' style="width:30vw; height:70vh;"></div>-->
-            <div>
-                <div id="A_grad_eqn" style="display:none">
-                    $$\displaystyle \nabla f = - \frac{ab^2}{ ((bx)^2 +(by)^2)^ {\frac{3}{2}} } (x \mathbf{i} + y \mathbf{j} )$$
+            <div style="width:60%; float:left;">
+                <div>
+                    <h7> $V(x,y)$ </h7>
+                    <div id='Scalar_Graph_1a' style="width:30vw; height:40vh;"></div>
                 </div>
-
-                <div id="B_grad_eqn" style="display:none">
-                    $$ \displaystyle \begin{align}  \nabla f & = 2ab\bigg(\Big((x-c)e^{-b((x-c)^2 y^2)} - (x+c)e^{-b((x+c)^2 + y^2)}\Big)\mathbf{i}
-                                                \\ & + y\Big(e^{-b((x-c)^2 + y^2)} - e^{-b((x+c)^2 + y^2)}\Big) \mathbf{j}\bigg)
-                        \end{align} $$
-                </div>
-
-                <div id="C_grad_eqn" style="display:none">
-                    $$\displaystyle \nabla f = - ab\sin (bx) \mathbf{i} $$
-                </div>
-            </div>
+            </div>    
         </div>
 
-        <div style="width:60%; float:left;">
-            <div>
-                <h7> $f(x,y)$ </h7>
-                <div id='Scalar_Graph_1a' style="width:30vw; height:30vh;"></div>
+        <div style="width:100%">
+            <div style="width:60%; float:left;">
+                <h7> $\boldsymbol{E} = - \nabla V(x,y) $ </h7>
+                <div id='Vector_Graph_1a' style="width:30vw; height:40vh;"></div>
             </div>
-
-            <div>
-                <h7> $\nabla f(x,y) $ </h7>
-                <div id='Vector_Graph_1a' style="width:30vw; height:30vh;"> </div>
+            <div style = "width:40%; float:right;"> 
+                <p align="center">$\boldsymbol{E} = -\nabla V$</p>
+                <p align="center">$\boldsymbol{E} = \frac{Q}{4\pi\epsilon_0 (x^2 + y^2)^{\frac{3}{2}}} (x\boldsymbol{i} + y\boldsymbol{j})$</p>
             </div>
         </div>
+        
 
-        <!--Buttons/Sliders-->
-<!--        <div class="one-third column" style="padding-left: 50px;">-->
-
-            <!--Main body contents-->
-
+        
+        
     </div>
-</div>
 
 <!--    </div>-->
 
