@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Page Info-->
+    <title></title>
+    <!--css link-->
+    <link rel="stylesheet"
+          href="styles/skeleton.css">
+    <link rel="stylesheet"
+          href="styles/style.css">
+    <!--Required JS resources-->
+    <!--NB: better to have resources before the main body but still works even if they are not-->
+    <script src="scripts/plotly-1.47.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="scripts/numeric/src/numeric.js"></script>
+    <script src="scripts/math.min.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { fonts: ["TeX"] }
+  });
+
+    </script>
+    <script type="text/javascript" src="scripts/MathJax-master/MathJax.js">
+    </script>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+
+<!--<div class="container_journey" style="background-color: white;"></div>-->
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        &lt;!&ndash; Graph &ndash;&gt;-->
+<!--        <div class="one-third column" style="padding-left: 2em;">-->
+<div style="width:65%; float:right;">
+    <div class="row">
+        <div style="width:40%; float:right;">
+            
+
+            <label class="sliderTitle" style="padding-bottom:20px;">$a$:
+                <span id="Slider_1Display" data-unit="">10</span>
+            </label>
+            <label class="slider">
+                <span class="sliderMin">-100</span>
+                <input id="Slider_1" class="inputs" type="range" value="10" min="-100" max="100" step="1">
+                <span class="sliderMax">100</span>
+            </label>  
+
+            <div>
+                <div id="A_function_eqn" style="display:none">
+                    $$\displaystyle f(x,y)= \frac{a}{ \sqrt{(bx)^2 + (by)^2} }$$
+                </div>
+
+                <div id="B_function_eqn" style="display:none">
+                    $$\displaystyle f(x,y) = ae^{-b((x+c)^2+y^2)} - ae^{-b((x-c)^2+y^2)}$$
+                </div>
+
+                <div id="C_function_eqn" style="display:none">
+                    $$\displaystyle f(x,y)= a\cos(bx) $$
+                </div>
+            </div>
+
+        <!--<div id='Scalar_Graph' style="width:30vw; height:70vh;"></div>-->
+            <div>
+                <div id="A_grad_eqn" style="display:none">
+                    $$\displaystyle \nabla f = - \frac{ab^2}{ ((bx)^2 +(by)^2)^ {\frac{3}{2}} } (x \mathbf{i} + y \mathbf{j} )$$
+                </div>
+
+                <div id="B_grad_eqn" style="display:none">
+                    $$ \displaystyle \begin{align}  \nabla f & = 2ab\bigg(\Big((x-c)e^{-b((x-c)^2 y^2)} - (x+c)e^{-b((x+c)^2 + y^2)}\Big)\mathbf{i}
+                                                \\ & + y\Big(e^{-b((x-c)^2 + y^2)} - e^{-b((x+c)^2 + y^2)}\Big) \mathbf{j}\bigg)
+                        \end{align} $$
+                </div>
+
+                <div id="C_grad_eqn" style="display:none">
+                    $$\displaystyle \nabla f = - ab\sin (bx) \mathbf{i} $$
+                </div>
+            </div>
+        </div>
+
+        <div style="width:60%; float:left;">
+            <div>
+                <h7> $f(x,y)$ </h7>
+                <div id='Scalar_Graph_1a' style="width:30vw; height:30vh;"></div>
+            </div>
+
+            <div>
+                <h7> $\nabla f(x,y) $ </h7>
+                <div id='Vector_Graph_1a' style="width:30vw; height:30vh;"> </div>
+            </div>
+        </div>
+
+        <!--Buttons/Sliders-->
+<!--        <div class="one-third column" style="padding-left: 50px;">-->
+
+            <!--Main body contents-->
+
+    </div>
+</div>
+
+<!--    </div>-->
+
+    <!--THE BRAINS-->
+    <script src=scripts/7Electric_Potential.js></script>
+    <!--<script src=scripts/VC_object.js></script>-->
+</body>
+</html>
