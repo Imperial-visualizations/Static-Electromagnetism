@@ -1211,7 +1211,7 @@ function initialPlot() {
     layout = {
         title: {
         text: 'Line integral of <b>B.dl</b> around the loop',
-        y: 0.7
+        y: 0.8
         },
         autosize: true,
         xaxis: {
@@ -1360,6 +1360,7 @@ function buttonExamplesFunction() {
     if (Examples) {
         $('#buttons-holder').show();
         $('#buttons-holder-examples').hide();
+        $('#buttonExamples').html('Examples');
         $('#Theory').show();
         $('#Examples').hide();
 
@@ -1369,6 +1370,7 @@ function buttonExamplesFunction() {
         $('#buttons-holder-examples').show();
         $('#Theory').hide();
         $('#Examples').show();
+        $('#buttonExamples').html('Back');
         loopActive = true;
         buttonLoopToggleFunction();
     }
