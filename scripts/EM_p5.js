@@ -22,8 +22,6 @@ function toggle() {
 //JS for Vis1
 /*jshint esversion: 7 */
 
-
-
 class Arrow{
     //class currently only works for 2d arrows drawn at z = 0 on a 3d plot.
     //need to edit GetDrawData if you want 3d arrows.
