@@ -49,14 +49,14 @@
 
             <div>
                 <h6 >$q =$
-                            <output id="Slider_1_value" for="Slider_1">5</output>
+                            <output id="Slider_1_7b_value" for="Slider_1">5</output>
                     $\times 10^{-9} C$
                 </h6>
                 <!--BEGIN Slider-->
 
                     <label>
                         <span class="sliderMin">-10</span>
-                        <input id="Slider_1" class="inputs" type="range" value="5" min="-10" max="10" step="0.5" oninput="Slider_1_value.value=Slider_1.value"/></input>
+                        <input id="Slider_1_7b" class="inputs" type="range" value="5" min="-10" max="10" step="0.5" oninput="Slider_1_7b_value.value=Slider_1_7b.value"/></input>
                         <span class="sliderMax">10</span>
 <!--                        <span> x: <output id="Slider_1_value" for="Slider_1">1</output></span>-->
                     </label>
@@ -66,24 +66,24 @@
             <div>
                 <h6> Path </h6>
                     <h7>
-                        <div id = "functionValueBall1">  </div>
-                        <div id = "functionValueBall2">  </div>
+                        <div id = "functionValueBall1_7b">  </div>
+                        <div id = "functionValueBall2_7b">  </div>
                     </h7>
 
                     <label>
                         <span class="sliderMin">A</span>
-                        <input id="Slider_2" class="inputs" type="range" value="-16" min="-16" max="5" step="0.2" oninput="Slider_2_value.value=Slider_2.value"/></input>
+                        <input id="Slider_2_7b" class="inputs" type="range" value="-16" min="-16" max="5" step="0.2" oninput="Slider_2_7b_value.value=Slider_2_7b.value"/></input>
                         <span class="sliderMax">B</span>
                     </label>
                     <!--END Slider-->
             </div>
 
             <div>
-                <div id="PointCharge_E_eqn">
+                <div id="PointCharge_E_eqn_7b">
                         $$ \mathbf{E} = \frac{q}{4 \pi \epsilon_0 r^2} \mathbf{\hat{r}} $$
                 </div>
 
-                <div id="Dipole_E_eqn">
+                <div id="Dipole_E_eqn_7b">
                         Position of $q_1 = (-10,0)$
                     <br>
                         Position of $q_2 = (10,0)$
@@ -92,7 +92,7 @@
                                                         \end{align}$$
                 </div>
 
-                <div id="FarField_E_eqn">
+                <div id="FarField_E_eqn_7b">
                         Position of $q_1 = (-0.1,0)$
                     <br>
                         Position of $q_2 = (0.1,0)$
@@ -107,7 +107,7 @@
             </div>
 
             <div>
-                <div id="PointCharge_V_eqn">
+                <div id="PointCharge_V_eqn_7b">
                             $$
                                 \begin{align}
                                             V &= - \int \mathbf{E} \cdot \mathbf{ dr } \\
@@ -115,7 +115,7 @@
                                                     \end{align}$$
                 </div>
 
-                <div id="Dipole_V_eqn">
+                <div id="Dipole_V_eqn_7b">
                         $$ \begin{align}
                                             V   &= - \int \mathbf{E} \cdot \mathbf{ dr } \\
                                                 &= \frac{1}{4 \pi \epsilon_0} \Big( \frac{q_1}{r_1} + \frac{q_2}{r_2} \Big) \\
@@ -123,7 +123,7 @@
                                                     \end{align}$$
                 </div>
 
-                <div id="FarField_V_eqn">
+                <div id="FarField_V_eqn_7b">
                     In the far-field limit,
                     <br>
                     $$ V \approx \frac{|q|xd}{4 \pi \epsilon_0 r^3}$$
@@ -138,11 +138,11 @@
 
         <div style="width:60%; float:left;">
             <div>
-                <div id='Vector_Graph_1b' style="width:30vw; height:30vh;"></div>
+                <div id='Vector_Graph_7b' style="width:30vw; height:30vh;"></div>
             </div>
 
             <div>
-                <div id='Scalar_Graph_1b' style="width:30vw; height:30vh;"> </div>
+                <div id='Scalar_Graph_7b' style="width:30vw; height:30vh;"> </div>
             </div>
         </div>
 

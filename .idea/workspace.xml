@@ -13,17 +13,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/7Electric_Field.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13226">
-              <caret line="778" column="46" selection-start-line="778" selection-start-column="46" selection-end-line="778" selection-end-column="46" />
+            <state relative-caret-position="499">
+              <caret line="770" column="102" selection-start-line="770" selection-start-column="102" selection-end-line="770" selection-end-column="102" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/7Electric_Field_Interactive.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="40" column="39" lean-forward="true" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
+            <state relative-caret-position="442">
+              <caret line="134" lean-forward="true" selection-start-line="134" selection-end-line="134" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -35,7 +35,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/7Electric_Field_TextOnly.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
+            <state relative-caret-position="663">
               <caret line="54" column="89" selection-start-line="54" selection-start-column="89" selection-end-line="54" selection-end-column="89" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -56,7 +56,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Vector_Calculus_Concepts/Vector-Calculus-Concepts/scripts/1bGrad.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1293">
@@ -100,9 +100,11 @@
       <find>layoutVector_1b</find>
       <find>sigma</find>
       <find>GetVec</find>
-      <find>Slider_1</find>
       <find>GetVectorData</find>
       <find>class</find>
+      <find>Slider_1</find>
+      <find>functionValueBall1</find>
+      <find>Vector_Graph</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -111,12 +113,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/scripts/7Electric_Field.js" />
-        <option value="$PROJECT_DIR$/7Electric_Field_Interactive.html" />
         <option value="$PROJECT_DIR$/7Electric_Field_TextOnly.html" />
         <option value="$PROJECT_DIR$/../Vector_Calculus_Concepts/Vector-Calculus-Concepts/1bGrad_textonly.html" />
         <option value="$PROJECT_DIR$/../Vector_Calculus_Concepts/Vector-Calculus-Concepts/1bGrad_interactive.html" />
         <option value="$PROJECT_DIR$/../Vector_Calculus_Concepts/Vector-Calculus-Concepts/scripts/1bGrad.js" />
+        <option value="$PROJECT_DIR$/7Electric_Field_Interactive.html" />
+        <option value="$PROJECT_DIR$/scripts/7Electric_Field.js" />
       </list>
     </option>
   </component>
@@ -188,39 +190,11 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scripts/7Electric_Field.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13226">
-          <caret line="778" column="46" selection-start-line="778" selection-start-column="46" selection-end-line="778" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Vector_Calculus_Concepts/Vector-Calculus-Concepts/1aGrad_textonly.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../Vector_Calculus_Concepts/Vector-Calculus-Concepts/2aDiv_interactive.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/7Electric_Field_TextOnly.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="54" column="89" selection-start-line="54" selection-start-column="89" selection-end-line="54" selection-end-column="89" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/7Electric_Field_Interactive.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="39" lean-forward="true" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../Vector_Calculus_Concepts/Vector-Calculus-Concepts/1bGrad_textonly.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -243,6 +217,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1293">
           <caret line="701" column="33" selection-start-line="701" selection-start-column="33" selection-end-line="701" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7Electric_Field_TextOnly.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="54" column="89" selection-start-line="54" selection-start-column="89" selection-end-line="54" selection-end-column="89" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/7Electric_Field.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="770" column="102" selection-start-line="770" selection-start-column="102" selection-end-line="770" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7Electric_Field_Interactive.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="134" lean-forward="true" selection-start-line="134" selection-end-line="134" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

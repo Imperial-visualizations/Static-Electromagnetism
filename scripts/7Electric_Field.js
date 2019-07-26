@@ -202,7 +202,7 @@ class Arrow{
 
 };
 
-function GetVectorData(q, x_max, PlotStep){
+function getVectorData(q, x_max, PlotStep){
     let ArrowData = [];
     //let z = [];
     let VectorData = [];
@@ -656,15 +656,15 @@ function plot(xMin, xMax, yMin, yMax, plotStep, xSurface, ySurface, xLineA, yLin
                     xLineB, yLineB, xLineMin, yLineMin, xLineMax, yLineMax, dataLineAVector, dataLineBVector, dataPointAVector, dataPointBVector,
                     layoutScalar, layoutVector){
 
-    document.getElementById("PointCharge_E_eqn").style.display = "none";
-    document.getElementById("Dipole_E_eqn").style.display = "none";
-    document.getElementById("FarField_E_eqn").style.display = "none";
-    document.getElementById("PointCharge_V_eqn").style.display = "none";
-    document.getElementById("Dipole_V_eqn").style.display = "none";
-    document.getElementById("FarField_V_eqn").style.display = "none";
+    document.getElementById("PointCharge_E_eqn_7b").style.display = "none";
+    document.getElementById("Dipole_E_eqn_7b").style.display = "none";
+    document.getElementById("FarField_E_eqn_7b").style.display = "none";
+    document.getElementById("PointCharge_V_eqn_7b").style.display = "none";
+    document.getElementById("Dipole_V_eqn_7b").style.display = "none";
+    document.getElementById("FarField_V_eqn_7b").style.display = "none";
 
-    let q = parseFloat(document.getElementById('Slider_1').value)*Math.pow(10,-9);
-    let xPoint = parseFloat(document.getElementById('Slider_2').value);
+    let q = parseFloat(document.getElementById('Slider_1_7b').value)*Math.pow(10,-9);
+    let xPoint = parseFloat(document.getElementById('Slider_2_7b').value);
 
     let equation = selectEquation();
 
@@ -682,8 +682,8 @@ function plot(xMin, xMax, yMin, yMax, plotStep, xSurface, ySurface, xLineA, yLin
 
     if (equation === "Dipole"){
 
-        document.getElementById("Dipole_E_eqn").style.display = "block";
-        document.getElementById("Dipole_V_eqn").style.display = "block";
+        document.getElementById("Dipole_E_eqn_7b").style.display = "block";
+        document.getElementById("Dipole_V_eqn_7b").style.display = "block";
 
         let zSurface = dipoleSurface(q, xSurface, ySurface);
         let dataSurface = dataSurfaceCompile(xSurface, ySurface, zSurface);
@@ -711,7 +711,7 @@ function plot(xMin, xMax, yMin, yMax, plotStep, xSurface, ySurface, xLineA, yLin
         dataBallAVector = dataBallVectorCompile(xBallA,yBallA);
         dataBallBVector = dataBallVectorCompile(xBallB,yBallB);
 
-        let vectorData = GetVectorData(q, 15, 10);
+        let vectorData = getVectorData(q, 15, 10);
 
         console.log(vectorData);
         vectorData.push(dataLineAVector);
@@ -721,16 +721,16 @@ function plot(xMin, xMax, yMin, yMax, plotStep, xSurface, ySurface, xLineA, yLin
         vectorData.push(dataBallAVector);
         vectorData.push(dataBallBVector);
 
-        $("#functionValueBall1").text(`Electric Potential of Ball 1 = ${Math.round(100*zBallA)/100} V`);
-        $("#functionValueBall2").text(`Electric Potential of Ball 2 = ${Math.round(100*zBallB)/100} V`);
+        $("#functionValueBall1_7b").text(`Electric Potential of Ball 1 = ${Math.round(100*zBallA)/100} V`);
+        $("#functionValueBall2_7b").text(`Electric Potential of Ball 2 = ${Math.round(100*zBallB)/100} V`);
 
-        Plotly.react("Vector_Graph_1b", vectorData, layoutVector);
-        Plotly.react('Scalar_Graph_1b', [dataSurface, dataLineA, dataLineB, dataPointA, dataPointB, dataBallA, dataBallB], layoutScalar);
+        Plotly.react("Vector_Graph_7b", vectorData, layoutVector);
+        Plotly.react('Scalar_Graph_7b', [dataSurface, dataLineA, dataLineB, dataPointA, dataPointB, dataBallA, dataBallB], layoutScalar);
     }
         else if (equation === "FarField") {
 
-        document.getElementById("FarField_E_eqn").style.display = "block";
-        document.getElementById("FarField_V_eqn").style.display = "block";
+        document.getElementById("FarField_E_eqn_7b").style.display = "block";
+        document.getElementById("FarField_V_eqn_7b").style.display = "block";
 
         let zSurface = farFieldSurface(q, xSurface, ySurface);
         let dataSurface = dataSurfaceCompile(xSurface, ySurface, zSurface);
@@ -758,7 +758,7 @@ function plot(xMin, xMax, yMin, yMax, plotStep, xSurface, ySurface, xLineA, yLin
         dataBallAVector = dataBallVectorCompile(xBallA,yBallA);
         dataBallBVector = dataBallVectorCompile(xBallB,yBallB);
 
-        let vectorData = GetVectorData(q, 17.5, 5);
+        let vectorData = getVectorData(q, 17.5, 5);
 
         vectorData.push(dataLineAVector);
         vectorData.push(dataLineBVector);
@@ -767,16 +767,16 @@ function plot(xMin, xMax, yMin, yMax, plotStep, xSurface, ySurface, xLineA, yLin
         vectorData.push(dataBallAVector);
         vectorData.push(dataBallBVector);
 
-        $("#functionValueBall1").text(`Electric Potential of Ball 1 = ${Math.round(100*zBallA)/100} V`);
-        $("#functionValueBall2").text(`Electric Potential of Ball 2 = ${Math.round(100*zBallB)/100} V`);
+        $("#functionValueBall1_7b").text(`Electric Potential of Ball 1 = ${Math.round(1000*zBallA)/1000} V`);
+        $("#functionValueBall2_7b").text(`Electric Potential of Ball 2 = ${Math.round(1000*zBallB)/1000} V`);
 
-        Plotly.react("Vector_Graph_1b", vectorData, layoutVector );
-        Plotly.react('Scalar_Graph_1b', [dataSurface, dataLineA, dataLineB, dataPointA, dataPointB, dataBallA, dataBallB], layoutScalar);
+        Plotly.react("Vector_Graph_7b", vectorData, layoutVector );
+        Plotly.react('Scalar_Graph_7b', [dataSurface, dataLineA, dataLineB, dataPointA, dataPointB, dataBallA, dataBallB], layoutScalar);
 
     }
     else if (equation === "PointCharge"){
-        document.getElementById("PointCharge_E_eqn").style.display = "block";
-        document.getElementById("PointCharge_V_eqn").style.display = "block";
+        document.getElementById("PointCharge_E_eqn_7b").style.display = "block";
+        document.getElementById("PointCharge_V_eqn_7b").style.display = "block";
 
         let zSurface = pointChargeSurface(q, xSurface, ySurface);
         let dataSurface = dataSurfaceCompile(xSurface, ySurface, zSurface);
@@ -806,7 +806,7 @@ function plot(xMin, xMax, yMin, yMax, plotStep, xSurface, ySurface, xLineA, yLin
         dataBallAVector = dataBallVectorCompile(xBallA,yBallA);
         dataBallBVector = dataBallVectorCompile(xBallB,yBallB);
 
-        let vectorData = GetVectorData(q, xMax, 5);
+        let vectorData = getVectorData(q, xMax, 5);
 
         vectorData.push(dataLineAVector);
         vectorData.push(dataLineBVector);
@@ -815,11 +815,11 @@ function plot(xMin, xMax, yMin, yMax, plotStep, xSurface, ySurface, xLineA, yLin
         vectorData.push(dataBallAVector);
         vectorData.push(dataBallBVector);
 
-        $("#functionValueBall1").text(`Electric Potential of Ball 1 = ${Math.round(100*zBallA)/100} V`);
-        $("#functionValueBall2").text(`Electric Potential of Ball 2 = ${Math.round(100*zBallB)/100} V`);
+        $("#functionValueBall1_7b").text(`Electric Potential of Ball 1 = ${Math.round(100*zBallA)/100} V`);
+        $("#functionValueBall2_7b").text(`Electric Potential of Ball 2 = ${Math.round(100*zBallB)/100} V`);
 
-        Plotly.react("Vector_Graph_1b", vectorData, layoutVector);
-        Plotly.react('Scalar_Graph_1b', [dataSurface, dataLineA, dataLineB, dataPointA, dataPointB, dataBallA, dataBallB], layoutScalar)
+        Plotly.react("Vector_Graph_7b", vectorData, layoutVector);
+        Plotly.react('Scalar_Graph_7b', [dataSurface, dataLineA, dataLineB, dataPointA, dataPointB, dataBallA, dataBallB], layoutScalar)
     };
 };
 
