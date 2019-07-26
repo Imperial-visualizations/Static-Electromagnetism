@@ -318,26 +318,39 @@ function GetScalarData(Q, x_max, PlotStep){
     }];
     
     //attempt to draw sphere to represent charge
-    // spherex = [0];
-    // spherey = [0];
-    // spherez = [1];
-    // for (let theta = Math.PI/4; theta <= Math.PI; theta += Math.PI/4){
-    //     for (let phi = 0; phi <= 2*Math.PI; phi += Math.PI/4){
-    //         spherex.push(Math.cos(phi));
-    //         spherey.push(Math.sin(phi));
-    //         spherez.push(Math.cos(theta));
-    //     }
-    // }
+    let spherex = [];
+    let spherey = [];
+    let spherez = [];
+    
+    for (let phi = 0; phi <= 2*Math.PI; phi += Math.PI/4){
+        for (let theta = 0; theta <= (3/4)*Math.PI; theta += Math.PI/4){
+        
+            spherex.push(Math.cos(phi));
+            spherey.push(Math.sin(phi));
+            spherez.push(Math.cos(theta));
 
-    // let SphereData = [{
-    //     type: "mesh3d",
-    //     x: spherex,
-    //     y: spherey,
-    //     z: spherez
+            spherex.push(Math.cos(phi));
+            spherey.push(Math.sin(phi));
+            spherez.push(Math.cos(theta + Math.PI/4));
 
-    // }];
+            spherex.push(Math.cos(phi + Math.PI/4));
+            spherey.push(Math.sin(phi + Math.PI/4));
+            spherez.push(Math.cos(theta + Math.PI/4));
 
-    // ScalarData.push(SphereData);
+        }
+    }
+
+
+    let SphereData = {
+        type: "mesh3d",
+        x: spherex,
+        y: spherey,
+        z: spherez
+        
+       
+    };
+
+    ScalarData.push(SphereData);
 
     return ScalarData;
 }
