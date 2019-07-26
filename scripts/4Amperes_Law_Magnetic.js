@@ -87,6 +87,7 @@ next block*/
 
 
 function computeBasis(x3) {
+    let i;
     dx1 = 5
     dy1 = 1
     dx2= 1
@@ -130,12 +131,17 @@ function computeBasis(x3) {
     cross32  = new Line2d([[-2-0.35355,-2+0.35355],[-2+0.35355,-2-0.35355]]);
     cross41  = new Line2d([[2-0.35355,-2-0.35355],[2+0.35355,-2+0.35355]]);
     cross42  = new Line2d([[2-0.35355,-2+0.35355],[2+0.35355,-2-0.35355]]);
-
-
-
+    let arr = [];
+   for(i=0;i<10;i++)
+     {
+        let r = 0.25;
+        let opacity=Math.abs(x3/2.5);
+        console.log(r,opacity)
+        arr.push(new  Circle(r,opacity));}
+    
 
  if (x3<=0)
-    {
+    { let j;
     var data = [
 
 
@@ -149,21 +155,28 @@ function computeBasis(x3) {
         vertex11.gObject(black,1, Math.abs(6 - (1.25*x3))),
         vertex12.gObject(black,1, Math.abs(6 - (2.5*x3))),
         
-        circ11.gObject(black,[2,2]),
-        circ21.gObject(black,[-2,2]),
-        circ31.gObject(black,[2,-2]),
-        circ41.gObject(black,[-2,-2]),
+        circ11.gObject(cherry,[2,2]),
+        circ21.gObject(cherry,[-2,2]),
+        circ31.gObject(cherry,[2,-2]),
+        circ41.gObject(cherry,[-2,-2]),
        
-        cross11.gObject(black,Math.abs(x3/2.5),5),
-        cross12.gObject(black,Math.abs(x3/2.5),5),
-        cross21.gObject(black,Math.abs(x3/2.5),5),
-        cross22.gObject(black,Math.abs(x3/2.5),5),
-        cross31.gObject(black,Math.abs(x3/2.5),5),
-        cross32.gObject(black,Math.abs(x3/2.5),5),
-        cross41.gObject(black,Math.abs(x3/2.5),5),
-        cross42.gObject(black,Math.abs(x3/2.5),5),
-     ]
-    ;
+        cross11.gObject(cherry,Math.abs(x3/2.5),5),
+        cross12.gObject(cherry,Math.abs(x3/2.5),5),
+        cross21.gObject(cherry,Math.abs(x3/2.5),5),
+        cross22.gObject(cherry,Math.abs(x3/2.5),5),
+        cross31.gObject(cherry,Math.abs(x3/2.5),5),
+        cross32.gObject(cherry,Math.abs(x3/2.5),5),
+        cross41.gObject(cherry,Math.abs(x3/2.5),5),
+        cross42.gObject(cherry,Math.abs(x3/2.5),5)
+
+    
+     ];
+     /*for (let j=0;j<10;j++)
+    {  let a = arr[j];
+        let b = a.gObject(cherry,[-0.5*j,0.5*j]);
+        data.push(b);
+     }*/
+    
     }
     else
     {
@@ -180,19 +193,24 @@ function computeBasis(x3) {
     vertex11.gObject(black, 1,Math.abs(6 - (1.25*x3))),
     vertex12.gObject(black, 1,Math.abs(6 - (2.5*x3))),
     
-    circ11.gObject(black,[2,2]),
-    circ21.gObject(black,[-2,2]),
-    circ31.gObject(black,[2,-2]),
-    circ41.gObject(black,[-2,-2]),
+    circ11.gObject(blue,[2,2]),
+    circ21.gObject(blue,[-2,2]),
+    circ31.gObject(blue,[2,-2]),
+    circ41.gObject(blue,[-2,-2]),
    
-    circ12.gObject(black,[2,2]),
-    circ22.gObject(black,[-2,-2]),
-    circ32.gObject(black,[-2,2]),
-    circ42.gObject(black,[2,-2]),
+    circ12.gObject(blue,[2,2]),
+    circ22.gObject(blue,[-2,-2]),
+    circ32.gObject(blue,[-2,2]),
+    circ42.gObject(blue,[2,-2]),
     
 
- ]
-  ; }
+ ]; 
+/* for (let j=0;j<10;j++){
+    let a = arr[j];
+    let b = a.gObject(blue,[-0.5*j,0.5*j]);
+    data.push(b);
+    }*/
+ }
 
     return data;
 }
