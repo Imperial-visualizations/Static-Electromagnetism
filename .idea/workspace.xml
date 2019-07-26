@@ -32,11 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/7Electric_Field_TextOnly.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="55" column="127" selection-start-line="55" selection-start-column="127" selection-end-line="55" selection-end-column="127" />
+            <state relative-caret-position="510">
+              <caret line="54" column="89" selection-start-line="54" selection-start-column="89" selection-end-line="54" selection-end-column="89" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -56,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../Vector_Calculus_Concepts/Vector-Calculus-Concepts/scripts/1bGrad.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="63" lean-forward="true" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
+            <state relative-caret-position="1293">
+              <caret line="701" column="33" selection-start-line="701" selection-start-column="33" selection-end-line="701" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -68,8 +68,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Vector_Calculus_Concepts/Vector-Calculus-Concepts/1bGrad_interactive.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1003">
-              <caret line="103" column="32" selection-start-line="103" selection-start-column="32" selection-end-line="103" selection-end-column="32" />
+            <state relative-caret-position="212">
+              <caret line="36" column="14" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -92,7 +92,6 @@
       <find>GetVector</find>
       <find>gaussian</find>
       <find>pointC</find>
-      <find>GetVectorData</find>
       <find>dataPoint</find>
       <find>Sinusodial</find>
       <find>sinusodial</find>
@@ -101,6 +100,9 @@
       <find>layoutVector_1b</find>
       <find>sigma</find>
       <find>GetVec</find>
+      <find>Slider_1</find>
+      <find>GetVectorData</find>
+      <find>class</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -111,9 +113,10 @@
       <list>
         <option value="$PROJECT_DIR$/scripts/7Electric_Field.js" />
         <option value="$PROJECT_DIR$/7Electric_Field_Interactive.html" />
-        <option value="$PROJECT_DIR$/../Vector_Calculus_Concepts/Vector-Calculus-Concepts/1bGrad_interactive.html" />
         <option value="$PROJECT_DIR$/7Electric_Field_TextOnly.html" />
         <option value="$PROJECT_DIR$/../Vector_Calculus_Concepts/Vector-Calculus-Concepts/1bGrad_textonly.html" />
+        <option value="$PROJECT_DIR$/../Vector_Calculus_Concepts/Vector-Calculus-Concepts/1bGrad_interactive.html" />
+        <option value="$PROJECT_DIR$/../Vector_Calculus_Concepts/Vector-Calculus-Concepts/scripts/1bGrad.js" />
       </list>
     </option>
   </component>
@@ -195,22 +198,18 @@
     <entry file="file://$PROJECT_DIR$/../Vector_Calculus_Concepts/Vector-Calculus-Concepts/1aGrad_textonly.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Vector_Calculus_Concepts/Vector-Calculus-Concepts/1bGrad_interactive.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="103" column="32" selection-start-line="103" selection-start-column="32" selection-end-line="103" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Vector_Calculus_Concepts/Vector-Calculus-Concepts/scripts/1bGrad.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="63" lean-forward="true" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Vector_Calculus_Concepts/Vector-Calculus-Concepts/2aDiv_interactive.html">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7Electric_Field_TextOnly.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="54" column="89" selection-start-line="54" selection-start-column="89" selection-end-line="54" selection-end-column="89" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/7Electric_Field_Interactive.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -233,13 +232,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/7Electric_Field_TextOnly.html">
+    <entry file="file://$PROJECT_DIR$/../Vector_Calculus_Concepts/Vector-Calculus-Concepts/1bGrad_interactive.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="55" column="127" selection-start-line="55" selection-start-column="127" selection-end-line="55" selection-end-column="127" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="212">
+          <caret line="36" column="14" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Vector_Calculus_Concepts/Vector-Calculus-Concepts/scripts/1bGrad.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1293">
+          <caret line="701" column="33" selection-start-line="701" selection-start-column="33" selection-end-line="701" selection-end-column="33" />
         </state>
       </provider>
     </entry>
