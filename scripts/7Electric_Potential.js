@@ -318,39 +318,39 @@ function GetScalarData(Q, x_max, PlotStep){
     }];
     
     //attempt to draw sphere to represent charge
-    let spherex = [];
-    let spherey = [];
-    let spherez = [];
+    // let spherex = [];
+    // let spherey = [];
+    // let spherez = [];
     
-    for (let phi = 0; phi <= 2*Math.PI; phi += Math.PI/4){
-        for (let theta = 0; theta <= (3/4)*Math.PI; theta += Math.PI/4){
+    // for (let phi = 0; phi <= 2*Math.PI; phi += Math.PI/4){
+    //     for (let theta = 0; theta <= (3/4)*Math.PI; theta += Math.PI/4){
         
-            spherex.push(Math.cos(phi));
-            spherey.push(Math.sin(phi));
-            spherez.push(Math.cos(theta));
+    //         spherex.push(Math.cos(phi));
+    //         spherey.push(Math.sin(phi));
+    //         spherez.push(Math.cos(theta));
 
-            spherex.push(Math.cos(phi));
-            spherey.push(Math.sin(phi));
-            spherez.push(Math.cos(theta + Math.PI/4));
+    //         spherex.push(Math.cos(phi));
+    //         spherey.push(Math.sin(phi));
+    //         spherez.push(Math.cos(theta + Math.PI/4));
 
-            spherex.push(Math.cos(phi + Math.PI/4));
-            spherey.push(Math.sin(phi + Math.PI/4));
-            spherez.push(Math.cos(theta + Math.PI/4));
+    //         spherex.push(Math.cos(phi + Math.PI/4));
+    //         spherey.push(Math.sin(phi + Math.PI/4));
+    //         spherez.push(Math.cos(theta + Math.PI/4));
 
-        }
-    }
+    //     }
+    // }
 
 
-    let SphereData = {
-        type: "mesh3d",
-        x: spherex,
-        y: spherey,
-        z: spherez
+    // let SphereData = {
+    //     type: "mesh3d",
+    //     x: spherex,
+    //     y: spherey,
+    //     z: spherez
         
        
-    };
+    // };
 
-    ScalarData.push(SphereData);
+    // ScalarData.push(SphereData);
 
     return ScalarData;
 }
@@ -403,17 +403,17 @@ function GetVectorData(Q, x_max, PlotStep){
 
 
 function UpdatePlots(ScalarData, VectorData, x_max){
-    Plotly.react('Scalar_Graph_1a', ScalarData, setLayout('x', 'y', 'f(x,y)', 'Scalar', x_max));
-    Plotly.react('Vector_Graph_1a', VectorData, setLayout('x', 'y', 'Vector2D', x_max));
+    Plotly.react('Scalar_Graph_7a', ScalarData, setLayout('x', 'y', 'f(x,y)', 'Scalar', x_max));
+    Plotly.react('Vector_Graph_7a', VectorData, setLayout('x', 'y', 'Vector2D', x_max));
 }
 
 function NewPlots(ScalarData, VectorData, x_max){
-    Plotly.newPlot('Scalar_Graph_1a', ScalarData, setLayout('x', 'y', 'f(x,y)', 'Scalar', x_max));
-    Plotly.newPlot('Vector_Graph_1a', VectorData, setLayout('x', 'y', 'Vector2D', x_max));
+    Plotly.newPlot('Scalar_Graph_7a', ScalarData, setLayout('x', 'y', 'f(x,y)', 'Scalar', x_max));
+    Plotly.newPlot('Vector_Graph_7a', VectorData, setLayout('x', 'y', 'Vector2D', x_max));
 }
 
 function GetNewInputs(){
-    let Q = parseFloat(document.getElementById("Slider_1").value);
+    let Q = parseFloat(document.getElementById("Slider_1_7a").value);
 
     return Q;
 }
@@ -441,7 +441,7 @@ function Refresh(PlotNew = false){
 
 
 function Setup7Potential() {
-    $('#Slider_1').on("input", function(){
+    $('#Slider_1_7a').on("input", function(){
         //update plots when coefficient changed
         $("#" + $(this).attr("id") + "Display").text($(this).val() + $("#" + $(this).attr("id") + "Display").attr("data-unit"));
         Refresh();
