@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!--Page Info-->
+    <title>EM_p4</title>
+    <!--css link-->
+    <link rel="stylesheet" href="styles/skeleton.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <!--Required JS resources-->
+    <script src="scripts/plotly-1.47.4.min.js"></script>
+    <script src="scripts/p5.min.js"></script>
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script language="javascript" type="text/javascript" src="scripts/p5.dom.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="scripts/numeric/src/numeric.js"></script>
+    <script src="scripts/math.min.js"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
+    <style type="text/css">
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+</head>
+
+
+<body style="overflow: hidden">
+
+  <!--Text for left 1/3-->
+  <div id="Vis_text" class="container_journey">
+
+    <!-- Rounded switch -->
+    <label class="switch">
+        <input id="mode" type="checkbox" onclick="toggle()" checked>
+        <span class="slider round"></span>
+    </label>
+
+    <div id="Vis1_text">
+        $$ \nabla \times \mathbf{E} = 0$$
+        <p align = "center">The curl of $\mathbf{E}$ is 0 because it is a conservative field. A conservative field can be described by a potential such that
+            $\mathbf{E} = \nabla \phi$. The curl of the gradient of a scalar field ($\nabla \times \nabla \phi$) is 0; Hence, the curl of $\mathbf{E}$ is 0. 
+        </p>
+
+    </div>
+
+    <div id="Vis2_text" style="display: none;">
+
+      $$\oint _{\partial \Sigma }\mathbf {E} \cdot \mathrm {d} {\boldsymbol {l}} = 0$$
+
+    </div>
+
+
+  </div>
+
+  <!--Visualisation for right 2/3-->
+
+  <!--Vis 1-->
+  <div id="Vis1_interactive" class="container_vis" style="position: relative;">
+
+      Insert interactive part for the first visualisation here.
+
+  </div>
+
+  <!--Vis 2-->
+  <div id="Vis2_interactive" class="container_vis" style="display: none;">
+
+      <div class="three columns" id="buttons-holder" style="position:inherit; margin-left: 1vw; margin-top: 5vh;">
+          <div id="settings">
+      
+          <p style="margin-top:-2vh;" id="desc">Background <br>Field:</p>
+          <div id="circuit-modifiers" style="margin-left: 6vw; margin-top: -3vw;">
+           <select class="form-control" id="fieldList" style="margin-top: -3vh">
+            <option value="0">
+             None
+            </option>
+            <option value="1">
+             Constant
+            </option>
+            <option value="2">
+             Linear
+            </option>
+            <option value="3">
+             Sine Squared
+            </option>
+      
+           </select>
+          </div>
+          <div id="Current-modifiers">
+      
+           <button id="buttonAddWire">
+            Add Charge
+           </button>
+           <br>
+           <button id="buttonRemoveWires">
+            Remove Charges
+           </button>
+      
+      
+           <!--<br>
+           <p>
+            Wires Selected:
+            <b>
+             <span id="wireSelected" style="color:blue;">1</span>
+            </b>
+           </p>-->
+           <label class="sliderTitle" for="currentSlider" id="tagCurrentSlider" style="margin-bottom:0.1vh">
+            Charge:
+            <b>
+             <span data-unit="Amps" id="currentDynamicDisplay">0 Coulombs</span>
+            </b>
+           </label>
+           <label>
+              <input id="currentSlider" max="10" min="-10" name="currentSlider" step="1" type="range" value="0" >
+           </label>
+          </div>
+      
+         </div>
+        </div>
+      
+       <div class="eight columns" id="graphics-holder" style="position:relative; right:5vw">
+         <div id="sketch-holder" style="position: relative; top: -36vh; right: -2vw; width: 55vw; height: 80vh; cursor: default;">
+         <canvas id="defaultCanvas0" class="p5Canvas" width="1524" height="521" style="width: 762.047px; height: 260.5px;"></canvas></div>
+         <div id="graph-holder" style="position:relative; left: -14vw; top:0vh; width:100%; height:40vh; display:none;" class="js-plotly-plot">
+         </div>
+         </div>
+
+  </div>
+
+</body>
+
+<!--THE BRAINS-->
+<script src="scripts/EM_p4.js"></script>
+<script src="scripts/Static_EM_Object.js"></script>
+
+</html>
