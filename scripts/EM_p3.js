@@ -125,26 +125,26 @@ function computeBasis(x3) {
     vertex10  = new Line2d([[-10, 0], [0, 0]]);
     vertex11  = new Line2d([[-10, 1], [-x3, 1]]);
     vertex12  = new Line2d([[-10, 2], [-2*x3, 2]]);*/
-    
+
     vertex8  = new Line2d([[-10, -2], [10, -2]]);
     vertex9  = new Line2d([[-10, -1], [10, -1]]);
     vertex10  = new Line2d([[-10, 0], [10, 0]]);
     vertex11  = new Line2d([[-10, 1], [10, 1]]);
     vertex12  = new Line2d([[-10, 2], [10, 2]]);                            //increasing line length as function of current density slider
-    
+
     circ11 = new Circle(0.5,Math.abs(x3/2.5));//opacity of circle proportional to magnitude of current
-    
+
     circ21 = new Circle(0.5,Math.abs(x3/2.5));
-    
+
     circ31 = new Circle(0.5,Math.abs(x3/2.5));
-    
+
     circ41 = new Circle(0.5,Math.abs(x3/2.5));
-    
+
     circ12 = new Circle(0.25,Math.abs(x3/2.5));
     circ22 = new Circle(0.25,Math.abs(x3/2.5));
     circ32 = new Circle(0.25,Math.abs(x3/2.5));
     circ42 = new Circle(0.25,Math.abs(x3/2.5));
-    
+
     cross11  = new Line2d([[2-0.35355,2-0.35355],[2+0.35355,2+0.35355]]);
     cross12  = new Line2d([[2-0.35355,2+0.35355],[2+0.35355,2-0.35355]]);
     cross21  = new Line2d([[-2-0.35355,2-0.35355],[-2+0.35355,2+0.35355]]);
@@ -171,12 +171,12 @@ function computeBasis(x3) {
         vertex10.gObject(black, 1,Math.abs(6)),
         vertex11.gObject(black,1, Math.abs(6 - (1.25*x3))),
         vertex12.gObject(black,1, Math.abs(6 - (2.5*x3))),
-        
+
         circ11.gObject(black,[2,2]),
         circ21.gObject(black,[-2,2]),
         circ31.gObject(black,[2,-2]),
         circ41.gObject(black,[-2,-2]),
-       
+
         cross11.gObject(black,Math.abs(x3/2.5),5),
         cross12.gObject(black,Math.abs(x3/2.5),5),
         cross21.gObject(black,Math.abs(x3/2.5),5),
@@ -202,17 +202,17 @@ function computeBasis(x3) {
     vertex10.gObject(black, 1,Math.abs(6)),
     vertex11.gObject(black, 1,Math.abs(6 - (1.25*x3))),
     vertex12.gObject(black, 1,Math.abs(6 - (2.5*x3))),
-    
+
     circ11.gObject(black,[2,2]),
     circ21.gObject(black,[-2,2]),
     circ31.gObject(black,[2,-2]),
     circ41.gObject(black,[-2,-2]),
-   
+
     circ12.gObject(black,[2,2]),
     circ22.gObject(black,[-2,-2]),
     circ32.gObject(black,[-2,2]),
     circ42.gObject(black,[2,-2]),
-    
+
 
  ]
   ; }
@@ -250,7 +250,7 @@ function initCarte(type) {
 
 
     var x3 = parseFloat(document.getElementById('x3Controller').value);
-  
+
 
 
     Plotly.newPlot("graph", computeBasis(x3), layout);
@@ -1061,7 +1061,7 @@ function getBVector(WirePositions, Currents, Point){
     let y = Point[1]; //y coord of point of interest
     let r = 0;
     let B = 0;
-    let Mu0 = 4*Math.PI* 10**(-7); 
+    let Mu0 = 4*Math.PI* 10**(-7);
     let currentBVector = [0,0];
     let TotalBVector = [0,0];
     let TotalBx = 0;
@@ -1362,14 +1362,20 @@ function buttonExamplesFunction() {
         $('#buttons-holder-examples').hide();
         $('#buttonExamples').html('Examples');
         $('#Theory').show();
-        $('#Examples').hide();
+        if (O11==1) {
+            $('#CurrentLine').hide();
+        } else if (O11==2) {
+            $('#solenoid').hide();
+        } else {
+            $('#Toroid').hide();
+        }
 
 
     } else{
         $('#buttons-holder').hide();
         $('#buttons-holder-examples').show();
         $('#Theory').hide();
-        $('#Examples').show();
+        //$('#Toroid').show();
         $('#buttonExamples').html('Back');
         loopActive = true;
         buttonLoopToggleFunction();
@@ -1699,7 +1705,13 @@ function recWire(c, n = 10, a = width / 5, b = height / 3) {
 }
 
 function hideFunction() {
+    document.getElementById("CurrentLine").style.display = "none";
+    document.getElementById("solenoid").style.display = "none";
+    document.getElementById("Toroid").style.display = "none";
+
     if (O11 == 1) {
+        document.getElementById("CurrentLine").style.display = "block";
+
         document.getElementById("hR").innerHTML = "Radius:";
         document.getElementById("B_slide").type = "hidden";
         document.getElementById("hB").style.display = "none";
@@ -1709,6 +1721,8 @@ function hideFunction() {
         document.getElementById("hN").style.display = "none";
         document.getElementById("pN").style.display = "none";
     } else if (O11 == 2) {
+        document.getElementById("solenoid").style.display = "block";
+
         document.getElementById("hR").innerHTML = "Move:";
         document.getElementById("B_slide").type = "hidden";
         document.getElementById("hB").style.display = "none";
@@ -1718,6 +1732,8 @@ function hideFunction() {
         document.getElementById("hN").style.display = "block";
         document.getElementById("pN").style.display = "block";
     } else if (O11 == 3) {
+        document.getElementById("Toroid").style.display = "block";
+
         document.getElementById("hR").innerHTML = "Radius:";
         document.getElementById("B_slide").type = "range";
         document.getElementById("hB").style.display = "block";
@@ -1727,8 +1743,6 @@ function hideFunction() {
         document.getElementById("hN").style.display = "block";
         document.getElementById("pN").style.display = "block";
     }
-    //console.log(O11)
-
 }
 
 
