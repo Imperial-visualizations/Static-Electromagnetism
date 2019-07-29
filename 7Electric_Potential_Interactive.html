@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Page Info-->
+    <title></title>
+    <!--css link-->
+    <link rel="stylesheet"
+          href="styles/skeleton.css">
+    <link rel="stylesheet"
+          href="styles/style.css">
+    <!--Required JS resources-->
+    <!--NB: better to have resources before the main body but still works even if they are not-->
+    <script src="scripts/plotly-1.47.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="scripts/numeric/src/numeric.js"></script>
+    <script src="scripts/math.min.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { fonts: ["TeX"] }
+  });
+
+    </script>
+    <script type="text/javascript" src="scripts/MathJax-master/MathJax.js">
+    </script>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+    <div style="width:65%; float:right;">
+        <div style="width:100%">
+            <div style="width:40%; float:right;">
+                <br/>
+                <label class="sliderTitle" style="padding-bottom:20px;">$Q$:
+                    <span id="Slider_1Display" data-unit="">-10</span>
+                </label>
+                <div style="width:100%">
+                    <span class="sliderMin">-20</span>
+                    <input id="Slider_1_7a" class="inputs" type="range" value="-10" min="-20" max="20" step="1">
+                    <span class="sliderMax">20</span>
+                </div>
+                <div>
+                    <div>
+                        <p align="center">$V(x,y)= \frac{Q}{4\pi\epsilon_0 \sqrt{x^2 + y^2}}$,</p>
+                    </div>
+                </div>
+            </div>
+            <div style="width:60%; float:left;">
+                <div>
+                    <h7> $V(x,y)$ </h7>
+                    <div id='Scalar_Graph_7a' style="width:30vw; height:40vh;"></div>
+                </div>
+            </div>    
+        </div>
+
+        <div style="width:100%">
+            <div style="width:60%; float:left;">
+                <h7> $\boldsymbol{E} = - \nabla V(x,y) $ </h7>
+                <div id='Vector_Graph_7a' style="width:30vw; height:40vh;"></div>
+            </div>
+            <div style = "width:40%; float:right;"> 
+                <p align="center">$\boldsymbol{E} = -\nabla V$</p>
+                <p align="center">$\boldsymbol{E} = \frac{Q}{4\pi\epsilon_0 (x^2 + y^2)^{\frac{3}{2}}} (x\boldsymbol{i} + y\boldsymbol{j})$</p>
+            </div>
+        </div>
+        
+
+        
+        
+    </div>
+
+<!--    </div>-->
+
+    <!--THE BRAINS-->
+    <script src=scripts/7Electric_Potential.js></script>
+    <!--<script src=scripts/VC_object.js></script>-->
+</body>
+</html>
