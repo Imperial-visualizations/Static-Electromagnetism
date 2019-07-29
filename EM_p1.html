@@ -169,22 +169,34 @@ input:checked + .slider:before {
               <font size="5">Drag to add</font>
           </label>
           <!--Text next to slider for user to choose charge strength and polarity-->
-          <label class="text" style="position: relative; left: 20%; display:inline-block;">
+          <label class="text" style="position: relative; left: 9%; display:inline-block;">
               <font size="4">Relative charge:</font>
           </label>
           <!--Slider for user to choose charge strength and polarity-->
-          <label style="position: relative; left: 22%; width: 35%; display:inline-block;">
+          <label style="position: relative; left: 10%; width: 25%; display:inline-block;">
               <input id="magnit" class="inputs" type="range" value="1" min="-1" max="1" step="0.1" oninput="amount.value=magnit.value"/>
           </label>
           <!--Display user input on RHS of slider-->
-          <label style="position: relative; left: 18%; display:inline-block;">
+          <label style="position: relative; left: 7%; display:inline-block;">
               <label>Q = <output id="amount" name="amount" for="magnit">1</output></label>
           </label>
-          <!--Loop option-->
-          <input type="checkbox" id="loopOption" name="loopOption" style="position: relative; left: 20%; display:inline-block;" checked>
-          <label for="checkLoop" style="position: relative; left: 20%; display:inline-block;">Loop</label>
-              <!--p5 canvas for drawing charges, fieldlines and loop-->
-          <label id="sketch-holder" style="height: 100vh; width: 160vh; margin-top:-5%">
+          <!--Loop options-->
+          <label style="position: relative; left: 9%; display:inline-block;">
+            <select class="form-control" id="loopOptions" >
+              <option value="1">
+                  Random loop
+              </option>
+              <option value="2">
+                  Manual loop
+              </option>
+              <option value="3">
+                  OK
+              </option>
+            </select>
+          </label>
+          <button id="Draw" style="position: relative; left: 10%; width: 17%; display: none">Drawing mode off</button>
+          <!--p5 canvas for drawing charges, fieldlines and loop-->
+          <label id="sketch-holder" style="height: 100vh; width: 160vh; margin-top:-8%">
       </div>
 
   </div>

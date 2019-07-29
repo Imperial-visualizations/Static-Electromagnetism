@@ -24,8 +24,8 @@ function toggle() {
 //JS for Vis2
 //allpoints for storing charges, maxpoints to limit total n of allpoints, newchargex/y for position of new charge on top
 
-let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 10, newchargex = 240, newchargey = 38;
-const Nvertices = 700, max_range = 2000, R = 16, square_size = 100, padding = 50, rect_height = height/8, arrow_size = 2;
+let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 10, newchargex = 235, newchargey = 38;
+const Nvertices = 700, max_range = 2000, R = 16, square_size = 100, padding = 90, rect_height = height/8, arrow_size = 2;
 
 //Used to prevent things from overlapping one another
 class volume_element {
@@ -159,6 +159,46 @@ class weird_shape{
     }
 }
 
+class OK_shape{
+    constructor(x, y){
+        this.x = x;
+        this.y = y;                                                 //Anticlockwise
+        this.nodeX = [x, x+100, x+150,                                  //Palm
+                        x+140, x+130, x+105, x+95, x+115,                     //Pinky
+                        x+122, x+103, x+70, x+55, x+80,                       //4th finger
+                        x+87, x+70, x+30, x+13, x+45,                         //International
+                        x+52, x-10, x-30, x-50, x-48, x-25, x-10, x+25,       //2nd
+                        x+30, x+25,                                     //the curve
+                        x-15, x-30, x-55, x-50];                        //Thumb
+        this.nodeY = [y, y, y-50,                                    //Palm
+                        y-100, y-150, y-200, y-200, y-150,               //Pinky
+                        y-110, y-160, y-220, y-215, y-155,               //4th finger
+                        y-115, y-165, y-225, y-220, y-160,               //International
+                        y-115, y-140, y-130, y-110, y-90, y-100, y-110, y-100,//2nd
+                        y-70, y-50,                                   //the curve
+                        y-55, y-80, y-70, y-55];                        //Thumb
+    }
+}
+
+let DrawX = [], DrawY = [];
+class Draw_shape{
+    constructor(){
+        this.nodeX = DrawX;
+        this.nodeY = DrawY;                     
+    }
+}
+
+let drawing = false;
+function DrawingMode() {
+    if (drawing) {
+        drawing = false;
+        $('#Draw').html('Drawing mode off');
+    } else {
+        drawing = true;
+        $('#Draw').html('Drawing mode on');
+    }
+}
+
 //The special case care taker, delete at your own peril
 function structural(n) {
     let x = newchargex, y = newchargey;
@@ -208,6 +248,24 @@ function field(x, y){
         Fy += (allpoints[k].q)*(y - allpoints[k].y) / (Math.pow(r,2));      //Math.pow 2 because one power comes from resolving the forces
     }
     return [Fx, Fy];
+}
+
+function checkCrossing(x1, y1, x2, y2, x3, y3, x4, y4){
+    m1 = (y2-y1)/(x2-x1);
+    c1 = y1 - m1*x1;
+    m2 = (y4-y3)/(x4-x3);
+    c2 = y3 - m2*x3;
+    x = (c2-c1)/(m1-m2);
+    y = m1*x + c1;
+    xmin = Math.min(x1, x2, x3, x4);
+    xmax = Math.max(x1, x2, x3, x4);
+    ymin = Math.min(y1, y2, y3, y4);
+    ymax = Math.max(y1, y2, y3, y4);
+    if (x > xmin && x < xmax && y > ymin && y < ymax){
+        return true;
+    } else {
+        return false;
+    }
 }
 
 //For calculating net flux through the loop
@@ -319,9 +377,10 @@ v1 = new volume_element(width/2, height/2, width/8, width/8);
 
 //draw canvas in which everything p5.js happens
 function setup() {
-    let canvas = createCanvas(width,height);
+    let canvas = createCanvas(width, height);
     canvas.parent('sketch-holder');
     frameRate(60);
+    $('#Draw').click(DrawingMode);
 }
 
 //main function that repeats as soon as the last line is called
@@ -330,11 +389,17 @@ function draw() {
 
     //Brings in user input and turn it into a charge
     sel = new charge_selector(parseFloat(document.getElementById('magnit').value), newchargex, newchargey);
-
+    loopChoice = document.getElementById('loopOptions').value;
     //any points cannot overlap graphically
-    for (let i = 0; i < allpoints.length; i++) {
-        if (allpoints[i].clicked == true && allpoints[i].intersect() == false){
-            allpoints[i].dragposition();
+    if (drawing) {
+    } else {
+        for (let i = 0; i < allpoints.length; i++) {
+            if (allpoints[i].clicked == true && allpoints[i].intersect() == false){
+                cursor(HAND);
+                allpoints[i].dragposition();
+            } else {
+                cursor(ARROW);
+            }
         }
     }
 
@@ -366,9 +431,12 @@ function draw() {
     //draw the charges that are already inside the canvas
     if (allpoints.length < maxpoints){
         if (sel.q != 0){
-            noStroke();
-            fill(color(sel.color));
-            ellipse(sel.x, sel.y, R*2);
+            if (drawing){
+            } else {
+                noStroke();
+                fill(color(sel.color));
+                ellipse(sel.x, sel.y, R*2);
+            }
         } else {
             structural(allpoints.length); 
         }
@@ -376,8 +444,11 @@ function draw() {
         structural(allpoints.length);
     }
 
-    //draw the loop if user wants it
-    if (document.getElementById('loopOption').checked == true) {
+    //draw the loop that the user wants
+
+    if (loopChoice == 1) {
+        drawing = false;
+        document.getElementById('Draw').style.display = 'none';
         loop = new weird_shape(loopX, loopY);
 
         //Draw the loop
@@ -397,6 +468,82 @@ function draw() {
         textSize(20);
         fill(0, 0, 0);
         text(flux, loop.x, loop.y);
+
+    } else if (loopChoice == 2) {
+        document.getElementById('Draw').style.display = 'inline-block';
+        loop = new Draw_shape();
+        noFill();
+        if (mouseIsPressed && drawing){
+            if(mouseX > 20 && mouseX < width - 100 && mouseY > padding && mouseY < height){              
+                cursor(CROSS);
+                DrawX.push(mouseX);
+                DrawY.push(mouseY);
+            } 
+            if (loop.nodeX.length != 0){    
+                //Draw the loop
+                stroke("#48A9A6");
+                curveTightness(1);
+            
+                beginShape();
+                for (let i = 0; i < loop.nodeX.length; i++) {
+                    curveVertex(loop.nodeX[i], loop.nodeY[i]);
+                }
+                endShape(CLOSE);
+                
+            }
+        } else {
+            cursor(ARROW);
+            if (loop.nodeX.length != 0){    
+                //Draw the loop
+                stroke("#48A9A6");
+                curveTightness(1);
+            
+                beginShape();
+                for (let i = 0; i < loop.nodeX.length; i++) {
+                    curveVertex(loop.nodeX[i], loop.nodeY[i]);
+                }
+                endShape(CLOSE);
+            }
+        }
+            //flux calculator
+            let flux = Math.round(100*lineCrossIntegral(loop.nodeX, loop.nodeY)/6.27)/100;
+
+            //display the flux at the center of the loop
+            textSize(20);
+            fill(0, 0, 0);
+            if (loop.nodeX.length == 0){
+                if (drawing){
+                    text('Start drawing!', loopX, loopY);
+                } else {
+                    text('Turn on the drawing mode', loopX, loopY);
+                }
+            } else {
+                text(flux, loopX, loopY);
+            }
+
+    } else {
+        drawing = false;
+        document.getElementById('Draw').style.display = 'none';
+        loop = new OK_shape(500, 500);
+
+        //Draw the loop
+        noFill();
+        stroke("#48A9A6");
+        curveTightness(1);
+        beginShape();
+        for (let i = 0; i < loop.nodeX.length; i++) {
+            curveVertex(loop.nodeX[i], loop.nodeY[i]);
+        }
+        endShape(CLOSE);
+
+        //flux calculator
+        let flux = Math.round(100*lineCrossIntegral(loop.nodeX, loop.nodeY)/6.27)/100;
+
+        //display the flux at the center of the loop
+        textSize(20);
+        fill(0, 0, 0);
+        text(-flux, loop.x-45, loop.y-79.5); //flux is negative because the nodes are specified anticlockwise
+
     }
     
 }
