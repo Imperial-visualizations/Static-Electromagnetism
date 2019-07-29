@@ -426,7 +426,7 @@ function getPath() { //create array of (x,y) for each path
                 }
 
                 //Ensures green trace matches with arrow (correcting for radial out/in parts)
-                dTheta = 2*Math.PI/(Path.length -correction+6);
+                dTheta = 2*Math.PI/(Path.length - correction + 8);
 
             }
 
