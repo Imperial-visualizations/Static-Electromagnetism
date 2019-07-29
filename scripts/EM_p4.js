@@ -2010,7 +2010,7 @@ function draw() {
             args_plot_Bdl(circuitContainer[circuitSelected], currentContainer);
             if (intBdl2 !== intBdl) { // only if there's update of data
                 printIntBdl = Math.round((intBdl/mu0));
-                $('#Bdl-text').html(`${(printIntBdl).toString().slice(0, 4)}*&mu;<sub>0<\sub>`); //print the value of Bdl on the page
+                $('#Bdl-text').html(`${(printIntBdl).toString().slice(0, 4)}&mu;<sub>0<\sub>`); //print the value of Bdl on the page
                 Plotly.react('graph-holder', [trace,trace3, trace2], layout, {displayModeBar: false});
             }
         } else { //we are not in start position, but we don't care if playing or not
