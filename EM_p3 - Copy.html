@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!--Page Info-->
-    <title>EM_p4</title>
+    <title>EM_p3</title>
     <!--css link-->
     <link rel="stylesheet" href="styles/skeleton.css">
     <link rel="stylesheet" href="styles/style.css">
@@ -115,11 +115,11 @@
 <!--Text for left 1/3-->
 <div id="Vis_text" class="container_journey" style="height: 100vh">
 
-        <!-- Rounded switch -->
-        <label class="switch">
-            <input id="mode" type="checkbox" onclick="toggle()" checked>
-            <span class="slider round"></span>
-        </label>
+    <!-- Rounded switch -->
+    <label class="switch">
+        <input id="mode" type="checkbox" onclick="toggle()" checked>
+        <span class="slider round"></span>
+    </label>
 
     <div id="Vis1_text">
 
@@ -140,13 +140,21 @@
             The integral form of Ampere's law is:
             $$ \oint \mathbf{B.dl} = \mu_0 I$$
 
-                Ampere's law states that when a loop is placed around a current carrying wire, the integral of the magnetic field
-                around the loop is equal to $\mu_{0}$ multiplied by the current enclosed. If you add a loop in the visualisation
-                on the right then you can see, by clicking and dragging wires into and out of the loop, that this is true.
-                <br><br>
-                When there are wires near to, but outside of a loop, there is flux into and out of the loop, however the average
-                flux is zero, so the total integral is also zero. You can see how the magnetic flux varies around the loop
-                in the plot shown.
+            Ampere's law states that when a loop is placed around a current carrying wire, the integral of the magnetic
+            field
+            around the loop is equal to $\mu_{0}$ multiplied by the current enclosed. If you add a loop in the
+            visualisation
+            on the right then you can see, by clicking and dragging wires into and out of the loop, that this is true.
+            <br><br>
+            When there are wires near to, but outside of a loop, there is flux into and out of the loop however the
+            average
+            flux is zero which means the total integral is zero. You can see how the magnetic flux varies around the
+            loop
+            in the plot shown. The reason for this can be seen by placing a wire just outside a circular loop; in this
+            scenario dl is in the same direction of the field for about half of the loop, and opposite to the field for
+            the
+            other half.
+        </p>
 
         <div id="CurrentLine" style="display:none;">
             <h5> Current Wire: </h5>
@@ -449,9 +457,8 @@
 </div>
 
 
-
 </body>
 <!--THE BRAINS-->
-<script src="scripts/EM_p4.js"></script>
+<script src="scripts/EM_p3.js"></script>
 <script src="scripts/Static_EM_Object.js"></script>
 </html>
