@@ -24,7 +24,7 @@ function toggle() {
 //JS for Vis2
 //allpoints for storing charges, maxpoints to limit total n of allpoints, newchargex/y for position of new charge on top
 
-let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 10, newchargex = 235, newchargey = 38;
+let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 10, newchargex = 220, newchargey = 38;
 const Nvertices = 700, max_range = 2000, R = 16, square_size = 100, padding = 90, rect_height = height/8, arrow_size = 2;
 
 //Used to prevent things from overlapping one another
@@ -137,7 +137,7 @@ class charge_selector{
 //To specify the loop
 //loopX and loopY are the initial central coordinates of the loop
 //diceX and diceY are to randomise the vertices of the polygon
-let diceX = [], diceY = [], loopX = 200 + 600*Math.random(), loopY = 200 + 300*Math.random(), polygonradius = 60 + 20*Math.random(), polygonvertice = 30 + Math.round(10*Math.random());
+let diceX = [], diceY = [], loopX = 300 + 500*Math.random(), loopY = 300 + 200*Math.random(), polygonradius = 100 + 20*Math.random(), polygonvertice = 30 + Math.round(10*Math.random());
 for (let i = 0; i < polygonvertice; i++) {
     diceX[i] = 1 + 0.3*Math.random();
     diceY[i] = 1 + 0.3*Math.random();
@@ -192,11 +192,16 @@ let drawing = false;
 function DrawingMode() {
     if (drawing) {
         drawing = false;
-        $('#Draw').html('Drawing mode off');
+        $('#Draw').html('Drag mode');
     } else {
         drawing = true;
-        $('#Draw').html('Drawing mode on');
+        $('#Draw').html('Drawing mode');
     }
+}
+
+function clearDrawing() {
+    DrawX.splice(0, DrawX.length);
+    DrawY.splice(0, DrawY.length);
 }
 
 //The special case care taker, delete at your own peril
@@ -209,7 +214,7 @@ function structural(n) {
     if (dist(mouseX, mouseY, x, y) < R) {
         text("You can't catch me!", x, y - 22);
         textSize(15);
-        text('Poofff  : p', x, y);
+        text('Poofff :p', x, y);
         textSize(10);
         text("By the way, why neutral 'charge'", x + 300, y - 20);
     } else {
@@ -445,10 +450,10 @@ function draw() {
     }
 
     //draw the loop that the user wants
-
     if (loopChoice == 1) {
         drawing = false;
         document.getElementById('Draw').style.display = 'none';
+        document.getElementById('clearDrawing').style.display = 'none';
         loop = new weird_shape(loopX, loopY);
 
         //Draw the loop
@@ -471,9 +476,11 @@ function draw() {
 
     } else if (loopChoice == 2) {
         document.getElementById('Draw').style.display = 'inline-block';
+        document.getElementById('clearDrawing').style.display = 'inline-block';
+
         loop = new Draw_shape();
         noFill();
-        if (mouseIsPressed && drawing){
+        if (mouseIsPressed && mouseButton === LEFT && drawing){
             if(mouseX > 20 && mouseX < width - 100 && mouseY > padding && mouseY < height){              
                 cursor(CROSS);
                 DrawX.push(mouseX);
@@ -524,6 +531,7 @@ function draw() {
     } else {
         drawing = false;
         document.getElementById('Draw').style.display = 'none';
+        document.getElementById('clearDrawing').style.display = 'none';
         loop = new OK_shape(500, 500);
 
         //Draw the loop

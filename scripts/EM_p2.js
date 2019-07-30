@@ -25,7 +25,7 @@ function toggle() {
 
 //allpoints for storing dipoles, maxpoints to limit total n of allpoints, newdipolex/y for position of new magnet on top
 
-let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 5, newdipolex = 245, newdipoley = 38;
+let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 5, newdipolex = 227, newdipoley = 38;
 const Nvertices = 700, max_range = 1500, R = 16, square_size = 100, padding = 50, rect_height = height/8, arrow_size = 2.5;
 
 //Used to prevent things from overlapping one another
@@ -142,7 +142,7 @@ class dipole_selector{
 //To specify the loop
 //loopX and loopY are the initial central coordinates of the loop
 //diceX and diceY are to randomise the vertices of the polygon
-let diceX = [], diceY = [], loopX = 200 + 600*Math.random(), loopY = 200 + 300*Math.random(), polygonradius = 60 + 20*Math.random(), polygonvertice = 30 + Math.round(10*Math.random());
+let diceX = [], diceY = [], loopX = 300 + 500*Math.random(), loopY = 300 + 200*Math.random(), polygonradius = 100 + 20*Math.random(), polygonvertice = 30 + Math.round(10*Math.random());
 for (let i = 0; i < polygonvertice; i++) {
     diceX[i] = 1 + 0.3*Math.random();
     diceY[i] = 1 + 0.3*Math.random();
@@ -162,6 +162,51 @@ class weird_shape{
             this.nodeY[i] = y + polygonradius*diceY[i]*Math.sin(theta);
         }
     }
+}
+
+class OK_shape{
+    constructor(x, y){
+        this.x = x;
+        this.y = y;                                                 //Anticlockwise
+        this.nodeX = [x, x+100, x+150,                                  //Palm
+                        x+140, x+130, x+105, x+95, x+115,                     //Pinky
+                        x+122, x+103, x+70, x+55, x+80,                       //4th finger
+                        x+87, x+70, x+30, x+13, x+45,                         //International
+                        x+52, x-10, x-30, x-50, x-48, x-25, x-10, x+25,       //2nd
+                        x+30, x+25,                                     //the curve
+                        x-15, x-30, x-55, x-50];                        //Thumb
+        this.nodeY = [y, y, y-50,                                    //Palm
+                        y-100, y-150, y-200, y-200, y-150,               //Pinky
+                        y-110, y-160, y-220, y-215, y-155,               //4th finger
+                        y-115, y-165, y-225, y-220, y-160,               //International
+                        y-115, y-140, y-130, y-110, y-90, y-100, y-110, y-100,//2nd
+                        y-70, y-50,                                   //the curve
+                        y-55, y-80, y-70, y-55];                        //Thumb
+    }
+}
+
+let DrawX = [], DrawY = [];
+class Draw_shape{
+    constructor(){
+        this.nodeX = DrawX;
+        this.nodeY = DrawY;                     
+    }
+}
+
+let drawing = false;
+function DrawingMode() {
+    if (drawing) {
+        drawing = false;
+        $('#Draw').html('Drawing mode off');
+    } else {
+        drawing = true;
+        $('#Draw').html('Drawing mode on');
+    }
+}
+
+function clearDrawing() {
+    DrawX.splice(0, DrawX.length);
+    DrawY.splice(0, DrawY.length);
 }
 
 //The special case care taker, delete at your own peril
@@ -399,22 +444,29 @@ function mouseReleased() {
 //Used to prevent things from overlapping one another
 v1 = new volume_element(width/2, height/2, width/8, width/8);
 
-//Draw canvas in which everything p5.js happens
+//draw canvas in which everything p5.js happens
 function setup() {
-    let canvas = createCanvas(width,height);
+    let canvas = createCanvas(width, height);
     canvas.parent('sketch-holder');
-    rectMode(CENTER);
     frameRate(60);
+    $('#Draw').click(DrawingMode);
 }
 
 //main function that repeats as soon as the last line is called
 function draw() {
     clear();
 
+    loopChoice = document.getElementById('loopOptions').value;
     //any points cannot overlap graphically
-    for (let i = 0; i < allpoints.length; i++) {
-        if (allpoints[i].clicked == true && allpoints[i].intersect() == false){
-            allpoints[i].dragposition();
+    if (drawing) {
+    } else {
+        for (let i = 0; i < allpoints.length; i++) {
+            if (allpoints[i].clicked == true && allpoints[i].intersect() == false){
+                cursor(HAND);
+                allpoints[i].dragposition();
+            } else {
+                cursor(ARROW);
+            }
         }
     }
 
@@ -438,7 +490,7 @@ function draw() {
             }
         }
     }
-
+    rectMode(CENTER);
     //draw and colour all the magnets
     for (let i = 0; i < allpoints.length; i++) {
         noStroke(1);
@@ -461,7 +513,7 @@ function draw() {
     //draw the top blue rectangle box that contains the text, slider and new magnet
     noStroke();
     fill(247, 252, 251);
-    rect(0, 0, 2*width, 2*rect_height);
+    rect(0, 0, width, 2*rect_height);
 
     stroke(72, 99, 95);
     line(0, rect_height, width, rect_height);
@@ -479,7 +531,7 @@ function draw() {
         if (dip.m != 0){
             noStroke();
             fill(color(dip.bluecolor));
-            rect(- 16, 0, 32, 40);
+            rect(-16, 0, 32, 40);
             fill(color(dip.redcolor));
             rect(16, 0, 32, 40);
         } else {
@@ -492,8 +544,11 @@ function draw() {
     rotate(-angle);
     translate(-newdipolex, -newdipoley);
 
-    //draw the loop if user wants it
-    if (document.getElementById('loopOption').checked == true) {
+    //draw the loop that the user wants
+    if (loopChoice == 1) {
+        drawing = false;
+        document.getElementById('Draw').style.display = 'none';
+        document.getElementById('clearDrawing').style.display = 'none';
         loop = new weird_shape(loopX, loopY);
 
         //Draw the loop
@@ -505,12 +560,90 @@ function draw() {
             curveVertex(loop.nodeX[i], loop.nodeY[i]);
         }
         endShape(CLOSE);
-    
-        let flux = 0;       //Always 0 by Gauss's Law
-    
+
+        let flux = 0; //By definition
+
         //display the flux at the center of the loop
-        fill(0, 0, 0);
         textSize(20);
+        fill(0, 0, 0);
         text(flux, loop.x, loop.y);
+
+    } else if (loopChoice == 2) {
+        document.getElementById('Draw').style.display = 'inline-block';
+        document.getElementById('clearDrawing').style.display = 'inline-block';
+
+        loop = new Draw_shape();
+        noFill();
+        if (mouseIsPressed && mouseButton === LEFT && drawing){
+            if(mouseX > 20 && mouseX < width - 100 && mouseY > padding && mouseY < height){              
+                cursor(CROSS);
+                DrawX.push(mouseX);
+                DrawY.push(mouseY);
+            } 
+            if (loop.nodeX.length != 0){    
+                //Draw the loop
+                stroke("#48A9A6");
+                curveTightness(1);
+            
+                beginShape();
+                for (let i = 0; i < loop.nodeX.length; i++) {
+                    curveVertex(loop.nodeX[i], loop.nodeY[i]);
+                }
+                endShape(CLOSE);
+                
+            }
+        } else {
+            cursor(ARROW);
+            if (loop.nodeX.length != 0){    
+                //Draw the loop
+                stroke("#48A9A6");
+                curveTightness(1);
+            
+                beginShape();
+                for (let i = 0; i < loop.nodeX.length; i++) {
+                    curveVertex(loop.nodeX[i], loop.nodeY[i]);
+                }
+                endShape(CLOSE);
+            }
+        }
+
+            let flux = 0; //By definition
+
+            //display the flux at the center of the loop
+            textSize(20);
+            fill(0, 0, 0);
+            if (loop.nodeX.length == 0){
+                if (drawing){
+                    text('Start drawing!', loopX, loopY);
+                } else {
+                    text('Turn on the drawing mode', loopX, loopY);
+                }
+            } else {
+                text(flux, loopX, loopY);
+            }
+
+    } else {
+        drawing = false;
+        document.getElementById('Draw').style.display = 'none';
+        document.getElementById('clearDrawing').style.display = 'none';
+        loop = new OK_shape(500, 500);
+
+        //Draw the loop
+        noFill();
+        stroke("#48A9A6");
+        curveTightness(1);
+        beginShape();
+        for (let i = 0; i < loop.nodeX.length; i++) {
+            curveVertex(loop.nodeX[i], loop.nodeY[i]);
+        }
+        endShape(CLOSE);
+
+        let flux = 0; //By definition
+
+        //display the flux at the center of the loop
+        textSize(20);
+        fill(0, 0, 0);
+        text(-flux, loop.x-45, loop.y-79.5); //flux is negative because the nodes are specified anticlockwise
+
     }
 }
