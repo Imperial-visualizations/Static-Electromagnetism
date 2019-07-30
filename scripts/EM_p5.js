@@ -474,8 +474,9 @@ function Setup7Potential() {
 
 
 $(document).ready(Setup7Potential); //Load setup when document is ready.
-//JS for Vis2
 
+//JS for Vis2
+//This is used to calculate the arrows in the vector field
 function getVectorData(q, x_max, PlotStep){
     let ArrowData = [];
     //let z = [];
@@ -493,13 +494,15 @@ function getVectorData(q, x_max, PlotStep){
     let equation = selectEquation();
 
     switch (equation){
-        case "PointCharge": //reciprocal
+        case "PointCharge": //A point charge at the origin
             for (let i = -x_max; i <= x_max; i += PlotStep){
                 for (let j = -x_max; j <= x_max; j += PlotStep){
                     x[0] = i;
                     y[0] = j;
 
                     let scaleFactor = Math.pow(10,22);
+
+                    //x2 y2 are magnitudes of gradient at a certain point.
 
                     x2 = q/( 4*Math.PI*8.85*Math.pow(10,-12)*(x[0]**2 + y[0]**2)**1.5*x[0] )
                     y2 = q/( 4*Math.PI*8.85*Math.pow(10,-12)*(x[0]**2 + y[0]**2)**1.5*y[0] )
@@ -513,7 +516,7 @@ function getVectorData(q, x_max, PlotStep){
 
                     ArrowData = [x, y];
 
-                    CurrentArrow = new Arrow(ArrowData[0][0], ArrowData[1][0], ArrowData[0][1], ArrowData[1][1], 2);
+                    CurrentArrow = new Arrow(ArrowData[0][0], ArrowData[1][0], ArrowData[0][1], ArrowData[1][1], 2); //this last argument gives length of arrow head
                     LineStuff = CurrentArrow.GetDrawData2D();
 
                     VectorData.push(LineStuff[0]);
@@ -524,7 +527,7 @@ function getVectorData(q, x_max, PlotStep){
             break;
 
 
-        case "Dipole":  //gaussian type
+        case "Dipole":  //Dipole scenario
 
             for (let i = -x_max; i <= x_max; i += PlotStep){
                 for (let j = -x_max; j <= x_max; j += PlotStep){
@@ -533,14 +536,10 @@ function getVectorData(q, x_max, PlotStep){
 
                     let scaleFactor = Math.pow(10,40);
 
+                    //x2 y2 are magnitudes of gradient at a certain point.
+
                     x2 = 1/(4*Math.PI*8.85*Math.pow(10,-12))*( (q/((x[0]+10)**2+y[0]**2)**1.5)*(x[0]+10) + (-q/((x[0]-10)**2+y[0]**2)**1.5)*(x[0]-10) );
                     y2 = 1/(4*Math.PI*8.85*Math.pow(10,-12))*( (q/((x[0]+10)**2+y[0]**2)**1.5)*(y[0]) + (-q/((x[0]-10)**2+y[0]**2)**1.5)*(y[0]) );
-
-//                    x2 = 5;
-//                    y2 = 5;
-//
-//                    x2 = -q/( 4*Math.PI*8.85*Math.pow(10,-12)*(x[0]**2 + y[0]**2)**1.5*x[0] )
-//                    y2 = -q/( 4*Math.PI*8.85*Math.pow(10,-12)*(x[0]**2 + y[0]**2)**1.5*y[0] )
 
                     x2 = (x2**2*scaleFactor)**0.01*x2;
                     y2 = (y2**2*scaleFactor)**0.01*y2;
@@ -550,7 +549,7 @@ function getVectorData(q, x_max, PlotStep){
 
                     ArrowData = [x, y];
 
-                    CurrentArrow = new Arrow(ArrowData[0][0], ArrowData[1][0], ArrowData[0][1], ArrowData[1][1], 2);
+                    CurrentArrow = new Arrow(ArrowData[0][0], ArrowData[1][0], ArrowData[0][1], ArrowData[1][1], 2); //this last argument gives length of arrow head
                     LineStuff = CurrentArrow.GetDrawData2D();
 
                     VectorData.push(LineStuff[0]);
@@ -562,7 +561,7 @@ function getVectorData(q, x_max, PlotStep){
 
             break;
 
-        case "FarField": //cos type
+        case "FarField": //Still a dipole, but distance between dipole is nigligible compared to the distance to the dipole (Far-Field Limit)
             for (let i = -x_max; i <= x_max; i += PlotStep){
                 for (let j = -x_max; j <= x_max; j += PlotStep){
                     //ArrowData = GetArrowPoints(i, j, Equation, A);
@@ -570,15 +569,10 @@ function getVectorData(q, x_max, PlotStep){
                     y[0] = j;
 
                     let scaleFactor = Math.pow(10,1.5);
+                    //x2 y2 are magnitudes of gradient at a certain point.
 
                     x2 = 1/(4*Math.PI*8.85*Math.pow(10,-12))*( (q/((x[0]+0.1)**2+y[0]**2)**1.5)*(x[0]+0.1) + (-q/((x[0]-0.1)**2+y[0]**2)**1.5)*(x[0]-0.1) );
                     y2 = 1/(4*Math.PI*8.85*Math.pow(10,-12))*( (q/((x[0]+0.1)**2+y[0]**2)**1.5)*(y[0]) + (-q/((x[0]-0.1)**2+y[0]**2)**1.5)*(y[0]) );
-
-//                    x2 = 5;
-//                    y2 = 5;
-//
-//                    x2 = -q/( 4*Math.PI*8.85*Math.pow(10,-12)*(x[0]**2 + y[0]**2)**1.5*x[0] )
-//                    y2 = -q/( 4*Math.PI*8.85*Math.pow(10,-12)*(x[0]**2 + y[0]**2)**1.5*y[0] )
 
                     x2 = (Math.abs(x2)*scaleFactor)**0.5*x2/Math.abs(x2);
                     y2 = (Math.abs(y2)*scaleFactor)**0.5*y2/Math.abs(y2);
@@ -588,7 +582,7 @@ function getVectorData(q, x_max, PlotStep){
 
                     ArrowData = [x, y];
 
-                    CurrentArrow = new Arrow(ArrowData[0][0], ArrowData[1][0], ArrowData[0][1], ArrowData[1][1], 1.5);
+                    CurrentArrow = new Arrow(ArrowData[0][0], ArrowData[1][0], ArrowData[0][1], ArrowData[1][1], 1.5); //this last argument gives length of arrow head
                     LineStuff = CurrentArrow.GetDrawData2D();
 
                     VectorData.push(LineStuff[0]);
@@ -602,6 +596,7 @@ function getVectorData(q, x_max, PlotStep){
     return VectorData;
 };
 
+//This sets up the x and y coordinates to be plotted on the graphs
 function setupSurfaceData(xMin, xMax, yMin, yMax, plotStep){
     let xSurface = [];
     let ySurface = [];
@@ -684,19 +679,20 @@ function dipolePoint (q, xPoint, yPoint){
            - q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( (xPoint-10)**2 + yPoint**2));
 };
 
+//For surface plot.
 function pointChargeSurface(q, xSurface, ySurface){
     let zSurface = [];
     for (let xValue in xSurface){
             let zArray = [];
             for (let yValue in ySurface){
                 zArray.push(q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( xSurface[xValue]**2 + ySurface[yValue]**2)) );
-//                zArray.push(q);
             };
             zSurface.push(zArray);
         };
     return zSurface;
 };
 
+//For line plot
 function pointChargeLine (q, xLine, yLine){
     let zLine = [];
     for (let xValue in xLine){
@@ -705,10 +701,12 @@ function pointChargeLine (q, xLine, yLine){
     return zLine;
 };
 
+//For point plot.
 function pointChargePoint (q, xPoint, yPoint){
     return q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( xPoint**2 + yPoint**2))
 };
 
+//For surface plot.
 function farFieldSurface (q, xSurface,ySurface){
     let zSurface = [];
     for (let xValue in xSurface){
@@ -740,11 +738,14 @@ function farFieldPoint (q, xPoint, yPoint){
            - q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( (xPoint -0.1)**2 + yPoint**2));
 };
 
+//determines which equation is being chosen
 function selectEquation(){
     return document.getElementById("Function_Selector").value
 };
 
 //Below we prepare the data in the structure that plotly takes.
+
+//This compiles the surface of scalar field.
 function dataSurfaceCompile(xSurface,ySurface,zSurface){
      let dataSurface = {
                          x: xSurface,
@@ -757,6 +758,7 @@ function dataSurfaceCompile(xSurface,ySurface,zSurface){
     return dataSurface;
 };
 
+//This compiles the straight line path on scalar field.
 function dataLineACompile(xLine, yLine, zLine){
     let dataLine = {
                          x:xLine,
@@ -774,6 +776,7 @@ function dataLineACompile(xLine, yLine, zLine){
     return dataLine
 };
 
+//This compiles the sinusodial path on scalar field.
 function dataLineBCompile(xLine, yLine, zLine){
     let dataLine = {
                          x:xLine,
@@ -791,6 +794,7 @@ function dataLineBCompile(xLine, yLine, zLine){
     return dataLine
 };
 
+//This compiles the straight line path on vector field.
 function dataLineAVectorCompile(lineArray){
     let xLine = lineArray[0];
     let yLine = lineArray[1];
@@ -809,6 +813,7 @@ function dataLineAVectorCompile(lineArray){
     return dataLine;
 };
 
+//This compiles the sinusodial path on vector field.
 function dataLineBVectorCompile(lineArray){
     let xLine = lineArray[0];
     let yLine = lineArray[1];
@@ -827,6 +832,7 @@ function dataLineBVectorCompile(lineArray){
     return dataLine;
 };
 
+//This compiles the Point A on scalar field.
 function dataPointACompile(xPoint, yPoint, zPoint){
     let dataPoint = {
                          x:[xPoint],
@@ -844,6 +850,7 @@ function dataPointACompile(xPoint, yPoint, zPoint){
     return dataPoint
 };
 
+//This compiles the Point B on scalar field.
 function dataPointBCompile(xPoint, yPoint, zPoint){
     let dataPoint = {
                          x:[xPoint],
@@ -861,6 +868,7 @@ function dataPointBCompile(xPoint, yPoint, zPoint){
     return dataPoint
 };
 
+//This compiles the ball on scalar field.
 function dataBallCompile(xBall, yBall, zBall){
     let dataBall = {
                          x:[xBall],
@@ -878,6 +886,7 @@ function dataBallCompile(xBall, yBall, zBall){
     return dataBall
 };
 
+//This compiles the ball on vector field.
 function dataBallVectorCompile(xBall, yBall){
     let dataBall = {
                          x:[xBall],
@@ -894,6 +903,7 @@ function dataBallVectorCompile(xBall, yBall){
     return dataBall
 };
 
+//This compiles Point A on vector field.
 function dataPointAVectorCompile(xPoint, yPoint){
     let dataPoint = {
                          x:[xPoint],
@@ -910,6 +920,7 @@ function dataPointAVectorCompile(xPoint, yPoint){
     return dataPoint
 };
 
+//This compiles Point B on vector field.
 function dataPointBVectorCompile(xPoint, yPoint){
     let dataPoint = {
                          x:[xPoint],
@@ -926,10 +937,12 @@ function dataPointBVectorCompile(xPoint, yPoint){
     return dataPoint
 };
 
+
+//This plots both the scalar and vector field, and updates them
 function plot(xMin, xMax, yMin, yMax, plotStep, xSurface, ySurface, xLineA, yLineA,
                     xLineB, yLineB, xLineMin, yLineMin, xLineMax, yLineMax, dataLineAVector, dataLineBVector, dataPointAVector, dataPointBVector,
                     layoutScalar, layoutVector){
-
+// Blocks all equations, later can be shown in each scenario.
     document.getElementById("PointCharge_E_eqn_7b").style.display = "none";
     document.getElementById("Dipole_E_eqn_7b").style.display = "none";
     document.getElementById("FarField_E_eqn_7b").style.display = "none";
@@ -937,6 +950,7 @@ function plot(xMin, xMax, yMin, yMax, plotStep, xSurface, ySurface, xLineA, yLin
     document.getElementById("Dipole_V_eqn_7b").style.display = "none";
     document.getElementById("FarField_V_eqn_7b").style.display = "none";
 
+//Taking information from slider
     let q = parseFloat(document.getElementById('Slider_1_7b').value)*Math.pow(10,-9);
     let xPoint = parseFloat(document.getElementById('Slider_2_7b').value);
 
@@ -956,6 +970,7 @@ function plot(xMin, xMax, yMin, yMax, plotStep, xSurface, ySurface, xLineA, yLin
 
     if (equation === "Dipole"){
 
+        //display equations.
         document.getElementById("Dipole_E_eqn_7b").style.display = "block";
         document.getElementById("Dipole_V_eqn_7b").style.display = "block";
 
@@ -985,9 +1000,9 @@ function plot(xMin, xMax, yMin, yMax, plotStep, xSurface, ySurface, xLineA, yLin
         dataBallAVector = dataBallVectorCompile(xBallA,yBallA);
         dataBallBVector = dataBallVectorCompile(xBallB,yBallB);
 
-        let vectorData = getVectorData(q, 15, 10);
+        let vectorData = getVectorData(q, 15, 10); // The 2nd arg gives the max value where the arrow is plotted; 3rd arg gives the gap between arrows.
 
-        console.log(vectorData);
+        //pushing the vector data to be plotted together.
         vectorData.push(dataLineAVector);
         vectorData.push(dataLineBVector);
         vectorData.push(dataPointAVector);
@@ -995,14 +1010,17 @@ function plot(xMin, xMax, yMin, yMax, plotStep, xSurface, ySurface, xLineA, yLin
         vectorData.push(dataBallAVector);
         vectorData.push(dataBallBVector);
 
+        //displays the potential value at different points.
         $("#functionValueBall1_7b").text(`Electric Potential of Ball 1 = ${Math.round(100*zBallA)/100} V`);
         $("#functionValueBall2_7b").text(`Electric Potential of Ball 2 = ${Math.round(100*zBallB)/100} V`);
 
+        //graph plotting.
         Plotly.react("Vector_Graph_7b", vectorData, layoutVector);
         Plotly.react('Scalar_Graph_7b', [dataSurface, dataLineA, dataLineB, dataPointA, dataPointB, dataBallA, dataBallB], layoutScalar);
     }
         else if (equation === "FarField") {
 
+        //display equations.
         document.getElementById("FarField_E_eqn_7b").style.display = "block";
         document.getElementById("FarField_V_eqn_7b").style.display = "block";
 
@@ -1032,8 +1050,9 @@ function plot(xMin, xMax, yMin, yMax, plotStep, xSurface, ySurface, xLineA, yLin
         dataBallAVector = dataBallVectorCompile(xBallA,yBallA);
         dataBallBVector = dataBallVectorCompile(xBallB,yBallB);
 
-        let vectorData = getVectorData(q, 17.5, 5);
+        let vectorData = getVectorData(q, 17.5, 5); // The 2nd arg gives the max value where the arrow is plotted; 3rd arg gives the gap between arrows.
 
+        //pushing the vector data to be plotted together.
         vectorData.push(dataLineAVector);
         vectorData.push(dataLineBVector);
         vectorData.push(dataPointAVector);
@@ -1041,14 +1060,18 @@ function plot(xMin, xMax, yMin, yMax, plotStep, xSurface, ySurface, xLineA, yLin
         vectorData.push(dataBallAVector);
         vectorData.push(dataBallBVector);
 
+        //displays the potential value at different points.
         $("#functionValueBall1_7b").text(`Electric Potential of Ball 1 = ${Math.round(1000*zBallA)/1000} V`);
         $("#functionValueBall2_7b").text(`Electric Potential of Ball 2 = ${Math.round(1000*zBallB)/1000} V`);
 
+        //graph plotting.
         Plotly.react("Vector_Graph_7b", vectorData, layoutVector );
         Plotly.react('Scalar_Graph_7b', [dataSurface, dataLineA, dataLineB, dataPointA, dataPointB, dataBallA, dataBallB], layoutScalar);
 
     }
     else if (equation === "PointCharge"){
+
+        //display equations.
         document.getElementById("PointCharge_E_eqn_7b").style.display = "block";
         document.getElementById("PointCharge_V_eqn_7b").style.display = "block";
 
@@ -1075,13 +1098,12 @@ function plot(xMin, xMax, yMin, yMax, plotStep, xSurface, ySurface, xLineA, yLin
 
         let dataBallB = dataBallCompile(xBallB, yBallB, zBallB);
 
-
-        console.log(dataSurface);
         dataBallAVector = dataBallVectorCompile(xBallA,yBallA);
         dataBallBVector = dataBallVectorCompile(xBallB,yBallB);
 
-        let vectorData = getVectorData(q, xMax, 5);
+        let vectorData = getVectorData(q, xMax, 5); // The 2nd arg gives the max value where the arrow is plotted; 3rd arg gives the gap between arrows.
 
+        //pushing the vector data to be plotted together.
         vectorData.push(dataLineAVector);
         vectorData.push(dataLineBVector);
         vectorData.push(dataPointAVector);
@@ -1089,15 +1111,18 @@ function plot(xMin, xMax, yMin, yMax, plotStep, xSurface, ySurface, xLineA, yLin
         vectorData.push(dataBallAVector);
         vectorData.push(dataBallBVector);
 
+        //displays the potential value at different points.
         $("#functionValueBall1_7b").text(`Electric Potential of Ball 1 = ${Math.round(100*zBallA)/100} V`);
         $("#functionValueBall2_7b").text(`Electric Potential of Ball 2 = ${Math.round(100*zBallB)/100} V`);
 
+        //graph plotting.
         Plotly.react("Vector_Graph_7b", vectorData, layoutVector);
         Plotly.react('Scalar_Graph_7b', [dataSurface, dataLineA, dataLineB, dataPointA, dataPointB, dataBallA, dataBallB], layoutScalar)
     };
 };
 
 function main(){
+    //defining variables needed in this page.
     let q7b = 1*Math.pow(10,-9);
     let xMin = -20;
     let xMax = 20;
@@ -1111,6 +1136,7 @@ function main(){
     let yLineMin = -2;
     let yLineMax = -2;
 
+    //layout of scalar field.
     const layoutScalar_7b = {
             title: 'Electric Potential',
             autosize: false,
@@ -1135,7 +1161,7 @@ function main(){
             },
     };
 
-
+    //layout of vector field.
     const layoutVector_7b = {
         title: "Electric Field",
         showlegend: false,

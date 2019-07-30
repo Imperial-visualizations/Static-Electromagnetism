@@ -144,7 +144,11 @@ input:checked + .slider:before {
       <br><br>
       Geometrically, $\mathbf {E} \cdot \mathrm {d} \mathbf {S}$ represents the net <a href="Visualisations/Vector-Calculus-Concepts/Div&Flux.html">flux</a> of $\mathbf {E}$ through $\mathrm {d} \mathbf {S}$. This law relates the net flux through a closed surface to the net charge contained within.
       <br><br>
-      In this visualisation, we have a 2D representation of the law. The number in the loop is the scaled net flux through the loop.
+      In this visualisation, we have a 2D representation of the law. 
+      The loop, which represents a 2D slice of a surface, is generated randomly. 
+      The number in the loop is the scaled net flux through the loop.
+      <br><br>
+      In the 'manual loop' option, ...
       
     </div>
 
@@ -165,26 +169,39 @@ input:checked + .slider:before {
 
       <div style="position: relative;">
           <!--Text next to new charge-->
-          <label class="text" style="position: relative; left: 4%; display:inline-block;">
+          <label class="text" style="position: relative; left: 2%; display:inline-block;">
               <font size="5">Drag to add</font>
           </label>
           <!--Text next to slider for user to choose charge strength and polarity-->
-          <label class="text" style="position: relative; left: 20%; display:inline-block;">
+          <label class="text" style="position: relative; left: 8%; display:inline-block;">
               <font size="4">Relative charge:</font>
           </label>
           <!--Slider for user to choose charge strength and polarity-->
-          <label style="position: relative; left: 22%; width: 35%; display:inline-block;">
+          <label style="position: relative; left: 9%; width: 25%; display:inline-block;">
               <input id="magnit" class="inputs" type="range" value="1" min="-1" max="1" step="0.1" oninput="amount.value=magnit.value"/>
           </label>
           <!--Display user input on RHS of slider-->
-          <label style="position: relative; left: 18%; display:inline-block;">
+          <label style="position: relative; left: 6%; display:inline-block;">
               <label>Q = <output id="amount" name="amount" for="magnit">1</output></label>
           </label>
-          <!--Loop option-->
-          <input type="checkbox" id="loopOption" name="loopOption" style="position: relative; left: 20%; display:inline-block;" checked>
-          <label for="checkLoop" style="position: relative; left: 20%; display:inline-block;">Loop</label>
-              <!--p5 canvas for drawing charges, fieldlines and loop-->
-          <label id="sketch-holder" style="height: 100vh; width: 160vh; margin-top:-5%">
+          <!--Loop options-->
+          <label style="position: relative; left: 7%; display:inline-block;">
+            <select class="form-control" id="loopOptions" >
+              <option value="1">
+                  Random loop
+              </option>
+              <option value="2">
+                  Manual loop
+              </option>
+              <option value="3">
+                  OK
+              </option>
+            </select>
+          </label>
+          <button id="Draw" style="position: relative; left: 8%; width: 15%; display: none">Drag mode</button>
+          <button id="clearDrawing" style="position: relative; left: 8%; width: 10%; display: none" onclick='clearDrawing()'>Clear!</button>
+          <!--p5 canvas for drawing charges, fieldlines and loop-->
+          <label id="sketch-holder" style="height: 100vh; width: 160vh; margin-top:-8%">
       </div>
 
   </div>
