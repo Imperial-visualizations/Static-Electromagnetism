@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Page Info-->
+    <title>3Gauss_law_div_textonly</title>
+    <!--css link-->
+    <link rel="stylesheet"
+          href="styles/skeleton.css">
+    <link rel="stylesheet"
+          href="styles/style.css">
+    <!--Required JS resources-->
+    <!--NB: better to have resources before the main body but still works even if they are not-->
+    <script src="scripts/plotly-1.47.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="scripts/numeric/src/numeric.js"></script>
+    <script src="scripts/math.min.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { fonts: ["TeX"] }
+  });
+
+    </script>
+    <script type="text/javascript" src="scripts/MathJax-master/MathJax.js">
+    </script>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+
+<body style="overflow: hidden">
+    <!--Text for left 1/3-->
+    <div class="container_journey">
+        <p style="text-align: left; -webkit-user-select: none; -moz-user-select: none; user-select: none;-ms-user-select: none;">
+                Maxwell's second equation states that;
+             $$ \nabla \cdot \mathbf{B} = 0$$
+            Where $\nabla$ is the divergence operator. This means that magnetic fields are divergence free. But what does this actually mean?
+            <br>
+             A field is divergence free if the field is invariant along the path of the field lines. So, if one was to take an 'infinitesimal step' along a
+            field line, then the field strength would not change. Divergence free fields can still look very different from one another. The visualisation on the
+            right shows a few different examples of divergence free fields.
+            </p>
+    </div>
+
+
+</body>
+</html>

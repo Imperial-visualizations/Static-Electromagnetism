@@ -2,6 +2,10 @@
 /* Start by putting in all initial parameters you want and any constants you want to use (e.g. G = 6.67*10**(-11),
 any layout properties (which you probably want to keep constant for an individual part of a visualisation
 should go here */
+/*not sure why but js and html aren't recognising line2d as a funcion so i've put it in this file to see whether
+it will respong directly
+ */
+//end of line2d function code
 var shape = 1;
 const initialPoint = [1, 0];
 const initialPoint3 = [1,0];
@@ -106,7 +110,7 @@ function unpackVertices (vertices) {
     return;
 }
 
-let thicknesses_p3 = [1, 3, 5, 5, 6, 7, 8]
+let thicknesses_p3 = [1, 2, 3, 4, 5, 6, 7]
 
 function select(thicknesses,hnumber,vnumber,shape,x3,y3){
     let lhsx = [];
@@ -118,15 +122,14 @@ function select(thicknesses,hnumber,vnumber,shape,x3,y3){
 
 
     if (shape === 1) {
-        //console.log("1");
         for ( let i = 0; i < hnumber; i++) {
             for (let j = 0; j < vnumber; j++) {
-                colorscale = [250 * Math.cos(i * x3), 0, Math.abs(250 * Math.sin(i * x3))]
+               let colorscale = [250 * Math.cos(i * x3), 0, Math.abs(250 * Math.sin(i * x3))]
                 for (let jj = 0; jj < 2; jj++) {
                     for (let ii = 0; ii < 2; ii++) {
                     if (x3 >= 0) {
                         lhsx.push(((-1) ** ii) * x3 * (i + 1));
-                        rhsx.push(((-1) ** ii) * x3 * (i + 1));
+                        rhsx.push(((-1) ** ii) * x3 * (i + 0.5));
                         lhsy.push(((-1) ** jj) * j * y3);
                         rhsy.push(((-1) ** jj) * j * y3);
                         colours.push(colorscale);
@@ -145,7 +148,6 @@ function select(thicknesses,hnumber,vnumber,shape,x3,y3){
         }
 
     } else if (shape === 2) {
-        //console.log("2");
         for (let i = 0; i < hnumber; i++) {
             for (let j = 0; j < vnumber; j++) {
                 colorscale = [250 * Math.cos(i * x3), 0, Math.abs(250 * Math.sin(i * x3))]
@@ -153,7 +155,7 @@ function select(thicknesses,hnumber,vnumber,shape,x3,y3){
                     for (let ii = 0; ii < 2; ii++) {
                         if (x3 >= 0) {
                             lhsx.push(((-1) ** ii) * x3 * (i + 1));
-                            rhsx.push(((-1) ** ii) * x3 * (i + 1));
+                            rhsx.push(((-1) ** ii) * x3 * (i + 0.5));
                             lhsy.push(((-1) ** jj) * j * y3);
                             rhsy.push(((-1) ** jj) * j * y3);
                             colours.push(colorscale);
@@ -171,43 +173,41 @@ function select(thicknesses,hnumber,vnumber,shape,x3,y3){
             }
         }
     } else if (shape == 3) {
-        //console.log("3");
         for (let i = 0; i < hnumber; i++) {
-            for (let j = 0; j < vnumber; j++) {
+            for (let j = -vnumber; j < vnumber; j++) {
                 colorscale = [250 * Math.cos(i * x3), 0, Math.abs(250 * Math.sin(i * x3))]
-                for (let jj = 0; jj < 2; jj++) {
-                for (let ii = 0; ii<2; ii++) {
-                    if (x3 >= 0) {
-                        lhsx.push(((-1) ** ii) * x3 * (i + 1));
-                        rhsx.push(((-1) ** ii) * x3 * (i + 1));
-                        lhsy.push(((-1) ** jj) * j * y3);
-                        rhsy.push(((-1) ** jj) * j * y3);
-                        colours.push(colorscale);
-                        widths.push(thicknesses_p3[j]);
-                    } else {
-                        lhsx.push(((-1) ** ii) * x3 * (i + 1));
-                        rhsx.push(((-1) ** ii) * x3 * (i + 1));
-                        lhsy.push(((-1) ** jj) * j * y3);
-                        rhsy.push(((-1) ** jj) * j * y3);
-                        colours.push(colorscale);
-                        widths.push(thicknesses_p3[j]);
-                    }
+                    for (let ii = 0; ii < 2; ii++) {
+                        if (x3 >= 0) {
+                            lhsx.push(((-1) ** ii) * x3 * (i + 1));
+                            rhsx.push(((-1) ** ii) * x3 * (i + 0.5));
+                            lhsy.push(((-1) ** 1) * j * y3);
+                            rhsy.push(((-1) ** 1) * j * y3);
+                            colours.push(colorscale);
+                            widths.push((5+j)*0.5);
+                        } else {
+                            lhsx.push(((-1) ** ii) * x3 * (i + 1));
+                            rhsx.push(((-1) ** ii) * x3 * (i + 1));
+                            lhsy.push(((-1) ** 1) * j * y3);
+                            rhsy.push(((-1) ** 1) * j * y3);
+                            colours.push(colorscale);
+                            widths.push((5+j)*0.5);
                     }
                 }
             }
         }
     }
+
     return [lhsx,rhsx,lhsy,rhsy,widths,colours]
 }
 
 function computeBasis(x3,y3) {
-    currentPoint3 = [x3, y3];
+    let currentPoint3 = [x3, y3];
 
-    rho3 = Math.sqrt(x3 ** 2 + y3 ** 2);
-    phi3 = Math.atan(x3 / y3);
+    let rho3 = Math.sqrt(x3 ** 2 + y3 ** 2);
+    let phi3 = Math.atan(x3 / y3);
 
-    dx3 = 1;
-    dy3 = 1;
+    let dx3 = 1;
+    let dy3 = 1;
 
 
     if (x3 < 0 && y3 > 0) {
@@ -223,7 +223,7 @@ function computeBasis(x3,y3) {
     //This is how we first declare objects
 
     let vnumber = 4;
-    let hnumber = 4;
+    let hnumber = 6;
 
 
     let thicknesses = [1, 3, 4, 1, 5, 2, 4]
@@ -239,15 +239,15 @@ function computeBasis(x3,y3) {
 
     let vertices = [];
 
-    for (i = 0; i < lhsx.length; i++) {
+    for (let i = 0; i < lhsx.length; i++) {
         let a = new Line2d([[lhsx[i] - 1, lhsy[i]], [rhsx[i] + 1, rhsy[i]]]);
-        vertices.push(a.gObject(blue, op = 0.8, width = widths[i]));
-        vertices.push(a.arrowHead(blue, width = widths[i]));
+        vertices.push(a.gObject(blue,  0.8,  widths[i]));
+        vertices.push(a.arrowHead( blue,  widths[i]));
     }
 
     let data = [];
 
-    for (i = 0; i < vertices.length; i++) {``
+    for (let i = 0; i < vertices.length; i++) {``
         data.push(vertices[i])
     }
 
@@ -260,16 +260,14 @@ function computeBasis(x3,y3) {
     Now we just have to actually obtain the user input from the HTML file by using JQuery and then plot everything relevant that we want to see*/
 
 function initCarte(type) {
-    //console.log("init called")
     Plotly.purge("graph");
-    initX3 = initialPoint3[0];
-    initY3 = initialPoint3[0];
+    let initX3 = initialPoint3[0];
+    let initY3 = initialPoint3[0];
 
 
     let x3 = 1;
     let y3 = 1;//parseFloat(document.getElementById('y3Controller').value);
     Plotly.newPlot("graph", computeBasis(x3, y3), layout);
-    //console.log("initalisation done")
 }
 
 //D: Calling
@@ -278,7 +276,6 @@ function initCarte(type) {
 define what we want it to do when it updates, and then actually ask it to do that. These are the two functions below.
 */
 function updatePlot() {
-    //console.log("shit is going down")
         let data = [];
 
         let x3 = 1;
@@ -295,7 +292,6 @@ function updatePlot() {
                 mode: "immediate"
             }
         );
-        //console.log("shit is still going down")
     }
 
 function main() {
@@ -316,8 +312,6 @@ function main() {
 
     $('#Select').change(function () {
         let selectedValue = document.getElementById("Select").value;
-        //console.log("change");
-        //console.log(selectedValue);
         if (selectedValue === "Preset1") {
             shape = 1;
             updatePlot();
