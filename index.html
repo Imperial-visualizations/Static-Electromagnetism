@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Title-->
+    <title>Visualisations Vector Calculus</title>
+    <!--css links-->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet"
+        integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <link href="styles/style.css" rel="stylesheet">
+    <link href="styles/skeleton.css" rel="stylesheet">
+    <link href="styles/index_Style.css" rel="stylesheet">
+    <link href="styles/loadout_Style.css" rel="stylesheet">
+    <!--Required JS resources-->
+    <script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="scripts/debounce_and_throttle.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+    <script src="scripts/numeric/src/numeric.js"></script>
+    <script src="scripts/math.min.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { fonts: ["TeX"] }
+  });
+    </script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+
+<body>
+<div id="app">
+    <!--   Title of non-current sections to appear on hovering above respective number in navbar     -->
+    <div id="hoverTitleSpace" :style="{left: mouseX +'px'}" v-show="hoverTitle !== false">
+        {{hoverTitle}}
+    </div>
+    <!--    Left Side of Window - containing mainly text    -->
+    <div class="vis-container left" id="left-container">
+        <!--     Dynamic Navigation Bar and Section Headings       -->
+        <div class="" id="progress-container">
+            <!--    Dynamic Section Heading Text - overlaid on meters    -->
+            <!--    Also act as buttons to navigate between sections    -->
+            <div class="" id="overlay" @mousemove="hoverTitle !== false ? updateMouseX($event) : ''">
+                <button :class="[currentTitle === 1 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle1"
+                        key="sectionTitle1" data-no=1 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[0]}}
+                </button>
+                <button :class="[currentTitle === 2 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle2"
+                        key="sectionTitle2" data-no=2 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[1]}}
+                </button>
+                <button :class="[currentTitle === 3 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle3"
+                        key="sectionTitle3" data-no=3 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[2]}}
+                </button>
+                <button :class="[currentTitle === 4 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle4"
+                        key="sectionTitle4" data-no=4 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[3]}}
+                </button>
+            </div>
+            <!--    Dynamic meters indicating progress through each section    -->
+            <meter :class="[currentTitle === 1 ? 'activeMeter' : '']" id="m1" :min="sectionTops[0]"
+                   :max="sectionBottoms[0]" :value="scrollPos"></meter>
+            <meter :class="[currentTitle === 2 ? 'activeMeter' : '']" id="m2" :min="sectionTops[1]"
+                   :max="sectionBottoms[1]" :value="scrollPos"></meter>
+            <meter :class="[currentTitle === 3 ? 'activeMeter' : '']" id="m3" :min="sectionTops[2]"
+                   :max="sectionBottoms[2]" :value="scrollPos"></meter>
+            <meter :class="[currentTitle === 4 ? 'activeMeter' : '']" id="m4" :min="sectionTops[3]"
+                   :max="sectionBottoms[3]" :value="scrollPos"></meter>
+            <div id="banner-dummy"></div>
+        </div>
+        <!--    Container for text content split into sections    -->
+        <div class="journey" id="main-journey" @scroll.passive="scrollFunc">
+            <!--    Section Text Containers   -->
+            <div class="section-container" id="sc1">
+                <div class="placeholder" id="ph1">
+                    <hr>
+                    <h2 class="text section-head" id="s1">
+                        {{sectionTitleLong[0]}}
+                    </h2>
+                    <hr>
+                </div>
+                <div class="text section-body odd" id="p1">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nec augue tempus, ullamcorper mi eget, aliquet nulla. Pellentesque augue leo, sodales tempus justo sollicitudin, elementum placerat risus. Vivamus dapibus nulla id dolor egestas, eget efficitur tortor faucibus. Ut imperdiet vel velit quis rutrum. Aenean quis tempor lacus. Suspendisse augue libero, rhoncus non leo vitae, pulvinar vehicula dolor. Nulla viverra suscipit purus, in euismod ex ultrices id. Nullam ut sollicitudin ex. Nulla faucibus eu turpis sed placerat. Pellentesque nec iaculis nibh. Integer faucibus sodales arcu sed rutrum.
+                    </br></br>
+                    Suspendisse mattis porttitor cursus. Curabitur et dolor lobortis, suscipit sapien id, sodales elit. Nunc cursus sapien vitae lectus rutrum eleifend. Fusce quis erat vel mauris tristique vulputate at sit amet orci. Integer aliquam mi quis quam hendrerit pulvinar. Phasellus fermentum nulla a est placerat, eget tincidunt purus varius. Morbi facilisis ante posuere tortor tristique, a lobortis ante pharetra. Suspendisse tempor est vel augue cursus tincidunt. Aenean sed nisi orci. Nulla nec euismod augue, eget fermentum libero. Donec vitae cursus felis, a ultrices erat. Aliquam dapibus mauris sem, sit amet imperdiet purus pellentesque in. Sed rhoncus finibus erat, eget ornare erat pretium eu.
+                    </br></br>
+                    Suspendisse vitae finibus ligula. Cras bibendum elit in diam porttitor, sit amet fermentum orci vulputate. Integer lectus justo, laoreet in condimentum et, accumsan vitae nulla. Morbi facilisis quam eros, vel fermentum velit volutpat nec. Morbi aliquam elit nibh, non finibus ipsum sollicitudin ut. Fusce finibus laoreet diam, eu finibus risus laoreet ac. Maecenas mi erat, semper sit amet nisl vel, consectetur auctor dolor. Aenean eget risus et metus elementum consequat. Nullam eget mi ante. Vivamus eget dolor arcu. Suspendisse id convallis mauris, in ultrices tortor.
+                    </br></br>
+                    Duis nec nisl quam. Sed ultricies tempor nibh non fermentum. Nulla facilisis pharetra nisl vitae lacinia. Vivamus et dolor nec purus convallis ornare a id sapien. Nunc eget nibh id nibh mollis molestie sit amet in purus. Mauris finibus tellus non mi feugiat, quis vestibulum purus facilisis. Maecenas malesuada convallis lobortis. Sed id tortor pretium, luctus felis ac, euismod dui.
+                    </br></br>
+                    Mauris vulputate urna id sodales posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean in orci venenatis, maximus lorem quis, posuere massa. Aliquam id blandit tortor, et lacinia dui. Etiam urna ligula, fermentum venenatis quam sodales, porttitor consectetur nisi. Sed accumsan volutpat dolor. Duis feugiat accumsan massa, at rhoncus lorem sagittis at. Vestibulum massa sapien, faucibus sit amet consectetur vel, pulvinar vel neque. Integer tincidunt faucibus mi sit amet condimentum. Nullam finibus elementum nulla et pellentesque. Sed fermentum nisi et nibh pellentesque fermentum. Phasellus porta aliquet sem, eu rutrum justo luctus vel. Aliquam erat volutpat. o, sodales tempus justo sollicitudin, elementum placerat risus. Vivamus dapibus nulla id dolor egestas, eget efficitur tortor faucibus. Ut imperdiet vel velit quis rutrum. Aenean quis tempor lacus. Suspendisse augue libero, rhoncus non leo vitae, pulvinar vehicula dolor. Nulla viverra suscipit purus, in euismod ex ultrices id. Nullam ut sollicitudin ex. Nulla faucibus eu turpis sed placerat. Pellentesque nec iaculis nibh. Integer faucibus sodales arcu sed rutrum.
+                </div>
+            </div>
+            <div class="section-container" id="sc2">
+                <div class="placeholder" id="ph2">
+                    <hr>
+                    <h2 class="text section-head" id="s2">
+                        {{sectionTitleLong[1]}}
+                    </h2>
+                    <hr>
+                </div>
+                <div class="text section-body odd" id="p2">
+                    <!--    Sub-Section Tabs    -->
+                    <ul class="nav nav-tabs nav-justified">
+                        <li :class="[subSection[1] === 1 ? 'shaded' : '', 'active', 'tabLeft']">
+                            <a data-toggle="tab" href="#gradDifferential" @click="subScrollTo(2); subSection[1]=1; loadSubScripts(); $forceUpdate();">Differential</a>
+                        </li>
+                        <li :class="[subSection[1] === 2 ? 'shaded' : '', 'tabRight']">
+                            <a data-toggle="tab" href="#gradIntegral" @click="subScrollTo(2); subSection[1]=2; loadSubScripts(); $forceUpdate();">Integral</a>
+                        </li>
+                    </ul>
+                    <!--    Sub-Section Text Containers    -->
+                    <div class="tab-content">
+                        <div id="gradDifferential" class="tab-pane fade in active show">
+                            Grad operates on a scalar field <span class="mathJaxInline">$ f(x, y) $</span> to produce a vector field indicating the magnitude and direction of the
+                            steepest gradient at each point.
+                            <br><br>
+                            It is easy to remember that grad produces a vector field, because it is necessary
+                            for the gradient to have a direction once there is more than one dimension involved.  It must act on a scalar field
+                            because it doesn't make much sense for a vector field to have a gradient.
+                            <br><br>
+                            The surface shown on the right is a scalar function <span class="mathJaxInline">$ f $</span> of two independent variables, <span class="mathJaxInline">$ x $</span> and <span class="mathJaxInline">$ y $</span>.  Note that it is a 2D scalar field &mdash;
+                            the third dimension is just being used to display the value of the function.
+                            <br><br>
+                            Beneath it the gradient of the function <span class="mathJaxInline">$ \nabla f $</span> is shown.  By changing the coefficient <span class="mathJaxInline">$ a $</span>, the gradient of the function can be increased
+                            and decreased in certain directions.  There are also several functions to choose from.
+                            <br><br>
+                            The idea extends to three dimensions in the same way.  For example, if you were to plot the magnitude of the Sun's gravitational field
+                            in 3D space around the Sun, the gradient of this field would give vectors that point to the centre of the Sun at every point.
+                        </div>
+                        <div id="gradIntegral" class="tab-pane fade">
+                            <span class="mathJaxDisplay">
+                                $$ \Omega_B - \Omega_A = \int _A ^B \nabla \Omega \cdot d\mathbf{l} $$
+                            </span>
+                            For a given vector field, if <span class="mathJaxInline">$ \mathbf{A} \cdot d\mathbf{l} $</span> is an exact differential, <span class="mathJaxInline">$ \mathbf{A} $</span> is a conservative field. Then, <span class="mathJaxInline">$ \mathbf{A} $</span> is the
+                            gradient function of some scalar function <span class="mathJaxInline">$ \Omega $</span>. That is, <span class="mathJaxInline">$ \mathbf{A} = \nabla {\Omega} $</span>.
+                            <br><br>
+                            We can relate <span class="mathJaxInline">$ \Omega $</span> and <span class="mathJaxInline">$ \nabla \Omega $</span> by the equation below:
+                            <span class="mathJaxDisplay">
+                                $$ \int _A ^B \nabla \Omega \cdot d\mathbf{l} = \Omega_B - \Omega_A $$
+                            </span>
+                            From this equation above, we can see that the integral is independent of the path that one takes from A to B,
+                            for it is determined by only the values from the parent function <span class="mathJaxInline">$ \Omega_B - \Omega_A $</span>. This is a generalisation of the Fundamental Theorem of Calculus.
+                            <br><br>
+                            <h3 class="section-sub-head">
+                                Visualisation Guide
+                            </h3>
+                            <ol>
+                                <li>On the right, you can see a gradient field and its scalar parent function.
+                                    Change the value of the parameter <span class="mathJaxInline">$ a $</span>, and observe the change in <span class="mathJaxInline">$ \nabla \Omega $</span> and <span class="mathJaxInline">$ \Omega $</span>.</li>
+                                <br>
+                                <li>Note that as the magnitude of <span class="mathJaxInline">$ a $</span> increases, the length of the arrows in <span class="mathJaxInline">$ \nabla \Omega $</span> increases and the contour of the parent function
+                                    <span class="mathJaxInline">$ \Omega $</span> becomes steeper as well. Hence, the gradient vector increases in magnitude as well.</li>
+                                <br>
+                                <li>All gradient fields shown in this suite are conservative. This means that the line integral along the field,
+                                    <span class="mathJaxInline">$ \int \nabla \Omega \cdot d\mathbf{l} $</span> is path independent. Move the path of the ball from Point A to Point B
+                                    along 2 different paths, Path 1 and Path 2.</li>
+                                <br>
+                                <li>Observe their function values. Note that along the path, the value of <span class="mathJaxInline">$ \Omega $</span> may be different.
+                                    However, when the balls reach Point B, their function values are equal.</li>
+                                <br>
+                                <li>This means that the line integral <span class="mathJaxInline">$ \int _A ^B \nabla \Omega \cdot d\mathbf{l} $</span>  is determined
+                                    only by the value of <span class="mathJaxInline">$ \Omega $</span> at the limits, <span class="mathJaxInline">$ \Omega_B - \Omega_A $</span>.</li>
+                                <br>
+                                <li>There are a few other functions for you to play around with. Click the dropdown menu to find out.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-container" id="sc3">
+                <div class="placeholder" id="ph3">
+                    <hr>
+                    <h2 class="text section-head" id="s3">
+                        {{sectionTitleLong[2]}}
+                    </h2>
+                    <hr>
+                </div>
+                <div class="text section-body odd" id="p3">
+                    <!--    Sub-Section Tabs    -->
+                    <ul class="nav nav-tabs nav-justified">
+                        <li :class="[subSection[2] === 1 ? 'shaded' : '', 'active', 'tabLeft']">
+                            <a data-toggle="tab" href="#divergenceDifferential" @click="subScrollTo(3); subSection[2]=1; loadSubScripts(); $forceUpdate();">Differential</a>
+                        </li>
+                        <li :class="[subSection[2] === 2 ? 'shaded' : '', 'tabRight']">
+                            <a data-toggle="tab" href="#divergenceIntegral" @click="subScrollTo(3); subSection[2]=2; loadSubScripts(); $forceUpdate();">Integral</a>
+                        </li>
+                    </ul>
+                    <!--    Sub-Section Text Containers    -->
+                    <div class="tab-content">
+                        <div id="divergenceDifferential" class="tab-pane fade in active show">
+                            <h3 class="section-sub-head first-sub-head">
+                                What is divergence?
+                            </h3>
+                            The divergence of a field quantifies how much a field varies in the direction of the field lines. A
+                            field is said to be diverging if the field strength changes as you step along field lines. On an
+                            infinitesimal level, this may be interpreted as 'sources' of field strength 'creating' or 'destroying'
+                            field lines. It may be calculated using the <span class="mathJaxInline">$ \nabla $</span> operator on a vector field to generate
+                            a scalar field. The Visualisation on the right shows an infinitesimal section of a surface (the y axis).
+                            <br><br>
+                            The arrows show the direction of the field lines while their thickness and colour represent the field strength. Use the
+                            <span class="mathJaxInline">$ \nabla $</span> slider to understand the difference between positive and negative divergence.
+                            <br><br>
+                            Divergence may also occur if there are sources of field lines (e.g. monopoles) that increase/decrease the
+                            line density of a field, as shown by the figure to the right. The source of divergence adds field lines whereas
+                            the sink takes them away. Hence the source has a positive divergence and the sink has a negative divergence.
+                        </div>
+                        <div id="divergenceIntegral" class="tab-pane fade">
+                            <h3 class="section-sub-head first-sub-head">
+                                Flux - the flow of field lines
+                            </h3>
+                            We often call <span class="mathJaxInline">$ \mathbf{F} \cdot d\mathbf{S} $</span> the flux of field <span class="mathJaxInline">$ \mathbf{F} $</span> perpendicular through a surface element <span class="mathJaxInline">$ d\mathbf{S} $</span>.
+                            In this visualisation, the green line can be thought as taking the side view of the surface element.
+                            <br><br>
+                            The <b>net</b> flux through any surface <span class="mathJaxInline">$ \mathbf{S} $</span> is given by the integral:
+                            <span class="mathJaxDisplay">
+                                $$\iint_S \mathbf{F} \cdot d\mathbf{S}$$
+                            </span>
+                            By considering a <b>closed</b> surface, the Divergence Theorem relates the net flux to the divergence of the field:
+                            <span class="mathJaxDisplay">
+                                $$ {\large\bigcirc}\kern-1.55em\iint_S \mathbf{F} \cdot d\mathbf{S} = \iiint_V \nabla \cdot \mathbf{F} dV $$
+                            </span>
+                            An <a href="Visualisations/Static-Electromagnetism/EM_p1.html">example</a> of the Divergence Theorem is Maxwell's Equation.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-container" id="sc4">
+                <div class="placeholder" id="ph4">
+                    <hr>
+                    <h2 class="text section-head" id="s4">
+                        {{sectionTitleLong[3]}}
+                    </h2>
+                    <hr>
+                </div>
+                <div class="text section-body odd" id="p4">
+                    <!--    Sub-Section Tabs    -->
+                    <ul class="nav nav-tabs nav-justified">
+                        <li :class="[subSection[3] === 1 ? 'shaded' : '', 'active', 'tabLeft']">
+                            <a data-toggle="tab" href="#curlDifferential" @click="subScrollTo(4); subSection[3]=1; loadSubScripts(); $forceUpdate();">Differential</a>
+                        </li>
+                        <li :class="[subSection[3] === 2 ? 'shaded' : '', 'tabRight']">
+                            <a data-toggle="tab" href="#curlIntegral" @click="subScrollTo(4); subSection[3]=2; loadSubScripts(); $forceUpdate();">Integral</a>
+                        </li>
+                    </ul>
+                    <!--    Sub-Section Text Containers    -->
+                    <div class="tab-content">
+                        <div id="curlDifferential" class="tab-pane fade in active show">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nec augue tempus, ullamcorper mi eget, aliquet nulla. Pellentesque augue leo, sodales tempus justo sollicitudin, elementum placerat risus. Vivamus dapibus nulla id dolor egestas, eget efficitur tortor faucibus. Ut imperdiet vel velit quis rutrum. Aenean quis tempor lacus. Suspendisse augue libero, rhoncus non leo vitae, pulvinar vehicula dolor. Nulla viverra suscipit purus, in euismod ex ultrices id. Nullam ut sollicitudin ex. Nulla faucibus eu turpis sed placerat. Pellentesque nec iaculis nibh. Integer faucibus sodales arcu sed rutrum.
+                            </br></br>
+                            Suspendisse mattis porttitor cursus. Curabitur et dolor lobortis, suscipit sapien id, sodales elit. Nunc cursus sapien vitae lectus rutrum eleifend. Fusce quis erat vel mauris tristique vulputate at sit amet orci. Integer aliquam mi quis quam hendrerit pulvinar. Phasellus fermentum nulla a est placerat, eget tincidunt purus varius. Morbi facilisis ante posuere tortor tristique, a lobortis ante pharetra. Suspendisse tempor est vel augue cursus tincidunt. Aenean sed nisi orci. Nulla nec euismod augue, eget fermentum libero. Donec vitae cursus felis, a ultrices erat. Aliquam dapibus mauris sem, sit amet imperdiet purus pellentesque in. Sed rhoncus finibus erat, eget ornare erat pretium eu.
+                            </br></br>
+                            Suspendisse vitae finibus ligula. Cras bibendum elit in diam porttitor, sit amet fermentum orci vulputate. Integer lectus justo, laoreet in condimentum et, accumsan vitae nulla. Morbi facilisis quam eros, vel fermentum velit volutpat nec. Morbi aliquam elit nibh, non finibus ipsum sollicitudin ut. Fusce finibus laoreet diam, eu finibus risus laoreet ac. Maecenas mi erat, semper sit amet nisl vel, consectetur auctor dolor. Aenean eget risus et metus elementum consequat. Nullam eget mi ante. Vivamus eget dolor arcu. Suspendisse id convallis mauris, in ultrices tortor.
+                            </br></br>
+                            Duis nec nisl quam. Sed ultricies tempor nibh non fermentum. Nulla facilisis pharetra nisl vitae lacinia. Vivamus et dolor nec purus convallis ornare a id sapien. Nunc eget nibh id nibh mollis molestie sit amet in purus. Mauris finibus tellus non mi feugiat, quis vestibulum purus facilisis. Maecenas malesuada convallis lobortis. Sed id tortor pretium, luctus felis ac, euismod dui.
+                            </br></br>
+                            Mauris vulputate urna id sodales posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean in orci venenatis, maximus lorem quis, posuere massa. Aliquam id blandit tortor, et lacinia dui. Etiam urna ligula, fermentum venenatis quam sodales, porttitor consectetur nisi. Sed accumsan volutpat dolor. Duis feugiat accumsan massa, at rhoncus lorem sagittis at. Vestibulum massa sapien, faucibus sit amet consectetur vel, pulvinar vel neque. Integer tincidunt faucibus mi sit amet condimentum. Nullam finibus elementum nulla et pellentesque. Sed fermentum nisi et nibh pellentesque fermentum. Phasellus porta aliquet sem, eu rutrum justo luctus vel. Aliquam erat volutpat. o, sodales tempus justo sollicitudin, elementum placerat risus. Vivamus dapibus nulla id dolor egestas, eget efficitur tortor faucibus. Ut imperdiet vel velit quis rutrum. Aenean quis tempor lacus. Suspendisse augue libero, rhoncus non leo vitae, pulvinar vehicula dolor. Nulla viverra suscipit purus, in euismod ex ultrices id. Nullam ut sollicitudin ex. Nulla faucibus eu turpis sed placerat. Pellentesque nec iaculis nibh. Integer faucibus sodales arcu sed rutrum.
+                        </div>
+                        <div id="curlIntegral" class="tab-pane fade">
+                            Stokes' Theorem states:
+                            <span class="mathJaxDisplay">
+                                $$ \oint_{l} \mathbf {A} \cdot d\mathbf{l} = \iint_{S} \nabla \times \mathbf {A} \cdot d\mathbf{S} $$
+                            </span>
+                            i.e. the closed loop integral of a vector field is equal to the sum of all the curl contained in the surface
+                            enclosed by the loop.
+                            <br><br>
+                            This is demonstrated in the visualisation on the right, where the components of
+                            <span class="mathJaxInline">$ \mathbf {A} \cdot d\mathbf{l} $</span> as you go around the loop are shown in the plot at the bottom. The contributions are positive if
+                            the field and dl are pointing in the same direction.
+                            <br><br>
+                            When there is curl inside the loop then the overall loop integral is non-zero,
+                            since on all parts of the loop, the contributions to the integral from the curl source have the same sign; however
+                            when the curl source is outside of the loop, then the contributions cancel out and the net integral is zero.
+                            <br><br>
+                            This also demonstrates that the curl of a conservative field is zero, since any loop integral
+                            in a conservative field is also zero.
+                            <br><br>
+                            You can change the shape of the loop to see that this is true for any type of closed loop.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--    Right Side of Window - containing mainly interactive and visual content    -->
+    <div class="vis-container right" id="right-container">
+        <!--    Title Banner above Right Side    -->
+        <div class="banner">
+            <!--    Visualisation Title    -->
+            <h1 class="" id="vis-title">
+                VECTOR CALCULUS CONCEPTS
+            </h1>
+            <a href="https://www.imperialvisualisations.com/learn/">
+                <img id="vis-logo" src="VisualisationsLogoWhite2.png">
+            </a>
+        </div>
+        <!--    Space into which visualisations are loaded    -->
+        <div id="rightloadSpace">
+        <!--    fade transition tag for RHS - applied by Vue and CSS    -->
+        <transition-group name="fade" tag="div" class="transition-container">
+            <!--    Interactive Zone Containers   -->
+            <div class="rightload" id="loadwait" key="loadwait" v-if="true">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            </div>
+            <div class="rightload text odd" id='loadout1' key="loadout1" v-if="currentSection === 1">
+
+            </div>
+            <div class="rightload text even" id='loadout2' key="loadout2" v-if="currentSection === 2">
+                <transition name="fade">
+                    <!--Interactive Zone Sub Containers-->
+                    <div class="rightload text" id='loadout2sub1' key="loadout2sub1"
+                         v-if="subSection[1] === 1">
+
+                        <div class='rightColumn' style="display: flex; flex-direction:column; width:30%; float:right; height:100%; padding-bottom: 10%; padding-top: 10%">
+                            <div id="scroll" style='flex-grow: 1'>
+    
+                                <div class="scroll-down">
+                                    <strong>Select Function: </strong>
+                                    <select id="Function_Selector_1a">
+                                        <option value="A">Gaussian</option>
+                                        <option value="B">Reciprocal</option>
+                                        <option value="C">Sinusoidal</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div id='overall-sliders-container' style='flex-grow: 1'>
+                            <label class="sliderTitle" style="padding-bottom:20px;">$a$:
+                                <span id="Slider_1Display" data-unit="">10</span>
+                            </label>
+                            <label style="width:100%">
+                                <span class="sliderMin">-100</span>
+                                <input id="Slider_1_1a" class="inputs" type="range" value="10" min="-100" max="100"
+                                       step="1" style="width:70%">
+                                <span class="sliderMax">100</span>
+                            </label>
+                            </div>
+                            
+                            <div id='eqContainer' style='flex-grow: 1'>
+                            <div>
+                                <div id="B_function_eqn_1a" style="display:none; width:100%">
+                                        <img src='Images\B_function_eqn_1a.PNG' style='height:100%; width:100%'>   
+                                </div>
+
+                                <div id="A_function_eqn_1a" style="display:none; width:100%;">
+                                    <img src='Images\A_function_eqn_1a.PNG' style='height:100%; width:100%;'>
+                                </div>
+
+                                <div id="C_function_eqn_1a" style="display:none; width:100%">
+                                    <img src='Images\C_function_eqn_1a.PNG' style='height:100%; width:100%'>
+                                </div>
+                            </div>
+                           
+                            <div>
+                                <div id="B_grad_eqn_1a" style="display:none; width:100%">
+                                    <img src='Images\B_grad_eqn_1a.PNG' style='height:100%; width:100%'>
+                                </div>
+
+                                <div id="A_grad_eqn_1a" style="display:none; width:100%;">
+                                    <img src='Images\A_grad_eqn_1a.PNG' style='height:100%; width:100%;'>
+                                </div>
+
+                                <div id="C_grad_eqn_1a" style="display:none; width:100%">
+                                    <img src='Images\C_grad_eqn_1a.PNG' style='height:100%; width:100%'>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div div=#graphContainer style='width:60%; float: left; height:100%; bottom: 5px'>
+                            <div style='height: 50%; width:100%'>
+                                    <span class="mathJaxDisplay">
+                                        <h6>$f(x,y)$</h6>
+                                    </span>
+                                <div id='Scalar_Graph_1a' style='width:100%;height: 90%'></div>
+                            </div>
+
+                            <div style='height: 50%; width:100%'>
+                                    <span class="mathJaxDisplay">
+                                        <h6> $\nabla f(x,y) $ </h6>
+                                    </span>
+                                <div id='Vector_Graph_1a' style='width:100%;height: 90%'></div>
+                            </div>
+                        </div>
+
+                        <!--Buttons/Sliders-->
+                        <!--        <div class="one-third column" style="padding-left: 50px;">-->
+
+                        <!--Main body contents-->
+
+
+                    </div>
+                    <div class="rightload text" id='loadout2sub2' key="loadout2sub2" v-else>
+                        <div class="row" style="position: absolute; left: 5vw; top: 3vh">
+                            <div style="width:45%; ">
+                                <div id="scroll">
+                                    <div class="scroll-down">
+                                        <strong>Select Function: </strong>
+                                        <select id="Function_Selector">
+                                            <option value="Gaussian">Gaussian</option>
+                                            <option value="Reciprocal">Reciprocal</option>
+                                            <option value="Sinusodial">Sinusodial</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h6 style="font-weight: bold;font-size: 16px">Adjust value $a =$:
+                                        <output id="Slider_1_1b_value" for="Slider_1_1b">5</output>
+                                    </h6>
+                                    <!--BEGIN Slider-->
+
+                                    <label>
+                                        <span class="sliderMin">-10</span>
+                                        <input id="Slider_1_1b" class="inputs" type="range" value="5" min="-10"
+                                               max="10" step="0.5"
+                                               oninput="Slider_1_1b_value.value=Slider_1_1b.value"/></input>
+                                        <span class="sliderMax">10</span>
+                                    </label>
+                                    <!--END Slider-->
+                                </div>
+
+                                <div>
+                                    <h6 style="font-weight: bold"> Move balls alone paths between A and B: </h6>
+                                    <label>
+                                        <span class="sliderMin">A</span>
+                                        <input id="Slider_2_1b" class="inputs" type="range" value="-16" min="-16"
+                                               max="5" step="0.2"
+                                               oninput="Slider_2_1b_value.value=Slider_2_1b.value"/></input>
+                                        <span class="sliderMax">B</span>
+                                    </label>
+                                    <h6>
+                                        <div id="functionValueBall1_1b"></div>
+                                        <div id="functionValueBall2_1b"></div>
+                                    </h6>
+                                    <hr>
+
+
+                                    <!--END Slider-->
+                                </div>
+
+                                <div>
+                                    <div id="Grad_Reciprocal_eqn_1b">
+                                        $$\displaystyle \nabla \Omega = - \frac{a}{ (x^2 +y^2)^ {\frac{3}{2}} } (x
+                                        \mathbf{\hat{i}} + y \mathbf{\hat{j}} )$$
+                                    </div>
+
+                                    <div id="Grad_Gaussian_eqn_1b">
+                                        $$ \displaystyle \nabla \Omega = \frac{-a}{100}e^{-\frac{x^2+y^2}{200}}(x
+                                        \mathbf{\hat{i}} + y \mathbf{\hat{j}}) $$
+                                    </div>
+
+                                    <div id="Grad_Sinusodial_eqn_1b">
+                                        $$\displaystyle \nabla \Omega = \frac{2 \pi}{15} a \cos \Big( \frac{2
+                                        \pi}{12} y \Big) \mathbf{\hat{j}}$$
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div id="Reciprocal_eqn_1b">
+                                        $$\Omega(x,y)= \frac{4a}{ \sqrt{x^2 + y^2} }$$
+                                    </div>
+
+                                    <div id="Gaussian_eqn_1b">
+                                        $$\Omega(x,y) = ae^{-\frac{x^2+y^2}{200}}$$
+                                    </div>
+
+                                    <div id="Sinusodial_eqn_1b">
+                                        $$\Omega(x,y)= \frac{4}{5} a\sin \Big( \frac{2 \pi}{12}y \Big) $$
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                            <div style="width:55%; float:left;">
+                                <div>
+                                    <div id='Vector_Graph_1b' style="width: 30vw; height: 250px;justify-content:center; padding-left: 8vw"></div>
+                                </div>
+
+                                <div>
+                                    <div id='Scalar_Graph_1b' style="width:30vw; height:30vh;"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </transition>
+            </div>
+            <div class="rightload text odd" id='loadout3' key="loadout3" v-if="currentSection === 3">
+                <transition name="fade">
+                    <!--Interactive Zone Sub Containers-->
+                    <div class="rightload text" id='loadout3sub1' key="loadout3sub1"
+                         v-if="subSection[2] === 1">
+                        <!-- Graph -->
+                        <div class="one-third column" style="padding-left: 2em;">
+
+                            <div id='graph' style="width:30vw; height:70vh;">
+                                <!-- Legend -->
+                                <ul style="margin-top: -4em;">
+                                    <li style="color: rgb(255,47,62);">Target Vector</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!--Buttons/Sliders-->
+                        <div class="one-third column" style="padding-left: 50px;float: right">
+
+                            <!--Main body contents-->
+                            <div >
+                                <h6
+                                        style="border-left: solid 0px rgb(79,255,16); padding-left: 0px; margin: 5px; padding-top: 1vh; position: relative; ">
+                                    Relative divergence </h6>
+                                <!--BEGIN Slider-->
+                                <label style="position: relative; float: left; width: 100%; top: 10px;">
+                                    <input id="x3Controller" class="inputs" type="range" value="1" min="-1" max="1"
+                                           step="0.01" oninput="x3.value=x3Controller.value"/></input>
+                                    <br>
+                                    <span> $ \nabla \cdot \mathbf{F}$ = <output id="x3"
+                                                                                for="x3Controller">1</output></span>
+                                </label>
+                                <!--END Slider-->
+
+                                <!--BEGIN Slider-->
+                                <label>
+                                    <input id="y3Controller">
+                                </label>
+                                <!--END Slider-->
+
+                                <!--Unique Areas-->
+                                <!--BEGIN Basis Vector Area-->
+                                <div class="tab-pane active" id="basis"></div>
+                                <!--NB: Also need 'active' here-->
+                                <!--END Basis-->
+                                <!--END Area-->
+                            </div>
+                            <div style="width:30vh; height:30vh; position: fixed; bottom: 45%; left: 63%">
+                                <img style="width:inherit; height:inherit;" src="VC/2adiv_sink.png">
+                            </div>
+                            <div style="width:30vh; height:30vh; position: fixed; bottom: 45%; left: 80%">
+                                <img style="width:inherit; height:inherit;" src="VC/2adiv_source.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rightload text" id='loadout3sub2' key="loadout3sub2" v-else>
+                        <iframe src="VC/2bDiv_interactive.html" width="950px" height="800px"></iframe>
+                        <!--Text next to new charge-->
+                        <!--<label class="text" style="position: relative; left: 4%; display:inline-block;">-->
+                            <!--<font size="5">Move the surface element</font>-->
+                        <!--</label>-->
+                        <!--&lt;!&ndash;Text next to slider for user to choose magnet orientation&ndash;&gt;-->
+                        <!--<label class="text"-->
+                               <!--style="position: relative; left: 6%; height: 0vh; display:inline-block;">-->
+                            <!--<font size="4">Orientation:</font>-->
+                        <!--</label>-->
+                        <!--&lt;!&ndash;Slider for user to choose magnet orientation&ndash;&gt;-->
+                        <!--<label id="angleChange"-->
+                               <!--style="position: relative; left: 7%; width: 30%; height: 0vh; display:inline-block;"-->
+                               <!--value=false>-->
+                            <!--<input id="angle" class="inputs" onmousedown="angleChange.value=true"-->
+                                   <!--onmouseup="angleChange.value = false" type="range" value="0" min="0" max="360"-->
+                                   <!--step="1" oninput="amount2.value=angle.value"/>-->
+                        <!--</label>-->
+                        <!--&lt;!&ndash;Display user input for magnet orientation on RHS of slider&ndash;&gt;-->
+                        <!--<label style="position: relative; left: 3%; display:inline-block;">-->
+                            <!--<output id="amount2" name="amount2" for="angle">0</output>-->
+                            <!--<span>°</span>-->
+                        <!--</label>-->
+                        <!--&lt;!&ndash;Display flux&ndash;&gt;-->
+                        <!--<label style="position: relative; left: 3%; display:inline-block;">-->
+                            <!--Flux:-->
+                            <!--<output id="flux"></output>-->
+                        <!--</label>-->
+                        <!--&lt;!&ndash;p5 canvas for drawing charges, fieldlines and loop&ndash;&gt;-->
+                        <!--<label id="sketch-holder" style="height: 100vh; width: 160vh; margin-top:-6.5%"/>-->
+                    </div>
+                </transition>
+            </div>
+            <div class="rightload text even" id='loadout4' key="loadout4" v-if="currentSection === 4">
+                <transition name="fade">
+                    <!--Interactive Zone Sub Containers-->
+                    <div class="rightload text" id='loadout4sub1' key="loadout4sub1"
+                         v-if="subSection[3] === 1">
+
+                    </div>
+                    <div class="rightload text" id='loadout4sub2' key="loadout4sub2" v-else>
+                        <iframe src="VC/3bCurl_interactive.html" height="800px" width="950px"></iframe>
+                        <!--<div class="three columns" id="buttons-holder"
+                             style="position:inherit; margin-left: 1vw; margin-top: 5vh;">
+
+                            <div id="settings">
+
+                                <p style="margin-top:-2vh;" id="desc">Loop type:</p>
+                                <div id="circuit-modifiers" style="margin-left: 6vw; margin-top: -2vw;">
+                                    <select class="form-control" id="circuitSelectList" style="margin-top: -3vh">
+                                        <option value="0">
+                                            circle
+                                        </option>
+                                        <option value="1">
+                                            arc 1
+                                        </option>
+                                        <option value="2">
+                                            arc 2
+                                        </option>
+                                        <option value="3">
+                                            rectangle 1
+                                        </option>
+                                        <option value="4">
+                                            square
+                                        </option>
+
+                                    </select>
+
+                                </div>
+                                <button id="buttonPlay">Play</button>
+                                <button id="buttonReset">
+                                    Reset
+                                </button>
+                                <div id="Current-modifiers">
+
+                                    <button id="buttonAddWire">
+                                        Add Curl Source
+                                    </button>
+                                    <br>
+                                    <button id="buttonRemoveWires">
+                                        Remove Curl Sources
+                                    </button>
+                                    <button id="buttonLoopToggle" style="display:none;">
+                                        Remove Loop
+                                    </button>
+                                    <button id="buttonFieldFlow" style="display:none;">
+                                        Field Flow
+                                    </button>
+                                    &lt;!&ndash;<br>
+                                     <p>
+                                      Wires Selected:
+                                      <b>
+                                       <span id="wireSelected" style="color:blue;">1</span>
+                                      </b>
+                                     </p>&ndash;&gt;
+                                    <label class="sliderTitle" for="currentSlider" id="tagCurrentSlider"
+                                           style="margin-bottom:0.1vh">
+                                        Amount of Curl:
+                                        <b>
+                                            <span data-unit="Amps" id="currentDynamicDisplay">5</span>
+                                        </b>
+                                    </label>
+                                    <label class="slider">
+                                        <input id="currentSlider" max="10" min="-10" name="currentSlider" step="1"
+                                               type="range" value="5">
+                                    </label>
+                                </div>
+
+                                <div id="diameter-modifiers">
+                                    <label class="sliderTitle" style="margin-bottom:0.1vh">
+                                        Diameter of loop:
+                                    </label>
+                                    <label class="slider">
+                                        <input id="diameterSlider" max="290" min="20" step="20" type="range">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="eight columns" id="graphics-holder" style="position:relative; right:5vw">
+                            <div id="sketch-holder-2"
+                                 style="position: relative; top: -36vh; right: -2vw; width: 55vw; height: 60vh; cursor: default;">
+                                <canvas id="defaultCanvas0" class="p5Canvas" width="1524" height="521"
+                                        style="width: 762.047px; height: 260.5px; z-index:2"></canvas>
+                            </div>
+                            <div id="graph-holder"
+                                 style="position:relative; left: -2vw; top:-8vh; width:125%; height:50vh; "
+                                 class="js-plotly-plot">
+                                <div class="plot-container plotly">
+                                    <div class="svg-container"
+                                         style="position: relative; width:550.359px; height:2vh; z-index: -2;">
+                                        <svg class="main-svg" xmlns="http://www.w3.org/2000/svg"
+                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="550.359"
+                                             height="192.766" style="background: rgb(255, 255, 255);"></svg>
+
+
+                                        <div class="modebar-container"
+                                             style="position: absolute; top: 0px; right: 0px; width: 100%;"></div>
+                                        <svg class="main-svg" xmlns="http://www.w3.org/2000/svg"
+                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="550.359"
+                                             height="192.766">
+                                            <g class="hoverlayer"></g>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="B-dl-text-holder"
+                                 style="position:absolute; right:47vw; top:65vh; width:25%; height:30vh">
+                                <p style="font-size: large;">
+                                    $\displaystyle\oint\mathbf{A.dl}=$
+                                    <span id="Bdl-text">5.0*μ<sub>0<sub></sub></sub></span>
+                                </p>
+                                <p>
+                                    We are using a Riemann sum to integrate, so the number of steps is referring to
+                                    the number of steps used in the numerical integration.
+                            </div>
+                            </div>
+                            -->
+
+                    </div>
+                </transition>
+            </div>
+        </transition-group>
+    </div>
+    </div>
+    <div class="rightScriptSpace scriptSpace"></div>
+    <div class="rightSubScriptSpace scriptSpace"></div>
+</div>
+</body>
+
+<script src="scripts/nav_Script.js"></script>
+<script src="scripts/VC-scripts/classes.js"></script>
+<script src="scripts/VC-scripts/VC_object.js"></script>
+
+</html>
