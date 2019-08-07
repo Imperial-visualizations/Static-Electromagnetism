@@ -399,7 +399,7 @@
             </div>
             </div>
             <div class="rightload text odd" id='loadout1' key="loadout1" v-if="currentSection === 1">
-
+                <iframe src="EM/1Introduction_Interactive.html" width="950px" height="800px"></iframe>
             </div>
             <div class="rightload text even" id='loadout2' key="loadout2" v-if="currentSection === 2">
                 <transition name="fade">
@@ -407,77 +407,7 @@
                     <div class="rightload text" id='loadout2sub1' key="loadout2sub1"
                          v-if="subSection[1] === 1">
 
-                        <div class='rightColumn' style="display: flex; flex-direction:column; width:30%; float:right; height:100%; padding-bottom: 10%; padding-top: 10%">
-                            <div id="scroll" style='flex-grow: 1'>
-    
-                                <div class="scroll-down">
-                                    <strong>Select Function: </strong>
-                                    <select id="Function_Selector_1a">
-                                        <option value="A">Gaussian</option>
-                                        <option value="B">Reciprocal</option>
-                                        <option value="C">Sinusoidal</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div id='overall-sliders-container' style='flex-grow: 1'>
-                            <label class="sliderTitle" style="padding-bottom:20px;">$a$:
-                                <span id="Slider_1Display" data-unit="">10</span>
-                            </label>
-                            <label style="width:100%">
-                                <span class="sliderMin">-100</span>
-                                <input id="Slider_1_1a" class="inputs" type="range" value="10" min="-100" max="100"
-                                       step="1" style="width:70%">
-                                <span class="sliderMax">100</span>
-                            </label>
-                            </div>
-                            
-                            <div id='eqContainer' style='flex-grow: 1'>
-                            <div>
-                                <div id="B_function_eqn_1a" style="display:none; width:100%">
-                                        <img src='Images\B_function_eqn_1a.PNG' style='height:100%; width:100%'>   
-                                </div>
-
-                                <div id="A_function_eqn_1a" style="display:none; width:100%;">
-                                    <img src='Images\A_function_eqn_1a.PNG' style='height:100%; width:100%;'>
-                                </div>
-
-                                <div id="C_function_eqn_1a" style="display:none; width:100%">
-                                    <img src='Images\C_function_eqn_1a.PNG' style='height:100%; width:100%'>
-                                </div>
-                            </div>
-                           
-                            <div>
-                                <div id="B_grad_eqn_1a" style="display:none; width:100%">
-                                    <img src='Images\B_grad_eqn_1a.PNG' style='height:100%; width:100%'>
-                                </div>
-
-                                <div id="A_grad_eqn_1a" style="display:none; width:100%;">
-                                    <img src='Images\A_grad_eqn_1a.PNG' style='height:100%; width:100%;'>
-                                </div>
-
-                                <div id="C_grad_eqn_1a" style="display:none; width:100%">
-                                    <img src='Images\C_grad_eqn_1a.PNG' style='height:100%; width:100%'>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-
-                        <div div=#graphContainer style='width:60%; float: left; height:100%; bottom: 5px'>
-                            <div style='height: 50%; width:100%'>
-                                    <span class="mathJaxDisplay">
-                                        <h6>$f(x,y)$</h6>
-                                    </span>
-                                <div id='Scalar_Graph_1a' style='width:100%;height: 90%'></div>
-                            </div>
-
-                            <div style='height: 50%; width:100%'>
-                                    <span class="mathJaxDisplay">
-                                        <h6> $\nabla f(x,y) $ </h6>
-                                    </span>
-                                <div id='Vector_Graph_1a' style='width:100%;height: 90%'></div>
-                            </div>
-                        </div>
+                        <iframe src="EM/2Gauss_Law_Electric_Interactive.html" width="950px" height="800px"></iframe>
 
                         <!--Buttons/Sliders-->
                         <!--        <div class="one-third column" style="padding-left: 50px;">-->
@@ -487,189 +417,22 @@
 
                     </div>
                     <div class="rightload text" id='loadout2sub2' key="loadout2sub2" v-else>
-                        <div class="row" style="position: absolute; left: 5vw; top: 3vh">
-                            <div style="width:45%; ">
-                                <div id="scroll">
-                                    <div class="scroll-down">
-                                        <strong>Select Function: </strong>
-                                        <select id="Function_Selector">
-                                            <option value="Gaussian">Gaussian</option>
-                                            <option value="Reciprocal">Reciprocal</option>
-                                            <option value="Sinusodial">Sinusodial</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <h6 style="font-weight: bold;font-size: 16px">Adjust value $a =$:
-                                        <output id="Slider_1_1b_value" for="Slider_1_1b">5</output>
-                                    </h6>
-                                    <!--BEGIN Slider-->
-
-                                    <label>
-                                        <span class="sliderMin">-10</span>
-                                        <input id="Slider_1_1b" class="inputs" type="range" value="5" min="-10"
-                                               max="10" step="0.5"
-                                               oninput="Slider_1_1b_value.value=Slider_1_1b.value"/></input>
-                                        <span class="sliderMax">10</span>
-                                    </label>
-                                    <!--END Slider-->
-                                </div>
-
-                                <div>
-                                    <h6 style="font-weight: bold"> Move balls alone paths between A and B: </h6>
-                                    <label>
-                                        <span class="sliderMin">A</span>
-                                        <input id="Slider_2_1b" class="inputs" type="range" value="-16" min="-16"
-                                               max="5" step="0.2"
-                                               oninput="Slider_2_1b_value.value=Slider_2_1b.value"/></input>
-                                        <span class="sliderMax">B</span>
-                                    </label>
-                                    <h6>
-                                        <div id="functionValueBall1_1b"></div>
-                                        <div id="functionValueBall2_1b"></div>
-                                    </h6>
-                                    <hr>
-
-
-                                    <!--END Slider-->
-                                </div>
-
-                                <div>
-                                    <div id="Grad_Reciprocal_eqn_1b">
-                                        $$\displaystyle \nabla \Omega = - \frac{a}{ (x^2 +y^2)^ {\frac{3}{2}} } (x
-                                        \mathbf{\hat{i}} + y \mathbf{\hat{j}} )$$
-                                    </div>
-
-                                    <div id="Grad_Gaussian_eqn_1b">
-                                        $$ \displaystyle \nabla \Omega = \frac{-a}{100}e^{-\frac{x^2+y^2}{200}}(x
-                                        \mathbf{\hat{i}} + y \mathbf{\hat{j}}) $$
-                                    </div>
-
-                                    <div id="Grad_Sinusodial_eqn_1b">
-                                        $$\displaystyle \nabla \Omega = \frac{2 \pi}{15} a \cos \Big( \frac{2
-                                        \pi}{12} y \Big) \mathbf{\hat{j}}$$
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div id="Reciprocal_eqn_1b">
-                                        $$\Omega(x,y)= \frac{4a}{ \sqrt{x^2 + y^2} }$$
-                                    </div>
-
-                                    <div id="Gaussian_eqn_1b">
-                                        $$\Omega(x,y) = ae^{-\frac{x^2+y^2}{200}}$$
-                                    </div>
-
-                                    <div id="Sinusodial_eqn_1b">
-                                        $$\Omega(x,y)= \frac{4}{5} a\sin \Big( \frac{2 \pi}{12}y \Big) $$
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-
-                            <div style="width:55%; float:left;">
-                                <div>
-                                    <div id='Vector_Graph_1b' style="width: 30vw; height: 250px;justify-content:center; padding-left: 8vw"></div>
-                                </div>
-
-                                <div>
-                                    <div id='Scalar_Graph_1b' style="width:30vw; height:30vh;"></div>
-                                </div>
-                            </div>
-
-                        </div>
+                        <iframe src="EM/2Gauss_Law_Elec_Inte_interactive.html" width="950px" height="800px"></iframe>
                     </div>
                 </transition>
             </div>
             <div class="rightload text odd" id='loadout3' key="loadout3" v-if="currentSection === 3">
+
                 <transition name="fade">
                     <!--Interactive Zone Sub Containers-->
                     <div class="rightload text" id='loadout3sub1' key="loadout3sub1"
                          v-if="subSection[2] === 1">
                         <!-- Graph -->
-                        <div class="one-third column" style="padding-left: 2em;">
 
-                            <div id='graph' style="width:30vw; height:70vh;">
-                                <!-- Legend -->
-                                <ul style="margin-top: -4em;">
-                                    <li style="color: rgb(255,47,62);">Target Vector</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!--Buttons/Sliders-->
-                        <div class="one-third column" style="padding-left: 50px;float: right">
-
-                            <!--Main body contents-->
-                            <div >
-                                <h6
-                                        style="border-left: solid 0px rgb(79,255,16); padding-left: 0px; margin: 5px; padding-top: 1vh; position: relative; ">
-                                    Relative divergence </h6>
-                                <!--BEGIN Slider-->
-                                <label style="position: relative; float: left; width: 100%; top: 10px;">
-                                    <input id="x3Controller" class="inputs" type="range" value="1" min="-1" max="1"
-                                           step="0.01" oninput="x3.value=x3Controller.value"/></input>
-                                    <br>
-                                    <span> $ \nabla \cdot \mathbf{F}$ = <output id="x3"
-                                                                                for="x3Controller">1</output></span>
-                                </label>
-                                <!--END Slider-->
-
-                                <!--BEGIN Slider-->
-                                <label>
-                                    <input id="y3Controller">
-                                </label>
-                                <!--END Slider-->
-
-                                <!--Unique Areas-->
-                                <!--BEGIN Basis Vector Area-->
-                                <div class="tab-pane active" id="basis"></div>
-                                <!--NB: Also need 'active' here-->
-                                <!--END Basis-->
-                                <!--END Area-->
-                            </div>
-                            <div style="width:30vh; height:30vh; position: fixed; bottom: 45%; left: 63%">
-                                <img style="width:inherit; height:inherit;" src="VC/2adiv_sink.png">
-                            </div>
-                            <div style="width:30vh; height:30vh; position: fixed; bottom: 45%; left: 80%">
-                                <img style="width:inherit; height:inherit;" src="VC/2adiv_source.png">
-                            </div>
-                        </div>
+                        <iframe src="EM/3Gauss_Law_Magnetic_Interactive.html" width="950px" height="800px"></iframe>
                     </div>
                     <div class="rightload text" id='loadout3sub2' key="loadout3sub2" v-else>
-                        <iframe src="VC/2bDiv_interactive.html" width="950px" height="800px"></iframe>
-                        <!--Text next to new charge-->
-                        <!--<label class="text" style="position: relative; left: 4%; display:inline-block;">-->
-                            <!--<font size="5">Move the surface element</font>-->
-                        <!--</label>-->
-                        <!--&lt;!&ndash;Text next to slider for user to choose magnet orientation&ndash;&gt;-->
-                        <!--<label class="text"-->
-                               <!--style="position: relative; left: 6%; height: 0vh; display:inline-block;">-->
-                            <!--<font size="4">Orientation:</font>-->
-                        <!--</label>-->
-                        <!--&lt;!&ndash;Slider for user to choose magnet orientation&ndash;&gt;-->
-                        <!--<label id="angleChange"-->
-                               <!--style="position: relative; left: 7%; width: 30%; height: 0vh; display:inline-block;"-->
-                               <!--value=false>-->
-                            <!--<input id="angle" class="inputs" onmousedown="angleChange.value=true"-->
-                                   <!--onmouseup="angleChange.value = false" type="range" value="0" min="0" max="360"-->
-                                   <!--step="1" oninput="amount2.value=angle.value"/>-->
-                        <!--</label>-->
-                        <!--&lt;!&ndash;Display user input for magnet orientation on RHS of slider&ndash;&gt;-->
-                        <!--<label style="position: relative; left: 3%; display:inline-block;">-->
-                            <!--<output id="amount2" name="amount2" for="angle">0</output>-->
-                            <!--<span>°</span>-->
-                        <!--</label>-->
-                        <!--&lt;!&ndash;Display flux&ndash;&gt;-->
-                        <!--<label style="position: relative; left: 3%; display:inline-block;">-->
-                            <!--Flux:-->
-                            <!--<output id="flux"></output>-->
-                        <!--</label>-->
-                        <!--&lt;!&ndash;p5 canvas for drawing charges, fieldlines and loop&ndash;&gt;-->
-                        <!--<label id="sketch-holder" style="height: 100vh; width: 160vh; margin-top:-6.5%"/>-->
+                        <iframe src="EM/3Gauss_Law_Mag_Inte_interactive.html" width="950px" height="800px"></iframe>
                     </div>
                 </transition>
             </div>
@@ -811,8 +574,11 @@
                          v-if="subSection[4] === 1">
                         <!--iframe for ampere-->
                     </div>
-                    <div class="rightload text" id='loadout5sub2' key="loadout5sub2" v-else>
+                    <div class="rightload text" id='loadout5sub2' key="loadout5sub2" v-else-if="subSection[4] === 2">
                         <!--iframe for ampere-->
+                    </div>
+                    <div class="rightload text" id='loadout5sub3' key="loadout5sub3" v-else>
+                        <iframe src="EM/6AmpLaw_Interactive.html" width="950px" height="800px"></iframe>
                     </div>
                 </transition>
             </div>
@@ -822,10 +588,10 @@
                     <!--Interactive Zone Sub Containers-->
                     <div class="rightload text" id='loadout6sub1' key="loadout6sub1"
                          v-if="subSection[5] === 1">
-                        <!--iframe for Electric field-->
+                        <iframe src="EM/7Electric_Field_Interactive.html" width="950px" height="800px"></iframe>
                     </div>
                     <div class="rightload text" id='loadout6sub2' key="loadout6sub2" v-else>
-                        <!--iframe for Electric potential-->
+                        <iframe src="EM/7Electric_Potential_Interactive.html" width="950px" height="800px"></iframe>
                     </div>
                 </transition>
             </div>
