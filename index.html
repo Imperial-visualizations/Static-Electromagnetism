@@ -99,15 +99,22 @@
                     <hr>
                 </div>
                 <div class="text section-body odd" id="p1">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nec augue tempus, ullamcorper mi eget, aliquet nulla. Pellentesque augue leo, sodales tempus justo sollicitudin, elementum placerat risus. Vivamus dapibus nulla id dolor egestas, eget efficitur tortor faucibus. Ut imperdiet vel velit quis rutrum. Aenean quis tempor lacus. Suspendisse augue libero, rhoncus non leo vitae, pulvinar vehicula dolor. Nulla viverra suscipit purus, in euismod ex ultrices id. Nullam ut sollicitudin ex. Nulla faucibus eu turpis sed placerat. Pellentesque nec iaculis nibh. Integer faucibus sodales arcu sed rutrum.
-                    </br></br>
-                    Suspendisse mattis porttitor cursus. Curabitur et dolor lobortis, suscipit sapien id, sodales elit. Nunc cursus sapien vitae lectus rutrum eleifend. Fusce quis erat vel mauris tristique vulputate at sit amet orci. Integer aliquam mi quis quam hendrerit pulvinar. Phasellus fermentum nulla a est placerat, eget tincidunt purus varius. Morbi facilisis ante posuere tortor tristique, a lobortis ante pharetra. Suspendisse tempor est vel augue cursus tincidunt. Aenean sed nisi orci. Nulla nec euismod augue, eget fermentum libero. Donec vitae cursus felis, a ultrices erat. Aliquam dapibus mauris sem, sit amet imperdiet purus pellentesque in. Sed rhoncus finibus erat, eget ornare erat pretium eu.
-                    </br></br>
-                    Suspendisse vitae finibus ligula. Cras bibendum elit in diam porttitor, sit amet fermentum orci vulputate. Integer lectus justo, laoreet in condimentum et, accumsan vitae nulla. Morbi facilisis quam eros, vel fermentum velit volutpat nec. Morbi aliquam elit nibh, non finibus ipsum sollicitudin ut. Fusce finibus laoreet diam, eu finibus risus laoreet ac. Maecenas mi erat, semper sit amet nisl vel, consectetur auctor dolor. Aenean eget risus et metus elementum consequat. Nullam eget mi ante. Vivamus eget dolor arcu. Suspendisse id convallis mauris, in ultrices tortor.
-                    </br></br>
-                    Duis nec nisl quam. Sed ultricies tempor nibh non fermentum. Nulla facilisis pharetra nisl vitae lacinia. Vivamus et dolor nec purus convallis ornare a id sapien. Nunc eget nibh id nibh mollis molestie sit amet in purus. Mauris finibus tellus non mi feugiat, quis vestibulum purus facilisis. Maecenas malesuada convallis lobortis. Sed id tortor pretium, luctus felis ac, euismod dui.
-                    </br></br>
-                    Mauris vulputate urna id sodales posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean in orci venenatis, maximus lorem quis, posuere massa. Aliquam id blandit tortor, et lacinia dui. Etiam urna ligula, fermentum venenatis quam sodales, porttitor consectetur nisi. Sed accumsan volutpat dolor. Duis feugiat accumsan massa, at rhoncus lorem sagittis at. Vestibulum massa sapien, faucibus sit amet consectetur vel, pulvinar vel neque. Integer tincidunt faucibus mi sit amet condimentum. Nullam finibus elementum nulla et pellentesque. Sed fermentum nisi et nibh pellentesque fermentum. Phasellus porta aliquet sem, eu rutrum justo luctus vel. Aliquam erat volutpat. o, sodales tempus justo sollicitudin, elementum placerat risus. Vivamus dapibus nulla id dolor egestas, eget efficitur tortor faucibus. Ut imperdiet vel velit quis rutrum. Aenean quis tempor lacus. Suspendisse augue libero, rhoncus non leo vitae, pulvinar vehicula dolor. Nulla viverra suscipit purus, in euismod ex ultrices id. Nullam ut sollicitudin ex. Nulla faucibus eu turpis sed placerat. Pellentesque nec iaculis nibh. Integer faucibus sodales arcu sed rutrum.
+                    The majority of classic electromagnetism is governed by the four Maxwell's equations.
+                    These are empirical equations based on evidence, and were not derived from other equations or principles.
+                    In their differential form, Maxwell's equations describe the rates of change of an electromagnetic field.
+                    $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}}$$
+                    $$ \nabla \cdot \mathbf{B} =  0$$
+                    $$ \nabla \times \mathbf{E} = -\frac{d\mathbf{B}}{dt}$$
+                    $$ \nabla \times \mathbf{B} = \mu_{0} \mathbf{J} + \mu_{0} \epsilon_{0}\frac{d\mathbf{E}}{dt}$$
+                    Where $\mathbf{E}$ is an electric field, $\mathbf{B}$ is a magnetic field. When all time varying terms go to 0, we are left with the static version of Maxwell's equations.
+                    $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}}$$
+                    $$ \nabla \cdot \mathbf{B} =  0$$
+                    $$ \nabla \times \mathbf{E} = 0$$
+                    $$ \nabla \times \mathbf{B} = \mu_{0} \mathbf{J}$$
+
+                    Of these, Gauss's law for electrostatics, Gauss's law for magnetism, and Ampere's circulation law are the most crucial.
+                    Together they describe how sources of charge and current form electric and magnetic fields.
+                    
                 </div>
             </div>
             <div class="section-container" id="sc2">
@@ -122,66 +129,66 @@
                     <!--    Sub-Section Tabs    -->
                     <ul class="nav nav-tabs nav-justified">
                         <li :class="[subSection[1] === 1 ? 'shaded' : '', 'active', 'tabLeft']">
-                            <a data-toggle="tab" href="#gradDifferential" @click="subScrollTo(2); subSection[1]=1; loadSubScripts(); $forceUpdate();">Differential</a>
+                            <a data-toggle="tab" href="#gaussElecDifferential" @click="subScrollTo(2); subSection[1]=1; loadSubScripts(); $forceUpdate();">Differential</a>
                         </li>
                         <li :class="[subSection[1] === 2 ? 'shaded' : '', 'tabRight']">
-                            <a data-toggle="tab" href="#gradIntegral" @click="subScrollTo(2); subSection[1]=2; loadSubScripts(); $forceUpdate();">Integral</a>
+                            <a data-toggle="tab" href="#gaussElecIntegral" @click="subScrollTo(2); subSection[1]=2; loadSubScripts(); $forceUpdate();">Integral</a>
                         </li>
                     </ul>
                     <!--    Sub-Section Text Containers    -->
                     <div class="tab-content">
-                        <div id="gradDifferential" class="tab-pane fade in active show">
-                            Grad operates on a scalar field <span class="mathJaxInline">$ f(x, y) $</span> to produce a vector field indicating the magnitude and direction of the
-                            steepest gradient at each point.
-                            <br><br>
-                            It is easy to remember that grad produces a vector field, because it is necessary
-                            for the gradient to have a direction once there is more than one dimension involved.  It must act on a scalar field
-                            because it doesn't make much sense for a vector field to have a gradient.
-                            <br><br>
-                            The surface shown on the right is a scalar function <span class="mathJaxInline">$ f $</span> of two independent variables, <span class="mathJaxInline">$ x $</span> and <span class="mathJaxInline">$ y $</span>.  Note that it is a 2D scalar field &mdash;
-                            the third dimension is just being used to display the value of the function.
-                            <br><br>
-                            Beneath it the gradient of the function <span class="mathJaxInline">$ \nabla f $</span> is shown.  By changing the coefficient <span class="mathJaxInline">$ a $</span>, the gradient of the function can be increased
-                            and decreased in certain directions.  There are also several functions to choose from.
-                            <br><br>
-                            The idea extends to three dimensions in the same way.  For example, if you were to plot the magnitude of the Sun's gravitational field
-                            in 3D space around the Sun, the gradient of this field would give vectors that point to the centre of the Sun at every point.
+                        <div id="gaussElecDifferential" class="tab-pane fade in active show">
+                            Maxwell's first law states that:
+                            $$ \nabla \cdot \mathbf{B} = \frac{\rho}{\epsilon_0}$$
+                            Where $\nabla$ is the divergence operator. This law implies that electric charges exhibit divergence
+                            that is proportional to E-field density. But what does this actually mean?
+                            <br>
+                            A field is divergent if the field is varies along the path of the field lines. So, if one was to take an 'infinitesimal step' along a
+                            field line, then the field strength would change. In terms of electrostatics this means that electric charges are the
+                            sources of electric fields.
+                            <br>
+                            The visualisation on the right considers an infinitesimally small section of a charge density the causes
+                            field lines to diverge.
                         </div>
-                        <div id="gradIntegral" class="tab-pane fade">
-                            <span class="mathJaxDisplay">
-                                $$ \Omega_B - \Omega_A = \int _A ^B \nabla \Omega \cdot d\mathbf{l} $$
-                            </span>
-                            For a given vector field, if <span class="mathJaxInline">$ \mathbf{A} \cdot d\mathbf{l} $</span> is an exact differential, <span class="mathJaxInline">$ \mathbf{A} $</span> is a conservative field. Then, <span class="mathJaxInline">$ \mathbf{A} $</span> is the
-                            gradient function of some scalar function <span class="mathJaxInline">$ \Omega $</span>. That is, <span class="mathJaxInline">$ \mathbf{A} = \nabla {\Omega} $</span>.
+                        <div id="gaussElecIntegral" class="tab-pane fade">
+                            Gauss's law for electrostatics can be expressed as:
+                            $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}}$$
+                            Where $\displaystyle \nabla $ is the divergence operator. A simple way to visualise this law is through electric field lines.
+                            Geometrically, the divergence of a field is represented by the net number of field lines moving in or out of a volume element.
+                            So Gauss's law states that the number of field lines moving in or out of a volume element is proportional to the charge density inside the element.
+                            <br>
+                            We can see this is true if electric charges act as a source or sink of field lines, as shown in the visualisation to the right.
                             <br><br>
-                            We can relate <span class="mathJaxInline">$ \Omega $</span> and <span class="mathJaxInline">$ \nabla \Omega $</span> by the equation below:
-                            <span class="mathJaxDisplay">
-                                $$ \int _A ^B \nabla \Omega \cdot d\mathbf{l} = \Omega_B - \Omega_A $$
-                            </span>
-                            From this equation above, we can see that the integral is independent of the path that one takes from A to B,
-                            for it is determined by only the values from the parent function <span class="mathJaxInline">$ \Omega_B - \Omega_A $</span>. This is a generalisation of the Fundamental Theorem of Calculus.
+                            Consider a sphere of radius $R$ and non-uniform density $\displaystyle \rho $, defined by:
+                            $$ \rho = r^3 e^{-cos\theta}.$$
+                            What is the Electric field of the sphere in the radial direction?
                             <br><br>
-                            <h3 class="section-sub-head">
-                                Visualisation Guide
-                            </h3>
+                            Solution:
+                            <br>
+                            We want $E_r$ (Electric field in radial direction) as a function of $r$, $\theta$, and $\phi$:
                             <ol>
-                                <li>On the right, you can see a gradient field and its scalar parent function.
-                                    Change the value of the parameter <span class="mathJaxInline">$ a $</span>, and observe the change in <span class="mathJaxInline">$ \nabla \Omega $</span> and <span class="mathJaxInline">$ \Omega $</span>.</li>
-                                <br>
-                                <li>Note that as the magnitude of <span class="mathJaxInline">$ a $</span> increases, the length of the arrows in <span class="mathJaxInline">$ \nabla \Omega $</span> increases and the contour of the parent function
-                                    <span class="mathJaxInline">$ \Omega $</span> becomes steeper as well. Hence, the gradient vector increases in magnitude as well.</li>
-                                <br>
-                                <li>All gradient fields shown in this suite are conservative. This means that the line integral along the field,
-                                    <span class="mathJaxInline">$ \int \nabla \Omega \cdot d\mathbf{l} $</span> is path independent. Move the path of the ball from Point A to Point B
-                                    along 2 different paths, Path 1 and Path 2.</li>
-                                <br>
-                                <li>Observe their function values. Note that along the path, the value of <span class="mathJaxInline">$ \Omega $</span> may be different.
-                                    However, when the balls reach Point B, their function values are equal.</li>
-                                <br>
-                                <li>This means that the line integral <span class="mathJaxInline">$ \int _A ^B \nabla \Omega \cdot d\mathbf{l} $</span>  is determined
-                                    only by the value of <span class="mathJaxInline">$ \Omega $</span> at the limits, <span class="mathJaxInline">$ \Omega_B - \Omega_A $</span>.</li>
-                                <br>
-                                <li>There are a few other functions for you to play around with. Click the dropdown menu to find out.</li>
+                                <li>
+                                    Use Gauss Law in integral form:
+                                    $$\int \int E \cdot dS = \frac{1}{\epsilon_0} \int \int \int \rho dV $$
+                                </li>
+                                <li>
+                                    For the RHS use $\displaystyle dQ=\rho dV$ and hence:
+                                    $$ Q= \int\rho dv = \int r^3 e^{cos\theta} dV $$
+                                    where $\displaystyle dV=r^2 sin\theta d\theta dr d\phi$ in spherical polar coordinates.
+                                </li>
+                                <li>Compute the integral</li>
+                                <li>
+                                    We now deal with the LHS. Since we only want the E-field in the radial direction we only
+                                    need to consider the dot product of $\displaystyle E_r$ with $\displaystyle dS$. Recall from
+                                    vector calculus (insert hyperlink?) that for spherical polar co-ordinates, in the $\displaystyle
+                                    \tilda{r}$ direction, $\displaystyle dS$ is given by:
+                                    $$ dS= r^2 sin \theta d\theta d\phi \tilda{r}$$
+                                </li>
+                                <li>Compute the integral of $\displaystyle E \cdot dS$</li>
+                                <li>
+                                    Divide by $\displaystyle 4 \pi r^2$ and in the wise words of VJT, VOILA! We obtain
+                                    $$ E=\frac{k R^6}{6 \epsilon_0 r^2} sinh(1) $$
+                                </li>
                             </ol>
                         </div>
                     </div>
@@ -199,47 +206,29 @@
                     <!--    Sub-Section Tabs    -->
                     <ul class="nav nav-tabs nav-justified">
                         <li :class="[subSection[2] === 1 ? 'shaded' : '', 'active', 'tabLeft']">
-                            <a data-toggle="tab" href="#divergenceDifferential" @click="subScrollTo(3); subSection[2]=1; loadSubScripts(); $forceUpdate();">Differential</a>
+                            <a data-toggle="tab" href="#gaussMagDifferential" @click="subScrollTo(3); subSection[2]=1; loadSubScripts(); $forceUpdate();">Differential</a>
                         </li>
                         <li :class="[subSection[2] === 2 ? 'shaded' : '', 'tabRight']">
-                            <a data-toggle="tab" href="#divergenceIntegral" @click="subScrollTo(3); subSection[2]=2; loadSubScripts(); $forceUpdate();">Integral</a>
+                            <a data-toggle="tab" href="#gaussMagIntegral" @click="subScrollTo(3); subSection[2]=2; loadSubScripts(); $forceUpdate();">Integral</a>
                         </li>
                     </ul>
                     <!--    Sub-Section Text Containers    -->
                     <div class="tab-content">
-                        <div id="divergenceDifferential" class="tab-pane fade in active show">
-                            <h3 class="section-sub-head first-sub-head">
-                                What is divergence?
-                            </h3>
-                            The divergence of a field quantifies how much a field varies in the direction of the field lines. A
-                            field is said to be diverging if the field strength changes as you step along field lines. On an
-                            infinitesimal level, this may be interpreted as 'sources' of field strength 'creating' or 'destroying'
-                            field lines. It may be calculated using the <span class="mathJaxInline">$ \nabla $</span> operator on a vector field to generate
-                            a scalar field. The Visualisation on the right shows an infinitesimal section of a surface (the y axis).
-                            <br><br>
-                            The arrows show the direction of the field lines while their thickness and colour represent the field strength. Use the
-                            <span class="mathJaxInline">$ \nabla $</span> slider to understand the difference between positive and negative divergence.
-                            <br><br>
-                            Divergence may also occur if there are sources of field lines (e.g. monopoles) that increase/decrease the
-                            line density of a field, as shown by the figure to the right. The source of divergence adds field lines whereas
-                            the sink takes them away. Hence the source has a positive divergence and the sink has a negative divergence.
+                        <div id="gaussMagDifferential" class="tab-pane fade in active show">
+                            Gauss's law for magnetism (differential form) can be expressed as :
+                            $$ \nabla \cdot \mathbf{B} = 0$$
+                            Where $\nabla$ is the divergence operator.
                         </div>
-                        <div id="divergenceIntegral" class="tab-pane fade">
-                            <h3 class="section-sub-head first-sub-head">
-                                Flux - the flow of field lines
-                            </h3>
-                            We often call <span class="mathJaxInline">$ \mathbf{F} \cdot d\mathbf{S} $</span> the flux of field <span class="mathJaxInline">$ \mathbf{F} $</span> perpendicular through a surface element <span class="mathJaxInline">$ d\mathbf{S} $</span>.
-                            In this visualisation, the green line can be thought as taking the side view of the surface element.
+                        <div id="gaussMagIntegral" class="tab-pane fade">
+                            Gauss's law for magnetism (integral form) can be expressed as :
                             <br><br>
-                            The <b>net</b> flux through any surface <span class="mathJaxInline">$ \mathbf{S} $</span> is given by the integral:
-                            <span class="mathJaxDisplay">
-                                $$\iint_S \mathbf{F} \cdot d\mathbf{S}$$
-                            </span>
-                            By considering a <b>closed</b> surface, the Divergence Theorem relates the net flux to the divergence of the field:
-                            <span class="mathJaxDisplay">
-                                $$ {\large\bigcirc}\kern-1.55em\iint_S \mathbf{F} \cdot d\mathbf{S} = \iiint_V \nabla \cdot \mathbf{F} dV $$
-                            </span>
-                            An <a href="Visualisations/Static-Electromagnetism/EM_p1.html">example</a> of the Divergence Theorem is Maxwell's Equation.
+                            <center>$\unicode{x222F}_S \mathbf {B} \cdot \mathrm {d} \mathbf {S} = 0$</center>
+                            <br>
+                            where $S$ is any closed surface.
+                            <br><br>
+                            Geometrically, $\mathbf {B} \cdot \mathrm {d} \mathbf {S}$ represents the net flux of $\mathbf {B}$ through $\mathrm {d} \mathbf {S}$. This law states that the net flux of any magnetic field through an arbitrary closed surface is always zero.
+                            <br><br>
+                            In this visualisation, we have a 2D representation of the law. The number in the loop is the scaled net flux through the loop.
                         </div>
                     </div>
                 </div>
@@ -333,12 +322,54 @@
                     <!--    Sub-Section Tabs    -->
                     <ul class="nav nav-tabs nav-justified">
                         <li :class="[subSection[5] === 1 ? 'shaded' : '', 'active', 'tabLeft']">
-                            <a data-toggle="tab" href="#" @click="subScrollTo(6); subSection[5]=1; loadSubScripts(); $forceUpdate();">Differential</a>
+                            <a data-toggle="tab" href="#elecPotential" @click="subScrollTo(6); subSection[5]=1; loadSubScripts(); $forceUpdate();">Differential</a>
                         </li>
                         <li :class="[subSection[5] === 2 ? 'shaded' : '', 'tabRight']">
-                            <a data-toggle="tab" href="#" @click="subScrollTo(6); subSection[5]=2; loadSubScripts(); $forceUpdate();">Integral</a>
+                            <a data-toggle="tab" href="#elecField" @click="subScrollTo(6); subSection[5]=2; loadSubScripts(); $forceUpdate();">Integral</a>
                         </li>
                     </ul>
+                    <!--    Sub-Section Text Containers    -->
+                    <div class="tab-content">
+                            <div id="elecPotential" class="tab-pane fade in active show">
+                                <center><h4>Gradient of an electric potential</h4></center>
+                                <br><br>
+                                Consider a particle with charge $Q$ positioned at the origin.  The graph on the right 
+                                shows the potential field $V(x,y)$ around the particle (when only considering a 2D 
+                                slice of space passing through the centre of the charge).  
+                                <br><br>
+                                Beneath it the electric field is shown, which is the negative of the gradient of the 
+                                electric potential.
+                            </div>
+                            <div id="elecField" class="tab-pane fade">
+                                <center><h5>$$ V_B - V_A = - \int _A ^B \mathbf{E} \cdot \mathbf{ dl }$$</h5></center>
+                                <br><br>
+                                In electrostatics, all electric fields are conservative. This means that we can find out the potential difference between any two points (A and B) by performing a line integral:
+                                $$\displaystyle 
+                                    \begin{align}
+                                        \Delta V_{AB} = V_B - V_A = \frac{\Delta U_{AB} }{q} 
+                                        \\ &  = -\frac{1}{q} \int _A ^B \mathbf{F} \cdot \mathbf{ dl }
+                                        \\ &  =  - \int _A ^B \mathbf{E} \cdot \mathbf{ dl } 
+                                    \end{align}$$
+                                <br>
+                                Visualisation Guide
+                                <br><br>
+                                <ol>
+                                    <li>On the right, you can see a electric field and the electric potential associated with this field.
+                                        Change the value of the charge, $q$, and observe the change in $\mathbf{E}$ and $V$.</li>
+                                    <li>As the magnitude of $q$ increases, the length of the arrows in $\mathbf{E}$ increases and the contour of the electric potential
+                                        $V$ becomes steeper as well. Since $\mathbf{E} = - \nabla V$, the gradient vector of $V$ is its electric field vector,
+                                        which points in the direction of steepest decrease of $V$.</li>
+                                    <li>The line integral along the electric field,
+                                        $\int \mathbf{E} \cdot \mathbf{ dl }$ is path independent. Move the path of the ball from Point A to Point B
+                                        along 2 different paths, Path 1 and Path 2.</li>
+                                    <li>Observe their electric potential values. Note that along the path, the value of $V$ may be different.
+                                        However, when the balls reach Point B, they have the same electric potential.</li>
+                                    <li>This shows that static electric fields are conservative, hence $\mathbf{E}$ is only dependent on its position.</li>
+                                    <li>There are a few other electric fields for you to play around with. Click the dropdown menu to find out.</li>
+                                </ol>
+                            </div>
+
+                    </div>
                 </div>
             </div>
 
