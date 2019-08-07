@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Maxwell's Equations</title>
+    <link rel="stylesheet" href="styles/skeleton.css">
+        <link rel="stylesheet" href="styles/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body style="overflow: hidden">
+<div class="container_journey">
+    <h5>Introduction</h5>
+    <p style="text-align: left; width: 100%;height: 100%; float: left;">
+            The majority of classic electromagnetism is governed by the four Maxwell's equations.
+            These are empirical equations based on evidence, and were not derived from other equations or principles.
+            In their differential form, Maxwell's equations describe the rates of change of an electromagnetic field.
+            $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}}$$
+            $$ \nabla \cdot \mathbf{B} =  0$$
+            $$ \nabla \times \mathbf{E} = -\frac{d\mathbf{B}}{dt}$$
+            $$ \nabla \times \mathbf{B} = \mu_{0} \mathbf{J} + \mu_{0} \epsilon_{0}\frac{d\mathbf{E}}{dt}$$
+            Where $\mathbf{E}$ is an electric field, $\mathbf{B}$ is a magnetic field. When all time varying terms go to 0, we are left with the static version of Maxwell's equations.
+            $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}}$$
+            $$ \nabla \cdot \mathbf{B} =  0$$
+            $$ \nabla \times \mathbf{E} = 0$$
+            $$ \nabla \times \mathbf{B} = \mu_{0} \mathbf{J}$$
+
+            Of these, Gauss's law for electrostatics, Gauss's law for magnetism, and Ampere's circulation law are the most crucial.
+            Together they describe how sources of charge and current form electric and magnetic fields.
+        </p>
+</div>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+</body>
+</html>
