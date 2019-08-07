@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Page Info-->
+    <title>Gauss_law_Electric_Tex</title>
+    <!--css link-->
+    <link rel="stylesheet"
+          href="styles/skeleton.css">
+    <link rel="stylesheet"
+          href="styles/style.css">
+    <!--Required JS resources-->
+    <!--NB: better to have resources before the main body but still works even if they are not-->
+    <script src="scripts/plotly-1.47.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="scripts/numeric/src/numeric.js"></script>
+    <script src="scripts/math.min.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { fonts: ["TeX"] }
+  });
+
+    </script>
+    <script type="text/javascript" src="scripts/MathJax-master/MathJax.js">
+    </script>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+    <div class="container_journey">
+
+        <p style="text-align: left; -webkit-user-select: none; -moz-user-select: none; user-select: none;-ms-user-select: none;">
+            Maxwell's first law states that;
+            $$ \nabla \cdot \mathbf{B} = \frac{\rho}{\epsilon_0}$$
+            Where $\nabla$ is the divergence operator. This law implies that electric charges exhibit divergence
+            that is proportional to E-field density. But what does this actually mean?
+            <br>
+            A field is divergent if the field is varies along the path of the field lines. So, if one was to take an 'infinitesimal step' along a
+            field line, then the field strength would change. In terms of electrostatics this means that electric charges are the
+            sources of electric fields.
+            <br>
+            The visualisation on the right considers an infinitesimally small section of a charge density the causes
+            field lines to diverge.
+        </p>
+    </div>
+
+</body>
+</html>
