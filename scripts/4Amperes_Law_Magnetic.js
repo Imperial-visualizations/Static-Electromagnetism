@@ -94,6 +94,7 @@ function computeBasis(x3) {
     dy2 = 1
     dx3= 1
     dy3 = 1
+    vertex=[]
 
     //This is how we first declare objects
     x1Vector = new Line2d([[2 * x3, -2], [2 * x3, -2]]);
@@ -103,12 +104,35 @@ function computeBasis(x3) {
     vertex10  = new Line2d([[-10, 0], [0, 0]]);
     vertex11  = new Line2d([[-10, 1], [-x3, 1]]);
     vertex12  = new Line2d([[-10, 2], [-2*x3, 2]]);*/
-    
-    vertex8  = new Line2d([[-10, -2], [10, -2]]);
-    vertex9  = new Line2d([[-10, -1], [10, -1]]);
-    vertex10  = new Line2d([[-10, 0], [10, 0]]);
-    vertex11  = new Line2d([[-10, 1], [10, 1]]);
-    vertex12  = new Line2d([[-10, 2], [10, 2]]);                            //increasing line length as function of current density slider
+  /*  
+    vertex1  = new Line2d([[-10, -9 - 0.4*x3], [10, -9 - 0.4*x3]]);
+    vertex2  = new Line2d([[-10, -8 - 0.6*x3], [10, -8 - 0.6*x3]]);
+    vertex3  = new Line2d([[-10, -7 -0.8*x3], [-7, -0.8*x3]]);
+    vertex4  = new Line2d([[-10, -6 - x3], [10, -6 - x3]]);
+    vertex5  = new Line2d([[-10, -5 - 1.2*x3], [10, -5 - 1.2*x3]]);
+    vertex6  = new Line2d([[-10, -4 - 1.4*x3], [10, -4 - 1.4*x3]]);
+    vertex7  = new Line2d([[-10, -3 - 1.6*x3], [10, -3 - 1.6*x3]]);  
+    vertex8  = new Line2d([[-10, -2 - 1.8*x3], [10, -2 - 1.8*x3]]);
+    vertex9  = new Line2d([[-10, -1 - 2*x3], [10, -1 - 2.0*x3]]);
+    vertex10  = new Line2d([[-10,  -2.2*x3], [10, -2.2*x3]]);   
+    vertex11  = new Line2d([[-10, 1 - 2.4*x3], [10, 1 - 2.4*x3]]); 
+    vertex12  = new Line2d([[-10, 2 - 2.6*x3], [10, 2 - 2.6*x3]]); 
+    vertex13  = new Line2d([[-10, 3 - 2.8*x3], [10, 3 - 2.8*x3]]);                      //increasing line length as function of current density slider
+    vertex14  = new Line2d([[-10, 4 - 3*x3], [10, 4 - 3*x3]]); 
+    vertex15  = new Line2d([[-10, 5 - 3.2*x3], [10, 5 - 3.2*x3]]); 
+    vertex16  = new Line2d([[-10, 6 - 3.4*x3], [10, 6 - 3.4*x3]]); 
+    vertex17  = new Line2d([[-10, 7 - 3.6*x3], [10, 7 - 3.6*x3]]); 
+    vertex18  = new Line2d([[-10, 8 - 3.8*x3], [10, 8 - 3.8*x3]]); 
+    vertex19  = new Line2d([[-10, 9 - 4*x3], [10, 9 - 4*x3]]); */
+
+    for(i=-100;i<100;i++)
+        
+           { vertex.push(new Line2d([[-10,(i) - i*Math.log(5*x3)],[10,(i) - i*Math.log(5*x3)]]));}
+
+            
+            /*for(i=100;i>200;i++)
+        {vertex.push(new Line2d([[-10,i - Math.sqrt(i*x3)],[10,i - Math.sqrt(x3*i)]]));}*/
+
     
     circ11 = new Circle(0.5,Math.abs(x3/2.5));//opacity of circle proportional to magnitude of current
     
@@ -140,20 +164,20 @@ function computeBasis(x3) {
         arr.push(new  Circle(r,opacity));}
     
 
- if (x3<=0)
-    { let j;
+ if (x3<0)
+    { let i;
     var data = [
 
 
 
        // let z = 6 + (2.5*x3);
        // x1Vector.arrowHead(color= cherry,width= 3,wingLen= 5),
-        vertex8.arrowHead(cherry, 6),
+        /*vertex8.arrowHead(cherry, 6),
         vertex8.gObject(black, 1,Math.abs(6 + (2.5*x3))),
         vertex9.gObject(black,1, Math.abs(6 + (1.25*x3))),
         vertex10.gObject(black, 1,Math.abs(6)),
         vertex11.gObject(black,1, Math.abs(6 - (1.25*x3))),
-        vertex12.gObject(black,1, Math.abs(6 - (2.5*x3))),
+        vertex12.gObject(black,1, Math.abs(6 - (2.5*x3))),*/
         
         circ11.gObject(cherry,[2,2]),
         circ21.gObject(cherry,[-2,2]),
@@ -171,6 +195,10 @@ function computeBasis(x3) {
 
     
      ];
+     for(i=0;i<200;i++)
+     {    a=vertex[i]
+          b=a.gObject(black,1);
+          data.push(b); }
      /*for (let j=0;j<10;j++)
     {  let a = arr[j];
         let b = a.gObject(cherry,[-0.5*j,0.5*j]);
@@ -179,19 +207,35 @@ function computeBasis(x3) {
     
     }
     else
-    {
+    { let i;
 
     var data = [
 
 
    // let z = 6 + (2.5*x3);
    // x1Vector.arrowHead(color= cherry,width= 3,wingLen= 5),
-    vertex8.arrowHead(cherry, 6),
-    vertex8.gObject(black, 1,Math.abs(6 + (2.5*x3))),
-    vertex9.gObject(black, 1,Math.abs(6 + (1.25*x3))),
-    vertex10.gObject(black, 1,Math.abs(6)),
-    vertex11.gObject(black, 1,Math.abs(6 - (1.25*x3))),
-    vertex12.gObject(black, 1,Math.abs(6 - (2.5*x3))),
+  /*  vertex8.arrowHead(cherry, 6),
+    vertex1.gObject(black, 1),
+    vertex2.gObject(black, 1),
+    vertex3.gObject(black, 1),
+    vertex4.gObject(black, 1),
+    vertex5.gObject(black, 1),
+    vertex13.arrowHead(cherry, 6),
+    vertex6.gObject(black, 1),
+    vertex7.gObject(black, 1),
+    vertex8.gObject(black, 1),
+    vertex9.gObject(black, 1),
+    vertex10.gObject(black, 1),
+    vertex11.gObject(black, 1),
+    vertex12.gObject(black, 1),
+    vertex13.gObject(black, 1),
+    vertex14.gObject(black, 1),
+    vertex15.gObject(black, 1),
+    vertex16.gObject(black, 1),
+    vertex17.gObject(black, 1),
+    vertex18.gObject(black, 1),
+    vertex19.gObject(black, 1),*/
+
     
     circ11.gObject(blue,[2,2]),
     circ21.gObject(blue,[-2,2]),
@@ -202,10 +246,22 @@ function computeBasis(x3) {
     circ22.gObject(blue,[-2,-2]),
     circ32.gObject(blue,[-2,2]),
     circ42.gObject(blue,[2,-2]),
+
+
     
 
  ]; 
-/* for (let j=0;j<10;j++){
+ for(i=0;i<200;i++)
+ {    a=vertex[i]
+      b=a.gObject(black,1);
+      data.push(b);
+ }
+ /*for(i=100;i<200;i++)
+ {    a=vertex[i]
+      b=a.gObject(black,1);
+      data.push(b);
+ }*/
+ /* for (let j=0;j<10;j++){
     let a = arr[j];
     let b = a.gObject(blue,[-0.5*j,0.5*j]);
     data.push(b);
