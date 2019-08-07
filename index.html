@@ -66,10 +66,10 @@
                         key="sectionTitle4" data-no=4 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[3]}}
                 </button>
                 <button :class="[currentTitle === 5 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle5"
-                        key="sectionTitle4" data-no=4 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[4]}}
+                        key="sectionTitle5" data-no=5 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[4]}}
                 </button>
                 <button :class="[currentTitle === 6 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle6"
-                        key="sectionTitle4" data-no=4 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[5]}}
+                        key="sectionTitle6" data-no=6 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[5]}}
                 </button>
             </div>
             <!--    Dynamic meters indicating progress through each section    -->
@@ -83,7 +83,7 @@
                    :max="sectionBottoms[3]" :value="scrollPos"></meter>
             <meter :class="[currentTitle === 5 ? 'activeMeter' : '']" id="m5" :min="sectionTops[4]"
                    :max="sectionBottoms[4]" :value="scrollPos"></meter>
-            <meter :class="[currentTitle === 4 ? 'activeMeter' : '']" id="m6" :min="sectionTops[5]"
+            <meter :class="[currentTitle === 6 ? 'activeMeter' : '']" id="m6" :min="sectionTops[5]"
                    :max="sectionBottoms[5]" :value="scrollPos"></meter>
             <div id="banner-dummy"></div>
         </div>
@@ -441,127 +441,11 @@
                     <!--Interactive Zone Sub Containers-->
                     <div class="rightload text" id='loadout4sub1' key="loadout4sub1"
                          v-if="subSection[3] === 1">
-
+                        <iframe src="EM/Amp_Mag_Diff_interactive.html" width="950px" height="800px"></iframe>
                     </div>
                     <div class="rightload text" id='loadout4sub2' key="loadout4sub2" v-else>
-                        <iframe src="VC/3bCurl_interactive.html" height="800px" width="950px"></iframe>
-                        <!--<div class="three columns" id="buttons-holder"
-                             style="position:inherit; margin-left: 1vw; margin-top: 5vh;">
+                        <iframe src="EM/4Amp_Mag_Integ_interactive.html" height="800px" width="950px"></iframe>
 
-                            <div id="settings">
-
-                                <p style="margin-top:-2vh;" id="desc">Loop type:</p>
-                                <div id="circuit-modifiers" style="margin-left: 6vw; margin-top: -2vw;">
-                                    <select class="form-control" id="circuitSelectList" style="margin-top: -3vh">
-                                        <option value="0">
-                                            circle
-                                        </option>
-                                        <option value="1">
-                                            arc 1
-                                        </option>
-                                        <option value="2">
-                                            arc 2
-                                        </option>
-                                        <option value="3">
-                                            rectangle 1
-                                        </option>
-                                        <option value="4">
-                                            square
-                                        </option>
-
-                                    </select>
-
-                                </div>
-                                <button id="buttonPlay">Play</button>
-                                <button id="buttonReset">
-                                    Reset
-                                </button>
-                                <div id="Current-modifiers">
-
-                                    <button id="buttonAddWire">
-                                        Add Curl Source
-                                    </button>
-                                    <br>
-                                    <button id="buttonRemoveWires">
-                                        Remove Curl Sources
-                                    </button>
-                                    <button id="buttonLoopToggle" style="display:none;">
-                                        Remove Loop
-                                    </button>
-                                    <button id="buttonFieldFlow" style="display:none;">
-                                        Field Flow
-                                    </button>
-                                    &lt;!&ndash;<br>
-                                     <p>
-                                      Wires Selected:
-                                      <b>
-                                       <span id="wireSelected" style="color:blue;">1</span>
-                                      </b>
-                                     </p>&ndash;&gt;
-                                    <label class="sliderTitle" for="currentSlider" id="tagCurrentSlider"
-                                           style="margin-bottom:0.1vh">
-                                        Amount of Curl:
-                                        <b>
-                                            <span data-unit="Amps" id="currentDynamicDisplay">5</span>
-                                        </b>
-                                    </label>
-                                    <label class="slider">
-                                        <input id="currentSlider" max="10" min="-10" name="currentSlider" step="1"
-                                               type="range" value="5">
-                                    </label>
-                                </div>
-
-                                <div id="diameter-modifiers">
-                                    <label class="sliderTitle" style="margin-bottom:0.1vh">
-                                        Diameter of loop:
-                                    </label>
-                                    <label class="slider">
-                                        <input id="diameterSlider" max="290" min="20" step="20" type="range">
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="eight columns" id="graphics-holder" style="position:relative; right:5vw">
-                            <div id="sketch-holder-2"
-                                 style="position: relative; top: -36vh; right: -2vw; width: 55vw; height: 60vh; cursor: default;">
-                                <canvas id="defaultCanvas0" class="p5Canvas" width="1524" height="521"
-                                        style="width: 762.047px; height: 260.5px; z-index:2"></canvas>
-                            </div>
-                            <div id="graph-holder"
-                                 style="position:relative; left: -2vw; top:-8vh; width:125%; height:50vh; "
-                                 class="js-plotly-plot">
-                                <div class="plot-container plotly">
-                                    <div class="svg-container"
-                                         style="position: relative; width:550.359px; height:2vh; z-index: -2;">
-                                        <svg class="main-svg" xmlns="http://www.w3.org/2000/svg"
-                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="550.359"
-                                             height="192.766" style="background: rgb(255, 255, 255);"></svg>
-
-
-                                        <div class="modebar-container"
-                                             style="position: absolute; top: 0px; right: 0px; width: 100%;"></div>
-                                        <svg class="main-svg" xmlns="http://www.w3.org/2000/svg"
-                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="550.359"
-                                             height="192.766">
-                                            <g class="hoverlayer"></g>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="B-dl-text-holder"
-                                 style="position:absolute; right:47vw; top:65vh; width:25%; height:30vh">
-                                <p style="font-size: large;">
-                                    $\displaystyle\oint\mathbf{A.dl}=$
-                                    <span id="Bdl-text">5.0*μ<sub>0<sub></sub></sub></span>
-                                </p>
-                                <p>
-                                    We are using a Riemann sum to integrate, so the number of steps is referring to
-                                    the number of steps used in the numerical integration.
-                            </div>
-                            </div>
-                            -->
 
                     </div>
                 </transition>
@@ -572,10 +456,10 @@
                     <!--Interactive Zone Sub Containers-->
                     <div class="rightload text" id='loadout5sub1' key="loadout5sub1"
                          v-if="subSection[4] === 1">
-                        <!--iframe for ampere-->
+                        <iframe src="EM/5Amp_Elec_Diff_interactive.html" width="950px" height="800px"></iframe>
                     </div>
                     <div class="rightload text" id='loadout5sub2' key="loadout5sub2" v-else-if="subSection[4] === 2">
-                        <!--iframe for ampere-->
+                        <iframe src="EM/5Amp_Elec_Integ_interactive.html" width="950px" height="800px"></iframe>
                     </div>
                     <div class="rightload text" id='loadout5sub3' key="loadout5sub3" v-else>
                         <iframe src="EM/6AmpLaw_Interactive.html" width="950px" height="800px"></iframe>

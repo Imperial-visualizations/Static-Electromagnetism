@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!--Page Info-->
+    <title>EM_p4</title>
+    <!--css link-->
+    <link rel="stylesheet" href="styles/skeleton.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <!--Required JS resources-->
+    <style id="plotly.js-style-global"></style>
+    <script src="scripts/plotly-1.47.4.min.js"></script>
+    <script src="scripts/p5.min.js"></script>
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
+            async=""></script>
+    <script language="javascript" type="text/javascript" src="scripts/p5.dom.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="scripts/numeric/src/numeric.js"></script>
+    <script src="scripts/math.min.js"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-129658302-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-129658302-1');
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+
+
+    </script>
+
+    <title>Title</title>
+</head>
+<body>
+
+<div id="Vis1_interactive"  style="position: relative;">
+
+    <div class="one-third column" style="padding-left: 2em;"></div>
+    <label style="position: relative; left: 5%; display:inline-block;">
+        Current density:
+    </label>
+    <!--Slider for user to choose charge strength and polarity-->
+    <label style="position: relative; left: 7%; width: 35%; display:inline-block;">
+        <input id="x3Controller" class="inputs" type="range" value="0" min="-2.5" max="2.5" step="0.01"
+               oninput="x3ControllerDisplay.value=x3Controller.value"/>
+    </label>
+    <!--Display user input on RHS of slider-->
+    <label style="position: relative; left: 5%; display:inline-block;">
+        <label>$\mathbf{J}$ =
+            <output id="x3ControllerDisplay" name="amount" for="magnit">1</output>
+        </label>
+    </label>
+    <!-- Graph -->
+    <label id='graph' style="width:70%; height:80%;">
+    </label>
+
+</div>
+
+
+</body>
+<script src="scripts/EM_p4.js"></script>
+<script src="scripts/Static_EM_Object.js"></script>
+</html>
