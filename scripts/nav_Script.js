@@ -12,8 +12,8 @@ let app = new Vue ({
         currentSection: 0,
         sectionTops: [],
         sectionBottoms: [],
-        sectionTitleLong: ["Introduction", "Gradient", "Divergence", "Curl"],
-        sectionTitleShort: ["1","2","3","4"],
+        sectionTitleLong: ["Introduction", "Gauss Law","Gauss Law 2", "Ampere's Law", "Ampere's Law 2", "Electric"],
+        sectionTitleShort: ["1","2","3","4","5","6"],
         sectionTitle: [],
         hoverPos: '',
         hoverTitle: false,
@@ -29,7 +29,7 @@ let app = new Vue ({
             [],
         ],
         firstRunDone: false,
-        subSection: [false,1,1,1],
+        subSection: [false,1,1,1,1,1],
         rightSubScripts: [
             [
                 [],

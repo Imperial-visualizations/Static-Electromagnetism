@@ -65,6 +65,12 @@
                 <button :class="[currentTitle === 4 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle4"
                         key="sectionTitle4" data-no=4 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[3]}}
                 </button>
+                <button :class="[currentTitle === 5 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle5"
+                        key="sectionTitle4" data-no=4 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[4]}}
+                </button>
+                <button :class="[currentTitle === 6 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle6"
+                        key="sectionTitle4" data-no=4 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[5]}}
+                </button>
             </div>
             <!--    Dynamic meters indicating progress through each section    -->
             <meter :class="[currentTitle === 1 ? 'activeMeter' : '']" id="m1" :min="sectionTops[0]"
@@ -75,6 +81,10 @@
                    :max="sectionBottoms[2]" :value="scrollPos"></meter>
             <meter :class="[currentTitle === 4 ? 'activeMeter' : '']" id="m4" :min="sectionTops[3]"
                    :max="sectionBottoms[3]" :value="scrollPos"></meter>
+            <meter :class="[currentTitle === 5 ? 'activeMeter' : '']" id="m5" :min="sectionTops[4]"
+                   :max="sectionBottoms[4]" :value="scrollPos"></meter>
+            <meter :class="[currentTitle === 4 ? 'activeMeter' : '']" id="m6" :min="sectionTops[5]"
+                   :max="sectionBottoms[5]" :value="scrollPos"></meter>
             <div id="banner-dummy"></div>
         </div>
         <!--    Container for text content split into sections    -->
@@ -289,6 +299,50 @@
                     </div>
                 </div>
             </div>
+
+            <div class="section-container" id="sc5">
+                <div class="placeholder" id="ph5">
+                    <hr>
+                    <h2 class="text section-head" id="s5">
+                        {{sectionTitleLong[4]}}
+                    </h2>
+                    <hr>
+                </div>
+                <div class="text section-body odd" id="p5">
+                    <!--    Sub-Section Tabs    -->
+                    <ul class="nav nav-tabs nav-justified">
+                        <li :class="[subSection[4] === 1 ? 'shaded' : '', 'active', 'tabLeft']">
+                            <a data-toggle="tab" href="#" @click="subScrollTo(5); subSection[4]=1; loadSubScripts(); $forceUpdate();">Differential</a>
+                        </li>
+                        <li :class="[subSection[4] === 2 ? 'shaded' : '', 'tabRight']">
+                            <a data-toggle="tab" href="#" @click="subScrollTo(5); subSection[4]=2; loadSubScripts(); $forceUpdate();">Integral</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-container" id="sc6">
+                <div class="placeholder" id="ph6">
+                    <hr>
+                    <h2 class="text section-head" id="s6">
+                        {{sectionTitleLong[5]}}
+                    </h2>
+                    <hr>
+                </div>
+                <div class="text section-body odd" id="p6">
+                    <!--    Sub-Section Tabs    -->
+                    <ul class="nav nav-tabs nav-justified">
+                        <li :class="[subSection[5] === 1 ? 'shaded' : '', 'active', 'tabLeft']">
+                            <a data-toggle="tab" href="#" @click="subScrollTo(6); subSection[5]=1; loadSubScripts(); $forceUpdate();">Differential</a>
+                        </li>
+                        <li :class="[subSection[5] === 2 ? 'shaded' : '', 'tabRight']">
+                            <a data-toggle="tab" href="#" @click="subScrollTo(6); subSection[5]=2; loadSubScripts(); $forceUpdate();">Integral</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
         </div>
     </div>
     <!--    Right Side of Window - containing mainly interactive and visual content    -->
@@ -718,6 +772,34 @@
                     </div>
                 </transition>
             </div>
+
+            <div class="rightload text even" id='loadout5' key="loadout5" v-if="currentSection === 5">
+                <transition name="fade">
+                    <!--Interactive Zone Sub Containers-->
+                    <div class="rightload text" id='loadout5sub1' key="loadout5sub1"
+                         v-if="subSection[4] === 1">
+                        <!--iframe for ampere-->
+                    </div>
+                    <div class="rightload text" id='loadout5sub2' key="loadout5sub2" v-else>
+                        <!--iframe for ampere-->
+                    </div>
+                </transition>
+            </div>
+
+            <div class="rightload text even" id='loadout6' key="loadout6" v-if="currentSection === 6">
+                <transition name="fade">
+                    <!--Interactive Zone Sub Containers-->
+                    <div class="rightload text" id='loadout6sub1' key="loadout6sub1"
+                         v-if="subSection[5] === 1">
+                        <!--iframe for Electric field-->
+                    </div>
+                    <div class="rightload text" id='loadout6sub2' key="loadout6sub2" v-else>
+                        <!--iframe for Electric potential-->
+                    </div>
+                </transition>
+            </div>
+
+
         </transition-group>
     </div>
     </div>
