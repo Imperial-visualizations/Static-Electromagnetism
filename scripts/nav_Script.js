@@ -70,7 +70,7 @@ let app = new Vue ({
                 document.getElementById('ampereMagIntegral_1').style.display = 'none';
                 document.getElementById('circuitSelectList2').style.display = '';     
                 document.getElementById('CurrentLine').style.display = '';   
-                document.getElementById('subSecIframe').src = 'EM/4Amp_Single-wire.html'; 
+                this.onChange();
             } else {
                 this.subSubSection = 1;
                 document.getElementById("buttonExamples").innerHTML = 'Examples'
