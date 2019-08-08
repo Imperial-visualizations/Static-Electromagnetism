@@ -452,16 +452,23 @@
                                 <br><br>
                                 Beneath it the electric field is shown, which is the negative of the gradient of the 
                                 electric potential.
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
                             </div>
                             <div id="elecField" class="tab-pane fade">
                                 <center><h5>$$ V_B - V_A = - \int _A ^B \mathbf{E} \cdot \mathbf{ dl }$$</h5></center>
                                 In electrostatics, all electric fields are conservative. This means that we can find out the potential difference between any two points (A and B) by performing a line integral:
-                                $$\displaystyle 
-                                    \begin{align}
-                                        \Delta V_{AB} = V_B - V_A = \frac{\Delta U_{AB} }{q} 
-                                        \\ &  = -\frac{1}{q} \int _A ^B \mathbf{F} \cdot \mathbf{ dl }
-                                        \\ &  =  - \int _A ^B \mathbf{E} \cdot \mathbf{ dl } 
-                                    \end{align}$$
+                                $$\displaystyle \Delta V_{AB} = V_B - V_A = \frac{\Delta U_{AB} }{q} $$
+                                $$\displaystyle = -\frac{1}{q} \int _A ^B \mathbf{F} \cdot \mathbf{ dl }$$
+                                $$\displaystyle =  - \int _A ^B \mathbf{E} \cdot \mathbf{ dl } $$
+
                                 <br>
                                 Visualisation Guide
                                 <br><br>
@@ -479,6 +486,8 @@
                                     <li>This shows that static electric fields are conservative, hence $\mathbf{E}$ is only dependent on its position.</li>
                                     <li>There are a few other electric fields for you to play around with. Click the dropdown menu to find out.</li>
                                 </ol>
+
+
                             </div>
 
                     </div>
@@ -573,9 +582,9 @@
                     <div class="rightload text" id='loadout5sub2' key="loadout5sub2" v-else-if="subSection[4] === 2">
                         <iframe src="EM/5Amp_Elec_Integ_interactive.html" width="950px" height="800px"></iframe>
                     </div>
-                    <div class="rightload text" id='loadout5sub3' key="loadout5sub3" v-else>
+                    <!--<div class="rightload text" id='loadout5sub3' key="loadout5sub3" v-else>
                         <iframe src="EM/6AmpLaw_Interactive.html" width="950px" height="800px"></iframe>
-                    </div>
+                    </div>-->
                 </transition>
             </div>
 
@@ -602,7 +611,5 @@
 </body>
 
 <script src="scripts/nav_Script.js"></script>
-<script src="scripts/VC-scripts/classes.js"></script>
-<script src="scripts/VC-scripts/VC_object.js"></script>
 
 </html>

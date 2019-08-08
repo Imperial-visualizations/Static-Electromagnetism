@@ -865,6 +865,8 @@ function main(){
     const layoutVector_7b = {
         title: "Electric Field",
         showlegend: false,
+        width: 280,
+        height: 280,
         xaxis: {
             constrain: "domain",
             range: [-20, 20],

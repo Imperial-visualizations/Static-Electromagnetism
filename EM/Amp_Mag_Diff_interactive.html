@@ -43,7 +43,7 @@
 </head>
 <body>
 
-<div id="Vis1_interactive"  style="position: relative;">
+<div id="Vis1_interactive"  style="position:absolute; top: 3vh; left:8vw;width: 100%; height: 100%">
 
     <div class="one-third column" style="padding-left: 2em;"></div>
     <label style="position: relative; left: 5%; display:inline-block;">
@@ -63,6 +63,10 @@
     <!-- Graph -->
     <label id='graph' style="width:70%; height:80%;">
     </label>
+    <div id="graph-holder" style="display:none;"
+         class="js-plotly-plot"></div>
+    <div id="sketch-holder"
+         style="display: none"></div>
 
 </div>
 
