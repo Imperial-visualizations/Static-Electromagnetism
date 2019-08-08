@@ -30,6 +30,7 @@ let app = new Vue ({
         ],
         firstRunDone: false,
         subSection: [false,1,1,1,1,1],
+        subSubSection: 1,
         rightSubScripts: [
             [
                 [],
@@ -61,7 +62,39 @@ let app = new Vue ({
                 app.changeSec();
             }
         },
+        //Antoine draft/////////////////////////////////////////////////////////////
+        onClick: function () {
+            if (this.subSubSection === 1) {
+                this.subSubSection = 2;
+                document.getElementById('ampereMagIntegral_1').style.display = 'none';
+                document.getElementById('circuitSelectList2').style.display = '';     
+                document.getElementById('CurrentLine').style.display = '';        
+            } else {
+                this.subSubSection = 1;
+                document.getElementById('circuitSelectList2').style.display = 'none';
+                document.getElementById('ampereMagIntegral_1').style.display = '';
+                document.getElementById('CurrentLine').style.display = 'none';
+                document.getElementById('solenoid').style.display = 'none';
+                document.getElementById('Toroid').style.display = 'none';
+            }
+        },
 
+        onChange: function () {
+           if (document.getElementById('circuitSelectList2').value === '1') {
+                document.getElementById('CurrentLine').style.display = '';
+                document.getElementById('solenoid').style.display = 'none';
+                document.getElementById('Toroid').style.display = 'none';
+            } else if (document.getElementById('circuitSelectList2').value === '2') {
+                document.getElementById('solenoid').style.display = '';
+                document.getElementById('CurrentLine').style.display = 'none';
+                document.getElementById('Toroid').style.display = 'none';
+          } else if (document.getElementById('circuitSelectList2').value === '3') {
+                document.getElementById('Toroid').style.display = '';
+                document.getElementById('CurrentLine').style.display = 'none';
+                document.getElementById('solenoid').style.display = 'none';
+            }  
+        },
+        ////////////////////////////////////////////////////////////////////////////
         handleElement: function (section) {
             // update currentSection variable if user scrolls past the top edge of its corresponding section on left side
             if (app.scrollPos >= app.sectionTops[section -1] && app.scrollPos < app.sectionBottoms[section -1]) {

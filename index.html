@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--Title-->
-    <title>Visualisations Vector Calculus</title>
+    <title>Visualisations EM 1</title>
     <!--css links-->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -66,10 +66,10 @@
                         key="sectionTitle4" data-no=4 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[3]}}
                 </button>
                 <button :class="[currentTitle === 5 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle5"
-                        key="sectionTitle4" data-no=4 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[4]}}
+                        key="sectionTitle4" data-no=5 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[4]}}
                 </button>
                 <button :class="[currentTitle === 6 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle6"
-                        key="sectionTitle4" data-no=4 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[5]}}
+                        key="sectionTitle4" data-no=6 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[5]}}
                 </button>
             </div>
             <!--    Dynamic meters indicating progress through each section    -->
@@ -117,6 +117,7 @@
                     
                 </div>
             </div>
+
             <div class="section-container" id="sc2">
                 <div class="placeholder" id="ph2">
                     <hr>
@@ -194,6 +195,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="section-container" id="sc3">
                 <div class="placeholder" id="ph3">
                     <hr>
@@ -233,6 +235,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="section-container" id="sc4">
                 <div class="placeholder" id="ph4">
                     <hr>
@@ -245,45 +248,134 @@
                     <!--    Sub-Section Tabs    -->
                     <ul class="nav nav-tabs nav-justified">
                         <li :class="[subSection[3] === 1 ? 'shaded' : '', 'active', 'tabLeft']">
-                            <a data-toggle="tab" href="#curlDifferential" @click="subScrollTo(4); subSection[3]=1; loadSubScripts(); $forceUpdate();">Differential</a>
+                            <a data-toggle="tab" href="#ampereMagDifferential" @click="subScrollTo(4); subSection[3]=1; loadSubScripts(); $forceUpdate();">Differential</a>
                         </li>
                         <li :class="[subSection[3] === 2 ? 'shaded' : '', 'tabRight']">
-                            <a data-toggle="tab" href="#curlIntegral" @click="subScrollTo(4); subSection[3]=2; loadSubScripts(); $forceUpdate();">Integral</a>
+                            <a data-toggle="tab" href="#ampereMagIntegral" @click="subScrollTo(4); subSection[3]=2; loadSubScripts(); $forceUpdate();">Integral</a>
                         </li>
                     </ul>
                     <!--    Sub-Section Text Containers    -->
                     <div class="tab-content">
-                        <div id="curlDifferential" class="tab-pane fade in active show">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nec augue tempus, ullamcorper mi eget, aliquet nulla. Pellentesque augue leo, sodales tempus justo sollicitudin, elementum placerat risus. Vivamus dapibus nulla id dolor egestas, eget efficitur tortor faucibus. Ut imperdiet vel velit quis rutrum. Aenean quis tempor lacus. Suspendisse augue libero, rhoncus non leo vitae, pulvinar vehicula dolor. Nulla viverra suscipit purus, in euismod ex ultrices id. Nullam ut sollicitudin ex. Nulla faucibus eu turpis sed placerat. Pellentesque nec iaculis nibh. Integer faucibus sodales arcu sed rutrum.
-                            </br></br>
-                            Suspendisse mattis porttitor cursus. Curabitur et dolor lobortis, suscipit sapien id, sodales elit. Nunc cursus sapien vitae lectus rutrum eleifend. Fusce quis erat vel mauris tristique vulputate at sit amet orci. Integer aliquam mi quis quam hendrerit pulvinar. Phasellus fermentum nulla a est placerat, eget tincidunt purus varius. Morbi facilisis ante posuere tortor tristique, a lobortis ante pharetra. Suspendisse tempor est vel augue cursus tincidunt. Aenean sed nisi orci. Nulla nec euismod augue, eget fermentum libero. Donec vitae cursus felis, a ultrices erat. Aliquam dapibus mauris sem, sit amet imperdiet purus pellentesque in. Sed rhoncus finibus erat, eget ornare erat pretium eu.
-                            </br></br>
-                            Suspendisse vitae finibus ligula. Cras bibendum elit in diam porttitor, sit amet fermentum orci vulputate. Integer lectus justo, laoreet in condimentum et, accumsan vitae nulla. Morbi facilisis quam eros, vel fermentum velit volutpat nec. Morbi aliquam elit nibh, non finibus ipsum sollicitudin ut. Fusce finibus laoreet diam, eu finibus risus laoreet ac. Maecenas mi erat, semper sit amet nisl vel, consectetur auctor dolor. Aenean eget risus et metus elementum consequat. Nullam eget mi ante. Vivamus eget dolor arcu. Suspendisse id convallis mauris, in ultrices tortor.
-                            </br></br>
-                            Duis nec nisl quam. Sed ultricies tempor nibh non fermentum. Nulla facilisis pharetra nisl vitae lacinia. Vivamus et dolor nec purus convallis ornare a id sapien. Nunc eget nibh id nibh mollis molestie sit amet in purus. Mauris finibus tellus non mi feugiat, quis vestibulum purus facilisis. Maecenas malesuada convallis lobortis. Sed id tortor pretium, luctus felis ac, euismod dui.
-                            </br></br>
-                            Mauris vulputate urna id sodales posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean in orci venenatis, maximus lorem quis, posuere massa. Aliquam id blandit tortor, et lacinia dui. Etiam urna ligula, fermentum venenatis quam sodales, porttitor consectetur nisi. Sed accumsan volutpat dolor. Duis feugiat accumsan massa, at rhoncus lorem sagittis at. Vestibulum massa sapien, faucibus sit amet consectetur vel, pulvinar vel neque. Integer tincidunt faucibus mi sit amet condimentum. Nullam finibus elementum nulla et pellentesque. Sed fermentum nisi et nibh pellentesque fermentum. Phasellus porta aliquet sem, eu rutrum justo luctus vel. Aliquam erat volutpat. o, sodales tempus justo sollicitudin, elementum placerat risus. Vivamus dapibus nulla id dolor egestas, eget efficitur tortor faucibus. Ut imperdiet vel velit quis rutrum. Aenean quis tempor lacus. Suspendisse augue libero, rhoncus non leo vitae, pulvinar vehicula dolor. Nulla viverra suscipit purus, in euismod ex ultrices id. Nullam ut sollicitudin ex. Nulla faucibus eu turpis sed placerat. Pellentesque nec iaculis nibh. Integer faucibus sodales arcu sed rutrum.
+                        <div id="ampereMagDifferential" class="tab-pane fade in active show">
+                            The differential form of Ampere's law is:
+                            $$ \nabla \times \mathbf{B} = \mu_0 \mathbf{J}$$
+                            Consider a section of a plane that contains a uniform magnetic field. The introduction of a current $\mathbf{J}$
+                            that passes through every point in this section of the plane changes the field around it such that
+                            the maginitude of the magnetic field only changes if you move in a direction that is perpendicular to the field.
+                            This is the definition of curl. The introduction of the current density has induced a curl in the magnetic
+                            field.
                         </div>
-                        <div id="curlIntegral" class="tab-pane fade">
-                            Stokes' Theorem states:
-                            <span class="mathJaxDisplay">
-                                $$ \oint_{l} \mathbf {A} \cdot d\mathbf{l} = \iint_{S} \nabla \times \mathbf {A} \cdot d\mathbf{S} $$
-                            </span>
-                            i.e. the closed loop integral of a vector field is equal to the sum of all the curl contained in the surface
-                            enclosed by the loop.
-                            <br><br>
-                            This is demonstrated in the visualisation on the right, where the components of
-                            <span class="mathJaxInline">$ \mathbf {A} \cdot d\mathbf{l} $</span> as you go around the loop are shown in the plot at the bottom. The contributions are positive if
-                            the field and dl are pointing in the same direction.
-                            <br><br>
-                            When there is curl inside the loop then the overall loop integral is non-zero,
-                            since on all parts of the loop, the contributions to the integral from the curl source have the same sign; however
-                            when the curl source is outside of the loop, then the contributions cancel out and the net integral is zero.
-                            <br><br>
-                            This also demonstrates that the curl of a conservative field is zero, since any loop integral
-                            in a conservative field is also zero.
-                            <br><br>
-                            You can change the shape of the loop to see that this is true for any type of closed loop.
+                        <div id="ampereMagIntegral" class="tab-pane fade">
+                            <button @click='onClick()' id="buttonExamples">Examples</button>
+                            <div class='scroll-down'>
+                                <select class="form-control" id="circuitSelectList2" style='display: none' @change='onChange()'>
+                                    <option value="1">
+                                        Single Wire
+                                    </option>
+                                    <option value="2">
+                                        Solenoid
+                                    </option>
+                                    <option value="3">
+                                        Toroid
+                                    </option>
+                                </select>
+                            </div>
+                            <br>
+                            <div id='ampereMagIntegral_1'>
+                                The integral form of Ampere's law is:
+                                $$ \oint \mathbf{B.dl} = \mu_0 I$$
+                                Ampere's law states that when a loop is placed around a current carrying wire, the integral of the magnetic field
+                                around the loop is equal to $\mu_{0}$ multiplied by the current enclosed. If you add a loop in the visualisation
+                                on the right then you can see, by clicking and dragging wires into and out of the loop, that this is true.
+                                <br><br>
+                                When there are wires near to, but outside of a loop, there is flux into and out of the loop, however the average
+                                flux is zero, so the total integral is also zero. You can see how the magnetic flux varies around the loop
+                                in the plot shown.
+                                <br><br>
+                                The reason for this can be seen by placing a wire just outside a circular loop; in this
+                                scenario dl is in the same direction as the field for one part of the loop, and opposite to the field for the
+                                other part. This means the resulting net contribution is zero.
+                            </div>
+                            <div id="CurrentLine" style='display: none'>
+                                    <h5> Current Wire: </h5>
+                                    <p> Consider an infinitely long current-carrying wire. Recall the integral form of static Ampere's
+                                        law</p>
+                                    $$\oint \textbf{B} \cdot \textbf{dl} = \mu_0 I_{enclosed},$$
+                                    <p>and construct a circular Amperian loop (Amp loop). The loop encloses the wire. The magnetic field
+                                        generated by the wire is circular
+                                        with a constant magnitude at a given distance $r$. Hence,</p>
+                                    $$ \displaystyle \textbf{B} \cdot \textbf{dl} = |\textbf{B}||\textbf{dl}|\cos(\theta)= B dl $$
+                                    <p> as the magnetic field aligns with the loop. The integral can be performed and equation for the
+                                        magnetic field strength $B$ can be derived.</p>
+                                    $$ \int B dl = 2\pi r B= \mu_0 I_{enclosed}. $$
+                                    <p> Hence,</p>
+                                    $$ B = \frac{\mu_0 I_{enclosed}}{2 \pi r}. $$
+                                    <p><img src="RHrule.jpg" style="width:50%;height:20%;margin-right:5%;margin-bottom:5%;">
+                                        The direction in which the magnetic field rotates can be confirmed by using the Ampère's right-hand
+                                        grip rule. Note that the magnetic field strength falls off with distance from the wire. You can confirm
+                                        this using the
+                                        visualisation on the Right.
+                        
+                                    </p>
+                        
+                                </div>
+                                <div id="solenoid" style='display: none'>
+                                    <h5> Solenoid: </h5>
+                                    <p> A solenoid can be approximated as a series of circular loops of current with fixed separation. In
+                                        this model, the solenoid is aligned
+                                        such that we can consider the current flowing into and out of the screen. Now consider a rectangular
+                                        Amperian loop (Amp loop). The Amp loop
+                                        can be split into four straight lines. This allows the closed integral of static Ampere's law into
+                                        four integral representing the four straight lines.</p>
+                                    <img src="Solenoid.jpg" style="width:50%;height:20%;margin-right:5%;margin-bottom:5%;"  >
+                                    <p>The diagram shows this Amp loop. The length and the alignment of the sides are chosen to simplify the
+                                        integral: Side $2$ and $4$ align perpendicularly to the direction of the
+                                        magnetic field, hence $\textbf{B} \cdot \textbf{dl} =0 $. Side $3$ is positioned at $r=\infty$,
+                                        hence $|\textbf{B}|=0$.</p>
+                                    $\displaystyle \oint \textbf{B} \cdot \textbf{dl} = \int_{a}^{b} \textbf{B} \cdot \textbf{dl} +
+                                    \int_{b}^{c} \underbrace{\textbf{B} \cdot \textbf{dl}}_\text{=0} + \int_{c}^{d}
+                                    \underbrace{\textbf{B}}_\text{=0} \cdot \textbf{dl} + \int_{d}^{a} \underbrace{\textbf{B} \cdot
+                                    \textbf{dl}}_\text{=0}.$
+                                    <p> Hence, </p>
+                                    $\displaystyle \int_{a}^{b} \textbf{B} \cdot \textbf{dl} = BL=\mu_0 I_{enclosed}=\mu_0 N I,$
+                                    <p> where $L=b-a$, $N$ is the number of current loops enclosed in the loop, and $I$ is the current
+                                        through each current loop. Rearranging gives the equation for the magnetic field strength within
+                                        the solenoid. </p>
+                                    $$ B = \frac{\mu_0 N I}{L}=\mu_0 n I, $$
+                                    <p> where $n$ is the number density of the current loops, meaning the number of current loops in a unit
+                                        length of the solenoid. Note that the magnetic field strength is constant within
+                                        the solenoid. You can confirm this by using the visualisation on the right. Keep in mind that the
+                                        side outside the solenoid does not go off to infinity, however you can see how quickly the
+                                        magnetic field falls off with distance. The arrow moving around the Amp loop in the visualisation
+                                        represent the resultant magnetic field's magnitude and direction, $\textbf{B}$, NOT $\textbf{B}
+                                        \cdot \textbf{dl}$. </p>
+                                </div>
+                                <div id="Toroid" style='display: none'>
+                                    <h5> Toroid : </h5>
+                                    <p>A toroid is simply a solenoid formed into a loop ( a loop of loops!). To calculate the magnetic field
+                                        strength generated, a circular Amperian loop (Amp loop) is used to evaluated
+                                        the three regions of the toroid.</p>
+                                    <p> At the centre and outside of the toroid, the net current enclosed is zero, therefore based on static Ampere's law,
+                                        $|\textbf{B}|$ the magnetic field strength is zero. Within the toroid,</p>
+                                    $\displaystyle \oint \textbf{B} \cdot \textbf{dl} = \oint Bdl = 2\pi rB = \mu_0 I_{enclosed},$
+                                    <p> as the magnetic field within the toroid aligns with the Amp loop. Hence,</p>
+                                    $\displaystyle B = \frac{\mu_0 I_{enclosed}}{2\pi r} = \frac{\mu_0 N I}{2\pi r} = \frac{\mu_0 (nL)
+                                    I}{2\pi r},$
+                                    <p> where $n(=N/L)$ is the number density of the current loops, $L$ is the circumference of the toroid,
+                                        and $N$ is the number of current loops enclosed in the Amp loop. In the
+                                        approximation that the radius of each current loop in the toroid is negligible compared to the
+                                        radius of the Amp loop, we can assume </p>
+                                    $\displaystyle L \approx 2 \pi r.$
+                                    <p> Hence,</p>
+                                    $\displaystyle B = \mu_0 n I$
+                                    <p> which is the same equation that was derived for the solenoid. You can confirm this by using the
+                                        visualisation on the right. Keep in mind that the visualisation calculates the net
+                                        magnetic field generated at the point the arrow is. Hence there is a small variation from the theory
+                                        when that approximation is not applied ( ie. the radius of the current loops is comparable to
+                                        the radius of the Amp loop. Also note the change in the direction of the magnetic field when the Amp
+                                        loop is slightly out of region B. You can confirm the direction using the Ampère's right-hand grip
+                                        rule. </p>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -301,15 +393,37 @@
                     <!--    Sub-Section Tabs    -->
                     <ul class="nav nav-tabs nav-justified">
                         <li :class="[subSection[4] === 1 ? 'shaded' : '', 'active', 'tabLeft']">
-                            <a data-toggle="tab" href="#" @click="subScrollTo(5); subSection[4]=1; loadSubScripts(); $forceUpdate();">Differential</a>
+                            <a data-toggle="tab" href="#ampereElecDifferential" @click="subScrollTo(5); subSection[4]=1; loadSubScripts(); $forceUpdate();">Differential</a>
                         </li>
                         <li :class="[subSection[4] === 2 ? 'shaded' : '', 'tabRight']">
-                            <a data-toggle="tab" href="#" @click="subScrollTo(5); subSection[4]=2; loadSubScripts(); $forceUpdate();">Integral</a>
+                            <a data-toggle="tab" href="#ampereElecIntegral" @click="subScrollTo(5); subSection[4]=2; loadSubScripts(); $forceUpdate();">Integral</a>
                         </li>
                     </ul>
+                    <!--    Sub-Section Text Containers    -->
+                    <div class="tab-content">
+                            <div id="ampereElecDifferential" class="tab-pane fade in active show">
+                                $$ \nabla \times \mathbf{E} = 0$$
+                                The curl of $\mathbf{E}$ is 0 because it is a conservative field. A conservative field can be described by a potential such that
+                                $\mathbf{E} = \nabla \phi$. The curl of the gradient of a scalar field ($\nabla \times \nabla \phi$) is 0. Hence, the curl of $\mathbf{E}$ is 0.      
+                            </div>
+                            <div id="ampereElecIntegral" class="tab-pane fade">
+                                The electrostatic equation demonstrated in this visualisation is:
+                                $$\oint \mathbf {E} \cdot \mathrm {d} {\boldsymbol {l}} = 0$$
+                                As you can see from the visualisation on the right the net flux through a loop in an electric field is always zero,
+                                regardless of the positions of charges or even if there is some background field: as long as the background
+                                field has no curl!
+                                <br><br>
+                                Another way of thinking about this equation is by using Stokes' Law which states:<br><br>
+                                <center>$\displaystyle \oint_{l} \mathbf{A.dl} =$ $\displaystyle \iint_{S} \nabla \times \mathbf {A} \cdot d\mathbf{S}$</center>
+                                <br>
+                                From this it is clear that the first equation, and the fact that electric fields have no curl are identical.
+                                This also implies that electric fields are conservative, since the loop integral is always zero, and the field
+                                has no curl.
+                            </div>
+                        </div>
                 </div>
             </div>
-
+            
             <div class="section-container" id="sc6">
                 <div class="placeholder" id="ph6">
                     <hr>
@@ -332,7 +446,6 @@
                     <div class="tab-content">
                             <div id="elecPotential" class="tab-pane fade in active show">
                                 <center><h4>Gradient of an electric potential</h4></center>
-                                <br><br>
                                 Consider a particle with charge $Q$ positioned at the origin.  The graph on the right 
                                 shows the potential field $V(x,y)$ around the particle (when only considering a 2D 
                                 slice of space passing through the centre of the charge).  
@@ -342,7 +455,6 @@
                             </div>
                             <div id="elecField" class="tab-pane fade">
                                 <center><h5>$$ V_B - V_A = - \int _A ^B \mathbf{E} \cdot \mathbf{ dl }$$</h5></center>
-                                <br><br>
                                 In electrostatics, all electric fields are conservative. This means that we can find out the potential difference between any two points (A and B) by performing a line integral:
                                 $$\displaystyle 
                                     \begin{align}
@@ -382,7 +494,7 @@
         <div class="banner">
             <!--    Visualisation Title    -->
             <h1 class="" id="vis-title">
-                VECTOR CALCULUS CONCEPTS
+                STATIC ELECTROMAGNETISM
             </h1>
             <a href="https://www.imperialvisualisations.com/learn/">
                 <img id="vis-logo" src="VisualisationsLogoWhite2.png">
