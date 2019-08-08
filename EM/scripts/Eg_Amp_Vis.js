@@ -6,7 +6,7 @@ let arrowNo = 1;
 let index = 0;
 let nostep = 50;
 let sign = 0;
-let O11 = 1;
+//let O11 = 1;
 
 
 function getDiameter(a = 200) {
@@ -220,7 +220,7 @@ function recWire(c, n = 10, a = width / 5, b = height / 3) {
 
     return [xval, yval]
 }
-
+/*
 function hideFunction() {
     if (O11 == 1) {
         document.getElementById("hR").innerHTML = "Radius:";
@@ -252,17 +252,17 @@ function hideFunction() {
     }
     //console.log(O11)
 
-}
+}*/
 
 function draw() {
     let C = createCanvas(windowWidth / 2.5, windowWidth / 2.5);
     C.parent('sketch-holder');
     frameRate(frame_no);
 
-    O11 = document.getElementById("circuitSelectList").value;
+    //O11 = document.getElementById("circuitSelectList").value;
     //console.log(O11);
 
-    hideFunction()
+    //hideFunction()
     clear();
     background("white");
     if (O11 == 3) {
