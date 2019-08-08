@@ -1428,9 +1428,9 @@ function windowResized() {
     resizeCanvas(width, height);
 }
 //same for plotly
-window.onresize = function () {
+/*window.onresize = function () {
     Plotly.Plots.resize('graph-holder');
-};
+};*/
 
 function mouseShape() {
     if (checkStartPos()) { //we are in the start position
