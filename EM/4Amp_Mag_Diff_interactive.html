@@ -6,38 +6,32 @@
     <!--Page Info-->
     <title>EM_p4</title>
     <!--css link-->
-    <link rel="stylesheet" href="styles/skeleton.css">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet"
+          href="styles/skeleton.css">
+    <link rel="stylesheet"
+          href="styles/style.css">
     <!--Required JS resources-->
-    <style id="plotly.js-style-global"></style>
+    <!--NB: better to have resources before the main body but still works even if they are not-->
     <script src="scripts/plotly-1.47.4.min.js"></script>
-    <script src="scripts/p5.min.js"></script>
-    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
-            async=""></script>
-    <script language="javascript" type="text/javascript" src="scripts/p5.dom.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="scripts/numeric/src/numeric.js"></script>
     <script src="scripts/math.min.js"></script>
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-129658302-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-
-        gtag('config', 'UA-129658302-1');
-    </script>
     <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-        });
-
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { fonts: ["TeX"] }
+  });
 
     </script>
+    <script type="text/javascript" src="scripts/MathJax-master/MathJax.js">
+    </script>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 
     <title>Title</title>
 </head>

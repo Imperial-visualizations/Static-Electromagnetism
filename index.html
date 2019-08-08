@@ -517,10 +517,10 @@
             </div>
             </div>
             <div class="rightload text odd" id='loadout1' key="loadout1" v-if="currentSection === 1">
-                <iframe src="EM/1Introduction_Interactive.html" width="950px" height="800px"></iframe>
+                <iframe src="EM/1Introduction_Interactive.html" style='width: 100%; height: 100%'></iframe>
             </div>
             <div class="rightload text even" id='loadout2' key="loadout2" v-if="currentSection === 2">
-                <transition name="fade">
+
                     <!--Interactive Zone Sub Containers-->
                     <div class="rightload text" id='loadout2sub1' key="loadout2sub1"
                          v-if="subSection[1] === 1">
@@ -535,38 +535,38 @@
 
                     </div>
                     <div class="rightload text" id='loadout2sub2' key="loadout2sub2" v-else>
-                        <iframe src="EM/2Gauss_Law_Elec_Inte_interactive.html" width="950px" height="800px"></iframe>
+                        <iframe src="EM/2Gauss_Law_Elec_Inte_interactive.html" style='width: 100%; height: 100%'></iframe>
                     </div>
-                </transition>
+
             </div>
             <div class="rightload text odd" id='loadout3' key="loadout3" v-if="currentSection === 3">
 
-                <transition name="fade">
+
                     <!--Interactive Zone Sub Containers-->
                     <div class="rightload text" id='loadout3sub1' key="loadout3sub1"
                          v-if="subSection[2] === 1">
                         <!-- Graph -->
 
-                        <iframe src="EM/3Gauss_Law_Magnetic_Interactive.html" width="950px" height="800px"></iframe>
+                        <iframe src="EM/3Gauss_Law_Magnetic_Interactive.html" style='width: 100%; height: 100%'></iframe>
                     </div>
                     <div class="rightload text" id='loadout3sub2' key="loadout3sub2" v-else>
-                        <iframe src="EM/3Gauss_Law_Mag_Inte_interactive.html" width="950px" height="800px"></iframe>
+                        <iframe src="EM/3Gauss_Law_Mag_Inte_interactive.html" style='width: 100%; height: 100%'></iframe>
                     </div>
-                </transition>
+
             </div>
             <div class="rightload text even" id='loadout4' key="loadout4" v-if="currentSection === 4">
-                <transition name="fade">
+                    <iframe src="EM/Amp_Mag_Diff_interactive.html" style='width: 100%; height: 100%'></iframe>
                     <!--Interactive Zone Sub Containers-->
                     <div class="rightload text" id='loadout4sub1' key="loadout4sub1"
                          v-if="subSection[3] === 1">
-                        <iframe src="EM/4Amp_Mag_Diff_interactive.html" width="950px" height="800px"></iframe>
+                        <iframe src="EM/4Amp_Mag_Diff_interactive.html" style='width: 100%; height: 100%'></iframe>
                     </div>
                     <div class="rightload text" id='loadout4sub2' key="loadout4sub2" v-else>
-                        <iframe src="EM/4Amp_Mag_Integ_interactive.html" id='subSecIframe' height="800px" width="950px"></iframe>
+                        <iframe src="EM/4Amp_Mag_Integ_interactive.html" id='subSecIframe' style='width: 100%; height: 100%'></iframe>
 
 
                     </div>
-                </transition>
+
             </div>
 
             <div class="rightload text even" id='loadout5' key="loadout5" v-if="currentSection === 5">
@@ -574,10 +574,10 @@
                     <!--Interactive Zone Sub Containers-->
                     <div class="rightload text" id='loadout5sub1' key="loadout5sub1"
                          v-if="subSection[4] === 1">
-                        <iframe src="EM/5Amp_Elec_Diff_interactive.html" width="950px" height="800px"></iframe>
+                        <iframe src="EM/5Amp_Elec_Diff_interactive.html" style='width: 100%; height: 100%'></iframe>
                     </div>
                     <div class="rightload text" id='loadout5sub2' key="loadout5sub2" v-else-if="subSection[4] === 2">
-                        <iframe src="EM/5Amp_Elec_Integ_interactive.html" width="950px" height="800px"></iframe>
+                        <iframe src="EM/5Amp_Elec_Integ_interactive.html" style='width: 100%; height: 100%'></iframe>
                     </div>
                     <!--<div class="rightload text" id='loadout5sub3' key="loadout5sub3" v-else>
                         <iframe src="EM/6AmpLaw_Interactive.html" width="950px" height="800px"></iframe>
@@ -590,10 +590,10 @@
                     <!--Interactive Zone Sub Containers-->
                     <div class="rightload text" id='loadout6sub1' key="loadout6sub1"
                          v-if="subSection[5] === 1">
-                        <iframe src="EM/7Electric_Potential_Interactive.html" width="950px" height="800px"></iframe>
+                        <iframe src="EM/7Electric_Potential_Interactive.html" style='width: 100%; height: 100%'></iframe>
                     </div>
                     <div class="rightload text" id='loadout6sub2' key="loadout6sub2" v-else>
-                        <iframe src="EM/7Electric_Field_Interactive.html" width="950px" height="800px"></iframe>
+                        <iframe src="EM/7Electric_Field_Interactive.html" style='width: 100%; height: 100%'></iframe>
                     </div>
                 </transition>
             </div>

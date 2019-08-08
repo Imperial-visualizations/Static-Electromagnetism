@@ -10,20 +10,34 @@
     <link rel="stylesheet" href="styles/style.css">
     <!--Required JS resources-->
     <script src="scripts/plotly-1.47.4.min.js"></script>
-    <script src="scripts/p5.min.js"></script>
-    <script type="text/javascript" async
-            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
-    <script language="javascript" type="text/javascript" src="scripts/p5.dom.js"></script>
+
+    
+
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="scripts/numeric/src/numeric.js"></script>
     <script src="scripts/math.min.js"></script>
+        <!--Required JS resources-->
+    <!--NB: better to have resources before the main body but still works even if they are not-->
+
     <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-        });
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { fonts: ["TeX"] }
+  });
+
     </script>
-    <title>Title</title>
+    <script type="text/javascript" src="scripts/MathJax-master/MathJax.js">
+    </script>
+    <script src="scripts/p5.min.js"></script>
+
+
+
 </head>
 <body>
 <div id="Vis2_interactive" >
@@ -115,7 +129,7 @@
                 <div id="graph-holder" style="position:relative; left: -2vw; top:-8vh; width:125%; height:50vh  ;" class="js-plotly-plot">
                     <div class="plot-container plotly">
                         <div class="svg-container" style="position: relative; width:550.359px; height:2vh; z-index: -2;">
-                            <svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="550.359" height="192.766" style="background: rgb(255, 255, 255);">
+                            <svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="550.359" height="192.766" style="background: rgb(255, 255, 255);"></svg>
 
                             <div class="modebar-container" style="position: absolute; top: 0px; right: 0px; width: 100%;"></div>
                             <svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="550.359" height="192.766"><g class="hoverlayer"></g></svg>
