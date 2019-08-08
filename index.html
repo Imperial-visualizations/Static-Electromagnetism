@@ -431,10 +431,10 @@
                     <!--    Sub-Section Tabs    -->
                     <ul class="nav nav-tabs nav-justified">
                         <li :class="[subSection[5] === 1 ? 'shaded' : '', 'active', 'tabLeft']">
-                            <a data-toggle="tab" href="#elecPotential" @click="subScrollTo(6); subSection[5]=1; loadSubScripts(); $forceUpdate();">Differential</a>
+                            <a data-toggle="tab" href="#elecPotential" @click="subScrollTo(6); subSection[5]=1; loadSubScripts(); $forceUpdate();">Field</a>
                         </li>
                         <li :class="[subSection[5] === 2 ? 'shaded' : '', 'tabRight']">
-                            <a data-toggle="tab" href="#elecField" @click="subScrollTo(6); subSection[5]=2; loadSubScripts(); $forceUpdate();">Integral</a>
+                            <a data-toggle="tab" href="#elecField" @click="subScrollTo(6); subSection[5]=2; loadSubScripts(); $forceUpdate();">Potential</a>
                         </li>
                     </ul>
                     <!--    Sub-Section Text Containers    -->
@@ -602,8 +602,7 @@
         </transition-group>
     </div>
     </div>
-    <div class="rightScriptSpace scriptSpace"></div>
-    <div class="rightSubScriptSpace scriptSpace"></div>
+
 </div>
 </body>
 
