@@ -37,8 +37,8 @@ let app = new Vue ({
                 [],
             ],
             [
-                ["scripts/VC-scripts/1aGrad.js"],
-                ["scripts/VC-scripts/1bGrad.js"],
+                [],
+                [],
             ],
             [
                 ["scripts/VC-scripts/2aDiv.js"],
