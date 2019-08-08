@@ -66,16 +66,20 @@ let app = new Vue ({
         onClick: function () {
             if (this.subSubSection === 1) {
                 this.subSubSection = 2;
+                document.getElementById("buttonExamples").innerHTML = 'Theory'
                 document.getElementById('ampereMagIntegral_1').style.display = 'none';
                 document.getElementById('circuitSelectList2').style.display = '';     
-                document.getElementById('CurrentLine').style.display = '';        
+                document.getElementById('CurrentLine').style.display = '';   
+                document.getElementById('subSecIframe').src = 'EM/4Amp_Single-wire.html'; 
             } else {
                 this.subSubSection = 1;
+                document.getElementById("buttonExamples").innerHTML = 'Examples'
                 document.getElementById('circuitSelectList2').style.display = 'none';
                 document.getElementById('ampereMagIntegral_1').style.display = '';
                 document.getElementById('CurrentLine').style.display = 'none';
                 document.getElementById('solenoid').style.display = 'none';
                 document.getElementById('Toroid').style.display = 'none';
+                document.getElementById('subSecIframe').src = 'EM/4Amp_Mag_Integ_interactive.html'; 
             }
         },
 
@@ -84,14 +88,17 @@ let app = new Vue ({
                 document.getElementById('CurrentLine').style.display = '';
                 document.getElementById('solenoid').style.display = 'none';
                 document.getElementById('Toroid').style.display = 'none';
+                document.getElementById('subSecIframe').src = 'EM/4Amp_Single-wire.html'; 
             } else if (document.getElementById('circuitSelectList2').value === '2') {
                 document.getElementById('solenoid').style.display = '';
                 document.getElementById('CurrentLine').style.display = 'none';
                 document.getElementById('Toroid').style.display = 'none';
+                document.getElementById('subSecIframe').src = 'EM/4Amp_solenoid.html'; 
           } else if (document.getElementById('circuitSelectList2').value === '3') {
                 document.getElementById('Toroid').style.display = '';
                 document.getElementById('CurrentLine').style.display = 'none';
                 document.getElementById('solenoid').style.display = 'none';
+                document.getElementById('subSecIframe').src = 'EM/4Amp_toroid.html'; 
             }  
         },
         ////////////////////////////////////////////////////////////////////////////
