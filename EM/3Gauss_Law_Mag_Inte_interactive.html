@@ -30,35 +30,36 @@
 
       <div style="position: relative;">
           <!--Text next to new magnet-->
-          <label class="text" style="position: relative; left: 2%; display:inline-block;">
+          <div style="display: flex; flex-direction: row">
+          <label class="text" style="position: relative; left: 2vw; width:content-box; flex-grow: 2">
               <font size="5">Drag to add</font>
           </label>
           <!--Text next to slider for user to choose magnet strength-->
-          <label class="text" style="position: relative; left: 15%; display:inline-block;">
+          <label class="text" style="position: relative; left: 20vw; top: 2vh">
               <font size="4">Relative strength:</font>
           </label>
           <!--Slider for user to choose magnet strength-->
-          <label style="position: relative; left: 16%; width: 25%; top: 4vh;display:inline-block;">
+          <label style="position: relative; left: 18vw; width: 19vw; top: 3vh;">
               <input id="magnit" class="inputs" type="range" value="1" min="0" max="1" step="0.1" oninput="amount1.value=magnit.value"/>
           </label>
           <!--Display user input for magnet strength on RHS of slider-->
-          <label style="position: relative; left: 11%; display:inline-block;">
+          <label style="position: relative; left: 16vw; top: 3vh;">
               <output id="amount1" name="amount1" for="magnit">1</output>
           </label>
           <!--Text next to slider for user to choose magnet orientation-->
-          <label class="text" style="position: relative; left: 12%;top: 1vh;display:inline-block">
+          <label class="text" style="position: relative; left: 20vw;top: 3vh;">
               <font size="4">Orientation:</font>
           </label>
           <!--Slider for user to choose magnet orientation-->
-          <label id="angleChange" style="position: relative; left: 14.5%; width: 25%; display:inline-block;top: 4vh" value=false>
+          <label id="angleChange" style="position: relative; left: 22vw; width: 19vw; top: 3vh" value=false>
               <input id="angle" class="inputs" onmousedown="angleChange.value=true" onmouseup="angleChange.value = false" type="range" value="0" min="0" max="360" step="1" oninput="amount2.value=angle.value"/>
           </label>
           <!--Display user input for magnet orientation on RHS of slider-->
-          <label style="position: relative; left: 10%; display:inline-block;">
+          <label style="position: relative; left: 22vw; top: 3vh">
               <output id="amount2" name="amount2" for="angle">0</output><span>°</span>
           </label>
           <!--Loop options-->
-          <label style="position: relative; left: 85%; display:inline-block;top: 10vh">
+          <label style="position: relative; left: 27vw; top: 4vh">
             <select class="form-control" id="loopOptions" >
               <option value="1">
                   Random loop
@@ -71,10 +72,11 @@
               </option>
             </select>
           </label>
+          </div>
           <button id="Draw" style="position: relative; left: 10%; width: 17%; display: none">Drawing mode off</button>
           <button id="clearDrawing" style="position: relative; left: 8%; width: 10%; display: none" onclick='clearDrawing()'>Clear!</button>
           <!--p5 canvas for drawing magnets, fieldlines and loop-->
-          <label id="sketch-holder" style="height: 100vh; width: 160vh; margin-top: -20vh;"/>
+          <label id="sketch-holder" style="height: 100vh; width: 160vh; margin-top: -10vh;"></label>
       </div>
 </div>
 
