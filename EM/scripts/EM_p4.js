@@ -1688,7 +1688,7 @@ function recWire(c, n = 10, a = width / 5, b = height / 3) {
     push();
     strokeWeight(3);
     stroke(19, 21, 22);
-    noFill()
+    noFill();
     rect(-a + width / 2, -b + height / 2 + c, 2 * a, (1.2 * b));
     push();
     textSize(30);

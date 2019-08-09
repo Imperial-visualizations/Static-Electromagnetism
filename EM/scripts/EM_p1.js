@@ -192,10 +192,10 @@ let drawing = false;
 function DrawingMode() {
     if (drawing) {
         drawing = false;
-        $('#Draw').html('Drag mode');
+        $('#Draw').html('Drawing mode off');
     } else {
         drawing = true;
-        $('#Draw').html('Drawing mode');
+        $('#Draw').html('Drawing mode on');
     }
 }
 

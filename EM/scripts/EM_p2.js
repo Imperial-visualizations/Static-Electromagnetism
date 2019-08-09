@@ -513,7 +513,7 @@ function draw() {
     //draw the top blue rectangle box that contains the text, slider and new magnet
     noStroke();
     fill(247, 252, 251);
-    rect(0, 0, width, 2*rect_height);
+    rect(0, 0, 4*width, 2*rect_height);
 
     stroke(72, 99, 95);
     line(0, rect_height, width, rect_height);
