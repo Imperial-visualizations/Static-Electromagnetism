@@ -431,10 +431,10 @@
                     <!--    Sub-Section Tabs    -->
                     <ul class="nav nav-tabs nav-justified">
                         <li :class="[subSection[5] === 1 ? 'shaded' : '', 'active', 'tabLeft']">
-                            <a data-toggle="tab" href="#elecPotential" @click="subScrollTo(6); subSection[5]=1; loadSubScripts(); $forceUpdate();">Field</a>
+                            <a data-toggle="tab" href="#elecPotential" @click="subScrollTo(6); subSection[5]=1; loadSubScripts(); $forceUpdate();">Potential</a>
                         </li>
                         <li :class="[subSection[5] === 2 ? 'shaded' : '', 'tabRight']">
-                            <a data-toggle="tab" href="#elecField" @click="subScrollTo(6); subSection[5]=2; loadSubScripts(); $forceUpdate();">Potential</a>
+                            <a data-toggle="tab" href="#elecField" @click="subScrollTo(6); subSection[5]=2; loadSubScripts(); $forceUpdate();">Field</a>
                         </li>
                     </ul>
                     <!--    Sub-Section Text Containers    -->
