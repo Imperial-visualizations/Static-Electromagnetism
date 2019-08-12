@@ -24,7 +24,7 @@ function toggle() {
 //JS for Vis2
 //allpoints for storing charges, maxpoints to limit total n of allpoints, newchargex/y for position of new charge on top
 
-let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 10, newchargex = 220, newchargey = 38;
+let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 10, newchargex = 200, newchargey = 38;
 const Nvertices = 700, max_range = 2000, R = 16, square_size = 100, padding = 90, rect_height = height/8, arrow_size = 2;
 
 //Used to prevent things from overlapping one another
