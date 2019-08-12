@@ -152,45 +152,19 @@
                             field lines to diverge.
                         </div>
                         <div id="gaussElecIntegral" class="tab-pane fade">
-                            Gauss's law for electrostatics can be expressed as:
-                            $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}}$$
-                            Where $\displaystyle \nabla $ is the divergence operator. A simple way to visualise this law is through electric field lines.
-                            Geometrically, the divergence of a field is represented by the net number of field lines moving in or out of a volume element.
-                            So Gauss's law states that the number of field lines moving in or out of a volume element is proportional to the charge density inside the element.
-                            <br>
-                            We can see this is true if electric charges act as a source or sink of field lines, as shown in the visualisation to the right.
+                            Gauss’s law for electrostatics (integral form) can be expressed as :
+                             <br><br>
+                            <center>$\unicode{x222F}_S \mathbf {E} \cdot \mathrm {d} \mathbf {S} ={\frac {1}{\varepsilon _{0}}}\iiint _V \rho \,\mathrm {d} V$</center>
+                             <br>
+                            where $V$ is the volume enclosed by the closed surface $S$.
                             <br><br>
-                            Consider a sphere of radius $R$ and non-uniform density $\displaystyle \rho $, defined by:
-                            $$ \rho = r^3 e^{-cos\theta}.$$
-                            What is the Electric field of the sphere in the radial direction?
+                            Geometrically, $\mathbf {E} \cdot \mathrm {d} \mathbf {S}$ represents the net <a href=“Visualisations/Vector-Calculus-Concepts/Div&Flux.html”>flux</a> of $\mathbf {E}$ through $\mathrm {d} \mathbf {S}$. This law relates the net flux through a closed surface to the net charge contained within.
                             <br><br>
-                            Solution:
-                            <br>
-                            We want $E_r$ (Electric field in radial direction) as a function of $r$, $\theta$, and $\phi$:
-                            <ol>
-                                <li>
-                                    Use Gauss Law in integral form:
-                                    $$\int \int E \cdot dS = \frac{1}{\epsilon_0} \int \int \int \rho dV $$
-                                </li>
-                                <li>
-                                    For the RHS use $\displaystyle dQ=\rho dV$ and hence:
-                                    $$ Q= \int\rho dv = \int r^3 e^{cos\theta} dV $$
-                                    where $\displaystyle dV=r^2 sin\theta d\theta dr d\phi$ in spherical polar coordinates.
-                                </li>
-                                <li>Compute the integral</li>
-                                <li>
-                                    We now deal with the LHS. Since we only want the E-field in the radial direction we only
-                                    need to consider the dot product of $\displaystyle E_r$ with $\displaystyle dS$. Recall from
-                                    vector calculus (insert hyperlink?) that for spherical polar co-ordinates, in the $\displaystyle
-                                    dr$ direction, $\displaystyle dS$ is given by:
-                                    $$ dS= r^2 sin \theta d\theta d\phi dr$$
-                                </li>
-                                <li>Compute the integral of $\displaystyle E \cdot dS$</li>
-                                <li>
-                                    Divide by $\displaystyle 4 \pi r^2$ and in the wise words of VJT, VOILA! We obtain
-                                    $$ E=\frac{k R^6}{6 \epsilon_0 r^2} sinh(1) $$
-                                </li>
-                            </ol>
+                            In this visualisation, we have a 2D representation of the law.
+                            The loop, which represents a 2D slice of a surface, is generated randomly.
+                            The number in the loop is the scaled net flux through the loop.
+                            <br><br>
+                            In the ‘manual loop’ option, we have specified that the normal is pointing outwards when the loop is drawn in anticlockwise direction.
                         </div>
                     </div>
                 </div>
@@ -231,6 +205,8 @@
                             Geometrically, $\mathbf {B} \cdot \mathrm {d} \mathbf {S}$ represents the net flux of $\mathbf {B}$ through $\mathrm {d} \mathbf {S}$. This law states that the net flux of any magnetic field through an arbitrary closed surface is always zero.
                             <br><br>
                             In this visualisation, we have a 2D representation of the law. The number in the loop is the scaled net flux through the loop.
+                            <br><br>
+                            In the ‘manual loop’ option, we have specified that the normal is pointing outwards when the loop is drawn in anticlockwise direction.
                         </div>
                     </div>
                 </div>
@@ -401,9 +377,11 @@
                     <!--    Sub-Section Text Containers    -->
                     <div class="tab-content">
                             <div id="ampereElecDifferential" class="tab-pane fade in active show">
-                                $$ \nabla \times \mathbf{E} = 0$$
                                 The curl of $\mathbf{E}$ is 0 because it is a conservative field. A conservative field can be described by a potential such that
-                                $\mathbf{E} = \nabla \phi$. The curl of the gradient of a scalar field ($\nabla \times \nabla \phi$) is 0. Hence, the curl of $\mathbf{E}$ is 0.      
+                                $\mathbf{E} = \nabla \phi$. The curl of the gradient of a scalar field ($\nabla \times \nabla \phi$) is 0. Hence, the curl of $\mathbf{E}$ is 0.
+                                <br><br>
+                                To visualise this, we shall have a visualisation that has a hypothetical non-zero curl of $\mathbf{E}$.
+                                You can compare and constrast a non-zero curl field to a curl-free field.     
                             </div>
                             <div id="ampereElecIntegral" class="tab-pane fade">
                                 The electrostatic equation demonstrated in this visualisation is:
@@ -563,7 +541,7 @@
 
             </div>
             <div class="rightload text even" id='loadout4' key="loadout4" v-if="currentSection === 4">
-                    <iframe src="EM/Amp_Mag_Diff_interactive.html" style='width: 100%; height: 100%'></iframe>
+                   
                     <!--Interactive Zone Sub Containers-->
                     <div class="rightload text" id='loadout4sub1' key="loadout4sub1"
                          v-if="subSection[3] === 1">
