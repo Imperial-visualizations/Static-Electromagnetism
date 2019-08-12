@@ -40,15 +40,15 @@
 
 </head>
 <body>
-<div id="Vis2_interactive" >
+<div id="Vis2_interactive" style='display:flex; flex-direction: row; height: 100vh; width: 100vw'>
 
-      <div class="three columns" id="buttons-holder" style="position:inherit; margin-left: 1vw; margin-top: 5vh;">
-          <div id="settings">
+      <div class="three columns" id="buttons-holder" style="margin-left: 3%; flex-grow: 1; margin-top: 3%">
+          
 
+          
+          
+        <div style="display: flex; flex-direction: row">
           <p style="margin-top:-2vh;" id="desc">Loop type:</p>
-          <p style="margin-top:-2vh;" id="desc">Background <br>Field:</p>
-
-          <div id="circuit-modifiers" style="margin-left: 6vw; margin-top: -7vw;">
           <select class="form-control" id="circuitSelectList" style="margin-top: -3vh">
                 <option value="0">
                 circle
@@ -66,6 +66,10 @@
                 square
                 </option>
             </select>
+        </div>
+
+        <div style="display: flex; flex-direction: row">
+           <p style="margin-top:-2vh;" id="desc">Background <br>Field:</p>
            <select class="form-control" id="fieldList" style="margin-top: -3vh">
             <option value="0">
              None
@@ -79,12 +83,12 @@
             <option value="3">
              Sine Squared
             </option>
-
            </select>
-          </div>
+        </div>
+          
               <button id="buttonPlay">Play</button>
               <button id="buttonReset">Reset</button>
-          <div id="Current-modifiers">
+          
 
            <button id="buttonAddWire">
             Add Charge
@@ -95,13 +99,7 @@
            </button>
 
 
-           <!--<br>
-           <p>
-            Wires Selected:
-            <b>
-             <span id="wireSelected" style="color:blue;">1</span>
-            </b>
-           </p>-->
+           
            <label class="sliderTitle" for="currentSlider" id="tagCurrentSlider" style="margin-bottom:0.1vh">
             Charge:
             <b>
@@ -111,44 +109,33 @@
            <label>
               <input id="currentSlider" max="10" min="-10" name="currentSlider" step="1" type="range" value="0" >
            </label>
-          <div id="diameter-modifiers">
+          
                 <label class="sliderTitle" style="margin-bottom:0.1vh">Diameter of loop:</label>
                 <label >
                     <input id="diameterSlider" max="290" min="20" step="20" type="range" >
                 </label>
-            </div>
-          </div>
+            
+          
 
-         </div>
+         
+
+         <p style="font-size: large;">
+            $\displaystyle\oint\mathbf{E.dl}=$
+            <span id="Bdl-text">5.0</span>
+        </p>
         </div>
 
-       <div class="eight columns" id="graphics-holder" style="position:relative; right:5vw">
-                <div id="sketch-holder" style="position: relative; top: -34vh; right: -2vw; width: 55vw; height: 60vh; cursor: default;">
-                    <canvas id="defaultCanvas0" class="p5Canvas" width="1524" height="521" style="width: 762.047px; height: 260.5px; z-index:2;"></canvas>
+       <div class="eight columns" id="graphics-holder" style="flex-grow: 2">
+                <div id="sketch-holder" style="position: relative; top: 0; right: -2vw; width: 55vw; height: 60vh; cursor: default;">
+                    
                 </div>
-                <div id="graph-holder" style="position:relative; left: -2vw; top:-8vh; width:125%; height:50vh  ;" class="js-plotly-plot">
-                    <div class="plot-container plotly">
-                        <div class="svg-container" style="position: relative; width:550.359px; height:2vh; z-index: -2;">
-                            <svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="550.359" height="192.766" style="background: rgb(255, 255, 255);"></svg>
-
-                            <div class="modebar-container" style="position: absolute; top: 0px; right: 0px; width: 100%;"></div>
-                            <svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="550.359" height="192.766"><g class="hoverlayer"></g></svg>
-                        </div>
-                    </div>
+                <div id="graph-holder" style="position:relative; left: -2vw; top:-8vh; width:100%; height:50vh  ;" class="js-plotly-plot">
+                    
                 </div>
 
-            </div>
-<div id="B-dl-text-holder" style="position:absolute; left:1vw; top:65vh; width:21%; height:30vh">
-                    <p style="font-size: large;">
-                        $\displaystyle\oint\mathbf{E.dl}=$
-                        <span id="Bdl-text">5.0</span>
-                    </p>
-                    <p>
-                        We are using a Riemann sum to integrate, so the number of steps is referring to the number of steps used in the numerical integration.
-                    </p>
-                </div>
-
-  </div>
+        </div>
+        
+</div>
 
 </body>
 <script src="scripts/EM_p3.js"></script>
