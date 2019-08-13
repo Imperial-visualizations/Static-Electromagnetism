@@ -1,23 +1,5 @@
 /*jshint esversion:7*/
 
-//The function to switch between visualisations
-//When checked is false, displays vis 1
-//When checked is true, displays vis 2
-//Default is false
-//document.getElementById("mode").checked = false;
-function toggle() {
-    if (document.getElementById("mode").checked == true) {
-        document.getElementById("Vis1_text").style.display = "none";
-        document.getElementById("Vis1_interactive").style.display = "none";
-        document.getElementById("Vis2_text").style.display = "block";
-        document.getElementById("Vis2_interactive").style.display = "block";
-    } else {
-        document.getElementById("Vis1_text").style.display = "block";
-        document.getElementById("Vis1_interactive").style.display = "block";
-        document.getElementById("Vis2_text").style.display = "none";
-        document.getElementById("Vis2_interactive").style.display = "none";
-    }
-}
 
 //Vis1
 
@@ -100,50 +82,17 @@ var isBlackText = false;
 that's fine, no need to recreate stuff, but any functions you need to construct yourself should go in this
 next block*/
 
-
-
-
-
-
-
-
-
-
 function computeBasis(x3) {
-    dx1 = 5
-    dy1 = 1
-    dx2= 1
-    dy2 = 1
-    dx3= 1
-    dy3 = 1
 
-    //This is how we first declare objects
-    x1Vector = new Line2d([[2 * x3, -2], [2 * x3, -2]]);
-    y1Vector = new Line2d([[2 * x3, -2], [2 * x3, -2+dy1]]);
-  /*  vertex8  = new Line2d([[-10, -2], [2 * x3, -2]]);
-    vertex9  = new Line2d([[-10, -1], [x3, -1]]);
-    vertex10  = new Line2d([[-10, 0], [0, 0]]);
-    vertex11  = new Line2d([[-10, 1], [-x3, 1]]);
-    vertex12  = new Line2d([[-10, 2], [-2*x3, 2]]);*/
+    circ11 = new Circle(0.5,x3);//opacity of circle proportional to magnitude of current
+    circ21 = new Circle(0.5,x3);
+    circ31 = new Circle(0.5,x3);
+    circ41 = new Circle(0.5,x3);
 
-    vertex8  = new Line2d([[-10, -2], [10, -2]]);
-    vertex9  = new Line2d([[-10, -1], [10, -1]]);
-    vertex10  = new Line2d([[-10, 0], [10, 0]]);
-    vertex11  = new Line2d([[-10, 1], [10, 1]]);
-    vertex12  = new Line2d([[-10, 2], [10, 2]]);                            //increasing line length as function of current density slider
-
-    circ11 = new Circle(0.5,Math.abs(x3/2.5));//opacity of circle proportional to magnitude of current
-
-    circ21 = new Circle(0.5,Math.abs(x3/2.5));
-
-    circ31 = new Circle(0.5,Math.abs(x3/2.5));
-
-    circ41 = new Circle(0.5,Math.abs(x3/2.5));
-
-    circ12 = new Circle(0.25,Math.abs(x3/2.5));
-    circ22 = new Circle(0.25,Math.abs(x3/2.5));
-    circ32 = new Circle(0.25,Math.abs(x3/2.5));
-    circ42 = new Circle(0.25,Math.abs(x3/2.5));
+    circ12 = new Circle(0.25,x3);
+    circ22 = new Circle(0.25,x3);
+    circ32 = new Circle(0.25,x3);
+    circ42 = new Circle(0.25,x3);
 
     cross11  = new Line2d([[2-0.35355,2-0.35355],[2+0.35355,2+0.35355]]);
     cross12  = new Line2d([[2-0.35355,2+0.35355],[2+0.35355,2-0.35355]]);
@@ -154,68 +103,52 @@ function computeBasis(x3) {
     cross41  = new Line2d([[2-0.35355,-2-0.35355],[2+0.35355,-2+0.35355]]);
     cross42  = new Line2d([[2-0.35355,-2+0.35355],[2+0.35355,-2-0.35355]]);
 
-
-
-
- if (x3<=0)
-    {
-    var data = [
-
-
-
-       // let z = 6 + (2.5*x3);
-       // x1Vector.arrowHead(color= cherry,width= 3,wingLen= 5),
-        vertex8.arrowHead(cherry, 6),
-        vertex8.gObject(black, 1,Math.abs(6 + (2.5*x3))),
-        vertex9.gObject(black,1, Math.abs(6 + (1.25*x3))),
-        vertex10.gObject(black, 1,Math.abs(6)),
-        vertex11.gObject(black,1, Math.abs(6 - (1.25*x3))),
-        vertex12.gObject(black,1, Math.abs(6 - (2.5*x3))),
-
+    var data=[        
         circ11.gObject(black,[2,2]),
         circ21.gObject(black,[-2,2]),
         circ31.gObject(black,[2,-2]),
         circ41.gObject(black,[-2,-2]),
 
-        cross11.gObject(black,Math.abs(x3/2.5),5),
-        cross12.gObject(black,Math.abs(x3/2.5),5),
-        cross21.gObject(black,Math.abs(x3/2.5),5),
-        cross22.gObject(black,Math.abs(x3/2.5),5),
-        cross31.gObject(black,Math.abs(x3/2.5),5),
-        cross32.gObject(black,Math.abs(x3/2.5),5),
-        cross41.gObject(black,Math.abs(x3/2.5),5),
-        cross42.gObject(black,Math.abs(x3/2.5),5),
-     ]
-    ;
+    ];
+
+    let n = Math.round(8*Math.sqrt(Math.abs(x3)));
+
+    if (x3 > 0) {
+        data.push(
+            circ12.gObject(black,[2,2]),
+            circ22.gObject(black,[-2,2]),
+            circ32.gObject(black,[2,-2]),
+            circ42.gObject(black,[-2,-2])
+            );
+        y = -2;
+        dist = 4;
+        for (let i = 0; i < n+1; i++) {
+            ypos = y+Math.sqrt(i/n)*dist;
+            line = new Line2d([[-10, ypos], [10, ypos]]).gObject(black, 1,3);
+            data.push(line);
+        }
+    } else if (x3 < 0){
+
+        y = 2;
+        dist = 4;
+        for (let i = 0; i < n+1; i++) {
+            ypos = y-Math.sqrt(i/n)*dist;
+            line = new Line2d([[-10, ypos], [10, ypos]]).gObject(black, 1,3);
+            data.push(line);
+        }
+        /*
+        data.push(        
+            cross11.gObject(black, x3, 5),
+            cross12.gObject(black, x3, 5),
+            cross21.gObject(black, x3, 5),
+            cross22.gObject(black, x3, 5),
+            cross31.gObject(black, x3, 5),
+            cross32.gObject(black, x3, 5),
+            cross41.gObject(black, x3, 5),
+            cross42.gObject(black, x3, 5)
+            );
+            */
     }
-    else
-    {
-
-    var data = [
-
-
-   // let z = 6 + (2.5*x3);
-   // x1Vector.arrowHead(color= cherry,width= 3,wingLen= 5),
-    vertex8.arrowHead(cherry, 6),
-    vertex8.gObject(black, 1,Math.abs(6 + (2.5*x3))),
-    vertex9.gObject(black, 1,Math.abs(6 + (1.25*x3))),
-    vertex10.gObject(black, 1,Math.abs(6)),
-    vertex11.gObject(black, 1,Math.abs(6 - (1.25*x3))),
-    vertex12.gObject(black, 1,Math.abs(6 - (2.5*x3))),
-
-    circ11.gObject(black,[2,2]),
-    circ21.gObject(black,[-2,2]),
-    circ31.gObject(black,[2,-2]),
-    circ41.gObject(black,[-2,-2]),
-
-    circ12.gObject(black,[2,2]),
-    circ22.gObject(black,[-2,-2]),
-    circ32.gObject(black,[-2,2]),
-    circ42.gObject(black,[2,-2]),
-
-
- ]
-  ; }
 
     return data;
 }
