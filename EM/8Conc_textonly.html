@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--Page Info-->
+    <title>EM 1 Conclusion</title>
+    <!--css link-->
+    <link rel="stylesheet"
+          href="styles/skeleton.css">
+    <link rel="stylesheet"
+          href="styles/style.css">
+    <!--Required JS resources-->
+    <!--NB: better to have resources before the main body but still works even if they are not-->
+    <script src="scripts/plotly-1.47.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="scripts/numeric/src/numeric.js"></script>
+    <script src="scripts/math.min.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { fonts: ["TeX"] }
+  });
+
+    </script>
+    <script type="text/javascript" src="scripts/MathJax-master/MathJax.js">
+    </script>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+
+<body>
+
+<div class="container_journey">
+    <center><h4>Conclusion</h4></center>
+    In this suite, we have investigated Maxwell's equations in vacuum without time-varying fields.
+    Let us restate the equations in differential form.
+    $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}}$$
+    $$ \nabla \cdot \mathbf{B} =  0$$
+    $$ \nabla \times \mathbf{E} = -\frac{d\mathbf{B}}{dt}$$
+    $$ \nabla \times \mathbf{B} = \mu_{0} \mathbf{J} + \mu_{0} \epsilon_{0}\frac{d\mathbf{E}}{dt}$$
+    Without time-varying fields, we have
+    $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}}$$
+    $$ \nabla \cdot \mathbf{B} =  0$$
+    $$ \nabla \times \mathbf{E} = 0$$
+    $$ \nabla \times \mathbf{B} = \mu_{0} \mathbf{J}$$
+    In the upcoming suites, we will bring ourselves one step closer to applying Maxwell's equations in a real-world situation by asking:
+    <br><br>
+    <b>How happens when we have time-varying fields?</b>
+    <br><br>
+    <b>How do we apply Maxwell's equations to different materials or medium?</b> (add link to this)
+    <br><br>
+    Stay tuned!
+</div>
+
+</body>
