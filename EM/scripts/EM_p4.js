@@ -33,67 +33,41 @@ next block*/
 function computeBasis(x3) {
 
     circ11 = new Circle(0.5,Math.abs(x3));//opacity of circle proportional to magnitude of current
-    circ21 = new Circle(0.5,Math.abs(x3));
-    circ31 = new Circle(0.5,Math.abs(x3));
-    circ41 = new Circle(0.5,Math.abs(x3));
 
     circ12 = new Circle(0.25,Math.abs(x3));
-    circ22 = new Circle(0.25,Math.abs(x3));
-    circ32 = new Circle(0.25,Math.abs(x3));
-    circ42 = new Circle(0.25,Math.abs(x3));
 
-    cross11  = new Line2d([[2-0.35355,2-0.35355],[2+0.35355,2+0.35355]]);
-    cross12  = new Line2d([[2-0.35355,2+0.35355],[2+0.35355,2-0.35355]]);
-    cross21  = new Line2d([[-2-0.35355,2-0.35355],[-2+0.35355,2+0.35355]]);
-    cross22  = new Line2d([[-2-0.35355,2+0.35355],[-2+0.35355,2-0.35355]]);
-    cross31  = new Line2d([[-2-0.35355,-2-0.35355],[-2+0.35355,-2+0.35355]]);
-    cross32  = new Line2d([[-2-0.35355,-2+0.35355],[-2+0.35355,-2-0.35355]]);
-    cross41  = new Line2d([[2-0.35355,-2-0.35355],[2+0.35355,-2+0.35355]]);
-    cross42  = new Line2d([[2-0.35355,-2+0.35355],[2+0.35355,-2-0.35355]]);
+    cross11  = new Line2d([[3-0.35355,3-0.35355],[3+0.35355,3+0.35355]]);
+    cross12  = new Line2d([[3-0.35355,3+0.35355],[3+0.35355,3-0.35355]]);
+
 
     var data=[        
-        circ11.gObject(black,[2,2]),
-        circ21.gObject(black,[-2,2]),
-        circ31.gObject(black,[2,-2]),
-        circ41.gObject(black,[-2,-2]),
+        circ11.gObject(black,[3,3]),
     ];
 
     let n = Math.round(8*Math.sqrt(Math.abs(x3)));
 
     if (x3 > 0) {
         data.push(
-            circ12.gObject(black, [2, 2]),
-            circ22.gObject(black, [-2, 2]),
-            circ32.gObject(black, [2, -2]),
-            circ42.gObject(black, [-2, -2])
+            circ12.gObject(black, [3, 3])
             );
-        y = -2;
-        dist = 4;
+
         for (let i = 0; i < n+1; i++) {
-            ypos = y+Math.sqrt(i/n)*dist;
+            ypos = -2 + Math.sqrt(i/n)*4;
             line = new Line2d([[-10, ypos], [10, ypos]]).gObject(black, 1, 3);
             data.push(line);
         }
     } else if (x3 < 0){
+        data.push(        
+            cross11.gObject(black, Math.abs(x3), 2+3*Math.abs(x3)),
+            cross12.gObject(black, Math.abs(x3), 2+3*Math.abs(x3))
+            );
 
-        y = 2;
-        dist = 4;
         for (let i = 0; i < n+1; i++) {
-            ypos = y-Math.sqrt(i/n)*dist;
+            ypos = 2 - Math.sqrt(i/n)*4;
             line = new Line2d([[-10, ypos], [10, ypos]]).gObject(black, 1, 3);
             data.push(line);
         }
-        
-        data.push(        
-            cross11.gObject(black, Math.abs(x3), 2+3*Math.abs(x3)),
-            cross12.gObject(black, Math.abs(x3), 2+3*Math.abs(x3)),
-            cross21.gObject(black, Math.abs(x3), 2+3*Math.abs(x3)),
-            cross22.gObject(black, Math.abs(x3), 2+3*Math.abs(x3)),
-            cross31.gObject(black, Math.abs(x3), 2+3*Math.abs(x3)),
-            cross32.gObject(black, Math.abs(x3), 2+3*Math.abs(x3)),
-            cross41.gObject(black, Math.abs(x3), 2+3*Math.abs(x3)),
-            cross42.gObject(black, Math.abs(x3), 2+3*Math.abs(x3))
-            );
+
             
     } else if (x3 == 0) {
         data = [
