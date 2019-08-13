@@ -12,7 +12,7 @@ let app = new Vue ({
         currentSection: 0,
         sectionTops: [],
         sectionBottoms: [],
-        sectionTitleLong: ["Introduction", "Gauss Law","Gauss Law 2", "Ampere's Law", "Ampere's Law 2", "Electric"],
+        sectionTitleLong: ["Introduction", "Gauss Law","Gauss Law Magnetism", "Ampere's Law", "Circulation Law", "Electric Potential/Field"],
         sectionTitleShort: ["1","2","3","4","5","6"],
         sectionTitle: [],
         hoverPos: '',
