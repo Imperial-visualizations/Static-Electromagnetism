@@ -71,6 +71,9 @@
                 <button :class="[currentTitle === 6 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle6"
                         key="sectionTitle6" data-no=6 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[5]}}
                 </button>
+                <button :class="[currentTitle === 7 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle7"
+                        key="sectionTitle7" data-no=7 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[6]}}
+                </button>
             </div>
             <!--    Dynamic meters indicating progress through each section    -->
             <meter :class="[currentTitle === 1 ? 'activeMeter' : '']" id="m1" :min="sectionTops[0]"
@@ -85,6 +88,8 @@
                    :max="sectionBottoms[4]" :value="scrollPos"></meter>
             <meter :class="[currentTitle === 6 ? 'activeMeter' : '']" id="m6" :min="sectionTops[5]"
                    :max="sectionBottoms[5]" :value="scrollPos"></meter>
+            <meter :class="[currentTitle === 7 ? 'activeMeter' : '']" id="m7" :min="sectionTops[6]"
+                   :max="sectionBottoms[6]" :value="scrollPos"></meter>
             <div id="banner-dummy"></div>
         </div>
         <!--    Container for text content split into sections    -->
@@ -147,13 +152,15 @@
                             A field is divergent if the field is varies along the path of the field lines. So, if one was to take an 'infinitesimal step' along a
                             field line, then the field strength would change. In terms of electrostatics this means that electric charges are the
                             sources of electric fields.
-                            <br><br>
-                            Visualisation guide:
-                            <br><br>
+
+                            <h3 class="section-sub-head">
+                                    Visualisation Guide
+                                </h3>
+
                             The visualisation on the right considers an infinitesimally small section of a charge density that causes
                             field lines to diverge. You may investigate how the strength of the vector field varies with relative divergence.
                             <br><br>
-                            <b>Important:</b> We are using vector field representation here, not field lines.
+                            <b>Important note:</b> We are using vector field representation here, not field lines.
                         </div>
                         <div id="gaussElecIntegral" class="tab-pane fade">
                             Gauss’s law for electrostatics (integral form) can be expressed as :
@@ -163,16 +170,18 @@
                             where $V$ is the volume enclosed by the closed surface $S$.
                             <br><br>
                             Geometrically, $\mathbf {E} \cdot \mathrm {d} \mathbf {S}$ represents the net <a href=“Visualisations/Vector-Calculus-Concepts/Div&Flux.html”>flux</a> of $\mathbf {E}$ through $\mathrm {d} \mathbf {S}$. This law relates the net flux through a closed surface to the net charge contained within.
-                            <br><br>
-                            Visualisation guide:
-                            <br><br>
+
+                            <h3 class="section-sub-head">
+                                    Visualisation Guide
+                                </h3>
+
                             In this visualisation, we have a 2D representation of the law.
                             The loop, which represents a 2D slice of a surface, is generated randomly.
                             The number in the loop is the scaled net flux through the loop.
                             <br><br>
                             In the ‘manual loop’ option, we have specified that the normal is pointing outwards when the loop is drawn in anticlockwise direction.
                             <br><br>
-                            <b>Important:</b> We are using field lines representation here, not vector field.
+                            <b>Important note:</b> We are using field lines representation here, not vector field.
                         </div>
                     </div>
                 </div>
@@ -203,13 +212,15 @@
                             $$ \nabla \cdot \mathbf{B} = 0$$
                             Where $\nabla$ is the divergence operator.
                             This means that there is no beginning or ending to magnetic field lines as they are loops.
-                            <br><br>
-                            Visualisation guide:
-                            <br><br>
+
+                            <h3 class="section-sub-head">
+                                    Visualisation Guide
+                                </h3>
+
                             In all options, you do not see any changes in the number density of the field lines.
                             In fact, the last option protrays the typical situation of magnetic field, where there is non-zero curl but zero divergence.
                             <br><br>
-                            <b>Important:</b> We are using vector field representation here, not field lines.
+                            <b>Important note:</b> We are using vector field representation here, not field lines.
                         </div>
                         <div id="gaussMagIntegral" class="tab-pane fade">
                             Gauss's law for magnetism (integral form) can be expressed as :
@@ -219,14 +230,16 @@
                             where $S$ is any closed surface.
                             <br><br>
                             Geometrically, $\mathbf {B} \cdot \mathrm {d} \mathbf {S}$ represents the net flux of $\mathbf {B}$ through $\mathrm {d} \mathbf {S}$. This law states that the net flux of any magnetic field through an arbitrary closed surface is always zero.
-                            <br><br>
-                            Visualisation guide:
-                            <br><br>
+
+                            <h3 class="section-sub-head">
+                                    Visualisation Guide
+                                </h3>
+
                             In this visualisation, we have a 2D representation of the law. The number in the loop is the scaled net flux through the loop.
                             <br><br>
                             In the ‘manual loop’ option, we have specified that the normal is pointing outwards when the loop is drawn in anticlockwise direction.
                             <br><br>
-                            <b>Important:</b> We are using field lines representation here, not vector field.
+                            <b>Important note:</b> We are using field lines representation here, not vector field.
                         </div>
                     </div>
                 </div>
@@ -255,15 +268,18 @@
                         <div id="ampereMagDifferential" class="tab-pane fade in active show">
                             The differential form of Ampere's law is:
                             $$ \nabla \times \mathbf{B} = \mu_0 \mathbf{J}$$
-                            Visualisation guide:
-                            <br><br>
+
+                            <h3 class="section-sub-head">
+                                    Visualisation Guide
+                                </h3>
+
                             Consider a section of a plane that contains a uniform magnetic field. The introduction of a current $\mathbf{J}$
                             that passes through every point in this section of the plane changes the field around it such that
                             the maginitude of the magnetic field only changes if you move in a direction that is perpendicular to the field.
                             This is the definition of curl. The introduction of the current density has induced a curl in the magnetic
                             field. The circle on top right of the plot indicates the strength and direction of the current density according to the Right Hand Grip Rule.
                             <br><br>
-                            <b>Important:</b> We are using field lines representation here, not vector field.
+                            <b>Important note:</b> We are using field lines representation here, not vector field.
 
                         </div>
                         <div id="ampereMagIntegral" class="tab-pane fade">
@@ -298,12 +314,15 @@
                                 The reason for this can be seen by placing a wire just outside a circular loop; in this
                                 scenario dl is in the same direction as the field for one part of the loop, and opposite to the field for the
                                 other part. This means the resulting net contribution is zero.
-                                <br><br>
-                                Visualisation guide:
-                                <br><br>
+
+                                <h3 class="section-sub-head">
+                                        Visualisation Guide
+                                    </h3>
+
+
                                 We are using a Riemann sum to integrate, so the number of steps is referring to the number of steps used in the numerical integration.
                                 <br><br>
-                                <b>Important:</b> We are using vector field representation here, not field line.
+                                <b>Important note:</b> We are using vector field representation here, not field line.
                             </div>
                             <div id="CurrentLine" style='display: none'>
                                     <h5> Current Wire: </h5>
@@ -408,14 +427,16 @@
                                 $$\nabla \times \mathbf{E} = 0$$
                                 The curl of $\mathbf{E}$ is 0 because it is a conservative field. A conservative field can be described by a potential such that
                                 $\mathbf{E} = \nabla \phi$. The curl of the gradient of a scalar field ($\nabla \times \nabla \phi$) is 0. Hence, the curl of $\mathbf{E}$ is 0.
-                                <br><br>
-                                Visualisation guide:
-                                <br><br>
+
+                                <h3 class="section-sub-head">
+                                        Visualisation Guide
+                                    </h3>
+
                                 To visualise this, we shall have a visualisation that has a hypothetical non-zero curl of $\mathbf{E}$.
                                 You can compare and constrast a non-zero curl field to a curl-free field.
                                 The circle on top right of the plot indicates the strength and direction of the current density according to the Right Hand Grip Rule.  
                                 <br><br>
-                                <b>Important:</b> We are using field lines representation here, not vector field.
+                                <b>Important note:</b> We are using field lines representation here, not vector field.
                             </div>
                             <div id="ampereElecIntegral" class="tab-pane fade">
                                     The Circulation Law in integral form can be expressed as:
@@ -430,12 +451,14 @@
                                 From this it is clear that the first equation, and the fact that electric fields have no curl are identical.
                                 This also implies that electric fields are conservative, since the loop integral is always zero, and the field
                                 has no curl.
-                                <br><br>
-                                Visualisation guide:
-                                <br><br>
+
+                                <h3 class="section-sub-head">
+                                        Visualisation Guide
+                                    </h3>
+
                                 We are using a Riemann sum to integrate, so the number of steps is referring to the number of steps used in the numerical integration.
                                 <br><br>
-                                <b>Important:</b> We are using vector field representation here, not field line.
+                                <b>Important note:</b> We are using vector field representation here, not field line.
                             </div>
                         </div>
                 </div>
@@ -464,8 +487,11 @@
                             <div id="elecPotential" class="tab-pane fade in active show">
                                 The differential relationship between electric potential and electric field is:
                                 $$\nabla V = - \mathbf{E} $$
-                                Visualisation Guide
-                                <br><br>
+
+                                <h3 class="section-sub-head">
+                                        Visualisation Guide
+                                    </h3>
+
                                 Consider a particle with charge $Q$ positioned at the origin.  The graph on the right 
                                 shows the potential field $V(x,y)$ around the particle (when only considering a 2D 
                                 slice of space passing through the centre of the charge).  
@@ -473,7 +499,7 @@
                                 Beneath it the electric field is shown, which is the negative of the gradient of the 
                                 electric potential.
                                 <br><br>
-                                <b>Important:</b> We are using vector field representation here, not field line.
+                                <b>Important note:</b> We are using vector field representation here, not field line.
                                 <br>
                                 <br>
                                 <br>
@@ -494,9 +520,11 @@
                                 $$\displaystyle =  - \int _A ^B \mathbf{E} \cdot \mathbf{ dl } $$
 
 
-                                <br>
-                                Visualisation Guide
-                                <br><br>
+
+                                <h3 class="section-sub-head">
+                                        Visualisation Guide
+                                    </h3>
+
                                 <ol>
                                     <li>On the right, you can see a electric field and the electric potential associated with this field.
                                         Change the value of the charge, $q$, and observe the change in $\mathbf{E}$ and $V$.</li>
@@ -512,7 +540,7 @@
                                     <li>There are a few other electric fields for you to play around with. Click the dropdown menu to find out.</li>
                                 </ol>
                                 <br><br>
-                                <b>Important:</b> We are using vector field representation here, not field line.
+                                <b>Important note:</b> We are using vector field representation here, not field line.
 
 
                             </div>
@@ -520,6 +548,39 @@
                     </div>
                 </div>
             </div>
+
+            <div class="section-container" id="sc7">
+                <div class="placeholder" id="ph7">
+                    <hr>
+                    <h2 class="text section-head" id="s7">
+                        {{sectionTitleLong[6]}}
+                    </h2>
+                    <hr>
+                </div>
+                <div class="text section-body odd" id="p7">
+                    In this suite, we have investigated Maxwell's equations in vacuum without time-varying fields.
+    Let us restate the equations in differential form.
+    $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}}$$
+    $$ \nabla \cdot \mathbf{B} =  0$$
+    $$ \nabla \times \mathbf{E} = -\frac{d\mathbf{B}}{dt}$$
+    $$ \nabla \times \mathbf{B} = \mu_{0} \mathbf{J} + \mu_{0} \epsilon_{0}\frac{d\mathbf{E}}{dt}$$
+    Without time-varying fields, we have
+    $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}}$$
+    $$ \nabla \cdot \mathbf{B} =  0$$
+    $$ \nabla \times \mathbf{E} = 0$$
+    $$ \nabla \times \mathbf{B} = \mu_{0} \mathbf{J}$$
+    In the upcoming suites, we will bring ourselves one step closer to applying Maxwell's equations in a real-world situation by asking:
+    <br><br>
+    <b>What happens when we have time-varying fields?</b>
+    <br><br>
+    <b>How do we apply Maxwell's equations to different materials or medium?</b> (add link to this)
+    <br><br>
+    Stay tuned!
+
+
+                    </div>
+                </div>
+
 
 
         </div>
@@ -625,6 +686,13 @@
                     <div class="rightload text" id='loadout6sub2' key="loadout6sub2" v-else>
                         <iframe src="EM/7Electric_Field_Interactive.html" style='width: 100%; height: 100%'></iframe>
                     </div>
+                </transition>
+            </div>
+
+            <div class="rightload text even" id='loadout7' key="loadout7" v-if="currentSection === 7">
+                <transition name="fade">
+                    <!--Interactive Zone Sub Containers-->
+                    <iframe src="EM/8Conclusion-gif.html" style='width: 100%; height: 100%'></iframe>
                 </transition>
             </div>
 

@@ -137,7 +137,7 @@ class charge_selector{
 //To specify the loop
 //loopX and loopY are the initial central coordinates of the loop
 //diceX and diceY are to randomise the vertices of the polygon
-let diceX = [], diceY = [], loopX = 300 + 500*Math.random(), loopY = 300 + 200*Math.random(), polygonradius = 100 + 20*Math.random(), polygonvertice = 30 + Math.round(10*Math.random());
+let diceX = [], diceY = [], loopX = 300 + 400*Math.random(), loopY = 250 + 100*Math.random(), polygonradius = 80 + 20*Math.random(), polygonvertice = 30 + Math.round(10*Math.random());
 for (let i = 0; i < polygonvertice; i++) {
     diceX[i] = 1 + 0.3*Math.random();
     diceY[i] = 1 + 0.3*Math.random();
@@ -520,9 +520,9 @@ function draw() {
             fill(0, 0, 0);
             if (loop.nodeX.length == 0){
                 if (drawing){
-                    text('Start drawing!', loopX, loopY);
+                    text('Start drawing!', 300, 250);
                 } else {
-                    text('Turn on the drawing mode', loopX, loopY);
+                    text('Turn on the drawing mode', 300, 250);
                 }
             } else {
                 text(flux, loopX, loopY);
