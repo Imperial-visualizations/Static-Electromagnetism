@@ -118,8 +118,6 @@ function updatePlot() {
     $("input[type=range]").each(function () {
         /*Allows for live update for display values*/
         $(this).on('input', function(){
-            //Displays: (FLT Value) + (Corresponding Unit(if defined))
-            $("#"+$(this).attr("id") + "Display").val( $(this).val());
             //NB: Display values are restricted by their definition in the HTML to always display nice number.
             updatePlot(); //Updating the plot is linked with display (Just My preference)
         });
@@ -183,7 +181,7 @@ let fieldFlow = false, Examples = false;
 let angle_Eg = 0, frame_no = 60, mu0_1 = 1 /*Number(Math.PI * 4E-7)*/,arrowNo = 1, index = 0, nostep = 50, sign = 0, O11 = 1;
 
 /* Now the plotly part of declaration */
-let trace = {x: [], y: []}, trace2 = {x: [], y: []}, trace3 = {x:[], y:[]};
+let trace = {x: [], y: []}, layout, trace2 = {x: [], y: []}, trace3 = {x:[], y:[]};
 let x = [], y = [], r = [];
 let B, Bdl = 0, intBdl = 0;
 
