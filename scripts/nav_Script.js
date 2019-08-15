@@ -12,8 +12,8 @@ let app = new Vue ({
         currentSection: 0,
         sectionTops: [],
         sectionBottoms: [],
-        sectionTitleLong: ["Introduction", "Gauss Law","Gauss Law Magnetism", "Ampere's Law", "Circulation Law", "Electric Potential/Field"],
-        sectionTitleShort: ["1","2","3","4","5","6"],
+        sectionTitleLong: ["Introduction", "Gauss Law","Gauss Law Magnetism", "Ampere's Law", "Circulation Law", "Electric Potential/Field","Conclusion"],
+        sectionTitleShort: ["1","2","3","4","5","6","7"],
         sectionTitle: [],
         hoverPos: '',
         hoverTitle: false,
@@ -29,7 +29,7 @@ let app = new Vue ({
             [],
         ],
         firstRunDone: false,
-        subSection: [false,1,1,1,1,1],
+        subSection: [false,1,1,1,1,1,1],
         subSubSection: 1,
         rightSubScripts: [
             [
@@ -217,7 +217,7 @@ let app = new Vue ({
         },
 
         // Removes and adds scripts depending on which section is at top of visible part of journey and which tab is open
-        currentSection: function (newValue, oldValue) {
+        /*currentSection: function (newValue, oldValue) {
 
             document.querySelectorAll('.rightScriptSpace')[0].innerHTML = "";
             for (let i=1; i<=app.rightScripts[newValue-1].length; i++) {
@@ -233,7 +233,7 @@ let app = new Vue ({
             } else {
                 document.querySelectorAll('.rightSubScriptSpace')[0].innerHTML = "";
             }
-        }
+        }*/
     },
 
     mounted () {

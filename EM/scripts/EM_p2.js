@@ -614,9 +614,9 @@ function draw() {
             fill(0, 0, 0);
             if (loop.nodeX.length == 0){
                 if (drawing){
-                    text('Start drawing!', loopX, loopY);
+                    text('Start drawing!', 300, 250);
                 } else {
-                    text('Turn on the drawing mode', loopX, loopY);
+                    text('Turn on the drawing mode', 300, 250);
                 }
             } else {
                 text(flux, loopX, loopY);
