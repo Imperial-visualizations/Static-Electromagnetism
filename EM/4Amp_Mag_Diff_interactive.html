@@ -41,16 +41,16 @@
 
     <div class="one-third column" style="padding-left: 2em;"></div>
     <label style="position: relative; left: 5%; display:inline-block;">
-        Current density:
+      Current density:
     </label>
     <!--Slider for user to choose charge strength and polarity-->
     <label style="position: relative; left: 7%; width: 35%; display:inline-block;">
-        <input id="x3Controller" class="inputs" type="range" value="0" min="-2.5" max="2.5" step="0.01"
+        <input id="x3Controller" class="inputs" type="range" value="1" min="-1" max="1" step="0.01"
                oninput="x3ControllerDisplay.value=x3Controller.value"/>
     </label>
     <!--Display user input on RHS of slider-->
     <label style="position: relative; left: 5%; display:inline-block;">
-        <label>$\mathbf{J}$ =
+        <label>$\mathbf{J} =$
             <output id="x3ControllerDisplay" name="amount" for="magnit">1</output>
         </label>
     </label>
@@ -66,6 +66,7 @@
 
 
 </body>
-<script src="scripts/EM_p4.js"></script>
+<script src="scripts/EM_p3.js"></script>
 <script src="scripts/Static_EM_Object.js"></script>
 </html>
+
