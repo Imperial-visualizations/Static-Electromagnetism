@@ -150,8 +150,10 @@
                             <br><br>
                             Visualisation guide:
                             <br><br>
-                            The visualisation on the right considers an infinitesimally small section of a charge density the causes
-                            field lines to diverge. You may investigate how the number density of field lines varies with relative divergence.
+                            The visualisation on the right considers an infinitesimally small section of a charge density that causes
+                            field lines to diverge. You may investigate how the strength of the vector field varies with relative divergence.
+                            <br><br>
+                            <b>Important:</b> We are using vector field representation here, not field lines.
                         </div>
                         <div id="gaussElecIntegral" class="tab-pane fade">
                             Gauss’s law for electrostatics (integral form) can be expressed as :
@@ -169,6 +171,8 @@
                             The number in the loop is the scaled net flux through the loop.
                             <br><br>
                             In the ‘manual loop’ option, we have specified that the normal is pointing outwards when the loop is drawn in anticlockwise direction.
+                            <br><br>
+                            <b>Important:</b> We are using field lines representation here, not vector field.
                         </div>
                     </div>
                 </div>
@@ -202,8 +206,10 @@
                             <br><br>
                             Visualisation guide:
                             <br><br>
-                            The central line represents the "source" of magnetic field lines. In all options, you do not see any changes in the number density of the field lines.
+                            In all options, you do not see any changes in the number density of the field lines.
                             In fact, the last option protrays the typical situation of magnetic field, where there is non-zero curl but zero divergence.
+                            <br><br>
+                            <b>Important:</b> We are using vector field representation here, not field lines.
                         </div>
                         <div id="gaussMagIntegral" class="tab-pane fade">
                             Gauss's law for magnetism (integral form) can be expressed as :
@@ -219,6 +225,8 @@
                             In this visualisation, we have a 2D representation of the law. The number in the loop is the scaled net flux through the loop.
                             <br><br>
                             In the ‘manual loop’ option, we have specified that the normal is pointing outwards when the loop is drawn in anticlockwise direction.
+                            <br><br>
+                            <b>Important:</b> We are using field lines representation here, not vector field.
                         </div>
                     </div>
                 </div>
@@ -247,11 +255,16 @@
                         <div id="ampereMagDifferential" class="tab-pane fade in active show">
                             The differential form of Ampere's law is:
                             $$ \nabla \times \mathbf{B} = \mu_0 \mathbf{J}$$
+                            Visualisation guide:
+                            <br><br>
                             Consider a section of a plane that contains a uniform magnetic field. The introduction of a current $\mathbf{J}$
                             that passes through every point in this section of the plane changes the field around it such that
                             the maginitude of the magnetic field only changes if you move in a direction that is perpendicular to the field.
                             This is the definition of curl. The introduction of the current density has induced a curl in the magnetic
-                            field.
+                            field. The circle on top right of the plot indicates the strength and direction of the current density according to the Right Hand Grip Rule.
+                            <br><br>
+                            <b>Important:</b> We are using field lines representation here, not vector field.
+
                         </div>
                         <div id="ampereMagIntegral" class="tab-pane fade">
                             <div style='display: flex; flex-direction: row'>
@@ -289,6 +302,8 @@
                                 Visualisation guide:
                                 <br><br>
                                 We are using a Riemann sum to integrate, so the number of steps is referring to the number of steps used in the numerical integration.
+                                <br><br>
+                                <b>Important:</b> We are using vector field representation here, not field line.
                             </div>
                             <div id="CurrentLine" style='display: none'>
                                     <h5> Current Wire: </h5>
@@ -389,14 +404,21 @@
                     <!--    Sub-Section Text Containers    -->
                     <div class="tab-content">
                             <div id="ampereElecDifferential" class="tab-pane fade in active show">
+                                The Circulation Law in differential form can be expressed as:
+                                $$\nabla \times \mathbf{E} = 0$$
                                 The curl of $\mathbf{E}$ is 0 because it is a conservative field. A conservative field can be described by a potential such that
                                 $\mathbf{E} = \nabla \phi$. The curl of the gradient of a scalar field ($\nabla \times \nabla \phi$) is 0. Hence, the curl of $\mathbf{E}$ is 0.
                                 <br><br>
+                                Visualisation guide:
+                                <br><br>
                                 To visualise this, we shall have a visualisation that has a hypothetical non-zero curl of $\mathbf{E}$.
-                                You can compare and constrast a non-zero curl field to a curl-free field.     
+                                You can compare and constrast a non-zero curl field to a curl-free field.
+                                The circle on top right of the plot indicates the strength and direction of the current density according to the Right Hand Grip Rule.  
+                                <br><br>
+                                <b>Important:</b> We are using field lines representation here, not vector field.
                             </div>
                             <div id="ampereElecIntegral" class="tab-pane fade">
-                                The electrostatic equation demonstrated in this visualisation is:
+                                    The Circulation Law in integral form can be expressed as:
                                 $$\oint \mathbf {E} \cdot \mathrm {d} {\boldsymbol {l}} = 0$$
                                 As you can see from the visualisation on the right the net flux through a loop in an electric field is always zero,
                                 regardless of the positions of charges or even if there is some background field: as long as the background
@@ -412,6 +434,8 @@
                                 Visualisation guide:
                                 <br><br>
                                 We are using a Riemann sum to integrate, so the number of steps is referring to the number of steps used in the numerical integration.
+                                <br><br>
+                                <b>Important:</b> We are using vector field representation here, not field line.
                             </div>
                         </div>
                 </div>
@@ -438,13 +462,18 @@
                     <!--    Sub-Section Text Containers    -->
                     <div class="tab-content">
                             <div id="elecPotential" class="tab-pane fade in active show">
-                                <center><h4>Gradient of an electric potential</h4></center>
+                                The differential relationship between electric potential and electric field is:
+                                $$\nabla V = - \mathbf{E} $$
+                                Visualisation Guide
+                                <br><br>
                                 Consider a particle with charge $Q$ positioned at the origin.  The graph on the right 
                                 shows the potential field $V(x,y)$ around the particle (when only considering a 2D 
                                 slice of space passing through the centre of the charge).  
                                 <br><br>
                                 Beneath it the electric field is shown, which is the negative of the gradient of the 
                                 electric potential.
+                                <br><br>
+                                <b>Important:</b> We are using vector field representation here, not field line.
                                 <br>
                                 <br>
                                 <br>
@@ -456,7 +485,8 @@
                                 <br>
                             </div>
                             <div id="elecField" class="tab-pane fade">
-                                <center><h5>$$ V_B - V_A = - \int _A ^B \mathbf{E} \cdot \mathbf{ dl }$$</h5></center>
+                                    The integral relationship between electric potential and electric field is:
+                                $$ V_B - V_A = - \int _A ^B \mathbf{E} \cdot \mathbf{ dl }$$
                                 In electrostatics, all electric fields are conservative. This means that we can find out the potential difference between any two points (A and B) by performing a line integral:
 
                                 $$\displaystyle \Delta V_{AB} = V_B - V_A = \frac{\Delta U_{AB} }{q} $$
@@ -481,6 +511,8 @@
                                     <li>This shows that static electric fields are conservative, hence $\mathbf{E}$ is only dependent on its position.</li>
                                     <li>There are a few other electric fields for you to play around with. Click the dropdown menu to find out.</li>
                                 </ol>
+                                <br><br>
+                                <b>Important:</b> We are using vector field representation here, not field line.
 
 
                             </div>
