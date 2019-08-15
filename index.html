@@ -71,6 +71,9 @@
                 <button :class="[currentTitle === 6 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle6"
                         key="sectionTitle6" data-no=6 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[5]}}
                 </button>
+                <button :class="[currentTitle === 7 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle7"
+                        key="sectionTitle7" data-no=7 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[6]}}
+                </button>
             </div>
             <!--    Dynamic meters indicating progress through each section    -->
             <meter :class="[currentTitle === 1 ? 'activeMeter' : '']" id="m1" :min="sectionTops[0]"
@@ -85,6 +88,8 @@
                    :max="sectionBottoms[4]" :value="scrollPos"></meter>
             <meter :class="[currentTitle === 6 ? 'activeMeter' : '']" id="m6" :min="sectionTops[5]"
                    :max="sectionBottoms[5]" :value="scrollPos"></meter>
+            <meter :class="[currentTitle === 7 ? 'activeMeter' : '']" id="m7" :min="sectionTops[6]"
+                   :max="sectionBottoms[6]" :value="scrollPos"></meter>
             <div id="banner-dummy"></div>
         </div>
         <!--    Container for text content split into sections    -->
@@ -532,6 +537,39 @@
                 </div>
             </div>
 
+            <div class="section-container" id="sc7">
+                <div class="placeholder" id="ph7">
+                    <hr>
+                    <h2 class="text section-head" id="s7">
+                        {{sectionTitleLong[6]}}
+                    </h2>
+                    <hr>
+                </div>
+                <div class="text section-body odd" id="p7">
+                    In this suite, we have investigated Maxwell's equations in vacuum without time-varying fields.
+    Let us restate the equations in differential form.
+    $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}}$$
+    $$ \nabla \cdot \mathbf{B} =  0$$
+    $$ \nabla \times \mathbf{E} = -\frac{d\mathbf{B}}{dt}$$
+    $$ \nabla \times \mathbf{B} = \mu_{0} \mathbf{J} + \mu_{0} \epsilon_{0}\frac{d\mathbf{E}}{dt}$$
+    Without time-varying fields, we have
+    $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}}$$
+    $$ \nabla \cdot \mathbf{B} =  0$$
+    $$ \nabla \times \mathbf{E} = 0$$
+    $$ \nabla \times \mathbf{B} = \mu_{0} \mathbf{J}$$
+    In the upcoming suites, we will bring ourselves one step closer to applying Maxwell's equations in a real-world situation by asking:
+    <br><br>
+    <b>How happens when we have time-varying fields?</b>
+    <br><br>
+    <b>How do we apply Maxwell's equations to different materials or medium?</b> (add link to this)
+    <br><br>
+    Stay tuned!
+
+
+                    </div>
+                </div>
+
+
 
         </div>
     </div>
@@ -636,6 +674,13 @@
                     <div class="rightload text" id='loadout6sub2' key="loadout6sub2" v-else>
                         <iframe src="EM/7Electric_Field_Interactive.html" style='width: 100%; height: 100%'></iframe>
                     </div>
+                </transition>
+            </div>
+
+            <div class="rightload text even" id='loadout7' key="loadout7" v-if="currentSection === 7">
+                <transition name="fade">
+                    <!--Interactive Zone Sub Containers-->
+                    <iframe src="EM/8Conclusion-gif.html" style='width: 100%; height: 100%'></iframe>
                 </transition>
             </div>
 
