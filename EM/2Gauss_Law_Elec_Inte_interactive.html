@@ -29,42 +29,42 @@
 
 
     <div>
-      <div style="position: relative; background-color: rgb(247, 252, 251); width: 100vw">
+      <div class = "row" style="position: relative; background-color: rgb(247, 252, 251); width: 100vw; height: 2vh;">
           <!--Text next to new charge-->
           <label class="text" style="position: relative; left: 2vw; display:inline-block;">
-              <font size="5">Drag to add</font>
+              <font size="2">Drag to add</font>
           </label>
           <!--Text next to slider for user to choose charge strength and polarity-->
           <label class="text" style="position: relative; left: 12vw; display:inline-block;">
-              <font size="4">Relative charge:</font>
+              <font size="1">Relative charge:</font>
           </label>
           <!--Slider for user to choose charge strength and polarity-->
-          <label style="position: relative; left: 13vw; width: 14vw; top: 2vh; display:inline-block;">
+          <label style="position: relative; left: 13vw; width: 14vw; top: 3vh; display:inline-block;">
               <input id="magnit" class="inputs" type="range" value="1" min="-1" max="1" step="0.1" oninput="amount.value=magnit.value"/>
           </label>
           <!--Display user input on RHS of slider-->
           <label style="position: relative; left: 11vw; display:inline-block;">
-              <label>Q = <output id="amount" name="amount" for="magnit">1</output></label>
+            <font size="1"><label>Q = <output id="amount" name="amount" for="magnit">1</output></label></font>
           </label>
           <!--Loop options-->
           <label style="position: relative; left: 13vw; display:inline-block;">
             <select class="form-control" id="loopOptions" >
               <option value="1">
-                  Random loop
+                <font size="1">Random loop</font>
               </option>
               <option value="2">
-                  Manual loop
+                <font size="1">Manual loop</font>
               </option>
               <option value="3">
-                  OK
+                <font size="1">OK</font>
               </option>
             </select>
           </label>
-<br>
-          <button id="Draw" style="position: relative; left: 30vw; width: 20vw; display: none">Drawing mode off</button>
-          <button id="clearDrawing" style="position: relative; left: 33vw; width: 10vw; display: none" onclick='clearDrawing()'>Clear!</button>
+
+          <button id="Draw" style="position: relative; left: 14vw; width: 12.5%; display: none">Drag</button>
+          <button id="clearDrawing" style="position: relative; left: 14vw; width: 12.5%; display: none" onclick='clearDrawing()'>Clear!</button>
           <!--p5 canvas for drawing charges, fieldlines and loop-->
-          
+
       </div>
       <label id="sketch-holder" style="height: 100vh; width: 100vw;"></label>
     </div>

@@ -25,7 +25,7 @@ function toggle() {
 
 //allpoints for storing dipoles, maxpoints to limit total n of allpoints, newdipolex/y for position of new magnet on top
 
-let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 5, newdipolex = 227, newdipoley = 38;
+let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 5, newdipolex = 180, newdipoley = 38;
 const Nvertices = 700, max_range = 1500, R = 16, square_size = 100, padding = 50, rect_height = height/8, arrow_size = 2.5;
 
 //Used to prevent things from overlapping one another
@@ -197,10 +197,10 @@ let drawing = false;
 function DrawingMode() {
     if (drawing) {
         drawing = false;
-        $('#Draw').html('Drawing mode off');
+        $('#Draw').html('Drag');
     } else {
         drawing = true;
-        $('#Draw').html('Drawing mode on');
+        $('#Draw').html('Draw');
     }
 }
 
