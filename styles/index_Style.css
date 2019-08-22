@@ -5,6 +5,11 @@
     font-family: "Fira Sans", sans-serif;
 }
 
+.mathJaxHeading {
+    font-size: 1.6vw;
+    padding: 0 1vw;
+}
+
 .mathJaxDisplay {
     display:table;
     margin: 10px auto;
@@ -19,6 +24,26 @@
     float: left;
     display: flex;
     flex-direction: column;
+}
+
+iframe {
+    border: none;
+    width: 100vw;
+    height: 100vh;
+}
+
+ol li {
+    list-style-position: outside;
+    font-weight: bolder;
+}
+
+ol li p {
+    font-weight: normal;
+    padding-left: 1vw;
+}
+
+#sc7 {
+    min-height: 110vh;
 }
 
 /* LEFT SIDE STYLES */
@@ -204,9 +229,15 @@ meter::-moz-meter-bar {
     font-weight: bolder;
 }
 
+
 hr {
-    border-top: 1px solid #033482;
-    margin: 1vh 0;
+    box-sizing: content-box;
+    border: none;
+    height: 1px;
+    background: #033482;
+    background-clip: content-box;
+    padding: 1vh 0;
+    margin: 0;
 }
 
 .placeholder {
