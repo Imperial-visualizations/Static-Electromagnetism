@@ -1,31 +1,9 @@
 /*jshint esversion:7*/
 
-//The function to switch between visualisations
-//When checked is false, displays vis 1
-//When checked is true, displays vis 2
-//Default is false
-//document.getElementById("mode").checked = false;
-function toggle() {
-    if (document.getElementById("mode").checked == true) {
-        document.getElementById("Vis1_text").style.display = "none";
-        document.getElementById("Vis1_interactive").style.display = "none";
-        document.getElementById("Vis2_text").style.display = "block";
-        document.getElementById("Vis2_interactive").style.display = "block";
-    } else {
-        document.getElementById("Vis1_text").style.display = "block";
-        document.getElementById("Vis1_interactive").style.display = "block";
-        document.getElementById("Vis2_text").style.display = "none";
-        document.getElementById("Vis2_interactive").style.display = "none";
-    }
-}
-
-//JS for Vis1
-
-//JS for Vis2
 //allpoints for storing charges, maxpoints to limit total n of allpoints, newchargex/y for position of new charge on top
 
-let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 10, newchargex = 160, newchargey = 38;
-const Nvertices = 700, max_range = 2000, R = 16, square_size = 100, padding = 90, rect_height = height/8, arrow_size = 2;
+let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 10, newchargex = parseInt($('.innerBanner').css("padding-left"))/2, newchargey = $('.innerBanner').height()/2;
+const Nvertices = 700, max_range = 2000, R = 16, square_size = 100, padding = 90, rect_height = $('.innerBanner').height(), arrow_size = 2;
 
 //Used to prevent things from overlapping one another
 class volume_element {
@@ -393,7 +371,7 @@ function draw() {
     clear();
 
     //Brings in user input and turn it into a charge
-    sel = new charge_selector(parseFloat(document.getElementById('magnit').value), newchargex, newchargey);
+    sel = new charge_selector(parseFloat(document.getElementById('magnitude').value), newchargex, newchargey);
     loopChoice = document.getElementById('loopOptions').value;
     //any points cannot overlap graphically
     if (drawing) {

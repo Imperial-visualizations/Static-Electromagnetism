@@ -215,16 +215,13 @@ function computeBasis(x3,y3) {
 Now we just have to actually obtain the user input from the HTML file by using JQuery and then plot everything relevant that we want to see*/
 
 function initCarte(type) {
-    Plotly.purge("graph");
+    Plotly.purge("graph-holder");
     initX3 = initialPoint3[0];
     initY3 = initialPoint3[0];
 
 
     $("#x3Controller").val(initX3);
     $("#x3ControllerDisplay").val(initX3);
-    $("#y3Controller").val(initY3);
-    $("#y3ControllerDisplay").val(initY3);
-    $("#y3Controller").hide();
 
     /* ~Jquery
     2.  Declare and store the floating values from x/y- sliders.
@@ -235,10 +232,10 @@ function initCarte(type) {
 
 
     var x3 = parseFloat(document.getElementById('x3Controller').value);
-    var y3 = parseFloat(document.getElementById('y3Controller').value);
+    var y3 = initialPoint3[0];
 
 
-    Plotly.newPlot("graph", computeBasis(x3, y3), layout);
+    Plotly.newPlot("graph-holder", computeBasis(x3, y3), layout);
 
     return;
 }
@@ -254,13 +251,12 @@ function updatePlot() {
     var data = [];
 
     var x3 = parseFloat(document.getElementById('x3Controller').value);
-    var y3 = parseFloat(document.getElementById('y3Controller').value);
-
+    var y3 = initialPoint3[0];
 
     data = computeBasis(x3,y3);
 
     Plotly.animate(
-        'graph',
+        'graph-holder',
         {data: data},
         {
             fromcurrent: true,
@@ -292,13 +288,6 @@ function main() {
     $("#x3ControllerDisplay").change(function () {
      var value = this.value;
      $("#x3Controller").val(value);
-     updatePlot();
-    });
-
-    $("#y3ControllerDisplay").change(function () {
-     var value = this.value;
-     $("#y3Controller").val(value);
-     $("#y3Controller").hide();
      updatePlot();
     });
 

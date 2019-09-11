@@ -602,80 +602,75 @@
         <!--    fade transition tag for RHS - applied by Vue and CSS    -->
         <transition-group name="fade" tag="div" class="transition-container">
             <!--    Interactive Zone Containers   -->
-            <div class="rightload text odd" id='loadout1' key="loadout1" v-if="currentSection === 1">
-                <iframe src="right-0Intro.html" class="rightload text" id="iframe1"></iframe>
+            <div class="rightload text odd" id='loadout1Container' key="loadout1Container" v-if="currentSection === 1">
+                <iframe src="right-0Intro.html" class="rightload text" id="iframe1" class="rightload text"></iframe>
             </div>
-            <div class="rightload text even" id='loadout2' key="loadout2" v-if="currentSection === 2">
+            <div class="rightload text even" id='loadout2Container' key="loadout2Container" v-if="currentSection === 2">
                     <!--Interactive Zone Sub Containers-->
-                    <div class="rightload text" id='loadout2sub1' key="loadout2sub1"
+                    <div class="rightload text" id='loadout2sub1Container' key="loadout2sub1Container"
                          v-if="subSection[1] === 1">
-                        <iframe src="right-1aGaussLawDiff.html"></iframe>
+                        <iframe src="right-1aGaussLawDiff.html"  id="iframe2-1" class="rightload text"></iframe>
                     </div>
-                    <div class="rightload text" id='loadout2sub2' key="loadout2sub2" v-else>
-                        <iframe src="EM/2Gauss_Law_Elec_Inte_interactive.html" style='width: 100%; height: 100%'></iframe>
+                    <div class="rightload text" id='loadout2sub2Container' key="loadout2sub2Container" v-else>
+                        <iframe src="EM/2Gauss_Law_Elec_Inte_interactive.html" id="iframe2-2" class="rightload text"></iframe>
                     </div>
 
             </div>
-            <div class="rightload text odd" id='loadout3' key="loadout3" v-if="currentSection === 3">
+            <div class="rightload text odd" id='loadout3Container' key="loadout3Container" v-if="currentSection === 3">
 
 
                     <!--Interactive Zone Sub Containers-->
-                    <div class="rightload text" id='loadout3sub1' key="loadout3sub1"
+                    <div class="rightload text" id='loadout3sub1Container' key="loadout3sub1Container"
                          v-if="subSection[2] === 1">
-                        <!-- Graph -->
-
-                        <iframe src="EM/3Gauss_Law_Magnetic_Interactive.html" style='width: 100%; height: 100%'></iframe>
+                        <iframe src="EM/3Gauss_Law_Magnetic_Interactive.html" id="iframe3-1" class="rightload text"></iframe>
                     </div>
-                    <div class="rightload text" id='loadout3sub2' key="loadout3sub2" v-else>
-                        <iframe src="EM/3Gauss_Law_Mag_Inte_interactive.html" style='width: 100%; height: 100%'></iframe>
+                    <div class="rightload text" id='loadout3sub2Container' key="loadout3sub2Container" v-else>
+                        <iframe src="EM/3Gauss_Law_Mag_Inte_interactive.html"  id="iframe3-2" class="rightload text"></iframe>
                     </div>
 
             </div>
-            <div class="rightload text even" id='loadout4' key="loadout4" v-if="currentSection === 4">
+            <div class="rightload text even" id='loadout4Container' key="loadout4Container" v-if="currentSection === 4">
                    
                     <!--Interactive Zone Sub Containers-->
-                    <div class="rightload text" id='loadout4sub1' key="loadout4sub1"
+                    <div class="rightload text" id='loadout4sub1Container' key="loadout4sub1Container"
                          v-if="subSection[3] === 1">
-                        <iframe src="EM/4Amp_Mag_Diff_interactive.html" style='width: 100%; height: 100%'></iframe>
+                        <iframe src="EM/4Amp_Mag_Diff_interactive.html" id="iframe4-1" class="rightload text"></iframe>
                     </div>
-                    <div class="rightload text" id='loadout4sub2' key="loadout4sub2" v-else>
-                        <iframe src="EM/4Amp_Mag_Integ_interactive.html" id='subSecIframe' style='width: 100%; height: 100%'></iframe>
+                    <div class="rightload text" id='loadout4sub2Container' key="loadout4sub2Container" v-else>
+                        <iframe src="EM/4Amp_Mag_Integ_interactive.html" id="iframe4-2" class="rightload text"></iframe>
 
 
                     </div>
 
             </div>
-            <div class="rightload text even" id='loadout5' key="loadout5" v-if="currentSection === 5">
+            <div class="rightload text even" id='loadout5Container' key="loadout5Container" v-if="currentSection === 5">
                 <transition name="fade">
                     <!--Interactive Zone Sub Containers-->
-                    <div class="rightload text" id='loadout5sub1' key="loadout5sub1"
+                    <div class="rightload text" id='loadout5sub1Container' key="loadout5sub1Container"
                          v-if="subSection[4] === 1">
-                        <iframe src="EM/5Amp_Elec_Diff_interactive.html" style='width: 100%; height: 100%'></iframe>
+                        <iframe src="EM/5Amp_Elec_Diff_interactive.html" id="iframe5-1" class="rightload text"></iframe>
                     </div>
-                    <div class="rightload text" id='loadout5sub2' key="loadout5sub2" v-else-if="subSection[4] === 2">
-                        <iframe src="EM/5Amp_Elec_Integ_interactive.html" style='width: 100%; height: 100%'></iframe>
+                    <div class="rightload text" id='loadout5sub2Container' key="loadout5sub2Container" v-else>
+                        <iframe src="EM/5Amp_Elec_Integ_interactive.html" id="iframe5-2" class="rightload text"></iframe>
                     </div>
-                    <!--<div class="rightload text" id='loadout5sub3' key="loadout5sub3" v-else>
-                        <iframe src="EM/6AmpLaw_Interactive.html" width="950px" height="800px"></iframe>
-                    </div>-->
                 </transition>
             </div>
-            <div class="rightload text even" id='loadout6' key="loadout6" v-if="currentSection === 6">
+            <div class="rightload text even" id='loadout6Container' key="loadout6Container" v-if="currentSection === 6">
                 <transition name="fade">
                     <!--Interactive Zone Sub Containers-->
-                    <div class="rightload text" id='loadout6sub1' key="loadout6sub1"
+                    <div class="rightload text" id='loadout6sub1Container' key="loadout6sub1Container"
                          v-if="subSection[5] === 1">
-                        <iframe src="EM/7Electric_Potential_Interactive.html" style='width: 100%; height: 100%'></iframe>
+                        <iframe src="EM/7Electric_Potential_Interactive.html" id="iframe6-1" class="rightload text"></iframe>
                     </div>
-                    <div class="rightload text" id='loadout6sub2' key="loadout6sub2" v-else>
-                        <iframe src="EM/7Electric_Field_Interactive.html" style='width: 100%; height: 100%'></iframe>
+                    <div class="rightload text" id='loadout6sub2Container' key="loadout6sub2Container" v-else>
+                        <iframe src="EM/7Electric_Field_Interactive.html" id="iframe6-2" class="rightload text"></iframe>
                     </div>
                 </transition>
             </div>
-            <div class="rightload text even" id='loadout7' key="loadout7" v-if="currentSection === 7">
+            <div class="rightload text even" id='loadout7Container' key="loadout7Container" v-if="currentSection === 7">
                 <transition name="fade">
                     <!--Interactive Zone Sub Containers-->
-                    <iframe src="EM/8Conclusion-gif.html" style='width: 100%; height: 100%'></iframe>
+                    <iframe src="EM/8Conclusion-gif.html" id="iframe7" class="rightload text"></iframe>
                 </transition>
             </div>
         </transition-group>
