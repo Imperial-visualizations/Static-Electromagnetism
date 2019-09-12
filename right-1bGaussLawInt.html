@@ -54,6 +54,8 @@
             <!--Text next to slider for user to choose element orientation-->
             <label class="slider-label">
                 Relative charge:
+                <span> Q =</span>
+                <output id="amount" name="amount" for="magnitude">1</output>
             </label>
             <!--Slider for user to choose charge strength and polarity-->
             <label class="slider" id="magnitudeChange" value=false>
@@ -61,31 +63,28 @@
                     <input id="magnitude" class="inputs" type="range" value="1" min="-1" max="1" step="0.1" oninput="amount.value=magnitude.value"/>
                 <span class="sliderMax">+1</span>
             </label>
-            <!--Display user input on RHS of slider-->
-            <label class="slider-label">
-                <span>Q =</span>
-                <output id="amount" name="amount" for="magnitude">1</output>
-            </label>
         </div>
         <!--Loop options-->
-        <select class="form-control" id="loopOptions" >
-            <option value="1">
-                Random loop
-            </option>
-            <option value="2">
-                Manual loop
-            </option>
-            <option value="3">
-                OK
-            </option>
-        </select>
+        <div id="scroll">
+            <div class="scroll_down">
+                <strong>Select Loop: </strong>
+                <select class="form-control" id="loopOptions" >
+                    <option value="1">Random loop</option>
+                    <option value="2">Manual loop</option>
+                    <option value="3">OK</option>
+                </select>
+            </div>
+        </div>
+        <div class="separator"></div>
         <!--Buttons for Drawing Loop-->
-        <button id="Draw">
-            Drag
-        </button>
-        <button id="clearDrawing" onclick='clearDrawing()'>
-            Clear!
-        </button>
+        <div id="buttonContainer">
+            <button id="Draw">
+                Click to Draw
+            </button>
+            <button id="clearDrawing" onclick='clearDrawing()'>
+                Clear!
+            </button>
+        </div>
     </div>
 </body>
 <script src="scripts/EM1-scripts/EM_p1.js"></script>

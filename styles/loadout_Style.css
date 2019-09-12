@@ -213,15 +213,21 @@
 }
 
 #loadout2sub2 {
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 #loadout2sub2 #sketch-holder {
     width: 100vw;
     height: 100vh;
+    position: absolute;
+    top: 0;
+    margin: 0;
 }
 
 #loadout2sub2 #sketch-holder .p5Canvas {
     background: #ffffff;
+    margin: 0;
 }
 
 #loadout2sub2 .innerBanner {
@@ -231,50 +237,92 @@
     top: 0;
     display: flex;
     align-items: center;
-    padding-left: 10vw;
+    padding-left: 7vw;
+    padding-right: 3vw;
+    margin: 0;
 }
 
 #loadout2sub2 .infoDisplay {
     margin: 0;
     padding: 0;
-    text-align: center;
-    flex: 0.2 1 auto;
+    text-align: left;
+    flex: 0.1 1 auto;
 }
 
-#loadout2sub2 .overall-sliders-container {
+#loadout2sub2 #scroll {
+    flex: 0.2 0 auto;
+}
+
+#loadout2sub2 .scroll_down {
+    display: table;
+    flex: 1 0 auto;
+    margin: 0 auto;
+    font-size: calc(10px + 0.8vw);
+}
+
+#loadout2sub2 select {
+    font-size: calc(6px + 0.4vw);
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+#loadout2sub2 #buttonContainer {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    bottom: 1.1vh;
-    left: 2.3vw;
-    width: 60vw;
-    height: 20vh;
+    align-items: stretch;
+    justify-content: space-between;
+    padding-left: 3vw;
+}
+
+#loadout2sub2 .separator {
+    width: 0;
+    height: 10.5vh;
+    margin: 1vh 0;
+    border-left: solid 2px black;
+}
+
+#loadout2sub2 button {
+    text-align: center;
+    font-size: calc(7px + 0.6vw);
+    border: solid 1px #033482;
+    color: #033482;
+    box-shadow: none;
+    flex: 0 1 auto;
+    visibility: hidden;
+}
+
+#loadout2sub2 button:hover {
+    background-color: #eaf2ff;
 }
 
 #loadout2sub2 .partial-sliders-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     flex-basis: 0;
     flex-grow: 1;
-    flex-shrink: 1;
+    flex-shrink: 0;
+    position: relative;
+    height: inherit;
 }
 
 #loadout2sub2 .slider-label {
-    font-size: calc(12px + 1vw);
-    flex-basis: auto;
-    flex-grow: 0.3;
-    flex-shrink: 1;
-    margin: 0;
+    width: inherit;;
+    font-size: calc(10px + 0.8vw);
     padding: 0;
     text-align: center;
+    position: absolute;
+    top: 1vh;
+    left: 0;
+    right: 0;
 }
 
 #loadout2sub2 .slider {
-    margin-top: 10px;
+    width: inherit;
+    margin: 0;
     display: flex;
     align-items: center;
-    flex: 1 0 auto;
+    position: absolute;
+    bottom: 1vh;
+    left: 0;
+    right: 0;
 }
 
 #loadout2sub2 .sliderMin, #loadout2sub2 .sliderMax {

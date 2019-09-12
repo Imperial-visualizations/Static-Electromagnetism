@@ -170,10 +170,10 @@ let drawing = false;
 function DrawingMode() {
     if (drawing) {
         drawing = false;
-        $('#Draw').html('Drag');
+        $('#Draw').html('Click to Draw');
     } else {
         drawing = true;
-        $('#Draw').html('Draw');
+        $('#Draw').html('Click to Drag');
     }
 }
 
@@ -187,17 +187,21 @@ function structural(n) {
     let x = newchargex, y = newchargey;
     fill(50);
     textSize(10);
-    textAlign(CENTER);
-    text('Authors: Cyd Cowley, Darren Lean', x, y + 30);
+    textAlign(LEFT);
+    text('Authors: Cyd Cowley, Darren Lean', x - 25, y + 35);
     if (dist(mouseX, mouseY, x, y) < R) {
-        text("You can't catch me!", x, y - 22);
+        textAlign(LEFT);
+        text("You can't catch me!", x - 25, y - 30);
         textSize(15);
-        text('Poofff :p', x, y);
+        textAlign(CENTER);
+        text('Poofff :p', x, y + 7);
         textSize(10);
-        text("By the way, why neutral 'charge'", x + 300, y - 20);
+        textAlign(LEFT);
+        text("By the way, why neutral 'charge'?", x - 25, y + 50);
     } else {
         if (n < maxpoints) {
-            text('Peek a boo!', x, y - 22);
+            textAlign(CENTER);
+            text('Peek a boo!', x, y - 30);
             noStroke();
             fill(247, 202, 24);
             ellipse(x, y, 2*R, 2*R);
@@ -206,7 +210,8 @@ function structural(n) {
             ellipse(x + 8, y - 4, 5, 5);
             arc(x, y + 1, 20, 20, radians(0), radians(180));
         } else {
-            text('Oh no! You run out of charge.', x, y - 22);
+            textAlign(LEFT);
+            text('Oh no! You run out of charge.', x - 25, y - 30);
             noStroke();
             fill(247, 202, 24);
             ellipse(x, y, 2*R, 2*R);
@@ -430,8 +435,8 @@ function draw() {
     //draw the loop that the user wants
     if (loopChoice == 1) {
         drawing = false;
-        document.getElementById('Draw').style.display = 'none';
-        document.getElementById('clearDrawing').style.display = 'none';
+        document.getElementById('Draw').style.visibility = 'hidden';
+        document.getElementById('clearDrawing').style.visibility = 'hidden';
         loop = new weird_shape(loopX, loopY);
 
         //Draw the loop
@@ -453,8 +458,8 @@ function draw() {
         text(flux, loop.x, loop.y);
 
     } else if (loopChoice == 2) {
-        document.getElementById('Draw').style.display = 'inline-block';
-        document.getElementById('clearDrawing').style.display = 'inline-block';
+        document.getElementById('Draw').style.visibility = 'visible';
+        document.getElementById('clearDrawing').style.visibility = 'visible';
 
         loop = new Draw_shape();
         noFill();
@@ -508,8 +513,8 @@ function draw() {
 
     } else {
         drawing = false;
-        document.getElementById('Draw').style.display = 'none';
-        document.getElementById('clearDrawing').style.display = 'none';
+        document.getElementById('Draw').style.visibility = 'hidden';
+        document.getElementById('clearDrawing').style.visibility = 'hidden';
         loop = new OK_shape(500, 500);
 
         //Draw the loop
