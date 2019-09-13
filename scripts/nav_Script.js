@@ -23,6 +23,7 @@ let app = new Vue({
         firstRunDone: false,
         subSection: [false, 1, 1, 1, 1, 1, 1],
         subSubSection: 1,
+        subSubSubSection: 0,
     },
 
     methods: {
@@ -37,7 +38,7 @@ let app = new Vue({
             }
         },
         //Antoine draft/////////////////////////////////////////////////////////////
-        onClick: function () {
+/*        onClick: function () {
             if (this.subSubSection === 1) {
                 this.subSubSection = 2;
                 document.getElementById("buttonExamples").innerHTML = 'Theory'
@@ -74,7 +75,7 @@ let app = new Vue({
                 document.getElementById('solenoid').style.display = 'none';
                 document.getElementById('subSecIframe').src = 'EM/4Amp_toroid.html';
             }
-        },
+        },*/
         ////////////////////////////////////////////////////////////////////////////
         handleElement: function (section) {
             // update currentSection variable if user scrolls past the top edge of its corresponding section on left side
@@ -132,11 +133,29 @@ let app = new Vue({
             document.querySelectorAll("#" + "ph" + event.currentTarget.dataset.no + " " + "hr")[0].scrollIntoView({behavior: "smooth"});
         },
 
-        // Same as above but for subsections
+        // Same as above but for subsections (and sub-subsections)
         subScrollTo: function (section) {
             if (app.currentSection !== section) {
                 let scrollTarget = document.querySelectorAll("#ph" + section)[0];
                 scrollTarget.scrollIntoView({behavior: "smooth"});
+            }
+        },
+
+        // Same as above but for sub-sub-subsections
+        subSubSubScrollTo: function (event) {
+            let scrollTarget = event.currentTarget;
+            if (scrollTarget.id === "eg" + app.subSubSubSection) {
+                scrollTarget.scrollIntoView();
+            }
+        },
+
+        // Updates active example in Section 4 Sub 2 Examples Section
+        updateSubSubSubSection: function (section) {
+            if (app.subSubSubSection !== section) {
+                app.subSubSubSection = section;
+            }
+            else {
+                app.subSubSubSection = 0;
             }
         },
 
@@ -182,21 +201,31 @@ let app = new Vue({
     mounted() {
         // $nextTick ensures initial functions only run once Vue is initialised sufficiently
         this.$nextTick(function () {
-                // makes n equal to total number of sections
-                app.n = document.querySelectorAll(".section-container").length;
-                // calculates initial div section positions in journey with respect to the top
-                app.sectionPos();
-                // checks if journey div height changes every x seconds
-                // if it does change, re-runs sectionPos to calculate section div positions
-                app.journeyHeightOld = document.querySelectorAll(".journey")[0].scrollHeight;
-                window.setInterval(() => {
-                    app.journeyHeightNew = document.querySelectorAll(".journey")[0].scrollHeight;
-                    if (app.journeyHeightOld !== app.journeyHeightNew) {
-                        app.journeyHeightOld = app.journeyHeightNew;
-                        this.sectionPos();
+            // makes n equal to total number of sections
+            app.n = document.querySelectorAll(".section-container").length;
+            // calculates initial div section positions in journey with respect to the top
+            app.sectionPos();
+            // checks if journey div height changes every x seconds
+            // if it does change, re-runs sectionPos to calculate section div positions
+            app.journeyHeightOld = document.querySelectorAll(".journey")[0].scrollHeight;
+            window.setInterval(() => {
+                app.journeyHeightNew = document.querySelectorAll(".journey")[0].scrollHeight;
+                if (app.journeyHeightOld !== app.journeyHeightNew) {
+                    app.journeyHeightOld = app.journeyHeightNew;
+                    this.sectionPos();
+                }
+            }, 2000);
+            // collapses collapsible divs once mathJax has loaded fully
+            setTimeout(function () {
+                MathJax.Hub.Queue(function () {
+                    let collapseDivs = document.querySelectorAll(".collapse");
+                    let collapseButtons = document.querySelectorAll(".egButton");
+                    for (let i = 0; i < collapseDivs.length; i++) {
+                        collapseDivs[i].classList.remove("show");
+                        collapseButtons[i].classList.add("collapsed");
                     }
-                }, 2000);
-            }
-        )
+                })
+            }, 1000);
+        })
     },
 });

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <!--Title-->
-    <title>right-1aGaussLawDiff</title>
+    <title>right-AmpereLawDiff</title>
     <!--css links-->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -37,10 +37,10 @@
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
 </head>
-<body id="loadout2sub1">
+<body id="loadout4sub1">
 <!-- Graph -->
 <h4 class="graphTitle">
-    Relative Divergence
+    Relative Curl
 </h4>
 <div id='graph-holder'>
     <div class="spinner-border" role="status">
@@ -51,7 +51,7 @@
 <div class="overall-sliders-container">
     <!--BEGIN Slider-->
     <label class="slider-label">
-        Charge Density: $ \rho= $
+        Current Density: $ \mathbf{j}= $
         <output id="x3ControllerDisplay" for="x3Controller">1</output>
     </label>
     <label class="slider">
@@ -62,6 +62,6 @@
     <!--END Slider-->
 </div>
 </body>
-<script src=scripts/EM1-scripts/Static_EM_Object.js></script>
-<script src=scripts/EM1-scripts/2Gauss_Law_Electric.js></script>
+<script src="scripts/EM1-scripts/EM_p3.js"></script>
+<script src="scripts/EM1-scripts/Static_EM_Object.js"></script>
 </html>

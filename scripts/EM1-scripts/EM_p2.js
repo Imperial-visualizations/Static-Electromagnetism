@@ -25,8 +25,8 @@ function toggle() {
 
 //allpoints for storing dipoles, maxpoints to limit total n of allpoints, newdipolex/y for position of new magnet on top
 
-let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 5, newdipolex = 180, newdipoley = 38;
-const Nvertices = 700, max_range = 1500, R = 16, square_size = 100, padding = 50, rect_height = height/8, arrow_size = 2.5;
+let width = $('#sketch-holder').width(), height = $('#sketch-holder').height(), allpoints = [], maxpoints = 5, newdipolex = parseInt($('.innerBanner').css("padding-left"))/2, newdipoley = $('.innerBanner').height()/2;
+const Nvertices = 700, max_range = 1500, R = 16, square_size = 100, padding = 50, rect_height = $('.innerBanner').height(), arrow_size = 2.5;
 
 //Used to prevent things from overlapping one another
 class volume_element {
@@ -197,10 +197,10 @@ let drawing = false;
 function DrawingMode() {
     if (drawing) {
         drawing = false;
-        $('#Draw').html('Drag');
+        $('#Draw').html('Click to Draw');
     } else {
         drawing = true;
-        $('#Draw').html('Draw');
+        $('#Draw').html('Click to Drag');
     }
 }
 
@@ -524,7 +524,7 @@ function draw() {
     rotate(angle);
 
     //Brings in user input and turn it into a charge
-    dip = new dipole_selector(parseFloat(document.getElementById('magnit').value), parseFloat(document.getElementById('angle').value)*3.14/180, newdipolex, newdipoley);
+    dip = new dipole_selector(parseFloat(document.getElementById('magnitude').value), parseFloat(document.getElementById('angle').value)*3.14/180, newdipolex, newdipoley);
 
     //draw the magnets that are already inside the canvas
     if (allpoints.length < maxpoints){
@@ -547,8 +547,8 @@ function draw() {
     //draw the loop that the user wants
     if (loopChoice == 1) {
         drawing = false;
-        document.getElementById('Draw').style.display = 'none';
-        document.getElementById('clearDrawing').style.display = 'none';
+        document.getElementById('Draw').style.visibility = 'hidden';
+        document.getElementById('clearDrawing').style.visibility = 'hidden';
         loop = new weird_shape(loopX, loopY);
 
         //Draw the loop
@@ -569,8 +569,8 @@ function draw() {
         text(flux, loop.x, loop.y);
 
     } else if (loopChoice == 2) {
-        document.getElementById('Draw').style.display = 'inline-block';
-        document.getElementById('clearDrawing').style.display = 'inline-block';
+        document.getElementById('Draw').style.visibility = 'visible';
+        document.getElementById('clearDrawing').style.visibility = 'visible';
 
         loop = new Draw_shape();
         noFill();
@@ -624,8 +624,8 @@ function draw() {
 
     } else {
         drawing = false;
-        document.getElementById('Draw').style.display = 'none';
-        document.getElementById('clearDrawing').style.display = 'none';
+        document.getElementById('Draw').style.visibility = 'hidden';
+        document.getElementById('clearDrawing').style.visibility = 'hidden';
         loop = new OK_shape(500, 500);
 
         //Draw the loop

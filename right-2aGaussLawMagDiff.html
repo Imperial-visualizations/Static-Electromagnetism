@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <!--Title-->
-    <title>right-1aGaussLawDiff</title>
+    <title>right-2aGaussLawMagDiff</title>
     <!--css links-->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -37,7 +37,7 @@
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
 </head>
-<body id="loadout2sub1">
+<body id="loadout3sub1">
 <!-- Graph -->
 <h4 class="graphTitle">
     Relative Divergence
@@ -47,21 +47,19 @@
         <span class="sr-only">Loading...</span>
     </div>
 </div>
-<!--Buttons/Sliders-->
-<div class="overall-sliders-container">
-    <!--BEGIN Slider-->
-    <label class="slider-label">
-        Charge Density: $ \rho= $
-        <output id="x3ControllerDisplay" for="x3Controller">1</output>
-    </label>
-    <label class="slider">
-        <span class="sliderMin">-1</span>
-        <input id="x3Controller" class="inputs" type="range" value="1" min="-1" max="1" step="0.01"/>
-        <span class="sliderMax">1</span>
-    </label>
-    <!--END Slider-->
+<!--Scroll down-->
+<div id="scroll">
+    <div class="scroll_down">
+        <strong>Field Type: </strong>
+        <select id="Select">
+            <option value="Preset1">Chaotic</option>
+            <option value="Preset2">Uniform</option>
+            <option value="Preset3">Div free but uniform curl</option>
+        </select>
+    </div>
 </div>
 </body>
+<!--THE BRAINS-->
 <script src=scripts/EM1-scripts/Static_EM_Object.js></script>
-<script src=scripts/EM1-scripts/2Gauss_Law_Electric.js></script>
+<script src=scripts/EM1-scripts/3Gauss_Law_Magnetic.js></script>
 </html>

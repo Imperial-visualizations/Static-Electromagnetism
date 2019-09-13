@@ -86,7 +86,7 @@ function main() {
     
     function initCarte() {
         x3 = parseFloat(document.getElementById('x3Controller').value);
-        Plotly.newPlot("graph", computeBasis(x3), layout);
+        Plotly.newPlot("graph-holder", computeBasis(x3), layout);
     }
     
     
@@ -102,7 +102,7 @@ function main() {
         data = computeBasis(x3);
     
         Plotly.animate(
-            'graph',
+            'graph-holder',
             {data: data},
             {
                 fromcurrent: true,
@@ -1021,7 +1021,7 @@ function initialPlot() {
 
     };
     args_plot_Bdl(circuitContainer[circuitSelected], currentContainer);
-    Plotly.newPlot('graph-holder', [trace, trace3,trace2], layout, {displayModeBar: false});
+    Plotly.newPlot('redundant', [trace, trace3,trace2], layout, {displayModeBar: false});
 }
 
 //Button Functions
@@ -1068,7 +1068,7 @@ function buttonResetFunction() {
     buttonRemoveWiresFunction(); //remove all the other wires
     //reset the plot
     args_plot_Bdl(circuit, currentContainer);
-    Plotly.react('graph-holder', [trace, trace3,trace2], layout, {displayModeBar: false});
+    Plotly.react('redundant', [trace, trace3,trace2], layout, {displayModeBar: false});
     $( "#circuitSelectList, #diameterSlider, #currentSlider, #buttonAddWire, #buttonRemoveWires" ).prop( "disabled", false );
     $('#buttonPlay').html('Play');
     $('#buttonReset').hide();
@@ -1131,7 +1131,7 @@ function windowResized() {
 }
 //same for plotly
 window.onresize = function () {
-    Plotly.Plots.resize('graph-holder');
+    Plotly.Plots.resize('redundant');
 };
 function mouseShape() {
     if (checkStartPos()) { //we are in the start position
@@ -1273,7 +1273,7 @@ function draw() {
             if (intBdl2 !== intBdl) { // only if there's update of data
                 printIntBdl = Math.round((intBdl/mu0));
                 $('#Bdl-text').html(`${(printIntBdl).toString().slice(0, 4)}`); //print the value of Bdl on the page
-                Plotly.react('graph-holder', [trace,trace3, trace2], layout, {displayModeBar: false});
+                Plotly.react('redundant', [trace,trace3, trace2], layout, {displayModeBar: false});
             }
         } else { //we are not in start position, but we don't care if playing or not
             circuitContainer[circuitSelected].drawPath(); //draw path from start position to current position
@@ -1286,7 +1286,7 @@ function draw() {
             trace2.x = trace.x.slice(0, countingFrames + 1);
             trace2.y = trace.y.slice(0, countingFrames + 1);
             // trace3.
-            Plotly.react('graph-holder', [trace, trace2], layout, {displayModeBar: false});
+            Plotly.react('redundant', [trace, trace2], layout, {displayModeBar: false});
             if (!playing) { //the precedent update set playing to false
                 $( "#circuitSelectList, #diameterSlider, #currentSlider, #buttonAddWire, #buttonRemoveWires" ).prop( "disabled", false );
 

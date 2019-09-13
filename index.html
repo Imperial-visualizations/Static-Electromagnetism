@@ -283,120 +283,142 @@
 
                         </div>
                         <div id="ampereMagIntegral" class="tab-pane fade">
-                            <div style='display: flex; flex-direction: row'>
-                            <div style='flex-grow: 1'><button @click='onClick()' id="buttonExamples">Examples</button></div>
-                            <div class='scroll-down' style='flex-grow: 1;'>
-                                <select id="circuitSelectList2" style='display: none' @change='onChange()'>
-                                    <option value="1">
-                                        Single Wire
-                                    </option>
-                                    <option value="2">
-                                        Solenoid
-                                    </option>
-                                    <option value="3">
-                                        Toroid
-                                    </option>
-                                </select>
-                            </div>
-                        </div>
-                            <br>
-                            <div id='ampereMagIntegral_1'>
-                                The integral form of Ampere's law is:
-                                $$ \oint \mathbf{B.dl} = \mu_0 I$$
-                                Ampere's law states that when a loop is placed around a current carrying wire, the integral of the magnetic field
-                                around the loop is equal to $\mu_{0}$ multiplied by the current enclosed. If you add a loop in the visualisation
-                                on the right then you can see, by clicking and dragging wires into and out of the loop, that this is true.
-                                <br><br>
-                                When there are wires near to, but outside of a loop, there is flux into and out of the loop, however the average
-                                flux is zero, so the total integral is also zero. You can see how the magnetic flux varies around the loop
-                                in the plot shown.
-                                <br><br>
-                                The reason for this can be seen by placing a wire just outside a circular loop; in this
-                                scenario dl is in the same direction as the field for one part of the loop, and opposite to the field for the
-                                other part. This means the resulting net contribution is zero.
+                            <ul class="nav nav-tabs nav-justified">
+                                <li :class="[subSubSection === 1 ? 'shaded' : '', 'active', 'tabLeft']">
+                                    <a data-toggle="tab" href="#ampereMagTheory" @click="subScrollTo(4); subSubSection=1; $forceUpdate();">Theory</a>
+                                </li>
+                                <li :class="[subSubSection === 2 ? 'shaded' : '', 'tabRight']">
+                                    <a data-toggle="tab" href="#ampereMagExamples" @click="subScrollTo(4); subSubSection=2; $forceUpdate();">Examples</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div id="ampereMagTheory" class="tab-pane fade in active show">
+                                    The integral form of Ampere's law is:
+                                    $$ \oint \mathbf{B.dl} = \mu_0 I$$
+                                    Ampere's law states that when a loop is placed around a current carrying wire, the integral of the magnetic field
+                                    around the loop is equal to $\mu_{0}$ multiplied by the current enclosed. If you add a loop in the visualisation
+                                    on the right then you can see, by clicking and dragging wires into and out of the loop, that this is true.
+                                    <br><br>
+                                    When there are wires near to, but outside of a loop, there is flux into and out of the loop, however the average
+                                    flux is zero, so the total integral is also zero. You can see how the magnetic flux varies around the loop
+                                    in the plot shown.
+                                    <br><br>
+                                    The reason for this can be seen by placing a wire just outside a circular loop; in this
+                                    scenario dl is in the same direction as the field for one part of the loop, and opposite to the field for the
+                                    other part. This means the resulting net contribution is zero.
 
-                                <h3 class="section-sub-head">
+                                    <h3 class="section-sub-head">
                                         Visualisation Guide
                                     </h3>
 
 
-                                We are using a Riemann sum to integrate, so the number of steps is referring to the number of steps used in the numerical integration.
-                                <br><br>
-                                <b>Important note:</b> We are using vector field representation here, not field line.
+                                    We are using a Riemann sum to integrate, so the number of steps is referring to the number of steps used in the numerical integration.
+                                    <br><br>
+                                    <b>Important note:</b> We are using vector field representation here, not field line.
+                                </div>
+                                <div id="ampereMagExamples" class="tab-pane fade">
+                                    <div id="singleWire" class="divclass">
+                                        <button id="eg1" class="section-sub-head first-sub-head egButton" key="eg1"
+                                                @click="updateSubSubSubSection(1); subSubSubScrollTo($event)" data-toggle="collapse"
+                                                data-target="#singleWireContentContainer"
+                                                :style="subSubSubSection === 1 ? 'background-color: #eaf2ff;' : ''">
+                                            Single Wire <i class='fas fa-chevron-down'></i>
+                                        </button>
+                                        <div id="singleWireContentContainer" class="collapse show" data-parent="#ampereMagExamples">
+                                            <div id="singleWireContent" class="section-sub-content" key="singleWireContent">
+                                                <h5> Current Wire: </h5>
+                                                Consider an infinitely long current-carrying wire. Recall the integral form of static Ampere's law:
+                                                $$\oint \textbf{B} \cdot \textbf{dl} = \mu_0 I_{enclosed},$$
+                                                and construct a circular Amperian loop (Amp loop). The loop encloses the wire. The magnetic field
+                                                generated by the wire is circular with a constant magnitude at a given distance $r$. Hence,
+                                                $$ \displaystyle \textbf{B} \cdot \textbf{dl} = |\textbf{B}||\textbf{dl}|\cos(\theta)= B dl $$
+                                                as the magnetic field aligns with the loop. The integral can be performed and equation for the
+                                                magnetic field strength $B$ can be derived.
+                                                $$ \int B dl = 2\pi r B= \mu_0 I_{enclosed}. $$
+                                                Hence,
+                                                $$ B = \frac{\mu_0 I_{enclosed}}{2 \pi r}. $$
+                                                <img src="EM\image\RHrule.jpg" style="width:50%;height:20%;margin-right:5%;margin-bottom:5%; float:left">
+                                                The direction in which the magnetic field rotates can be confirmed by using the Ampère's right-hand
+                                                grip rule. Note that the magnetic field strength falls off with distance from the wire. You can confirm
+                                                this using the visualisation on the Right.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="solenoid" class="divclass">
+                                        <button id="eg2" class="section-sub-head egButton" key="eg2"
+                                                @click="updateSubSubSubSection(2); subSubSubScrollTo($event)" data-toggle="collapse"
+                                                data-target="#solenoidContentContainer"
+                                                :style="subSubSubSection === 2 ? 'background-color: #eaf2ff;' : ''">
+                                            Solenoid <i class='fas fa-chevron-down'></i>
+                                        </button>
+                                        <div id="solenoidContentContainer" class="collapse show" data-parent="#ampereMagExamples">
+                                            <div id="solenoidWireContent" class="section-sub-content" key="solenoidContent">
+                                                <h5> Solenoid: </h5>
+                                                A solenoid can be approximated as a series of circular loops of current with fixed separation. In this model, the solenoid is aligned
+                                                such that we can consider the current flowing into and out of the screen. Now consider a rectangular Amperian loop (Amp loop). The Amp loop
+                                                can be split into four straight lines. This allows the closed integral of static Ampere's law into four integral representing the four straight lines.
+                                                <img src="EM\image\Solenoid.jpg" style="width:50%;height:20%;margin-right:5%;margin-bottom:5%; float: left">
+                                                The diagram shows this Amp loop. The length and the alignment of the sides are chosen to simplify the
+                                                integral: Side $2$ and $4$ align perpendicularly to the direction of the
+                                                magnetic field, hence $\textbf{B} \cdot \textbf{dl} =0 $. Side $3$ is positioned at $r=\infty$, hence $|\textbf{B}|=0$.
+                                                $$\begin{align}
+                                                \oint \textbf{B} \cdot \textbf{dl} = \int_{a}^{b} \textbf{B} \cdot \textbf{dl} +
+                                                \int_{b}^{c} \underbrace{\textbf{B} \cdot \textbf{dl}}_\text{=0} \\
+                                                + \int_{c}^{d} \underbrace{\textbf{B}}_\text{=0} \cdot \textbf{dl} + \int_{d}^{a} \underbrace{\textbf{B} \cdot
+                                                \textbf{dl}}_\text{=0}
+                                                \end{align}$$
+                                                Hence,
+                                                $\displaystyle \int_{a}^{b} \textbf{B} \cdot \textbf{dl} = BL=\mu_0 I_{enclosed}=\mu_0 N I,$
+                                                where $L=b-a$, $N$ is the number of current loops enclosed in the loop, and $I$ is the current
+                                                through each current loop. Rearranging gives the equation for the magnetic field strength within
+                                                the solenoid.
+                                                $$ B = \frac{\mu_0 N I}{L}=\mu_0 n I, $$
+                                                where $n$ is the number density of the current loops, meaning the number of current loops in a unit
+                                                length of the solenoid. Note that the magnetic field strength is constant within
+                                                the solenoid. You can confirm this by using the visualisation on the right. Keep in mind that the
+                                                side outside the solenoid does not go off to infinity, however you can see how quickly the
+                                                magnetic field falls off with distance. The arrow moving around the Amp loop in the visualisation
+                                                represent the resultant magnetic field's magnitude and direction, $\textbf{B}$, NOT $\textbf{B}
+                                                \cdot \textbf{dl}$.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="toroid" class="divclass">
+                                        <button id="eg3" class="section-sub-head egButton" key="eg3"
+                                                @click="updateSubSubSubSection(3); subSubSubScrollTo($event)" data-toggle="collapse"
+                                                data-target="#toroidContentContainer"
+                                                :style="subSubSubSection === 3 ? 'background-color: #eaf2ff;' : ''">
+                                            Toroid <i class='fas fa-chevron-down'></i>
+                                        </button>
+                                        <div id="toroidContentContainer" class="collapse show" data-parent="#ampereMagExamples">
+                                            <div id="toroidWireContent" class="section-sub-content" key="toroidContent">
+                                                <h5> Toroid : </h5>
+                                                A toroid is simply a solenoid formed into a loop ( a loop of loops!). To calculate the magnetic field
+                                                strength generated, a circular Amperian loop (Amp loop) is used to evaluated
+                                                the three regions of the toroid.
+                                                At the centre and outside of the toroid, the net current enclosed is zero, therefore based on static Ampere's law,
+                                                $|\textbf{B}|$ the magnetic field strength is zero. Within the toroid,
+                                                $$\displaystyle \oint \textbf{B} \cdot \textbf{dl} = \oint Bdl = 2\pi rB = \mu_0 I_{enclosed},$$
+                                                as the magnetic field within the toroid aligns with the Amp loop. Hence,
+                                                $$\displaystyle B = \frac{\mu_0 I_{enclosed}}{2\pi r} = \frac{\mu_0 N I}{2\pi r} = \frac{\mu_0 (nL)
+                                                I}{2\pi r},$$
+                                                where $n(=N/L)$ is the number density of the current loops, $L$ is the circumference of the toroid,
+                                                and $N$ is the number of current loops enclosed in the Amp loop. In the
+                                                approximation that the radius of each current loop in the toroid is negligible compared to the
+                                                radius of the Amp loop, we can assume $\displaystyle L \approx 2 \pi r.$
+                                                Hence, $\displaystyle B = \mu_0 n I$
+                                                which is the same equation that was derived for the solenoid. You can confirm this by using the
+                                                visualisation on the right. Keep in mind that the visualisation calculates the net
+                                                magnetic field generated at the point the arrow is. Hence there is a small variation from the theory
+                                                when that approximation is not applied ( ie. the radius of the current loops is comparable to
+                                                the radius of the Amp loop. Also note the change in the direction of the magnetic field when the Amp
+                                                loop is slightly out of region B. You can confirm the direction using the Ampère's right-hand grip
+                                                rule.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div id="CurrentLine" style='display: none'>
-                                    <h5> Current Wire: </h5>
-                                    Consider an infinitely long current-carrying wire. Recall the integral form of static Ampere's law:
-                                    $$\oint \textbf{B} \cdot \textbf{dl} = \mu_0 I_{enclosed},$$
-                                    and construct a circular Amperian loop (Amp loop). The loop encloses the wire. The magnetic field
-                                    generated by the wire is circular with a constant magnitude at a given distance $r$. Hence,
-                                    $$ \displaystyle \textbf{B} \cdot \textbf{dl} = |\textbf{B}||\textbf{dl}|\cos(\theta)= B dl $$
-                                    as the magnetic field aligns with the loop. The integral can be performed and equation for the
-                                    magnetic field strength $B$ can be derived.
-                                    $$ \int B dl = 2\pi r B= \mu_0 I_{enclosed}. $$
-                                    Hence,
-                                    $$ B = \frac{\mu_0 I_{enclosed}}{2 \pi r}. $$
-                                    <img src="EM\image\RHrule.jpg" style="width:50%;height:20%;margin-right:5%;margin-bottom:5%; float:left">
-                                    The direction in which the magnetic field rotates can be confirmed by using the Ampère's right-hand
-                                    grip rule. Note that the magnetic field strength falls off with distance from the wire. You can confirm
-                                    this using the visualisation on the Right.
-                                    
-                        
-                        
-                                </div>
-                                <div id="solenoid" style='display: none'>
-                                    <h5> Solenoid: </h5>
-                                    A solenoid can be approximated as a series of circular loops of current with fixed separation. In this model, the solenoid is aligned
-                                    such that we can consider the current flowing into and out of the screen. Now consider a rectangular Amperian loop (Amp loop). The Amp loop
-                                    can be split into four straight lines. This allows the closed integral of static Ampere's law into four integral representing the four straight lines.
-                                    <img src="EM\image\Solenoid.jpg" style="width:50%;height:20%;margin-right:5%;margin-bottom:5%; float: left">
-                                    The diagram shows this Amp loop. The length and the alignment of the sides are chosen to simplify the
-                                    integral: Side $2$ and $4$ align perpendicularly to the direction of the
-                                    magnetic field, hence $\textbf{B} \cdot \textbf{dl} =0 $. Side $3$ is positioned at $r=\infty$, hence $|\textbf{B}|=0$.
-                                    $$\begin{align}
-                                    \oint \textbf{B} \cdot \textbf{dl} = \int_{a}^{b} \textbf{B} \cdot \textbf{dl} +
-                                    \int_{b}^{c} \underbrace{\textbf{B} \cdot \textbf{dl}}_\text{=0} \\
-                                     + \int_{c}^{d} \underbrace{\textbf{B}}_\text{=0} \cdot \textbf{dl} + \int_{d}^{a} \underbrace{\textbf{B} \cdot
-                                    \textbf{dl}}_\text{=0}
-                                    \end{align}$$
-                                    Hence,
-                                    $\displaystyle \int_{a}^{b} \textbf{B} \cdot \textbf{dl} = BL=\mu_0 I_{enclosed}=\mu_0 N I,$
-                                    where $L=b-a$, $N$ is the number of current loops enclosed in the loop, and $I$ is the current
-                                    through each current loop. Rearranging gives the equation for the magnetic field strength within
-                                    the solenoid.
-                                    $$ B = \frac{\mu_0 N I}{L}=\mu_0 n I, $$
-                                    where $n$ is the number density of the current loops, meaning the number of current loops in a unit
-                                    length of the solenoid. Note that the magnetic field strength is constant within
-                                    the solenoid. You can confirm this by using the visualisation on the right. Keep in mind that the
-                                    side outside the solenoid does not go off to infinity, however you can see how quickly the
-                                    magnetic field falls off with distance. The arrow moving around the Amp loop in the visualisation
-                                    represent the resultant magnetic field's magnitude and direction, $\textbf{B}$, NOT $\textbf{B}
-                                    \cdot \textbf{dl}$.
-                                </div>
-                                <div id="Toroid" style='display: none'>
-                                    <h5> Toroid : </h5>
-                                    A toroid is simply a solenoid formed into a loop ( a loop of loops!). To calculate the magnetic field
-                                    strength generated, a circular Amperian loop (Amp loop) is used to evaluated
-                                    the three regions of the toroid.
-                                    At the centre and outside of the toroid, the net current enclosed is zero, therefore based on static Ampere's law,
-                                    $|\textbf{B}|$ the magnetic field strength is zero. Within the toroid,
-                                    $$\displaystyle \oint \textbf{B} \cdot \textbf{dl} = \oint Bdl = 2\pi rB = \mu_0 I_{enclosed},$$
-                                    as the magnetic field within the toroid aligns with the Amp loop. Hence,
-                                    $$\displaystyle B = \frac{\mu_0 I_{enclosed}}{2\pi r} = \frac{\mu_0 N I}{2\pi r} = \frac{\mu_0 (nL)
-                                    I}{2\pi r},$$
-                                    where $n(=N/L)$ is the number density of the current loops, $L$ is the circumference of the toroid,
-                                    and $N$ is the number of current loops enclosed in the Amp loop. In the
-                                    approximation that the radius of each current loop in the toroid is negligible compared to the
-                                    radius of the Amp loop, we can assume $\displaystyle L \approx 2 \pi r.$
-                                    Hence, $\displaystyle B = \mu_0 n I$
-                                    which is the same equation that was derived for the solenoid. You can confirm this by using the
-                                    visualisation on the right. Keep in mind that the visualisation calculates the net
-                                    magnetic field generated at the point the arrow is. Hence there is a small variation from the theory
-                                    when that approximation is not applied ( ie. the radius of the current loops is comparable to
-                                    the radius of the Amp loop. Also note the change in the direction of the magnetic field when the Amp
-                                    loop is slightly out of region B. You can confirm the direction using the Ampère's right-hand grip
-                                    rule.
-                                </div>
                         </div>
                     </div>
                 </div>
@@ -622,26 +644,22 @@
                     <!--Interactive Zone Sub Containers-->
                     <div class="rightload text" id='loadout3sub1Container' key="loadout3sub1Container"
                          v-if="subSection[2] === 1">
-                        <iframe src="EM/3Gauss_Law_Magnetic_Interactive.html" id="iframe3-1" class="rightload text"></iframe>
+                        <iframe src="right-2aGaussLawMagDiff.html" id="iframe3-1" class="rightload text"></iframe>
                     </div>
                     <div class="rightload text" id='loadout3sub2Container' key="loadout3sub2Container" v-else>
-                        <iframe src="EM/3Gauss_Law_Mag_Inte_interactive.html"  id="iframe3-2" class="rightload text"></iframe>
+                        <iframe src="right-2bGaussLawMagInt.html"  id="iframe3-2" class="rightload text"></iframe>
                     </div>
 
             </div>
             <div class="rightload text even" id='loadout4Container' key="loadout4Container" v-if="currentSection === 4">
-                   
-                    <!--Interactive Zone Sub Containers-->
-                    <div class="rightload text" id='loadout4sub1Container' key="loadout4sub1Container"
-                         v-if="subSection[3] === 1">
-                        <iframe src="EM/4Amp_Mag_Diff_interactive.html" id="iframe4-1" class="rightload text"></iframe>
-                    </div>
-                    <div class="rightload text" id='loadout4sub2Container' key="loadout4sub2Container" v-else>
-                        <iframe src="EM/4Amp_Mag_Integ_interactive.html" id="iframe4-2" class="rightload text"></iframe>
-
-
-                    </div>
-
+                <!--Interactive Zone Sub Containers-->
+                <div class="rightload text" id='loadout4sub1Container' key="loadout4sub1Container"
+                     v-if="subSection[3] === 1">
+                    <iframe src="right-3aAmpereLawDiff.html" id="iframe4-1" class="rightload text"></iframe>
+                </div>
+                <div class="rightload text" id='loadout4sub2Container' key="loadout4sub2Container" v-else>
+                    <iframe src="EM/4Amp_Mag_Integ_interactive.html" id="iframe4-2" class="rightload text"></iframe>
+                </div>
             </div>
             <div class="rightload text even" id='loadout5Container' key="loadout5Container" v-if="currentSection === 5">
                 <transition name="fade">
