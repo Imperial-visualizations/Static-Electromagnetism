@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <!--Title-->
-    <title>right-AmpereLawDiff</title>
+    <title>right-3bAmplerLawIntExample2</title>
     <!--css links-->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -37,31 +37,50 @@
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
 </head>
-<body id="loadout4sub1">
-<!-- Graph -->
-<h4 class="graphTitle">
-    Relative Curl
+<body id="loadout4sub2sub2sub2">
+<!--p5 Canvas-->
+<h4 class="sketchTitle">
+    Solenoid
 </h4>
-<div id='graph-holder'>
-    <div class="spinner-border" role="status">
-        <span class="sr-only">Loading...</span>
+<div id="sketch-holder"></div>
+<!--Sliders-->
+<div class="overall-sliders-container">
+    <div class="partial-sliders-container">
+        <label id="hA" class="slider-label">
+            Current: <span id="A_slideDisplay">5</span>
+        </label>
+        <label class="slider">
+            <span class="sliderMin">-10</span>
+            <input type="range" min="-10" max="10" value="5" step="1" class="inputs" id="A_slide">
+            <span class="sliderMax">10</span>
+        </label>
+    </div>
+    <div class="partial-sliders-container">
+        <label id="hN" class="slider-label">
+            No. of Turns: <span id="N_slideDisplay">20</span>
+        </label>
+        <label class="slider">
+            <span class="sliderMin">1</span>
+            <input type="range" min="1" max="100" value="20" step="1" class="inputs" id="N_slide">
+            <span class="sliderMax">100</span>
+        </label>
+    </div>
+    <div class="partial-sliders-container">
+        <label id="hR" class="slider-label">
+            Vertical Position of Loop: <span id="myRangeDisplay">0.5</span>
+        </label>
+        <label class="slider">
+            <span class="sliderMin">0</span>
+            <input type="range" min="0" max="1" value="0.5" step="0.05" class="inputs" id="myRange">
+            <span class="sliderMax">1</span>
+        </label>
     </div>
 </div>
-<!--Buttons/Sliders-->
-<div class="overall-sliders-container">
-    <!--BEGIN Slider-->
-    <label class="slider-label">
-        Current Density: $ \mathbf{j}= $
-        <output id="x3ControllerDisplay" for="x3Controller">1</output>
-    </label>
-    <label class="slider">
-        <span class="sliderMin">-1</span>
-        <input id="x3Controller" class="inputs" type="range" value="1" min="-1" max="1" step="0.01"/>
-        <span class="sliderMax">1</span>
-    </label>
-    <!--END Slider-->
-</div>
+<!--Play/Stop Button-->
+<button id="playB" onclick="Play()" value="1">
+    Play!
+</button>
 </body>
-<script src="scripts/EM1-scripts/3aAmpereLawDiff.js"></script>
-<script src="scripts/EM1-scripts/Static_EM_Object.js"></script>
+<script src="scripts/EM1-scripts/Eg_Amp_Primer2.js"></script>
+<script src=scripts/EM1-scripts/Eg_Amp_Vis.js></script>
 </html>

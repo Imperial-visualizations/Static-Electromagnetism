@@ -385,7 +385,7 @@ function dipoleSurface (q, xSurface,ySurface){
         let zArray = [];
         for (let yValue in ySurface){
             zArray.push( q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( xSurface[xValue]**2 + (ySurface[yValue]+10)**2))
-                        - q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( xSurface[xValue]**2 + (ySurface[yValue]-10)**2))
+                - q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( xSurface[xValue]**2 + (ySurface[yValue]-10)**2))
             );
         };
         zSurface.push(zArray);
@@ -397,37 +397,37 @@ function dipoleSurface (q, xSurface,ySurface){
 function dipoleLine (q, xLine, yLine){
     let zLine = [];
     for (let xValue in xLine){
-            zLine.push(q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( (xLine[xValue]+10)**2 + yLine[xValue]**2))
-                        - q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( (xLine[xValue]-10)**2 + yLine[xValue]**2))
-            );
-        };
+        zLine.push(q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( (xLine[xValue]+10)**2 + yLine[xValue]**2))
+            - q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( (xLine[xValue]-10)**2 + yLine[xValue]**2))
+        );
+    };
     return zLine;
 };
 
 //for point plot.
 function dipolePoint (q, xPoint, yPoint){
     return q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( (xPoint+10)**2 + yPoint**2))
-           - q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( (xPoint-10)**2 + yPoint**2));
+        - q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( (xPoint-10)**2 + yPoint**2));
 };
 
 function pointChargeSurface(q, xSurface, ySurface){
     let zSurface = [];
     for (let xValue in xSurface){
-            let zArray = [];
-            for (let yValue in ySurface){
-                zArray.push(q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( xSurface[xValue]**2 + ySurface[yValue]**2)) );
+        let zArray = [];
+        for (let yValue in ySurface){
+            zArray.push(q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( xSurface[xValue]**2 + ySurface[yValue]**2)) );
 //                zArray.push(q);
-            };
-            zSurface.push(zArray);
         };
+        zSurface.push(zArray);
+    };
     return zSurface;
 };
 
 function pointChargeLine (q, xLine, yLine){
     let zLine = [];
     for (let xValue in xLine){
-            zLine.push(q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( xLine[xValue]**2 + yLine[xValue]**2)) );
-        };
+        zLine.push(q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( xLine[xValue]**2 + yLine[xValue]**2)) );
+    };
     return zLine;
 };
 
@@ -441,7 +441,7 @@ function farFieldSurface (q, xSurface,ySurface){
         let zArray = [];
         for (let yValue in ySurface){
             zArray.push( q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( xSurface[xValue]**2 + (ySurface[yValue]+0.1)**2))
-                        - q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( xSurface[xValue]**2 + (ySurface[yValue]-0.1)**2))
+                - q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( xSurface[xValue]**2 + (ySurface[yValue]-0.1)**2))
             );
         };
         zSurface.push(zArray);
@@ -453,17 +453,17 @@ function farFieldSurface (q, xSurface,ySurface){
 function farFieldLine (q, xLine, yLine){
     let zLine = [];
     for (let xValue in xLine){
-            zLine.push(q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( (xLine[xValue]+0.1)**2 + yLine[xValue]**2))
-                        - q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( (xLine[xValue]-0.1)**2 + yLine[xValue]**2))
-            );
-        };
+        zLine.push(q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( (xLine[xValue]+0.1)**2 + yLine[xValue]**2))
+            - q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( (xLine[xValue]-0.1)**2 + yLine[xValue]**2))
+        );
+    };
     return zLine;
 };
 
 //for point plot.
 function farFieldPoint (q, xPoint, yPoint){
     return q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( (xPoint +0.1)**2 + yPoint**2))
-           - q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( (xPoint -0.1)**2 + yPoint**2));
+        - q/(4*Math.PI*8.85*Math.pow(10,-12)*Math.sqrt( (xPoint -0.1)**2 + yPoint**2));
 };
 
 function selectEquation(){
@@ -472,48 +472,48 @@ function selectEquation(){
 
 //Below we prepare the data in the structure that plotly takes.
 function dataSurfaceCompile(xSurface,ySurface,zSurface){
-     let dataSurface = {
-                         x: xSurface,
-                         y: ySurface,
-                         z: zSurface,
-                         type: 'surface',
-                         name: 'Scalar Field',
-                         showscale: false
-                     };
+    let dataSurface = {
+        x: xSurface,
+        y: ySurface,
+        z: zSurface,
+        type: 'surface',
+        name: 'Scalar Field',
+        showscale: false
+    };
     return dataSurface;
 };
 
 function dataLineACompile(xLine, yLine, zLine){
     let dataLine = {
-                         x:xLine,
-                         y:yLine,
-                         z:zLine,
-                         type: 'scatter3d',
-                         mode: 'lines',
-                         line: {
-                                color: 'rgb(255,255,0)',
-                                width: 10
-                              },
-                         name: 'Path 1',
-                         showscale: false
-                     };
+        x:xLine,
+        y:yLine,
+        z:zLine,
+        type: 'scatter3d',
+        mode: 'lines',
+        line: {
+            color: 'rgb(255,255,0)',
+            width: 10
+        },
+        name: 'Path 1',
+        showscale: false
+    };
     return dataLine
 };
 
 function dataLineBCompile(xLine, yLine, zLine){
     let dataLine = {
-                         x:xLine,
-                         y:yLine,
-                         z:zLine,
-                         type: 'scatter3d',
-                         mode: 'lines',
-                         line: {
-                                color: 'rgb(173,255,47)',
-                                width: 10
-                              },
-                         name: 'Path 2',
-                         showscale: false
-                     };
+        x:xLine,
+        y:yLine,
+        z:zLine,
+        type: 'scatter3d',
+        mode: 'lines',
+        line: {
+            color: 'rgb(173,255,47)',
+            width: 10
+        },
+        name: 'Path 2',
+        showscale: false
+    };
     return dataLine
 };
 
@@ -521,17 +521,17 @@ function dataLineAVectorCompile(lineArray){
     let xLine = lineArray[0];
     let yLine = lineArray[1];
     let dataLine = {
-                         x:xLine,
-                         y:yLine,
-                         type: 'scatter',
-                         mode: 'lines',
-                         line: {
-                                color: 'rgb(255,255,0)',
-                                width: 5
-                              },
-                         name: 'Path 1',
-                         showscale: false
-                     };
+        x:xLine,
+        y:yLine,
+        type: 'scatter',
+        mode: 'lines',
+        line: {
+            color: 'rgb(255,255,0)',
+            width: 5
+        },
+        name: 'Path 1',
+        showscale: false
+    };
     return dataLine;
 };
 
@@ -539,129 +539,126 @@ function dataLineBVectorCompile(lineArray){
     let xLine = lineArray[0];
     let yLine = lineArray[1];
     let dataLine = {
-                         x:xLine,
-                         y:yLine,
-                         type: 'scatter',
-                         mode: 'lines',
-                         line: {
-                                color: 'rgb(173,255,47)',
-                                width: 5
-                              },
-                         name: 'Path 1',
-                         showscale: false
-                     };
+        x:xLine,
+        y:yLine,
+        type: 'scatter',
+        mode: 'lines',
+        line: {
+            color: 'rgb(173,255,47)',
+            width: 5
+        },
+        name: 'Path 1',
+        showscale: false
+    };
     return dataLine;
 };
 
 function dataPointACompile(xPoint, yPoint, zPoint){
     let dataPoint = {
-                         x:[xPoint],
-                         y:[yPoint],
-                         z:[zPoint],
-                         type: 'scatter3d',
-                         mode: 'markers',
-                         marker: {
-                                color: 'rgb(238,130,238)',
-                                size: 10
-                              },
-                         name: "Point A",
-                         showscale: false
+        x:[xPoint],
+        y:[yPoint],
+        z:[zPoint],
+        type: 'scatter3d',
+        mode: 'markers',
+        marker: {
+            color: 'rgb(238,130,238)',
+            size: 10
+        },
+        name: "Point A",
+        showscale: false
     };
     return dataPoint
 };
 
 function dataPointBCompile(xPoint, yPoint, zPoint){
     let dataPoint = {
-                         x:[xPoint],
-                         y:[yPoint],
-                         z:[zPoint],
-                         type: 'scatter3d',
-                         mode: 'markers',
-                         marker: {
-                                color: 'rgb(255,140,0)',
-                                size: 10
-                              },
-                         name: "Point B",
-                         showscale: false
+        x:[xPoint],
+        y:[yPoint],
+        z:[zPoint],
+        type: 'scatter3d',
+        mode: 'markers',
+        marker: {
+            color: 'rgb(255,140,0)',
+            size: 10
+        },
+        name: "Point B",
+        showscale: false
     };
     return dataPoint
 };
 
 function dataBallCompile(xBall, yBall, zBall){
     let dataBall = {
-                         x:[xBall],
-                         y:[yBall],
-                         z:[zBall],
-                         type: 'scatter3d',
-                         mode: 'markers',
-                         marker: {
-                                color: 'rgb(255,0,0)',
-                                size: 10
-                              },
-                         name: "Ball",
-                         showscale: false
-                         };
+        x:[xBall],
+        y:[yBall],
+        z:[zBall],
+        type: 'scatter3d',
+        mode: 'markers',
+        marker: {
+            color: 'rgb(255,0,0)',
+            size: 10
+        },
+        name: "Ball",
+        showscale: false
+    };
     return dataBall
 };
 
 function dataBallVectorCompile(xBall, yBall){
     let dataBall = {
-                         x:[xBall],
-                         y:[yBall],
-                         type: 'scatter',
-                         mode: 'markers',
-                         marker: {
-                                color: 'rgb(255,0,0)',
-                                size: 15
-                              },
-                         name: "Ball",
-                         showscale: false
-                         };
+        x:[xBall],
+        y:[yBall],
+        type: 'scatter',
+        mode: 'markers',
+        marker: {
+            color: 'rgb(255,0,0)',
+            size: 15
+        },
+        name: "Ball",
+        showscale: false
+    };
     return dataBall
 };
 
 function dataPointAVectorCompile(xPoint, yPoint){
     let dataPoint = {
-                         x:[xPoint],
-                         y:[yPoint],
-                         type: 'scatter',
-                         mode: 'markers',
-                         marker: {
-                                color: 'rgb(238,130,238)',
-                                size: 15
-                              },
-                         name: "Point A",
-                         showscale: false
+        x:[xPoint],
+        y:[yPoint],
+        type: 'scatter',
+        mode: 'markers',
+        marker: {
+            color: 'rgb(238,130,238)',
+            size: 15
+        },
+        name: "Point A",
+        showscale: false
     };
     return dataPoint
 };
 
 function dataPointBVectorCompile(xPoint, yPoint){
     let dataPoint = {
-                         x:[xPoint],
-                         y:[yPoint],
-                         type: 'scatter',
-                         mode: 'markers',
-                         marker: {
-                                color: 'rgb(255,140,0)',
-                                size: 15
-                              },
-                         name: "Point B",
-                         showscale: false
+        x:[xPoint],
+        y:[yPoint],
+        type: 'scatter',
+        mode: 'markers',
+        marker: {
+            color: 'rgb(255,140,0)',
+            size: 15
+        },
+        name: "Point B",
+        showscale: false
     };
     return dataPoint
 };
 
 function plot(xMin, xMax, yMin, yMax, plotStep, xSurface, ySurface, xLineA, yLineA,
-                    xLineB, yLineB, xLineMin, yLineMin, xLineMax, yLineMax, dataLineAVector, dataLineBVector, dataPointAVector, dataPointBVector,
-                    layoutScalar, layoutVector){
+              xLineB, yLineB, xLineMin, yLineMin, xLineMax, yLineMax, dataLineAVector, dataLineBVector, dataPointAVector, dataPointBVector,
+              layoutScalar, layoutVector){
 
-    document.getElementById("PointCharge_E_eqn_7b").style.display = "none";
-    document.getElementById("Dipole_E_eqn_7b").style.display = "none";
-    document.getElementById("FarField_E_eqn_7b").style.display = "none";
-    document.getElementById("PointCharge_V_eqn_7b").style.display = "none";
-    document.getElementById("Dipole_V_eqn_7b").style.display = "none";
-    document.getElementById("FarField_V_eqn_7b").style.display = "none";
+    document.getElementById("PointCharge_eqn_7b").style.display = "none";
+    document.getElementById("Dipole_eqn_7b").style.display = "none";
+    document.getElementById("FarField_eqn_7b").style.display = "none";
 
     let q = parseFloat(document.getElementById('Slider_1_7b').value)*Math.pow(10,-9);
     let xPoint = parseFloat(document.getElementById('Slider_2_7b').value);
@@ -682,8 +679,7 @@ function plot(xMin, xMax, yMin, yMax, plotStep, xSurface, ySurface, xLineA, yLin
 
     if (equation === "Dipole"){
 
-        document.getElementById("Dipole_E_eqn_7b").style.display = "block";
-        document.getElementById("Dipole_V_eqn_7b").style.display = "block";
+        document.getElementById("Dipole_eqn_7b").style.display = "block";
 
         let zSurface = dipoleSurface(q, xSurface, ySurface);
         let dataSurface = dataSurfaceCompile(xSurface, ySurface, zSurface);
@@ -721,16 +717,15 @@ function plot(xMin, xMax, yMin, yMax, plotStep, xSurface, ySurface, xLineA, yLin
         vectorData.push(dataBallAVector);
         vectorData.push(dataBallBVector);
 
-        $("#functionValueBall1_7b").text(`Electric Potential of Ball 1 = ${Math.round(100*zBallA)/100} V`);
-        $("#functionValueBall2_7b").text(`Electric Potential of Ball 2 = ${Math.round(100*zBallB)/100} V`);
+        $("#functionValueBall1_7b").text(`Ball 1 = ${Math.round(100*zBallA)/100} V`);
+        $("#functionValueBall2_7b").text(`Ball 2 = ${Math.round(100*zBallB)/100} V`);
 
         Plotly.react("Vector_Graph_7b", vectorData, layoutVector);
         Plotly.react('Scalar_Graph_7b', [dataSurface, dataLineA, dataLineB, dataPointA, dataPointB, dataBallA, dataBallB], layoutScalar);
     }
-        else if (equation === "FarField") {
+    else if (equation === "FarField") {
 
-        document.getElementById("FarField_E_eqn_7b").style.display = "block";
-        document.getElementById("FarField_V_eqn_7b").style.display = "block";
+        document.getElementById("FarField_eqn_7b").style.display = "block";
 
         let zSurface = farFieldSurface(q, xSurface, ySurface);
         let dataSurface = dataSurfaceCompile(xSurface, ySurface, zSurface);
@@ -767,16 +762,15 @@ function plot(xMin, xMax, yMin, yMax, plotStep, xSurface, ySurface, xLineA, yLin
         vectorData.push(dataBallAVector);
         vectorData.push(dataBallBVector);
 
-        $("#functionValueBall1_7b").text(`Electric Potential of Ball 1 = ${Math.round(1000*zBallA)/1000} V`);
-        $("#functionValueBall2_7b").text(`Electric Potential of Ball 2 = ${Math.round(1000*zBallB)/1000} V`);
+        $("#functionValueBall1_7b").text(`Ball 1 = ${Math.round(1000*zBallA)/1000} V`);
+        $("#functionValueBall2_7b").text(`Ball 2 = ${Math.round(1000*zBallB)/1000} V`);
 
         Plotly.react("Vector_Graph_7b", vectorData, layoutVector );
         Plotly.react('Scalar_Graph_7b', [dataSurface, dataLineA, dataLineB, dataPointA, dataPointB, dataBallA, dataBallB], layoutScalar);
 
     }
     else if (equation === "PointCharge"){
-        document.getElementById("PointCharge_E_eqn_7b").style.display = "block";
-        document.getElementById("PointCharge_V_eqn_7b").style.display = "block";
+        document.getElementById("PointCharge_eqn_7b").style.display = "block";
 
         let zSurface = pointChargeSurface(q, xSurface, ySurface);
         let dataSurface = dataSurfaceCompile(xSurface, ySurface, zSurface);
@@ -815,8 +809,8 @@ function plot(xMin, xMax, yMin, yMax, plotStep, xSurface, ySurface, xLineA, yLin
         vectorData.push(dataBallAVector);
         vectorData.push(dataBallBVector);
 
-        $("#functionValueBall1_7b").text(`Electric Potential of Ball 1 = ${Math.round(100*zBallA)/100} V`);
-        $("#functionValueBall2_7b").text(`Electric Potential of Ball 2 = ${Math.round(100*zBallB)/100} V`);
+        $("#functionValueBall1_7b").text(`Ball 1 = ${Math.round(100*zBallA)/100} V`);
+        $("#functionValueBall2_7b").text(`Ball 2 = ${Math.round(100*zBallB)/100} V`);
 
         Plotly.react("Vector_Graph_7b", vectorData, layoutVector);
         Plotly.react('Scalar_Graph_7b', [dataSurface, dataLineA, dataLineB, dataPointA, dataPointB, dataBallA, dataBallB], layoutScalar)
@@ -838,35 +832,37 @@ function main(){
     let yLineMax = -2;
 
     const layoutScalar_7b = {
-            title: 'Electric Potential',
-            autosize: false,
-            width: 500,
-            height: 500,
-            margin: {
-                        l: 65,
-                        r: 50,
-                        b: 65,
-                        t: 90},
-            dragmode: 'turntable',
-            scene: {
-                aspectmode: "cube",
-                xaxis: {range: [xMin, xMax], title: 'x'},
-                yaxis: {range: [yMin, yMax], title: 'y'},
-                zaxis: {range: [-50, 50], title: 'V(x,y)'},
+        // title: 'Electric Potential',
+        showlegend: false,
+        autosize: true,
+        // width: 500,
+        // height: 500,
+        margin: {
+            l: 65,
+            r: 50,
+            b: 65,
+            t: 90},
+        dragmode: 'turntable',
+        scene: {
+            aspectmode: "cube",
+            xaxis: {range: [xMin, xMax], title: 'x'},
+            yaxis: {range: [yMin, yMax], title: 'y'},
+            zaxis: {range: [-50, 50], title: 'V(x,y)'},
 
-                camera: {
-                    up: {x: 0, y: 0, z: 1},//sets which way is up
-                    eye: {x: -1, y: -1, z: 1}//adjust camera starting view
-                }
-            },
+            camera: {
+                up: {x: 0, y: 0, z: 1},//sets which way is up
+                eye: {x: -1, y: -1, z: 1}//adjust camera starting view
+            }
+        },
     };
 
 
     const layoutVector_7b = {
-        title: "Electric Field",
+        // title: "Electric Field",
         showlegend: false,
-        width: 280,
-        height: 280,
+        autosize: true,
+        // width: 280,
+        // height: 280,
         xaxis: {
             constrain: "domain",
             range: [-20, 20],
@@ -916,8 +912,8 @@ function main(){
             $("#"+$(this).attr("id") + "Display").val( $(this).val());
             //NB: Display values are restricted by their definition in the HTML to always display nice number.
             plot(xMin, xMax, yMin, yMax, plotStep, xScalarPlot, yScalarPlot, xScalarLine1_1b, yScalarLine1_1b,
-            xScalarLine2_1b, yScalarLine2_1b, xLineMin, yLineMin, xLineMax, yLineMax, dataLineAVector, dataLineBVector, dataPointAVector, dataPointBVector,
-            layoutScalar_7b, layoutVector_7b); //Updating the plot is linked with display (Just My preference)
+                xScalarLine2_1b, yScalarLine2_1b, xLineMin, yLineMin, xLineMax, yLineMax, dataLineAVector, dataLineBVector, dataPointAVector, dataPointBVector,
+                layoutScalar_7b, layoutVector_7b); //Updating the plot is linked with display (Just My preference)
         });
 
     });
@@ -925,8 +921,8 @@ function main(){
     $('#Function_Selector').on("input", function(){
         //update plots when function is changed
         plot(xMin, xMax, yMin, yMax, plotStep, xScalarPlot, yScalarPlot, xScalarLine1_1b, yScalarLine1_1b,
-        xScalarLine2_1b, yScalarLine2_1b, xLineMin, yLineMin, xLineMax, yLineMax, dataLineAVector, dataLineBVector, dataPointAVector, dataPointBVector,
-        layoutScalar_7b, layoutVector_7b);
+            xScalarLine2_1b, yScalarLine2_1b, xLineMin, yLineMin, xLineMax, yLineMax, dataLineAVector, dataLineBVector, dataPointAVector, dataPointBVector,
+            layoutScalar_7b, layoutVector_7b);
     });
 };
 

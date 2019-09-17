@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <!--Title-->
-    <title>right-AmpereLawDiff</title>
+    <title>right-4aCirculationLawDiff</title>
     <!--css links-->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -37,7 +37,7 @@
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
 </head>
-<body id="loadout4sub1">
+<body id="loadout5sub1">
 <!-- Graph -->
 <h4 class="graphTitle">
     Relative Curl
@@ -51,7 +51,7 @@
 <div class="overall-sliders-container">
     <!--BEGIN Slider-->
     <label class="slider-label">
-        Current Density: $ \mathbf{j}= $
+        Amount of Curl: $ \nabla \times \mathbf{E}= $
         <output id="x3ControllerDisplay" for="x3Controller">1</output>
     </label>
     <label class="slider">
@@ -61,7 +61,9 @@
     </label>
     <!--END Slider-->
 </div>
+<!--Note-->
+<div class="footNote"><b>NOTE:</b> In reality, the curl of the $ \mathbf{E} $ field is always zero in <b>electrostatics</b></div>
 </body>
-<script src="scripts/EM1-scripts/3aAmpereLawDiff.js"></script>
+<script src="scripts/EM1-scripts/4aCirculationLawDiff.js"></script>
 <script src="scripts/EM1-scripts/Static_EM_Object.js"></script>
 </html>

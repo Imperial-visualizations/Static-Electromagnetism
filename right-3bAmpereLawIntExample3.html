@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--Title-->
+    <title>right-3bAmplerLawIntExample3</title>
+    <!--css links-->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet"
+          integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <link href="styles/style.css" rel="stylesheet">
+    <link href="styles/skeleton.css" rel="stylesheet">
+    <link href="styles/index_Style.css" rel="stylesheet">
+    <link href="styles/loadout_Style.css" rel="stylesheet">
+    <!--Required JS resources-->
+    <script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="scripts/debounce_and_throttle.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+    <script src="scripts/numeric/src/numeric.js"></script>
+    <script src="scripts/math.min.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { fonts: ["TeX"] }
+  });
+    </script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body id="loadout4sub2sub2sub3">
+
+<!--p5 Canvas-->
+<h4 class="sketchTitle">
+    Toroid
+</h4>
+<div id="sketch-holder"></div>
+<!--Sliders-->
+<div class="overall-sliders-container leftSliders">
+    <div class="partial-sliders-container">
+        <label id="hA" class="slider-label">
+            Current: <span id="A_slideDisplay">5</span>
+        </label>
+        <label class="slider">
+            <span class="sliderMin">-10</span>
+            <input type="range" min="-10" max="10" value="5" step="1" class="inputs" id="A_slide">
+            <span class="sliderMax">10</span>
+        </label>
+    </div>
+    <div class="partial-sliders-container">
+        <label id="hN" class="slider-label">
+            No. of Turns: <span id="N_slideDisplay">10</span>
+        </label>
+        <label class="slider">
+            <span class="sliderMin">1</span>
+            <input type="range" min="1" max="100" value="10" step="1" class="inputs" id="N_slide">
+            <span class="sliderMax">100</span>
+        </label>
+    </div>
+</div>
+<div class="overall-sliders-container rightSliders">
+    <div class="partial-sliders-container">
+        <label id="hB" class="slider-label">
+            Inner Radius of Toroid <span id="B_slideDisplay">0.5</span>
+        </label>
+        <label class="slider">
+            <span class="sliderMin">0.1</span>
+            <input type="range" min="0.1" max="1.3" value="0.5" step="0.05" class="slider" id="B_slide">
+            <span class="sliderMax">1.3</span>
+        </label>
+    </div>
+    <div class="partial-sliders-container">
+        <label id="hR" class="slider-label">
+            Radius of Loop: <span id="myRangeDisplay">0.6</span>
+        </label>
+        <label class="slider">
+            <span class="sliderMin">0</span>
+            <input type="range" min="0" max="2" value="0.6" step="0.05" class="inputs" id="myRange">
+            <span class="sliderMax">2</span>
+        </label>
+    </div>
+</div>
+<!--Play/Stop Button-->
+<button id="playB" onclick="Play()" value="1">
+    Play!
+</button>
+</body>
+<script src="scripts/EM1-scripts/Eg_Amp_Primer3.js"></script>
+<script src=scripts/EM1-scripts/Eg_Amp_Vis.js></script>
+</html>

@@ -6,8 +6,19 @@ let arrowNo = 1;
 let index = 0;
 let nostep = 50;
 let sign = 0;
-//let O11 = 1;
 
+function Play() {
+    let button_val = document.getElementById("playB").value;
+    if (button_val == 1) {
+        document.getElementById("playB").innerHTML = "Stop!";
+        document.getElementById("playB").value = 0
+    } else {
+        document.getElementById("playB").innerHTML = "Play!";
+        document.getElementById("playB").value = 1
+    }
+    //console.log(button_val);
+    button_no = button_val;
+}
 
 function getDiameter(a = 200) {
     return [sliderVal * a, BsliderVal * a];
@@ -255,7 +266,7 @@ function hideFunction() {
 }*/
 
 function draw() {
-    let C = createCanvas(windowWidth / 2.5, windowWidth / 2.5);
+    let C = createCanvas(windowHeight * 0.6, windowHeight * 0.6);
     C.parent('sketch-holder');
     frameRate(frame_no);
 

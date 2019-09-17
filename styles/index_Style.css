@@ -277,6 +277,10 @@ button.section-sub-head:hover {
     font-weight: bolder;
 }
 
+.nav-tabs.innerTab > li {
+    background: #eaf2ff;
+}
+
 .nav-tabs > li.tabLeft {
     margin: 0 1.5% 0 0;
 }
@@ -290,8 +294,17 @@ button.section-sub-head:hover {
     box-shadow: 2px 2px 2px #a8a8a8;
 }
 
+.nav-tabs.innerTab > li:hover {
+    background: #ffffff;
+}
+
 .nav-tabs > li.shaded {
     background: #eaf2ff;
+    box-shadow: 2px 2px 2px #a8a8a8;
+}
+
+.nav-tabs > li.unshaded {
+    background: #ffffff;
     box-shadow: 2px 2px 2px #a8a8a8;
 }
 
@@ -315,6 +328,10 @@ button.section-sub-head:hover {
     border-radius: 0.5vh 0.5vh 0.5vh 0.5vh;
     /*border: 1px solid grey;*/
     box-shadow: 2px 2px 2px #a8a8a8;
+}
+
+.tab-content.innerTab {
+    background: #ffffff;
 }
 
 .tab-content > .tab-pane:not(.active),
@@ -346,7 +363,7 @@ h3.section-sub-head {
     margin-bottom: 50px;
 }
 
-i {
+i.fa-chevron-down {
     position: absolute;
     right: 10px;
     top: 6px;
@@ -354,7 +371,7 @@ i {
     transition: transform 0.4s ease-in-out;
 }
 
-.section-sub-head:not(.collapsed) i {
+.section-sub-head:not(.collapsed) i.fa-chevron-down {
     transform: rotate(-180deg);
 }
 
