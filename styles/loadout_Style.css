@@ -1294,7 +1294,7 @@
 /* SECTION 6 */
 
 #loadout6sub1 .graph1Title {
-    width: 50vw;
+    width: 55vw;
     height: 7.5vh;
     line-height: 7.5vh;
     vertical-align: middle;
@@ -1306,7 +1306,7 @@
 }
 
 #loadout6sub1 #Scalar_Graph_7a {
-    width: 50vw;
+    width: 55vw;
     height: 55vh;
     position: absolute;
     left: 2.3vw;
@@ -1314,7 +1314,7 @@
 }
 
 #loadout6sub1 .graph2Title {
-    width: 40vw;
+    width: 45vw;
     height: 7.5vh;
     line-height: 7.5vh;
     vertical-align: middle;
@@ -1326,10 +1326,10 @@
 }
 
 #loadout6sub1 #Vector_Graph_7a {
-    width: 40vw;
+    width: 45vw;
     height: 55vh;
     position: absolute;
-    right: 2.3vw;
+    right: 3.9vw;
     top: 11vh;
 }
 
@@ -1431,7 +1431,7 @@
 }
 
 #loadout6sub2 .graph1Title {
-    width: 45vw;
+    width: 50vw;
     height: 7.5vh;
     line-height: 7.5vh;
     vertical-align: middle;
@@ -1443,7 +1443,7 @@
 }
 
 #loadout6sub2 #Scalar_Graph_7b {
-    width: 45vw;
+    width: 50vw;
     height: 55vh;
     position: absolute;
     right: 2.3vw;

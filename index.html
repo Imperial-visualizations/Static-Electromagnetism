@@ -107,19 +107,21 @@
                     The majority of classic electromagnetism is governed by the four Maxwell's equations.
                     These are empirical equations based on evidence, and were not derived from other equations or principles.
                     In their differential form, Maxwell's equations describe the rates of change of an electromagnetic field.
-                    $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}}$$
-                    $$ \nabla \cdot \mathbf{B} =  0$$
-                    $$ \nabla \times \mathbf{E} = -\frac{d\mathbf{B}}{dt}$$
-                    $$ \nabla \times \mathbf{B} = \mu_{0} \mathbf{J} + \mu_{0} \epsilon_{0}\frac{d\mathbf{E}}{dt}$$
-                    Where $\mathbf{E}$ is an electric field, $\mathbf{B}$ is a magnetic field. When all time varying terms go to 0, we are left with the static version of Maxwell's equations.
-                    $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}}$$
-                    $$ \nabla \cdot \mathbf{B} =  0$$
-                    $$ \nabla \times \mathbf{E} = 0$$
-                    $$ \nabla \times \mathbf{B} = \mu_{0} \mathbf{J}$$
-
+                    <span class="mathJaxDisplay">
+                        $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}} $$
+                        $$ \nabla \cdot \mathbf{B} = 0 $$
+                        $$ \nabla \times \mathbf{E} = -\frac{d\mathbf{B}}{dt} $$
+                        $$ \nabla \times \mathbf{B} = \mu_{0} \mathbf{J} + \mu_{0} \epsilon_{0}\frac{d\mathbf{E}}{dt} $$
+                    </span>
+                    Where <span class="mathJaxInline">$ \mathbf{E} $</span> is an electric field, <span class="mathJaxInline">$ \mathbf{B} $</span> is a magnetic field. When all time varying terms go to 0, we are left with the static version of Maxwell's equations.
+                    <span class="mathJaxDisplay">
+                        $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}}$$
+                        $$ \nabla \cdot \mathbf{B} =  0$$
+                        $$ \nabla \times \mathbf{E} = 0$$
+                        $$ \nabla \times \mathbf{B} = \mu_{0} \mathbf{J}$$
+                    </span>
                     Of these, Gauss's law for electrostatics, Gauss's law for magnetism, and Ampere's circulation law are the most crucial.
                     Together they describe how sources of charge and current form electric and magnetic fields.
-                    
                 </div>
             </div>
             <div class="section-container" id="sc2">
@@ -144,18 +146,18 @@
                     <div class="tab-content">
                         <div id="gaussElecDifferential" class="tab-pane fade in active show">
                             Maxwell's first law states that:
-                            $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_0}$$
-                            Where $\nabla$ is the divergence operator. This law implies that electric charges exhibit divergence
+                            <span class="mathJaxDisplay">
+                                $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_0}$$
+                            </span>
+                            Where <span class="mathJaxInline">$ \nabla $</span> is the divergence operator. This law implies that electric charges exhibit divergence
                             that is proportional to E-field density. But what does this actually mean?
-                            <br>
+                            <br><br>
                             A field is divergent if the field is varies along the path of the field lines. So, if one was to take an 'infinitesimal step' along a
                             field line, then the field strength would change. In terms of electrostatics this means that electric charges are the
                             sources of electric fields.
-
                             <h3 class="section-sub-head">
-                                    Visualisation Guide
-                                </h3>
-
+                                Visualisation Guide
+                            </h3>
                             The visualisation on the right considers an infinitesimally small section of a charge density that causes
                             field lines to diverge. You may investigate how the strength of the vector field varies with relative divergence.
                             <br><br>
@@ -163,17 +165,15 @@
                         </div>
                         <div id="gaussElecIntegral" class="tab-pane fade">
                             Gauss’s law for electrostatics (integral form) can be expressed as :
-                             <br><br>
-                            <center>$\unicode{x222F}_S \mathbf {E} \cdot \mathrm {d} \mathbf {S} ={\frac {1}{\varepsilon _{0}}}\iiint _V \rho \,\mathrm {d} V$</center>
-                             <br>
-                            where $V$ is the volume enclosed by the closed surface $S$.
+                            <span class="mathJaxDisplay">
+                                $$ {\large\bigcirc}\kern-1.55em\iint_S \mathbf {E} \cdot \mathrm {d} \mathbf {S} ={\frac {1}{\varepsilon _{0}}}\iiint _V \rho \,\mathrm {d} V $$
+                            </span>
+                            where <span class="mathJaxInline">$ V $</span> is the volume enclosed by the closed surface <span class="mathJaxInline">$ S $</span>.
                             <br><br>
-                            Geometrically, $\mathbf {E} \cdot \mathrm {d} \mathbf {S}$ represents the net <a href=“Visualisations/Vector-Calculus-Concepts/Div&Flux.html”>flux</a> of $\mathbf {E}$ through $\mathrm {d} \mathbf {S}$. This law relates the net flux through a closed surface to the net charge contained within.
-
+                            Geometrically, <span class="mathJaxInline">$ \mathbf {E} \cdot \mathrm {d} \mathbf {S} $</span> represents the net <a href=“link_to_VC”>flux</a> of <span class="mathJaxInline">$ \mathbf {E} $</span> through <span class="mathJaxInline">$ \mathrm {d} \mathbf {S} $</span>. This law relates the net flux through a closed surface to the net charge contained within.
                             <h3 class="section-sub-head">
                                     Visualisation Guide
                                 </h3>
-
                             In this visualisation, we have a 2D representation of the law.
                             The loop, which represents a 2D slice of a surface, is generated randomly.
                             The number in the loop is the scaled net flux through the loop.
@@ -207,32 +207,30 @@
                     <div class="tab-content">
                         <div id="gaussMagDifferential" class="tab-pane fade in active show">
                             Gauss's law for magnetism (differential form) can be expressed as :
-                            $$ \nabla \cdot \mathbf{B} = 0$$
-                            Where $\nabla$ is the divergence operator.
+                            <span class="mathJaxDisplay">
+                                $$ \nabla \cdot \mathbf{B} = 0 $$
+                            </span>
+                            Where <span class="mathJaxInline">$ \nabla $</span> is the divergence operator.
                             This means that there is no beginning or ending to magnetic field lines as they are loops.
-
                             <h3 class="section-sub-head">
-                                    Visualisation Guide
-                                </h3>
-
+                                Visualisation Guide
+                            </h3>
                             In all options, you do not see any changes in the number density of the field lines.
-                            In fact, the last option protrays the typical situation of magnetic field, where there is non-zero curl but zero divergence.
+                            In fact, the last option portrays the typical situation of magnetic field, where there is non-zero curl but zero divergence.
                             <br><br>
                             <b>Important note:</b> We are using vector field representation here, not field lines.
                         </div>
                         <div id="gaussMagIntegral" class="tab-pane fade">
-                            Gauss's law for magnetism (integral form) can be expressed as :
+                            Gauss's law for magnetism (integral form) can be expressed as:
+                            <span class="mathJaxDisplay">
+                                $$ {\large\bigcirc}\kern-1.55em\iint_S \mathbf {B} \cdot \mathrm {d} \mathbf {S} = 0 $$
+                            </span>
+                            where <span class="mathJaxInline">$ S $</span> is any closed surface.
                             <br><br>
-                            <center>$\unicode{x222F}_S \mathbf {B} \cdot \mathrm {d} \mathbf {S} = 0$</center>
-                            <br>
-                            where $S$ is any closed surface.
-                            <br><br>
-                            Geometrically, $\mathbf {B} \cdot \mathrm {d} \mathbf {S}$ represents the net flux of $\mathbf {B}$ through $\mathrm {d} \mathbf {S}$. This law states that the net flux of any magnetic field through an arbitrary closed surface is always zero.
-
+                            Geometrically, <span class="mathJaxInline">$ \mathbf {B} \cdot \mathrm {d} \mathbf {S} $</span> represents the net flux of <span class="mathJaxInline">$ \mathbf {B} $</span>  through <span class="mathJaxInline">$ \mathrm {d} \mathbf {S} $</span>. This law states that the net flux of any magnetic field through an arbitrary closed surface is always zero.
                             <h3 class="section-sub-head">
-                                    Visualisation Guide
-                                </h3>
-
+                                Visualisation Guide
+                            </h3>
                             In this visualisation, we have a 2D representation of the law. The number in the loop is the scaled net flux through the loop.
                             <br><br>
                             In the ‘manual loop’ option, we have specified that the normal is pointing outwards when the loop is drawn in anticlockwise direction.
@@ -264,15 +262,15 @@
                     <div class="tab-content">
                         <div id="ampereMagDifferential" class="tab-pane fade in active show">
                             The differential form of Ampere's law is:
-                            $$ \nabla \times \mathbf{B} = \mu_0 \mathbf{J}$$
-
+                            <span class="mathJaxDisplay">
+                            $$ \nabla \times \mathbf{B} = \mu_0 \mathbf{J} $$
+                            </span>
                             <h3 class="section-sub-head">
-                                    Visualisation Guide
-                                </h3>
-
-                            Consider a section of a plane that contains a uniform magnetic field. The introduction of a current $\mathbf{J}$
+                                Visualisation Guide
+                            </h3>
+                            Consider a section of a plane that contains a uniform magnetic field. The introduction of a current <span class="mathJaxInline">$ \mathbf{J} $</span>
                             that passes through every point in this section of the plane changes the field around it such that
-                            the maginitude of the magnetic field only changes if you move in a direction that is perpendicular to the field.
+                            the magnitude of the magnetic field only changes if you move in a direction that is perpendicular to the field.
                             This is the definition of curl. The introduction of the current density has induced a curl in the magnetic
                             field. The circle on top right of the plot indicates the strength and direction of the current density according to the Right Hand Grip Rule.
                             <br><br>
@@ -291,9 +289,11 @@
                             <div class="tab-content innerTab">
                                 <div id="ampereMagTheory" class="tab-pane fade in active show ">
                                     The integral form of Ampere's law is:
-                                    $$ \oint \mathbf{B.dl} = \mu_0 I$$
+                                    <span class="mathJaxDisplay">
+                                        $$ \oint \mathbf{B.dl} = \mu_0 I $$
+                                    </span>
                                     Ampere's law states that when a loop is placed around a current carrying wire, the integral of the magnetic field
-                                    around the loop is equal to $\mu_{0}$ multiplied by the current enclosed. If you add a loop in the visualisation
+                                    around the loop is equal to <span class="mathJaxInline">$ \mu_{0} $</span> multiplied by the current enclosed. If you add a loop in the visualisation
                                     on the right then you can see, by clicking and dragging wires into and out of the loop, that this is true.
                                     <br><br>
                                     When there are wires near to, but outside of a loop, there is flux into and out of the loop, however the average
@@ -303,13 +303,10 @@
                                     The reason for this can be seen by placing a wire just outside a circular loop; in this
                                     scenario dl is in the same direction as the field for one part of the loop, and opposite to the field for the
                                     other part. This means the resulting net contribution is zero.
-
                                     <h3 class="section-sub-head">
                                         Visualisation Guide
                                     </h3>
-
-
-                                    We are using a Riemann sum to integrate, so the number of steps is referring to the number of steps used in the numerical integration.
+                                    Add current wires to the vector map and press play to see that the loop integral is always equal to the enclosed current.
                                     <br><br>
                                     <b>Important note:</b> We are using vector field representation here, not field line.
                                 </div>
@@ -323,21 +320,28 @@
                                         </button>
                                         <div id="singleWireContentContainer" class="collapse show" data-parent="#ampereMagExamples">
                                             <div id="singleWireContent" class="section-sub-content" key="singleWireContent">
-                                                <h5> Current Wire: </h5>
                                                 Consider an infinitely long current-carrying wire. Recall the integral form of static Ampere's law:
-                                                $$\oint \textbf{B} \cdot \textbf{dl} = \mu_0 I_{enclosed},$$
+                                                <span class="mathJaxDisplay">
+                                                    $$ \oint \textbf{B} \cdot \textbf{dl} = \mu_0 I_{enc}, $$
+                                                </span>
                                                 and construct a circular Amperian loop (Amp loop). The loop encloses the wire. The magnetic field
-                                                generated by the wire is circular with a constant magnitude at a given distance $r$. Hence,
-                                                $$ \displaystyle \textbf{B} \cdot \textbf{dl} = |\textbf{B}||\textbf{dl}|\cos(\theta)= B dl $$
+                                                generated by the wire is circular with a constant magnitude at a given distance <span class="mathJaxInline">$ r $</span>. Hence,
+                                                <span class="mathJaxDisplay">
+                                                    $$ \textbf{B} \cdot \textbf{dl} = |\textbf{B}||\textbf{dl}|\cos(\theta)= B dl $$
+                                                </span>
                                                 as the magnetic field aligns with the loop. The integral can be performed and equation for the
-                                                magnetic field strength $B$ can be derived.
-                                                $$ \int B dl = 2\pi r B= \mu_0 I_{enclosed}. $$
+                                                magnetic field strength <span class="mathJaxInline">$ B $</span> can be derived.
+                                                <span class="mathJaxDisplay">
+                                                    $$ \int B dl = 2\pi r B= \mu_0 I_{enc}. $$
+                                                </span>
                                                 Hence,
-                                                $$ B = \frac{\mu_0 I_{enclosed}}{2 \pi r}. $$
-                                                <img src="EM\image\RHrule.jpg" style="width:50%;height:20%;margin-right:5%;margin-bottom:5%; float:left">
-                                                The direction in which the magnetic field rotates can be confirmed by using the Ampère's right-hand
+                                                <span class="mathJaxDisplay">
+                                                    $$ B = \frac{\mu_0 I_{enc}}{2 \pi r}. $$
+                                                </span>
+                                                The direction in which the magnetic field rotates can be confirmed by using the Ampere's right-hand
                                                 grip rule. Note that the magnetic field strength falls off with distance from the wire. You can confirm
                                                 this using the visualisation on the Right.
+                                                <img class="journeyImage" src="image/RHrule.jpg">
                                             </div>
                                         </div>
                                     </div>
@@ -350,33 +354,38 @@
                                         </button>
                                         <div id="solenoidContentContainer" class="collapse show" data-parent="#ampereMagExamples">
                                             <div id="solenoidWireContent" class="section-sub-content" key="solenoidContent">
-                                                <h5> Solenoid: </h5>
                                                 A solenoid can be approximated as a series of circular loops of current with fixed separation. In this model, the solenoid is aligned
                                                 such that we can consider the current flowing into and out of the screen. Now consider a rectangular Amperian loop (Amp loop). The Amp loop
                                                 can be split into four straight lines. This allows the closed integral of static Ampere's law into four integral representing the four straight lines.
-                                                <img src="EM\image\Solenoid.jpg" style="width:50%;height:20%;margin-right:5%;margin-bottom:5%; float: left">
+                                                <img class="journeyImage" src="image/Solenoid.jpg">
                                                 The diagram shows this Amp loop. The length and the alignment of the sides are chosen to simplify the
-                                                integral: Side $2$ and $4$ align perpendicularly to the direction of the
-                                                magnetic field, hence $\textbf{B} \cdot \textbf{dl} =0 $. Side $3$ is positioned at $r=\infty$, hence $|\textbf{B}|=0$.
-                                                $$\begin{align}
-                                                \oint \textbf{B} \cdot \textbf{dl} = \int_{a}^{b} \textbf{B} \cdot \textbf{dl} +
-                                                \int_{b}^{c} \underbrace{\textbf{B} \cdot \textbf{dl}}_\text{=0} \\
-                                                + \int_{c}^{d} \underbrace{\textbf{B}}_\text{=0} \cdot \textbf{dl} + \int_{d}^{a} \underbrace{\textbf{B} \cdot
-                                                \textbf{dl}}_\text{=0}
-                                                \end{align}$$
+                                                integral: Side <span class="mathJaxInline">$ 2 $</span> and <span class="mathJaxInline">$ 4 $</span> align perpendicularly to the direction of the
+                                                magnetic field, hence <span class="mathJaxInline">$ \textbf{B} \cdot \textbf{dl} =0 $</span>. Side <span class="mathJaxInline">$ 3 $</span> is positioned at <span class="mathJaxInline">$ r=\infty $</span>, hence <span class="mathJaxInline">$ |\textbf{B}|=0 $</span>.
+                                                <span class="mathJaxDisplay">
+                                                    \begin{align}
+                                                    \oint \textbf{B} \cdot \textbf{dl} = \int_{a}^{b} \textbf{B} \cdot \textbf{dl} +
+                                                    \int_{b}^{c} \underbrace{\textbf{B} \cdot \textbf{dl}}_\text{=0} \\
+                                                    + \int_{c}^{d} \underbrace{\textbf{B} \cdot \textbf{dl}}_\text{=0} + \int_{d}^{a} \underbrace{\textbf{B} \cdot
+                                                    \textbf{dl}}_\text{=0}
+                                                    \end{align}
+                                                </span>
                                                 Hence,
-                                                $\displaystyle \int_{a}^{b} \textbf{B} \cdot \textbf{dl} = BL=\mu_0 I_{enclosed}=\mu_0 N I,$
-                                                where $L=b-a$, $N$ is the number of current loops enclosed in the loop, and $I$ is the current
+                                                <span class="mathJaxDisplay">
+                                                    $$ \int_{a}^{b} \textbf{B} \cdot \textbf{dl} = BL=\mu_0 I_{enc}=\mu_0 N I, $$
+                                                </span>
+                                                where <span class="mathJaxInline">$ L=b-a $</span>, <span class="mathJaxInline">$ N $</span> is the number of current loops enclosed in the loop, and <span class="mathJaxInline">$ I $</span> is the current
                                                 through each current loop. Rearranging gives the equation for the magnetic field strength within
                                                 the solenoid.
-                                                $$ B = \frac{\mu_0 N I}{L}=\mu_0 n I, $$
-                                                where $n$ is the number density of the current loops, meaning the number of current loops in a unit
+                                                <span class="mathJaxDisplay">
+                                                    $$ B = \frac{\mu_0 N I}{L}=\mu_0 n I, $$
+                                                </span>
+                                                where <span class="mathJaxInline">$ n $</span> is the number density of the current loops, meaning the number of current loops in a unit
                                                 length of the solenoid. Note that the magnetic field strength is constant within
                                                 the solenoid. You can confirm this by using the visualisation on the right. Keep in mind that the
                                                 side outside the solenoid does not go off to infinity, however you can see how quickly the
                                                 magnetic field falls off with distance. The arrow moving around the Amp loop in the visualisation
-                                                represent the resultant magnetic field's magnitude and direction, $\textbf{B}$, NOT $\textbf{B}
-                                                \cdot \textbf{dl}$.
+                                                represent the resultant magnetic field's magnitude and direction, <span class="mathJaxInline">$ \textbf{B} $</span>,
+                                                NOT <span class="mathJaxInline">$ \textbf{B}\cdot \textbf{dl} $</span>.
                                             </div>
                                         </div>
                                     </div>
@@ -389,27 +398,27 @@
                                         </button>
                                         <div id="toroidContentContainer" class="collapse show" data-parent="#ampereMagExamples">
                                             <div id="toroidWireContent" class="section-sub-content" key="toroidContent">
-                                                <h5> Toroid : </h5>
-                                                A toroid is simply a solenoid formed into a loop ( a loop of loops!). To calculate the magnetic field
-                                                strength generated, a circular Amperian loop (Amp loop) is used to evaluated
-                                                the three regions of the toroid.
+                                                A toroid is simply a solenoid formed into a loop (a loop of loops!). To calculate the magnetic field
+                                                strength generated, a circular Amperian loop (Amp loop) is used to evaluated the three regions of the toroid.
                                                 At the centre and outside of the toroid, the net current enclosed is zero, therefore based on static Ampere's law,
-                                                $|\textbf{B}|$ the magnetic field strength is zero. Within the toroid,
-                                                $$\displaystyle \oint \textbf{B} \cdot \textbf{dl} = \oint Bdl = 2\pi rB = \mu_0 I_{enclosed},$$
+                                                <span class="mathJaxInline">$ |\textbf{B}| $</span> the magnetic field strength is zero. Within the toroid,
+                                                <span class="mathJaxDisplay">
+                                                    $$ \oint \textbf{B} \cdot \textbf{dl} = \oint Bdl = 2\pi rB = \mu_0 I_{enc}, $$
+                                                </span>
                                                 as the magnetic field within the toroid aligns with the Amp loop. Hence,
-                                                $$\displaystyle B = \frac{\mu_0 I_{enclosed}}{2\pi r} = \frac{\mu_0 N I}{2\pi r} = \frac{\mu_0 (nL)
-                                                I}{2\pi r},$$
-                                                where $n(=N/L)$ is the number density of the current loops, $L$ is the circumference of the toroid,
-                                                and $N$ is the number of current loops enclosed in the Amp loop. In the
+                                                <span class="mathJaxDisplay">
+                                                    $$ B = \frac{\mu_0 I_{enc}}{2\pi r} = \frac{\mu_0 N I}{2\pi r} = \frac{\mu_0 (nL)I}{2\pi r}, $$
+                                                </span>
+                                                where <span class="mathJaxInline">$ n(=N/L) $</span> is the number density of the current loops, <span class="mathJaxInline">$ L $</span> is the circumference of the toroid,
+                                                and <span class="mathJaxInline">$ N $</span> is the number of current loops enclosed in the Amp loop. In the
                                                 approximation that the radius of each current loop in the toroid is negligible compared to the
-                                                radius of the Amp loop, we can assume $\displaystyle L \approx 2 \pi r.$
-                                                Hence, $\displaystyle B = \mu_0 n I$
-                                                which is the same equation that was derived for the solenoid. You can confirm this by using the
-                                                visualisation on the right. Keep in mind that the visualisation calculates the net
+                                                radius of the Amp loop, we can assume <span class="mathJaxInline"> $L \approx 2 \pi r. $</span>
+                                                Hence, <span class="mathJaxInline">$ B = \mu_0 n I $</span> which is the same equation that was derived for the solenoid.
+                                                You can confirm this by using the visualisation on the right. Keep in mind that the visualisation calculates the net
                                                 magnetic field generated at the point the arrow is. Hence there is a small variation from the theory
                                                 when that approximation is not applied ( ie. the radius of the current loops is comparable to
                                                 the radius of the Amp loop. Also note the change in the direction of the magnetic field when the Amp
-                                                loop is slightly out of region B. You can confirm the direction using the Ampère's right-hand grip
+                                                loop is slightly out of region B. You can confirm the direction using the Ampere's right-hand grip
                                                 rule.
                                             </div>
                                         </div>
@@ -442,39 +451,41 @@
                     <div class="tab-content">
                             <div id="ampereElecDifferential" class="tab-pane fade in active show">
                                 The Circulation Law in differential form can be expressed as:
-                                $$\nabla \times \mathbf{E} = 0$$
-                                The curl of $\mathbf{E}$ is 0 because it is a conservative field. A conservative field can be described by a potential such that
-                                $\mathbf{E} = \nabla \phi$. The curl of the gradient of a scalar field ($\nabla \times \nabla \phi$) is 0. Hence, the curl of $\mathbf{E}$ is 0.
-
+                                <span class="mathJaxDisplay">
+                                    $$ \nabla \times \mathbf{E} = 0 $$
+                                </span>
+                                The curl of <span class="mathJaxInline">$ \mathbf{E} $</span> is 0 because it is a conservative field. A conservative field can be described by a potential such that
+                                <span class="mathJaxInline">$ \mathbf{E} = \nabla \phi $</span>. The curl of the gradient of a scalar field (<span class="mathJaxInline">$ \nabla \times \nabla \phi $</span>) is 0. Hence, the curl of <span class="mathJaxInline">$ \mathbf{E} $</span> is 0.
                                 <h3 class="section-sub-head">
-                                        Visualisation Guide
-                                    </h3>
-
-                                To visualise this, we shall have a visualisation that has a hypothetical non-zero curl of $\mathbf{E}$.
-                                You can compare and constrast a non-zero curl field to a curl-free field.
+                                    Visualisation Guide
+                                </h3>
+                                To visualise this, we shall have a visualisation that has a hypothetical non-zero curl of <span class="mathJaxInline">$ \mathbf{E} $</span>.
+                                You can compare and contrast a non-zero curl field to a curl-free field.
                                 The circle on top right of the plot indicates the strength and direction of the current density according to the Right Hand Grip Rule.  
                                 <br><br>
                                 <b>Important note:</b> We are using field lines representation here, not vector field.
                             </div>
                             <div id="ampereElecIntegral" class="tab-pane fade">
-                                    The Circulation Law in integral form can be expressed as:
-                                $$\oint \mathbf {E} \cdot \mathrm {d} {\boldsymbol {l}} = 0$$
+                                The Circulation Law in integral form can be expressed as:
+                                <span class="mathJaxDisplay">
+                                    $$ \oint \mathbf {E} \cdot \mathrm {d} {\boldsymbol {l}} = 0 $$
+                                </span>
                                 As you can see from the visualisation on the right the net flux through a loop in an electric field is always zero,
                                 regardless of the positions of charges or even if there is some background field: as long as the background
                                 field has no curl!
                                 <br><br>
-                                Another way of thinking about this equation is by using Stokes' Law which states:<br><br>
-                                <center>$\displaystyle \oint_{l} \mathbf{A.dl} =$ $\displaystyle \iint_{S} \nabla \times \mathbf {A} \cdot d\mathbf{S}$</center>
-                                <br>
+                                Another way of thinking about this equation is by using Stokes' Law which states:
+                                <br><br>
+                                <span class="mathJaxDisplay">
+                                    $$ \oint_{l} \mathbf{A.dl} = \iint_{S} \nabla \times \mathbf {A} \cdot d\mathbf{S} $$
+                                </span>
                                 From this it is clear that the first equation, and the fact that electric fields have no curl are identical.
                                 This also implies that electric fields are conservative, since the loop integral is always zero, and the field
                                 has no curl.
-
                                 <h3 class="section-sub-head">
-                                        Visualisation Guide
-                                    </h3>
-
-                                We are using a Riemann sum to integrate, so the number of steps is referring to the number of steps used in the numerical integration.
+                                    Visualisation Guide
+                                </h3>
+                                Add charges and static electric fields to the vector map and press play to see that the loop integral is zero for any static arrangement.
                                 <br><br>
                                 <b>Important note:</b> We are using vector field representation here, not field line.
                             </div>
@@ -501,67 +512,77 @@
                     </ul>
                     <!--    Sub-Section Text Containers    -->
                     <div class="tab-content">
-                            <div id="elecPotential" class="tab-pane fade in active show">
-                                The differential relationship between electric potential and electric field is:
-                                $$\nabla V = - \mathbf{E} $$
-
-                                <h3 class="section-sub-head">
-                                        Visualisation Guide
-                                    </h3>
-
-                                Consider a particle with charge $Q$ positioned at the origin.  The graph on the right 
-                                shows the potential field $V(x,y)$ around the particle (when only considering a 2D 
-                                slice of space passing through the centre of the charge).  
-                                <br><br>
-                                Beneath it the electric field is shown, which is the negative of the gradient of the 
-                                electric potential.
-                                <br><br>
-                                <b>Important note:</b> We are using vector field representation here, not field line.
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                            </div>
-                            <div id="elecField" class="tab-pane fade">
-                                    The integral relationship between electric potential and electric field is:
-                                $$ V_B - V_A = - \int _A ^B \mathbf{E} \cdot \mathbf{ dl }$$
-                                In electrostatics, all electric fields are conservative. This means that we can find out the potential difference between any two points (A and B) by performing a line integral:
-
-                                $$\displaystyle \Delta V_{AB} = V_B - V_A = \frac{\Delta U_{AB} }{q} $$
-                                $$\displaystyle = -\frac{1}{q} \int _A ^B \mathbf{F} \cdot \mathbf{ dl }$$
-                                $$\displaystyle =  - \int _A ^B \mathbf{E} \cdot \mathbf{ dl } $$
-
-
-
-                                <h3 class="section-sub-head">
-                                        Visualisation Guide
-                                    </h3>
-
-                                <ol>
-                                    <li>On the right, you can see a electric field and the electric potential associated with this field.
-                                        Change the value of the charge, $q$, and observe the change in $\mathbf{E}$ and $V$.</li>
-                                    <li>As the magnitude of $q$ increases, the length of the arrows in $\mathbf{E}$ increases and the contour of the electric potential
-                                        $V$ becomes steeper as well. Since $\mathbf{E} = - \nabla V$, the gradient vector of $V$ is its electric field vector,
-                                        which points in the direction of steepest decrease of $V$.</li>
-                                    <li>The line integral along the electric field,
-                                        $\int \mathbf{E} \cdot \mathbf{ dl }$ is path independent. Move the path of the ball from Point A to Point B
-                                        along 2 different paths, Path 1 and Path 2.</li>
-                                    <li>Observe their electric potential values. Note that along the path, the value of $V$ may be different.
-                                        However, when the balls reach Point B, they have the same electric potential.</li>
-                                    <li>This shows that static electric fields are conservative, hence $\mathbf{E}$ is only dependent on its position.</li>
-                                    <li>There are a few other electric fields for you to play around with. Click the dropdown menu to find out.</li>
-                                </ol>
-                                <br><br>
-                                <b>Important note:</b> We are using vector field representation here, not field line.
-
-
-                            </div>
-
+                        <div id="elecPotential" class="tab-pane fade in active show">
+                            The differential relationship between electric potential and electric field is:
+                            <span class="mathJaxDisplay">
+                                $$ \nabla V = - \mathbf{E} $$
+                            </span>
+                            <h3 class="section-sub-head">
+                                Visualisation Guide
+                            </h3>
+                            Consider a particle with charge <span class="mathJaxInline">$ Q $</span> positioned at the origin. The graph on the right
+                            shows the potential field <span class="mathJaxInline">$ V(x,y) $</span> around the particle (when only considering a 2D
+                            slice of space passing through the centre of the charge).
+                            <br><br>
+                            Beneath it the electric field is shown, which is the negative of the gradient of the
+                            electric potential.
+                            <br><br>
+                            <b>Important note:</b> We are using vector field representation here, not field line.
+                        </div>
+                        <div id="elecField" class="tab-pane fade">
+                            The integral relationship between electric potential and electric field is:
+                            <span class="mathJaxDisplay">
+                                $$ V_B - V_A = - \int _A ^B \mathbf{E} \cdot \mathbf{ dl } $$
+                            </span>
+                            In electrostatics, all electric fields are conservative. This means that we can find out the potential difference between any two points (A and B) by performing a line integral:
+                            <span class="mathJaxDisplay">
+                                $$ \Delta V_{AB} = V_B - V_A = \frac{\Delta U_{AB} }{q} $$
+                                $$ = -\frac{1}{q} \int _A ^B \mathbf{F} \cdot \mathbf{ dl }$$
+                                $$ = -\int _A ^B \mathbf{E} \cdot \mathbf{ dl } $$
+                            </span>
+                            <h3 class="section-sub-head">
+                                Visualisation Guide
+                            </h3>
+                            <ol>
+                                <li>
+                                    <p>
+                                        On the right, you can see a electric field and the electric potential associated with this field.
+                                        Change the value of the charge, <span class="mathJaxInline">$ q $</span>, and observe the change in <span class="mathJaxInline">$ \mathbf{E} $</span> and <span class="mathJaxInline">$ V $</span>.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        As the magnitude of <span class="mathJaxInline">$ q $</span> increases, the length of the arrows in <span class="mathJaxInline">$ \mathbf{E} $</span> increases and the contour of the electric potential
+                                        <span class="mathJaxInline">$ V $</span> becomes steeper as well. Since <span class="mathJaxInline">$ \mathbf{E} = - \nabla V $</span>, the gradient vector of <span class="mathJaxInline">$ V $</span> is its electric field vector,
+                                        which points in the direction of steepest decrease of <span class="mathJaxInline">$ V $</span>.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        The line integral along the electric field,
+                                        <span class="mathJaxInline">$ \int \mathbf{E} \cdot \mathbf{ dl } $</span> is path independent. Move the path of the ball from Point A to Point B
+                                        along 2 different paths, Path 1 and Path 2.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Observe their electric potential values. Note that along the path, the value of <span class="mathJaxInline">$ V $</span> may be different.
+                                        However, when the balls reach Point B, they have the same electric potential.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        This shows that static electric fields are conservative, hence <span class="mathJaxInline">$ \mathbf{E} $</span> is only dependent on its position.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        There are a few other electric fields for you to play around with. Click the dropdown menu to find out.
+                                    </p>
+                                </li>
+                            </ol>
+                            <b>Important note:</b> We are using vector field representation here, not field line.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -575,27 +596,29 @@
                 </div>
                 <div class="text section-body odd" id="p7">
                     In this suite, we have investigated Maxwell's equations in vacuum without time-varying fields.
-    Let us restate the equations in differential form.
-    $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}}$$
-    $$ \nabla \cdot \mathbf{B} =  0$$
-    $$ \nabla \times \mathbf{E} = -\frac{d\mathbf{B}}{dt}$$
-    $$ \nabla \times \mathbf{B} = \mu_{0} \mathbf{J} + \mu_{0} \epsilon_{0}\frac{d\mathbf{E}}{dt}$$
-    Without time-varying fields, we have
-    $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}}$$
-    $$ \nabla \cdot \mathbf{B} =  0$$
-    $$ \nabla \times \mathbf{E} = 0$$
-    $$ \nabla \times \mathbf{B} = \mu_{0} \mathbf{J}$$
-    In the upcoming suites, we will bring ourselves one step closer to applying Maxwell's equations in a real-world situation by asking:
-    <br><br>
-    <b>What happens when we have time-varying fields?</b>
-    <br><br>
-    <b>How do we apply Maxwell's equations to different materials or medium?</b> (add link to this)
-    <br><br>
-    Stay tuned!
-
-
-                    </div>
+                    Let us restate the equations in differential form.
+                    <span class="mathJaxDisplay">
+                        $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}} $$
+                        $$ \nabla \cdot \mathbf{B} =  0 $$
+                        $$ \nabla \times \mathbf{E} = -\frac{d\mathbf{B}}{dt} $$
+                        $$ \nabla \times \mathbf{B} = \mu_{0} \mathbf{J} + \mu_{0} \epsilon_{0}\frac{d\mathbf{E}}{dt} $$
+                    </span>
+                        Without time-varying fields, we have
+                    <span class="mathJaxDisplay">
+                        $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}} $$
+                        $$ \nabla \cdot \mathbf{B} =  0 $$
+                        $$ \nabla \times \mathbf{E} = 0 $$
+                        $$ \nabla \times \mathbf{B} = \mu_{0} \mathbf{J} $$
+                    </span>
+                    In the upcoming suites, we will bring ourselves one step closer to applying Maxwell's equations in a real-world situation by asking:
+                    <br><br>
+                    <b>What happens when we have time-varying fields?</b>
+                    <br><br>
+                    <b>How do we apply Maxwell's equations to different materials or medium?</b> (add link to this)
+                    <br><br>
+                    Stay tuned!
                 </div>
+            </div>
         </div>
     </div>
     <!--    Right Side of Window - containing mainly interactive and visual content    -->
@@ -607,7 +630,7 @@
                 STATIC ELECTROMAGNETISM
             </h1>
             <a href="https://www.imperialvisualisations.com/learn/">
-                <img id="vis-logo" src="VisualisationsLogoWhite2.png">
+                <img id="vis-logo" src="image/VisualisationsLogoWhite2.png">
             </a>
         </div>
         <!--    Space into which visualisations are loaded    -->
