@@ -1,0 +1,1644 @@
+.transition-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #ffffff;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.rightload {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+}
+
+/* SECTION 1 */
+
+#loadout1 {
+}
+
+#loadout1 .imgContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40vw;
+    height: 70vh;
+    position: absolute;
+    right: 3vw;
+    top: 5vh;
+}
+
+#loadout1 .imgContainer img {
+    width: 100%;
+    max-height: 100%;
+}
+
+#loadout1 .quote {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40vw;
+    height: 80vh;
+    position: absolute;
+    left: 3vw;
+    top: 3vh;
+    font-size: calc(10px + 1.6vw);
+}
+
+#loadout1 .nav-tabs {
+    display: flex;
+    width: 90vw;
+    height: 8vh;
+    position: absolute;
+    left: 5vw;
+    top: 5vh;
+    margin: 0;
+}
+
+#loadout1 .nav-tabs > li {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 0;
+    flex-grow: 1;
+    border-radius: 0.5vh 0.5vh 0 0;
+    text-align: center;
+    background: #ffffff;
+    align-items: stretch;
+    z-index: 1;
+    font-weight: bolder;
+}
+
+#loadout1 .nav-tabs > li.tabLeft {
+    margin: 0 1.5% 0 0;
+}
+
+#loadout1 .nav-tabs > li.tabRight {
+    margin: 0 0 0 1.5%;
+}
+
+#loadout1 .nav-tabs > li:hover {
+    background: #eaf2ff;
+    box-shadow: 2px 2px 2px #a8a8a8;
+}
+
+#loadout1 .nav-tabs > li.shaded {
+    background: #eaf2ff;
+    box-shadow: 2px 2px 2px #a8a8a8;
+}
+
+#loadout1 .nav-tabs > li > a {
+    padding: 1.5vh 0 2.5vh 0;
+    border-radius: inherit;
+    font-size: calc(8px + 1.4vw);
+    z-index: 1;
+    text-decoration: none;
+    color: #033482;
+}
+
+#loadout1 .tab-content {
+    width: 90vw;
+    height: 80vh;
+    position: absolute;
+    left: 5vw;
+    top: 12vh;
+    color: #000000;
+    background-color: #eaf2ff;
+    padding: 2vh 2vw;
+    /*box-shadow: 3px 4px 3px #a8a8a8;*/
+    z-index: 2;
+    /*border-radius: 8px 8px 8px 8px;*/
+    border-radius: 0.5vh 0.5vh 0.5vh 0.5vh;
+    /*border: 1px solid grey;*/
+    box-shadow: 2px 2px 2px #a8a8a8;
+    font-size: calc(6px + 1.2vw);
+    text-align: justify;
+}
+
+#loadout1 .tab-content > .tab-pane:not(.active),
+#loadout1 .pill-content > .pill-pane:not(.active) {
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    height: 0;
+}
+
+#loadout1 .tab-content > .tab-pane.active,
+#loadout1 .pill-content > .pill-pane.active {
+    display: block;
+    visibility: visible;
+}
+
+#loadout1 #endMargin {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    bottom: -3.5vh;
+}
+
+/* SECTION 2 */
+
+#loadout2sub1 {
+}
+
+#loadout2sub1 .graphTitle {
+    width: 95vw;
+    height: 7.5vh;
+    position: absolute;
+    top: 5vh;
+    left: 2.5vw;
+    text-align: center;
+    font-size: calc(16px + 1.6vh);
+}
+
+#loadout2sub1 #graph-holder {
+    width: 95vw;
+    height: 75vh;
+    position: absolute;
+    left: 2.5vw;
+    top: 10vh;
+}
+
+#loadout2sub1 .overall-sliders-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 4vh;
+    left: 2.5vw;
+    width: 95vw;
+    height: 10vh;
+}
+
+#loadout2sub1 .partial-sliders-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+#loadout2sub1 .slider-label {
+    font-size: calc(10px + 0.8vw);
+    flex-basis: auto;
+    flex-grow: 0.3;
+    flex-shrink: 1;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+#loadout2sub1 .slider {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    flex: 1 0 auto;
+}
+
+#loadout2sub1 .sliderMin, #loadout2sub1 .sliderMax {
+    margin-top: 30px;
+    width: 40px;
+    flex: 0 0 40px;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+}
+
+#loadout2sub1 .inputs {
+    height: 40px;
+    flex: 1 1 auto;
+}
+
+#loadout2sub2 {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+#loadout2sub2 #sketch-holder {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    margin: 0;
+}
+
+#loadout2sub2 #sketch-holder .p5Canvas {
+    background: #ffffff;
+    margin: 0;
+}
+
+#loadout2sub2 .innerBanner {
+    width: 100vw;
+    height: 12.5vh;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 7vw;
+    padding-right: 3vw;
+    margin: 0;
+}
+
+#loadout2sub2 .infoDisplay {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    flex: 0.1 1 auto;
+}
+
+#loadout2sub2 #scroll {
+    flex: 0.2 0 auto;
+}
+
+#loadout2sub2 .scroll_down {
+    display: table;
+    flex: 1 0 auto;
+    margin: 0 auto;
+    font-size: calc(10px + 0.8vw);
+}
+
+#loadout2sub2 select {
+    font-size: calc(6px + 0.4vw);
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+#loadout2sub2 #buttonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    padding-left: 3vw;
+}
+
+#loadout2sub2 .separator {
+    width: 0;
+    height: 10.5vh;
+    margin: 1vh 0;
+    border-left: solid 2px black;
+}
+
+#loadout2sub2 button {
+    text-align: center;
+    font-size: calc(7px + 0.6vw);
+    border: solid 1px #033482;
+    color: #033482;
+    box-shadow: none;
+    flex: 0 1 auto;
+    visibility: hidden;
+}
+
+#loadout2sub2 button:hover {
+    background-color: #eaf2ff;
+}
+
+#loadout2sub2 .partial-sliders-container {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 0;
+    position: relative;
+    height: inherit;
+}
+
+#loadout2sub2 .slider-label {
+    width: inherit;;
+    font-size: calc(10px + 0.8vw);
+    padding: 0;
+    text-align: center;
+    position: absolute;
+    top: 1vh;
+    left: 0;
+    right: 0;
+}
+
+#loadout2sub2 .slider {
+    width: inherit;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 1vh;
+    left: 0;
+    right: 0;
+}
+
+#loadout2sub2 .sliderMin, #loadout2sub2 .sliderMax {
+    margin-top: 30px;
+    width: 40px;
+    flex: 0 0 40px;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+}
+
+#loadout2sub2 .inputs {
+    height: 40px;
+    flex: 1 1 auto;
+}
+
+/* SECTION 3 */
+
+#loadout3sub1 {
+}
+
+#loadout3sub1 .graphTitle {
+    width: 95vw;
+    height: 7.5vh;
+    position: absolute;
+    top: 5vh;
+    left: 2.5vw;
+    text-align: center;
+    font-size: calc(16px + 1.6vh);
+}
+
+#loadout3sub1 #graph-holder {
+    width: 95vw;
+    height: 75vh;
+    position: absolute;
+    left: 2.5vw;
+    top: 10vh;
+}
+
+#loadout3sub1 #scroll {
+    width: 95vw;
+    height: 10vh;
+    flex: 0.2 0 auto;
+    position: absolute;
+    bottom: 4vh;
+    left: 2.5vw;
+}
+
+#loadout3sub1 .scroll_down {
+    display: table;
+    flex: 1 0 auto;
+    margin: 0 auto;
+    font-size: calc(10px + 0.8vw);
+}
+
+#loadout3sub1 select {
+    font-size: calc(6px + 0.4vw);
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+#loadout3sub2 {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+#loadout3sub2 #sketch-holder {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    margin: 0;
+}
+
+#loadout3sub2 #sketch-holder .p5Canvas {
+    background: #ffffff;
+    margin: 0;
+}
+
+#loadout3sub2 .innerBanner {
+    width: 100vw;
+    height: 12.5vh;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    padding-left: calc(100px + 3vw);
+    padding-right: 3vw;
+    margin: 0;
+}
+
+#loadout3sub2 .infoDisplay {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    flex: 0.1 1 auto;
+    font-size: calc(10px + 1vw)
+}
+
+#loadout3sub2 #scroll {
+    flex: 0.2 0 auto;
+}
+
+#loadout3sub2 .scroll_down {
+    display: table;
+    flex: 1 0 auto;
+    margin: 0 auto;
+    font-size: calc(10px + 0.8vw);
+}
+
+#loadout3sub2 select {
+    font-size: calc(6px + 0.4vw);
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+#loadout3sub2 #buttonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    padding-left: 3vw;
+}
+
+#loadout3sub2 .separator {
+    width: 0;
+    height: 10.5vh;
+    margin: 1vh 0;
+    border-left: solid 2px black;
+}
+
+#loadout3sub2 button {
+    text-align: center;
+    font-size: calc(7px + 0.6vw);
+    border: solid 1px #033482;
+    color: #033482;
+    box-shadow: none;
+    flex: 0 1 auto;
+    visibility: hidden;
+}
+
+#loadout3sub2 button:hover {
+    background-color: #eaf2ff;
+}
+
+#loadout3sub2 .partial-sliders-container {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 0;
+    position: relative;
+    height: inherit;
+}
+
+#loadout3sub2 .slider-label {
+    width: inherit;;
+    font-size: calc(10px + 0.8vw);
+    padding: 0;
+    text-align: center;
+    position: absolute;
+    top: 1vh;
+    left: 0;
+    right: 0;
+}
+
+#loadout3sub2 .slider {
+    width: inherit;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 1vh;
+    left: 0;
+    right: 0;
+}
+
+#loadout3sub2 .sliderMin, #loadout3sub2 .sliderMax {
+    margin-top: 30px;
+    width: 40px;
+    flex: 0 0 40px;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+}
+
+#loadout3sub2 .inputs {
+    height: 40px;
+    flex: 1 1 auto;
+}
+
+/* SECTION 4 */
+
+#loadout4sub1 {
+}
+
+#loadout4sub1 .graphTitle {
+    width: 95vw;
+    height: 7.5vh;
+    position: absolute;
+    top: 5vh;
+    left: 2.5vw;
+    text-align: center;
+    font-size: calc(16px + 1.6vh);
+}
+
+#loadout4sub1 #graph-holder {
+    width: 75vmin;
+    height: 75vmin;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10vh;
+}
+
+#loadout4sub1 .overall-sliders-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 4vh;
+    left: 2.5vw;
+    width: 95vw;
+    height: 10vh;
+}
+
+#loadout4sub1 .partial-sliders-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+#loadout4sub1 .slider-label {
+    font-size: calc(10px + 0.8vw);
+    flex-basis: auto;
+    flex-grow: 0.3;
+    flex-shrink: 1;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+#loadout4sub1 .slider {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    flex: 1 0 auto;
+}
+
+#loadout4sub1 .sliderMin, #loadout4sub1 .sliderMax {
+    margin-top: 30px;
+    width: 40px;
+    flex: 0 0 40px;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+}
+
+#loadout4sub1 .inputs {
+    height: 40px;
+    flex: 1 1 auto;
+}
+
+#loadout4sub2sub1 .sketchTitle {
+    width: 45vw;
+    height: 7.5vh;
+    position: absolute;
+    top: 7.5vh;
+    left: 4.7vw;
+    text-align: center;
+    font-size: calc(16px + 1.6vh);
+}
+
+#loadout4sub2sub1 #sketch-holder {
+    width: 45vw;
+    height: 60vh;
+    position: absolute;
+    left: 4.7vw;
+    top: 17vh;
+}
+
+#loadout4sub2sub1 .graphTitle {
+    width: 45vw;
+    height: 7.5vh;
+    position: absolute;
+    top: 7.5vh;
+    right: 4.7vw;
+    text-align: center;
+    font-size: calc(16px + 1.6vh);
+}
+
+#loadout4sub2sub1 #graph-holder {
+    width: 45vw;
+    height: 50vh;
+    position: absolute;
+    right: 4.7vw;
+    top: 17vh;
+}
+
+#loadout4sub2sub1 .inputsContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 7.5vh;
+    height: 20vh;
+    width: 45vw;
+}
+
+#loadout4sub2sub1 #iC1 {
+    left: 4.7vw;
+}
+
+#loadout4sub2sub1 #iC2 {
+    padding-left: 50px;
+    right: 4.7vw;
+}
+
+#loadout4sub2sub1 #graphNoteContainer {
+    display: flex;
+    flex-direction: row;
+    width: 45vw;
+    position: absolute;
+    right: 4.7vw;
+    padding-right: 30px;
+    top: 71vh;
+}
+
+#loadout4sub2sub1 #B-dl-text-holder {
+    flex: 0 1 auto;
+    text-align: center;
+    margin-left: 30px;
+    font-size: calc(7px + 0.6vw);
+    min-width: 10vw;
+}
+
+#loadout4sub2sub1 #graphNote {
+    flex: 1 0 auto;
+    text-align: left;
+    margin-left: 30px;
+    font-size: calc(6px + 0.5vw);
+    max-width: 30vw;
+}
+
+#loadout4sub2sub1 .scroll-down {
+    display: table;
+    flex: 1 0 auto;
+    margin: 0 auto;
+    font-size: calc(8px + 0.6vw);;
+}
+
+#loadout4sub2sub1 select {
+    font-size: calc(6px + 0.4vw);
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+#loadout4sub2sub1 #play-pause-reset, #loadout4sub2sub1 #add-remove-wires {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+#loadout4sub2sub1 button {
+    text-align: center;
+    font-size: calc(7px + 0.6vw);
+    border: solid 1px #033482;
+    color: #033482;
+    box-shadow: none;
+    flex: 0 1 auto;
+}
+
+#loadout4sub2sub1 button:hover {
+    background-color: #eaf2ff;
+}
+
+#loadout4sub2sub1 .overall-sliders-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 60vw;
+    height: 20vh;
+}
+
+#loadout4sub2sub1 .partial-sliders-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-basis: auto;
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+
+#loadout4sub2sub1 .slider-label {
+    font-size: calc(9px + 0.75vw);
+    flex-basis: auto;
+    flex-grow: 0.3;
+    flex-shrink: 1;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+#loadout4sub2sub1 .slider {
+    display: flex;
+    align-items: center;
+    flex: 1 0 auto;
+}
+
+#loadout4sub2sub1 .sliderMin, #loadout4sub2sub1 .sliderMax {
+    margin-top: 30px;
+    width: 3.1vw;
+    flex: 0 0 40px;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+}
+
+#loadout4sub2sub1 .inputs {
+    height: 3.1vh;
+    flex: 1 1 auto;
+}
+
+#loadout4sub2sub2sub0 {
+}
+
+#loadout4sub2sub2sub0 {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#loadout4sub2sub2sub0 i {
+    flex: 0 0 auto;
+    font-size: calc(5vw + 10px);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#loadout4sub2sub2sub0 h4 {
+    flex: 0 0 auto;
+    font-size: calc(3vw + 10px);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#loadout4sub2sub2sub1 {
+}
+
+#loadout4sub2sub2sub1 .sketchTitle {
+    width: 60vw;
+    height: 5vh;
+    position: absolute;
+    top: 5vh;
+    left: 20vw;
+    text-align: center;
+    font-size: calc(16px + 1.6vh);
+}
+
+#loadout4sub2sub2sub1 #sketch-holder {
+    width: 60vh;
+    height: 60vh;
+    position: absolute;
+    top: 17vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#loadout4sub2sub2sub1 button {
+    text-align: center;
+    font-size: calc(7px + 0.6vw);
+    border: solid 1px #033482;
+    color: #033482;
+    box-shadow: none;
+    position: absolute;
+    top: 17vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#loadout4sub2sub2sub1 button:hover {
+    background-color: #eaf2ff;
+}
+
+#loadout4sub2sub2sub1 .overall-sliders-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 4vh;
+    left: 2.5vw;
+    width: 95vw;
+    height: 25vh;
+}
+
+#loadout4sub2sub2sub1 .partial-sliders-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+#loadout4sub2sub2sub1 .slider-label {
+    font-size: calc(10px + 0.8vw);
+    flex-basis: auto;
+    flex-grow: 0.3;
+    flex-shrink: 1;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+#loadout4sub2sub2sub1 .slider {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    flex: 1 0 auto;
+}
+
+#loadout4sub2sub2sub1 .sliderMin, #loadout4sub2sub2sub1 .sliderMax {
+    margin-top: 30px;
+    width: 40px;
+    flex: 0 0 40px;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+}
+
+#loadout4sub2sub2sub1 .inputs {
+    height: 40px;
+    flex: 1 1 auto;
+}
+
+#loadout4sub2sub2sub2 {
+}
+
+#loadout4sub2sub2sub2 .sketchTitle {
+    width: 60vw;
+    height: 5vh;
+    position: absolute;
+    top: 5vh;
+    left: 20vw;
+    text-align: center;
+    font-size: calc(16px + 1.6vh);
+}
+
+#loadout4sub2sub2sub2 #sketch-holder {
+    width: 60vh;
+    height: 60vh;
+    position: absolute;
+    top: 17vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#loadout4sub2sub2sub2 button {
+    text-align: center;
+    font-size: calc(7px + 0.6vw);
+    border: solid 1px #033482;
+    color: #033482;
+    box-shadow: none;
+    position: absolute;
+    top: 17vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#loadout4sub2sub2sub2 button:hover {
+    background-color: #eaf2ff;
+}
+
+#loadout4sub2sub2sub2 .overall-sliders-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 4vh;
+    left: 2.5vw;
+    width: 95vw;
+    height: 35vh;
+}
+
+#loadout4sub2sub2sub2 .partial-sliders-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+#loadout4sub2sub2sub2 .slider-label {
+    font-size: calc(10px + 0.8vw);
+    flex-basis: auto;
+    flex-grow: 0.3;
+    flex-shrink: 1;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+#loadout4sub2sub2sub2 .slider {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    flex: 1 0 auto;
+}
+
+#loadout4sub2sub2sub2 .sliderMin, #loadout4sub2sub2sub2 .sliderMax {
+    margin-top: 30px;
+    width: 40px;
+    flex: 0 0 40px;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+}
+
+#loadout4sub2sub2sub2 .inputs {
+    height: 40px;
+    flex: 1 1 auto;
+}
+
+#loadout4sub2sub2sub3 {
+}
+
+#loadout4sub2sub2sub3 .sketchTitle {
+    width: 60vw;
+    height: 5vh;
+    position: absolute;
+    top: 5vh;
+    left: 20vw;
+    text-align: center;
+    font-size: calc(16px + 1.6vh);
+}
+
+#loadout4sub2sub2sub3 #sketch-holder {
+    width: 60vh;
+    height: 60vh;
+    position: absolute;
+    top: 17vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#loadout4sub2sub2sub3 button {
+    text-align: center;
+    font-size: calc(7px + 0.6vw);
+    border: solid 1px #033482;
+    color: #033482;
+    box-shadow: none;
+    position: absolute;
+    top: 17vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#loadout4sub2sub2sub3 button:hover {
+    background-color: #eaf2ff;
+}
+
+#loadout4sub2sub2sub3 .overall-sliders-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 4vh;
+    width: 45vw;
+    height: 25vh;
+}
+
+#loadout4sub2sub2sub3 .leftSliders {
+    left: 2.5vw;
+}
+
+#loadout4sub2sub2sub3 .rightSliders {
+    right: 2.5vw;
+}
+
+#loadout4sub2sub2sub3 .partial-sliders-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+#loadout4sub2sub2sub3 .slider-label {
+    font-size: calc(10px + 0.8vw);
+    flex-basis: auto;
+    flex-grow: 0.3;
+    flex-shrink: 1;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+#loadout4sub2sub2sub3 .slider {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    flex: 1 0 auto;
+}
+
+#loadout4sub2sub2sub3 .sliderMin, #loadout4sub2sub2sub3 .sliderMax {
+    margin-top: 30px;
+    width: 40px;
+    flex: 0 0 40px;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+}
+
+#loadout4sub2sub2sub3 .inputs {
+    height: 40px;
+    flex: 1 1 auto;
+}
+
+/* SECTION 5 */
+
+#loadout5sub1 {
+}
+
+#loadout5sub1 .graphTitle {
+    width: 95vw;
+    height: 7.5vh;
+    position: absolute;
+    top: 5vh;
+    left: 2.5vw;
+    text-align: center;
+    font-size: calc(16px + 1.6vh);
+}
+
+#loadout5sub1 #graph-holder {
+    width: 75vmin;
+    height: 75vmin;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10vh;
+}
+
+#loadout5sub1 .overall-sliders-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 5vh;
+    left: 2.5vw;
+    width: 95vw;
+    height: 10vh;
+}
+
+#loadout5sub1 .partial-sliders-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+#loadout5sub1 .slider-label {
+    font-size: calc(10px + 0.8vw);
+    flex-basis: auto;
+    flex-grow: 0.3;
+    flex-shrink: 1;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+#loadout5sub1 .slider {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    flex: 1 0 auto;
+}
+
+#loadout5sub1 .sliderMin, #loadout5sub1 .sliderMax {
+    margin-top: 30px;
+    width: 40px;
+    flex: 0 0 40px;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+}
+
+#loadout5sub1 .inputs {
+    height: 40px;
+    flex: 1 1 auto;
+}
+
+#loadout5sub1 .footNote {
+    width: 95vw;
+    position: absolute;
+    left: 2.5vw;
+    bottom: 1.5vh;
+    text-align: center;
+    font-size: calc(0.6vw + 6px);
+}
+
+#loadout5sub2 .sketchTitle {
+    width: 45vw;
+    height: 7.5vh;
+    position: absolute;
+    top: 7.5vh;
+    left: 4.7vw;
+    text-align: center;
+    font-size: calc(16px + 1.6vh);
+}
+
+#loadout5sub2 #sketch-holder {
+    width: 45vw;
+    height: 60vh;
+    position: absolute;
+    left: 4.7vw;
+    top: 17vh;
+}
+
+#loadout5sub2 .graphTitle {
+    width: 45vw;
+    height: 7.5vh;
+    position: absolute;
+    top: 7.5vh;
+    right: 4.7vw;
+    text-align: center;
+    font-size: calc(16px + 1.6vh);
+}
+
+#loadout5sub2 #graph-holder {
+    width: 45vw;
+    height: 50vh;
+    position: absolute;
+    right: 4.7vw;
+    top: 17vh;
+}
+
+#loadout5sub2 .inputsContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 7.5vh;
+    height: 20vh;
+    width: 45vw;
+}
+
+#loadout5sub2 #iC1 {
+    left: 4.7vw;
+}
+
+#loadout5sub2 #iC2 {
+    padding-left: 50px;
+    right: 4.7vw;
+}
+
+#loadout5sub2 #graphNoteContainer {
+    display: flex;
+    flex-direction: row;
+    width: 45vw;
+    position: absolute;
+    right: 4.7vw;
+    padding-right: 30px;
+    top: 71vh;
+}
+
+#loadout5sub2 #B-dl-text-holder {
+    flex: 0 1 auto;
+    text-align: center;
+    margin-left: 30px;
+    font-size: calc(7px + 0.6vw);
+    min-width: 10vw;
+}
+
+#loadout5sub2 #graphNote {
+    flex: 1 0 auto;
+    text-align: left;
+    margin-left: 30px;
+    font-size: calc(6px + 0.5vw);
+    max-width: 30vw;
+}
+
+#loadout5sub2 .scroll-down {
+    display: table;
+    flex: 1 0 auto;
+    margin: 0 auto;
+    font-size: calc(8px + 0.6vw);
+}
+
+#loadout5sub2 select {
+    font-size: calc(6px + 0.4vw);
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+#loadout5sub2 #play-pause-reset, #loadout5sub2 #add-remove-wires {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+#loadout5sub2 button {
+    text-align: center;
+    font-size: calc(7px + 0.6vw);
+    border: solid 1px #033482;
+    color: #033482;
+    box-shadow: none;
+    flex: 0 1 auto;
+}
+
+#loadout5sub2 button:hover {
+    background-color: #eaf2ff;
+}
+
+#loadout5sub2 .overall-sliders-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 60vw;
+    height: 20vh;
+}
+
+#loadout5sub2 .partial-sliders-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-basis: auto;
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+
+#loadout5sub2 .slider-label {
+    font-size: calc(9px + 0.75vw);
+    flex-basis: auto;
+    flex-grow: 0.3;
+    flex-shrink: 1;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+#loadout5sub2 .slider {
+    display: flex;
+    align-items: center;
+    flex: 1 0 auto;
+}
+
+#loadout5sub2 .sliderMin, #loadout5sub2 .sliderMax {
+    margin-top: 30px;
+    width: 3.1vw;
+    flex: 0 0 40px;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+}
+
+#loadout5sub2 .inputs {
+    height: 3.1vh;
+    flex: 1 1 auto;
+}
+
+/* SECTION 6 */
+
+#loadout6sub1 .graph1Title {
+    width: 55vw;
+    height: 7.5vh;
+    line-height: 7.5vh;
+    vertical-align: middle;
+    position: absolute;
+    top: 1.1vh;
+    left: 2.3vw;
+    text-align: center;
+    font-size: calc(12px + 1vh);
+}
+
+#loadout6sub1 #Scalar_Graph_7a {
+    width: 55vw;
+    height: 55vh;
+    position: absolute;
+    left: 2.3vw;
+    top: 11vh;
+}
+
+#loadout6sub1 .graph2Title {
+    width: 45vw;
+    height: 7.5vh;
+    line-height: 7.5vh;
+    vertical-align: middle;
+    position: absolute;
+    top: 1.1vh;
+    right: 2.3vw;
+    text-align: center;
+    font-size: calc(12px + 1vh);
+}
+
+#loadout6sub1 #Vector_Graph_7a {
+    width: 45vw;
+    height: 55vh;
+    position: absolute;
+    right: 3.9vw;
+    top: 11vh;
+}
+
+#loadout6sub1 .inputsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 45vw;
+    height: 25vh;
+    position: absolute;
+    bottom: 2.2vh;
+    left: 3.9vw;
+}
+
+#loadout6sub1 .equationContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 45vw;
+    height: 25vh;
+    position: absolute;
+    bottom: 2.2vh;
+    right: 3.9vw;
+    font-size: calc(8px + 1vw);
+}
+
+#loadout6sub1 .equationContainer > * {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+#loadout6sub1 .equationContainer img {
+    max-height: 80px;
+    margin: 2vh;
+}
+
+#loadout6sub1 #EP1 * {
+    width: 15vw;
+}
+
+#loadout6sub1 #EP2 * {
+    width: 25vw;
+}
+
+#loadout6sub1 .scroll_down {
+    display: table;
+    flex: 1 0 auto;
+    margin: 0 auto;
+}
+
+#loadout6sub1 .overall-sliders-container {
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+}
+
+#loadout6sub1 .partial-sliders-container {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+#loadout6sub1 .slider-label {
+    font-size: calc(12px + 1vw);
+    text-align: left;
+    padding-left: 8px;
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 20px;
+    flex-basis: 0;
+    flex-grow: 0.5;
+    flex-shrink: 1;
+}
+
+#loadout6sub1 .slider {
+    display: flex;
+    align-items: center;
+    flex: 1 0 auto;
+}
+
+#loadout6sub1 .sliderMin, #loadout6sub1 .sliderMax {
+    margin-top: 30px;
+    width: 40px;
+    flex: 0 0 40px;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+}
+
+#loadout6sub1 .inputs {
+    height: 40px;
+    flex: 1 1 auto;
+}
+
+#loadout6sub2 .graph1Title {
+    width: 50vw;
+    height: 7.5vh;
+    line-height: 7.5vh;
+    vertical-align: middle;
+    position: absolute;
+    top: 1.1vh;
+    right: 2.3vw;
+    text-align: center;
+    font-size: calc(12px + 1vh);
+}
+
+#loadout6sub2 #Scalar_Graph_7b {
+    width: 50vw;
+    height: 55vh;
+    position: absolute;
+    right: 2.3vw;
+    top: 8.5vh;
+}
+
+#loadout6sub2 .graph2Title {
+    width: 50vw;
+    height: 7.5vh;
+    line-height: 7.5vh;
+    vertical-align: middle;
+    position: absolute;
+    top: 1.1vh;
+    left: 2.3vw;
+    text-align: center;
+    font-size: calc(12px + 1vh);
+}
+
+#loadout6sub2 #Vector_Graph_7b {
+    width: 50vw;
+    height: 60vh;
+    position: absolute;
+    left: 2.3vw;
+    top: 8.5vh;
+}
+
+#loadout6sub2 .inputsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    width: 45vw;
+    height: 25vh;
+    position: absolute;
+    bottom: 4vh;
+    left: 3.9vw;
+}
+
+#loadout6sub2 .legendContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    width: 10vw;
+    height: 25vh;
+    position: absolute;
+    bottom: 4vh;
+    right: 37vw;
+    font-size: 1.5vw;
+}
+
+#loadout6sub2 .legendContent {
+    display: flex;
+    align-items: center;
+    flex: 1 0 auto;
+}
+
+#loadout6sub2 .legendContent span {
+    flex: 1 0 auto;
+    text-align: right;
+}
+
+#loadout6sub2 .colorBlock {
+    flex: 0 0 auto;
+    width: 4.7vw;
+    height: 1.1vh;
+}
+
+#loadout6sub2 .colorCircle {
+    flex: 0 0 auto;
+    width: 1.6vh;
+    height: 1.6vh;
+    border-radius: 50%;
+}
+
+#loadout6sub2 .yellow {
+    background: rgb(255, 255, 0);
+}
+
+#loadout6sub2 .green {
+    background: rgb(173, 255, 47);
+}
+
+#loadout6sub2 .pink {
+    background: rgb(238, 130, 238);
+}
+
+#loadout6sub2 .gray {
+    background: rgb(192, 192, 192);
+}
+
+#loadout6sub2 .red {
+    background: rgb(255, 0, 0);
+}
+
+#loadout6sub2 #scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 25vw;
+    height: 8vh;
+    position: absolute;
+    bottom: 22vh;
+    right: 3.9vw;
+}
+
+#loadout6sub2 .scroll-down {
+    display: table;
+    flex: 0 0 auto;
+    margin: 0 auto;
+    font-size: calc(6px + 0.8vh);
+    text-align: center;
+}
+
+#loadout6sub2 .equationContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 25vw;
+    height: 20vh;
+    position: absolute;
+    bottom: 2.2vh;
+    right: 3.9vw;
+    font-size: calc(8px + 1vw);
+}
+
+#loadout6sub2 .equationContainer > * {
+    display: none;
+    flex: 0 0 auto;
+}
+
+#loadout6sub2 .equationContainer img {
+    max-height: 160px;
+    width: 25vw;
+    margin: 2vh;
+}
+
+#loadout6sub2 .overall-sliders-container {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+}
+
+#loadout6sub2 .partial-sliders-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    justify-content: flex-end;
+}
+
+#loadout6sub2 .slider-label {
+    font-size: calc(12px + 1vw);
+    text-align: left;
+    padding-left: 8px;
+    margin: 0;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    flex-basis: auto;
+    flex-grow: 0.3;
+    flex-shrink: 1;
+}
+
+#loadout6sub2 .smaller-text {
+    font-size: calc(8px + 0.7vw);
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    text-align: right;
+}
+
+#loadout6sub2 .flex-slider-label {
+    display: flex;
+    flex-direction: row;
+    padding-right: 40px;
+    align-items: baseline;
+}
+
+#loadout6sub2 .slider {
+    display: flex;
+    align-items: center;
+    flex: 1 0 auto;
+}
+
+#loadout6sub2 .sliderMin, #loadout6sub2 .sliderMax {
+    margin-top: 30px;
+    width: 40px;
+    flex: 0 0 40px;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+}
+
+#loadout6sub2 .inputs {
+    height: 40px;
+    flex: 1 1 auto;
+}

@@ -3,16 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fd5316f0-f7e1-4449-9fca-e917f6559c32" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Electric_Potential1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Electric_Potential2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/VisualisationsLogoWhite2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/right-0Intro.html" beforeDir="false" afterPath="$PROJECT_DIR$/right-0Intro.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/right-2aGaussLawMagDiff.html" beforeDir="false" afterPath="$PROJECT_DIR$/right-2aGaussLawMagDiff.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/right-5aElectricPotential.html" beforeDir="false" afterPath="$PROJECT_DIR$/right-5aElectricPotential.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/nav_Script.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/nav_Script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/index_Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/index_Style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/loadout_Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/loadout_Style.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,310 +13,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="776">
-              <caret line="545" column="32" lean-forward="true" selection-start-line="545" selection-start-column="32" selection-end-line="545" selection-end-column="32" />
-              <folding>
-                <element signature="n#head#0;n#html#0;n#!!top" />
-                <element signature="n#link#0;n#head#0;n#html#0;n#!!top" />
-                <element signature="n#link#1;n#head#0;n#html#0;n#!!top" />
-                <element signature="n#script#8;n#head#0;n#html#0;n#!!top" />
-                <element signature="n#script#9;n#head#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#button#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#button#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#button#2;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#button#3;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#button#4;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#button#5;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#button#6;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#meter#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#meter#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#meter#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#meter#3;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#meter#4;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#meter#5;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#meter#6;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h2#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h2#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#ul#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#0;n#ul#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#1;n#ul#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h3#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h3#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#2;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#2;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h2#0;n#div#0;n#div#2;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#2;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#ul#0;n#div#1;n#div#2;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#0;n#ul#0;n#div#1;n#div#2;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#1;n#ul#0;n#div#1;n#div#2;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h3#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h2#0;n#div#0;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#0;n#ul#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#1;n#ul#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#0;n#ul#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#1;n#ul#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#button#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#button#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#button#0;n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#4;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#4;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#4;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#ul#0;n#div#1;n#div#4;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#0;n#ul#0;n#div#1;n#div#4;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#1;n#ul#0;n#div#1;n#div#4;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#5;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h2#0;n#div#0;n#div#5;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#ul#0;n#div#1;n#div#5;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#0;n#ul#0;n#div#1;n#div#5;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#1;n#ul#0;n#div#1;n#div#5;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#0;n#ol#0;n#div#1;n#div#0;n#div#1;n#div#5;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#1;n#ol#0;n#div#1;n#div#0;n#div#1;n#div#5;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#2;n#ol#0;n#div#1;n#div#0;n#div#1;n#div#5;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#3;n#ol#0;n#div#1;n#div#0;n#div#1;n#div#5;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#4;n#ol#0;n#div#1;n#div#0;n#div#1;n#div#5;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#5;n#ol#0;n#div#1;n#div#0;n#div#1;n#div#5;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#6;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h2#0;n#div#0;n#div#6;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h1#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#a#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#1;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#1;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#2;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#2;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#2;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#3;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#3;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#3;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#1;n#div#3;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#1;n#div#3;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#1;n#div#1;n#div#3;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#1;n#div#1;n#div#3;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#2;n#div#1;n#div#1;n#div#3;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#3;n#div#1;n#div#1;n#div#3;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#4;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#transition#0;n#div#4;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#transition#0;n#div#4;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#transition#0;n#div#4;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#5;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#transition#0;n#div#5;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#transition#0;n#div#5;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#transition#0;n#div#5;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#6;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#transition#0;n#div#6;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/right-2aGaussLawMagDiff.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="49" column="18" lean-forward="true" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
-              <folding>
-                <element signature="n#head#0;n#html#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/styles/index_Style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-533">
-              <caret line="447" lean-forward="true" selection-start-line="447" selection-end-line="447" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/styles/loadout_Style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="1433" column="16" lean-forward="true" selection-start-line="1433" selection-start-column="16" selection-end-line="1433" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/right-5aElectricPotential.html">
+        <entry file="file://$PROJECT_DIR$/Upload-Ready/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="68" column="21" lean-forward="true" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
+            <state relative-caret-position="373">
+              <caret line="363" column="132" lean-forward="true" selection-start-line="363" selection-start-column="132" selection-end-line="363" selection-end-column="132" />
               <folding>
                 <element signature="n#head#0;n#html#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/right-5bElectricField.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="65" column="155" lean-forward="true" selection-start-line="65" selection-start-column="104" selection-end-line="65" selection-end-column="155" />
-              <folding>
-                <element signature="n#head#0;n#html#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/nav_Script.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Vector-Calculus-Concepts/iFrame-Version/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="328" column="28" lean-forward="true" selection-start-line="328" selection-start-column="28" selection-end-line="353" selection-end-column="33" />
-              <folding>
-                <element signature="n#head#0;n#html#0;n#!!top" />
-                <element signature="n#link#0;n#head#0;n#html#0;n#!!top" />
-                <element signature="n#link#1;n#head#0;n#html#0;n#!!top" />
-                <element signature="n#script#8;n#head#0;n#html#0;n#!!top" />
-                <element signature="n#script#9;n#head#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#button#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#button#1;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#button#2;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#button#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#button#4;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#meter#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#meter#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#meter#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#meter#3;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#meter#4;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h2#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h3#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h3#1;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h3#2;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#span#9;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#span#12;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#span#15;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h2#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#ul#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#0;n#ul#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#a#0;n#li#0;n#ul#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#1;n#ul#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#a#0;n#li#1;n#ul#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h3#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#span#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#span#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#span#1;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#span#3;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#span#8;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#span#9;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h3#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#ol#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#0;n#ol#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#p#0;n#li#0;n#ol#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#1;n#ol#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#p#0;n#li#1;n#ol#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#2;n#ol#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#p#0;n#li#2;n#ol#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#3;n#ol#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#p#0;n#li#3;n#ol#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#span#0;n#p#0;n#li#3;n#ol#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#4;n#ol#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#p#0;n#li#4;n#ol#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#5;n#ol#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#p#0;n#li#5;n#ol#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#2;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h2#0;n#div#0;n#div#2;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#0;n#ul#0;n#div#1;n#div#2;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#a#0;n#li#0;n#ul#0;n#div#1;n#div#2;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#1;n#ul#0;n#div#1;n#div#2;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#a#0;n#li#1;n#ul#0;n#div#1;n#div#2;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h3#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#span#4;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h2#0;n#div#0;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#ul#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#0;n#ul#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#a#0;n#li#0;n#ul#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#1;n#ul#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#a#0;n#li#1;n#ul#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h3#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h3#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#ol#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#0;n#ol#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#p#0;n#li#0;n#ol#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#1;n#ol#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#p#0;n#li#1;n#ol#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#2;n#ol#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#p#0;n#li#2;n#ol#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#span#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h3#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#4;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#4;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h2#0;n#div#0;n#div#4;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#4;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#span#4;n#div#1;n#div#4;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#span#5;n#div#1;n#div#4;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#h1#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#a#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#transition#0;n#div#1;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#transition#0;n#div#1;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#transition#0;n#div#1;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#2;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#transition#0;n#div#2;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#3;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#transition#0;n#div#3;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#transition#0;n#div#3;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#transition#0;n#div#3;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#4;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -343,8 +37,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>loadout4sub2sub2sub1</find>
-      <find>#loadout4sub2sub2sub2</find>
       <find>#loadout4sub2sub2sub3</find>
       <find>magnit</find>
       <find>magnitude</find>
@@ -371,8 +63,10 @@
       <find>span</find>
       <find>4</find>
       <find>enclosed</find>
-      <find>$</find>
       <find>egB</find>
+      <find>$</find>
+      <find>src='image</find>
+      <find>src=&quot;image</find>
     </findStrings>
     <replaceStrings>
       <replace>loadout2sub1</replace>
@@ -396,6 +90,9 @@
       <replace>loadout4sub2sub1</replace>
       <replace>out6</replace>
       <replace>enc</replace>
+      <replace>src='images</replace>
+      <replace>src=&quot;images</replace>
+      <replace>png</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -404,24 +101,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../Vector_Calculus_Concepts/Vector-Calculus-Concepts/iFrame-Version/scripts/VC-scripts/4Outro.js" />
-        <option value="$PROJECT_DIR$/../Vector_Calculus_Concepts/Vector-Calculus-Concepts/iFrame-Version/index.html" />
-        <option value="$PROJECT_DIR$/EM/2Gauss_Law_Electric_Textonly.html" />
-        <option value="$PROJECT_DIR$/EM/scripts/1Introduction.js" />
-        <option value="$PROJECT_DIR$/../Vector_Calculus_Concepts/Vector-Calculus-Concepts/iFrame-Version/right-4Outro.html" />
-        <option value="$PROJECT_DIR$/../Fourier-Series/iFrame-Version/Outro_interactive.html" />
-        <option value="$PROJECT_DIR$/scripts/EM1-scripts/1Introduction.js" />
-        <option value="$PROJECT_DIR$/../Vector-Calculus-Concepts/iFrame-Version/right-2aDiv.html" />
-        <option value="$PROJECT_DIR$/scripts/EM1-scripts/2Gauss_Law_Electric.js" />
-        <option value="$PROJECT_DIR$/../Vector-Calculus-Concepts/iFrame-Version/styles/index_Style.css" />
-        <option value="$PROJECT_DIR$/../Vector-Calculus-Concepts/iFrame-Version/right-2bDiv.html" />
-        <option value="$PROJECT_DIR$/EM/2Gauss_Law_Elec_Inte_interactive.html" />
-        <option value="$PROJECT_DIR$/scripts/EM1-scripts/EM_p1.js" />
-        <option value="$PROJECT_DIR$/scripts/EM1-scripts/3Gauss_Law_Magnetic.js" />
-        <option value="$PROJECT_DIR$/right-1bGaussLawInt.html" />
-        <option value="$PROJECT_DIR$/right-2bGaussLawMagInt.html" />
-        <option value="$PROJECT_DIR$/scripts/EM1-scripts/EM_p2.js" />
-        <option value="$PROJECT_DIR$/right-1aGaussLawDiff.html" />
         <option value="$PROJECT_DIR$/right-3bAmpereLawIntTheory.html" />
         <option value="$PROJECT_DIR$/../Vector-Calculus-Concepts/iFrame-Version/right-1aGrad.html" />
         <option value="$PROJECT_DIR$/right-3bAmpereLawIntExample0.html" />
@@ -448,13 +127,31 @@
         <option value="$PROJECT_DIR$/scripts/EM1-scripts/7Electric_Field.js" />
         <option value="$PROJECT_DIR$/right-5bElectricField.html" />
         <option value="$PROJECT_DIR$/EM/1Introduction_Interactive.html" />
-        <option value="$PROJECT_DIR$/right-0Intro.html" />
         <option value="$PROJECT_DIR$/scripts/nav_Script.js" />
         <option value="$PROJECT_DIR$/styles/index_Style.css" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/right-2aGaussLawMagDiff.html" />
         <option value="$PROJECT_DIR$/styles/loadout_Style.css" />
         <option value="$PROJECT_DIR$/right-5aElectricPotential.html" />
+        <option value="$PROJECT_DIR$/../Fourier-Series/Upload-Ready/index.html" />
+        <option value="$PROJECT_DIR$/Upload-Ready/right-1aGaussLawDiff.html" />
+        <option value="$PROJECT_DIR$/Upload-Ready/right-1bGaussLawInt.html" />
+        <option value="$PROJECT_DIR$/Upload-Ready/right-2aGaussLawMagDiff.html" />
+        <option value="$PROJECT_DIR$/Upload-Ready/right-2bGaussLawMagInt.html" />
+        <option value="$PROJECT_DIR$/Upload-Ready/right-3aAmpereLawDiff.html" />
+        <option value="$PROJECT_DIR$/Upload-Ready/right-3bAmpereLawIntExample0.html" />
+        <option value="$PROJECT_DIR$/Upload-Ready/right-3bAmpereLawIntExample1.html" />
+        <option value="$PROJECT_DIR$/Upload-Ready/right-3bAmpereLawIntExample2.html" />
+        <option value="$PROJECT_DIR$/Upload-Ready/right-3bAmpereLawIntExample3.html" />
+        <option value="$PROJECT_DIR$/Upload-Ready/right-3bAmpereLawIntTheory.html" />
+        <option value="$PROJECT_DIR$/Upload-Ready/right-4aCirculationLawDiff.html" />
+        <option value="$PROJECT_DIR$/Upload-Ready/right-4bCirculationLawInt.html" />
+        <option value="$PROJECT_DIR$/Upload-Ready/right-5aElectricPotential.html" />
+        <option value="$PROJECT_DIR$/Upload-Ready/right-5bElectricField.html" />
+        <option value="$PROJECT_DIR$/Upload-Ready/right-6Outro.html" />
+        <option value="$PROJECT_DIR$/right-0Intro.html" />
+        <option value="$PROJECT_DIR$/Upload-Ready/right-0Intro.html" />
+        <option value="$PROJECT_DIR$/Upload-Ready/index.html" />
       </list>
     </option>
   </component>
@@ -479,7 +176,7 @@
             <path>
               <item name="Static-Electromagnetism" type="b2602c69:ProjectViewProjectNode" />
               <item name="Static-Electromagnetism" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+              <item name="Upload-Ready" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -561,16 +258,19 @@
       <workItem from="1568379535312" duration="14514000" />
       <workItem from="1568559711588" duration="1156000" />
       <workItem from="1568640045267" duration="32447000" />
-      <workItem from="1568811878793" duration="9906000" />
+      <workItem from="1568811878793" duration="10468000" />
+      <workItem from="1568892090200" duration="1002000" />
+      <workItem from="1569317900039" duration="605000" />
+      <workItem from="1569327479255" duration="597000" />
+      <workItem from="1569425127232" duration="1089000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87505000" />
+    <option name="totallyTimeSpent" value="91360000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.101685986" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -597,172 +297,37 @@
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="right" id="SciView" order="6" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.101685986" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32827735" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="GraphQL" order="13" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="R Graphics" order="3" />
+      <window_info anchor="right" id="R Packages" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="SciView" order="6" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scripts/EM1-scripts/Eg_Amp_Primer2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="20" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/EM1-scripts/Eg_Amp_Primer1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="14" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/EM1-scripts/Eg_Amp_Vis.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/EM1-scripts/Eg_Amp_Primer3.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EM/4Amp_toroid.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="84" column="27" selection-start-line="84" selection-start-column="27" selection-end-line="84" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Vector-Calculus-Concepts/iFrame-Version/right-3bCurl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="49" column="50" lean-forward="true" selection-start-line="49" selection-start-column="50" selection-end-line="49" selection-end-column="50" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" />
-            <element signature="n#script#8;n#head#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EM/EM_p4.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EM/scripts/EM_p4.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="78" column="8" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="8" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#17#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EM/5Amp_Elec_Diff_interactive.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-131">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/EM1-scripts/EM_p3.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20723">
-          <caret line="1219" column="17" lean-forward="true" selection-start-line="1219" selection-start-column="17" selection-end-line="1219" selection-end-column="17" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/EM1-scripts/4aCirculationLawDiff.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="87" column="71" lean-forward="true" selection-start-line="87" selection-start-column="71" selection-end-line="87" selection-end-column="71" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/EM1-scripts/3aAmpereLawDiff.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EM/5Amp_Elec_Integ_interactive.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="145" column="51" lean-forward="true" selection-start-line="143" selection-start-column="7" selection-end-line="145" selection-end-column="51" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Vector-Calculus-Concepts/iFrame-Version/scripts/VC-scripts/3bCurl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="859" column="18" lean-forward="true" selection-start-line="858" selection-start-column="12" selection-end-line="859" selection-end-column="18" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/EM1-scripts/4bCirculationLawInt.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="884" column="9" lean-forward="true" selection-start-line="884" selection-start-column="9" selection-end-line="884" selection-end-column="9" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/EM1-scripts/EM_p4.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="234" column="9" lean-forward="true" selection-start-line="234" selection-start-column="9" selection-end-line="234" selection-end-column="9" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#17#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EM/scripts/EM_p3.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="130" column="15" lean-forward="true" selection-end-line="1305" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Vector-Calculus-Concepts/iFrame-Version/scripts/VC-scripts/1aGrad.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/EM/7Electric_Potential_Interactive.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -864,154 +429,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/right-0Intro.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="73" column="24" lean-forward="true" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/right-1aGaussLawDiff.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-31" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/right-1bGaussLawInt.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-31" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/right-2bGaussLawMagInt.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="44" column="10" lean-forward="true" selection-start-line="44" selection-start-column="10" selection-end-line="44" selection-end-column="10" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/right-3aAmpereLawDiff.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="40" column="14" lean-forward="true" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" />
-            <element signature="n#link#0;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#link#1;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#script#8;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#script#9;n#head#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/right-3bAmpereLawIntExample0.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/right-3bAmpereLawIntExample1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="54" column="45" lean-forward="true" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" />
-            <element signature="n#link#0;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#link#1;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#script#8;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#script#9;n#head#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/right-3bAmpereLawIntExample2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="50" column="16" lean-forward="true" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" />
-            <element signature="n#link#0;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#link#1;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#script#8;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#script#9;n#head#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/right-3bAmpereLawIntExample3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="46" column="14" lean-forward="true" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" />
-            <element signature="n#link#0;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#link#1;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#script#8;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#script#9;n#head#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/right-3bAmpereLawIntTheory.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="40" column="19" lean-forward="true" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" />
-            <element signature="n#link#0;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#link#1;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#script#8;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#script#9;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#div#4;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/right-4aCirculationLawDiff.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="49" column="22" lean-forward="true" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" />
-            <element signature="n#link#0;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#link#1;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#script#8;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#script#9;n#head#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/right-4bCirculationLawInt.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="48" column="50" lean-forward="true" selection-start-line="48" selection-start-column="50" selection-end-line="48" selection-end-column="50" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" />
-            <element signature="n#link#0;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#link#1;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#script#8;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#script#9;n#head#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/nav_Script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Fourier-Series/iFrame-Version/styles/index_Style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7506">
@@ -1019,10 +436,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/styles/index_Style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4794">
+          <caret line="447" selection-start-line="447" selection-end-line="447" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/loadout_Style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="864">
+          <caret line="1433" column="16" selection-start-line="1433" selection-start-column="16" selection-end-line="1433" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../Vector-Calculus-Concepts/iFrame-Version/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="328" column="28" lean-forward="true" selection-start-line="328" selection-start-column="28" selection-end-line="353" selection-end-column="33" />
+        <state relative-caret-position="782">
+          <caret line="328" column="28" selection-start-line="328" selection-start-column="28" selection-end-line="353" selection-end-column="33" />
           <folding>
             <element signature="n#head#0;n#html#0;n#!!top" />
             <element signature="n#link#0;n#head#0;n#html#0;n#!!top" />
@@ -1143,12 +574,193 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/scripts/nav_Script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="776">
-          <caret line="545" column="32" lean-forward="true" selection-start-line="545" selection-start-column="32" selection-end-line="545" selection-end-column="32" />
+        <state relative-caret-position="272">
+          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Fourier-Series/Upload-Ready/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="179" lean-forward="true" selection-start-line="21" selection-start-column="68" selection-end-line="23" selection-end-column="179" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/right-1aGaussLawDiff.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
             <element signature="n#head#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/right-1bGaussLawInt.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-61" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/right-2aGaussLawMagDiff.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="49" column="18" lean-forward="true" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
+          <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/right-2bGaussLawMagInt.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="44" column="10" lean-forward="true" selection-start-line="44" selection-start-column="10" selection-end-line="44" selection-end-column="10" />
+          <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/right-3aAmpereLawDiff.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="40" column="14" lean-forward="true" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
+          <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" />
+            <element signature="n#link#0;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#link#1;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#script#8;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#script#9;n#head#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/right-3bAmpereLawIntExample1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="54" column="45" lean-forward="true" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
+          <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" />
+            <element signature="n#link#0;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#link#1;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#script#8;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#script#9;n#head#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/right-3bAmpereLawIntExample2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="50" column="16" lean-forward="true" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
+          <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" />
+            <element signature="n#link#0;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#link#1;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#script#8;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#script#9;n#head#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/right-3bAmpereLawIntExample3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="46" column="14" lean-forward="true" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
+          <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" />
+            <element signature="n#link#0;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#link#1;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#script#8;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#script#9;n#head#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/right-3bAmpereLawIntTheory.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="40" column="19" lean-forward="true" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
+          <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" />
+            <element signature="n#link#0;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#link#1;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#script#8;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#script#9;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#4;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/right-4aCirculationLawDiff.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="49" column="22" lean-forward="true" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
+          <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" />
+            <element signature="n#link#0;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#link#1;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#script#8;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#script#9;n#head#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/right-4bCirculationLawInt.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="48" column="50" lean-forward="true" selection-start-line="48" selection-start-column="50" selection-end-line="48" selection-end-column="50" />
+          <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" />
+            <element signature="n#link#0;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#link#1;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#script#8;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#script#9;n#head#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/right-5aElectricPotential.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="71" column="49" lean-forward="true" selection-start-line="71" selection-start-column="49" selection-end-line="71" selection-end-column="49" />
+          <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/right-5bElectricField.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="65" column="155" lean-forward="true" selection-start-line="65" selection-start-column="104" selection-end-line="65" selection-end-column="155" />
+          <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/right-3bAmpereLawIntExample0.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="40" column="7" lean-forward="true" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="7" />
+          <folding>
             <element signature="n#link#0;n#head#0;n#html#0;n#!!top" />
             <element signature="n#link#1;n#head#0;n#html#0;n#!!top" />
             <element signature="n#script#8;n#head#0;n#html#0;n#!!top" />
@@ -1212,8 +824,10 @@
             <element signature="n#ul#0;n#div#1;n#div#4;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#li#0;n#ul#0;n#div#1;n#div#4;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#li#1;n#ul#0;n#div#1;n#div#4;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#5;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#0;n#div#5;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#h2#0;n#div#0;n#div#5;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#5;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#ul#0;n#div#1;n#div#5;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#li#0;n#ul#0;n#div#1;n#div#5;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#li#1;n#ul#0;n#div#1;n#div#5;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
@@ -1223,14 +837,13 @@
             <element signature="n#li#3;n#ol#0;n#div#1;n#div#0;n#div#1;n#div#5;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#li#4;n#ol#0;n#div#1;n#div#0;n#div#1;n#div#5;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#li#5;n#ol#0;n#div#1;n#div#0;n#div#1;n#div#5;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#6;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#0;n#div#6;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#h2#0;n#div#0;n#div#6;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#6;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#h1#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#a#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#0;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#1;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#0;n#div#1;n#transition-group#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
@@ -1261,44 +874,132 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/right-2aGaussLawMagDiff.html">
+    <entry file="file://$PROJECT_DIR$/right-0Intro.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="49" column="18" lean-forward="true" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
+        <state relative-caret-position="773">
+          <caret line="78" column="27" selection-start-line="78" selection-start-column="17" selection-end-line="78" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Upload-Ready/right-0Intro.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="78" column="27" selection-start-line="78" selection-start-column="27" selection-end-line="78" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Upload-Ready/right-1aGaussLawDiff.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="37" column="114" selection-start-line="37" selection-start-column="114" selection-end-line="37" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Upload-Ready/right-1bGaussLawInt.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="37" column="114" selection-start-line="37" selection-start-column="114" selection-end-line="37" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Upload-Ready/right-2aGaussLawMagDiff.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="37" column="114" selection-start-line="37" selection-start-column="114" selection-end-line="37" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Upload-Ready/right-2bGaussLawMagInt.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="37" column="114" selection-start-line="37" selection-start-column="114" selection-end-line="37" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Upload-Ready/right-3aAmpereLawDiff.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="39" column="16" lean-forward="true" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Upload-Ready/right-6Outro.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="40" column="20" lean-forward="true" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
           <folding>
             <element signature="n#head#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/styles/index_Style.css">
+    <entry file="file://$PROJECT_DIR$/Upload-Ready/right-5bElectricField.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-533">
-          <caret line="447" lean-forward="true" selection-start-line="447" selection-end-line="447" />
+        <state relative-caret-position="246">
+          <caret line="108" column="43" lean-forward="true" selection-start-line="108" selection-start-column="43" selection-end-line="108" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/styles/loadout_Style.css">
+    <entry file="file://$PROJECT_DIR$/Upload-Ready/right-5aElectricPotential.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="1433" column="16" lean-forward="true" selection-start-line="1433" selection-start-column="16" selection-end-line="1433" selection-end-column="16" />
+        <state relative-caret-position="688">
+          <caret line="75" column="23" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/right-5bElectricField.html">
+    <entry file="file://$PROJECT_DIR$/Upload-Ready/right-4bCirculationLawInt.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="65" column="155" lean-forward="true" selection-start-line="65" selection-start-column="104" selection-end-line="65" selection-end-column="155" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="446">
+          <caret line="37" column="114" selection-start-line="37" selection-start-column="114" selection-end-line="37" selection-end-column="114" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/right-5aElectricPotential.html">
+    <entry file="file://$PROJECT_DIR$/Upload-Ready/right-4aCirculationLawDiff.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="68" column="21" lean-forward="true" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
+        <state relative-caret-position="446">
+          <caret line="37" column="114" selection-start-line="37" selection-start-column="114" selection-end-line="37" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Upload-Ready/right-3bAmpereLawIntTheory.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="37" column="114" selection-start-line="37" selection-start-column="114" selection-end-line="37" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Upload-Ready/right-3bAmpereLawIntExample3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="37" column="114" selection-start-line="37" selection-start-column="114" selection-end-line="37" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Upload-Ready/right-3bAmpereLawIntExample2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="37" column="114" selection-start-line="37" selection-start-column="114" selection-end-line="37" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Upload-Ready/right-3bAmpereLawIntExample1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-44">
+          <caret line="5" column="45" lean-forward="true" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Upload-Ready/right-3bAmpereLawIntExample0.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="37" column="114" selection-start-line="37" selection-start-column="114" selection-end-line="37" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Upload-Ready/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="363" column="132" lean-forward="true" selection-start-line="363" selection-start-column="132" selection-end-line="363" selection-end-column="132" />
           <folding>
             <element signature="n#head#0;n#html#0;n#!!top" />
           </folding>
