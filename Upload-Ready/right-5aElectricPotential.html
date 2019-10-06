@@ -20,8 +20,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js" integrity="sha256-t7CAuaRhODo/cv00lxyONppujwTFFwUWGkrhD/UB1qM=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.2.2/math.min.js" integrity="sha256-D/MkugLuxx4Xx0Kb92cUhpxlCMhUvQ0eOtEL8Ol23jM=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"
+            integrity="sha256-t7CAuaRhODo/cv00lxyONppujwTFFwUWGkrhD/UB1qM=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.2.2/math.min.js"
+            integrity="sha256-D/MkugLuxx4Xx0Kb92cUhpxlCMhUvQ0eOtEL8Ol23jM=" crossorigin="anonymous"></script>
     <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js"],
@@ -33,6 +35,7 @@
     },
     "HTML-CSS": { fonts: ["TeX"] }
   });
+
     </script>
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
@@ -61,7 +64,8 @@
         <!--BEGIN Slider-->
         <label class="slider">
             <span class="sliderMin">-20</span>
-            <input id="Slider_1_7a" class="inputs" type="range" value="-10" min="-20" max="20" step="1" oninput="Slider_1Display.innerHTML=Slider_1_7a.value">
+            <input id="Slider_1_7a" class="inputs" type="range" value="-10" min="-20" max="20" step="1"
+                   oninput="Slider_1Display.innerHTML=Slider_1_7a.value">
             <span class="sliderMax">+20</span>
         </label>
         <!--END Slider-->
@@ -77,5 +81,6 @@
     </div>
 </div>
 </body>
-<script src=scripts/EM1-scripts/7Electric_Potential.js></script>
+<!--THE BRAINS-->
+<script src=scripts/EM1-scripts/5a-ElectricPotential.js></script>
 </html>
