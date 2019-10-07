@@ -58,7 +58,7 @@ MathJax.Localization.addTranslation("fr","MathMenu",{
           Auto: "Auto",
           TeXLocal: "TeX (local)",
           TeXWeb: "TeX (web)",
-          TeXImage: "TeX (image)",
+          TeXImage: "TeX (images)",
           STIXLocal: "STIX (local)",
           STIXWeb: "STIX (web)",
           AsanaMathWeb: "Asana Math (web)",

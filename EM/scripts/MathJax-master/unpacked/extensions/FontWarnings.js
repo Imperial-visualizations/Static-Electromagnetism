@@ -6,7 +6,7 @@
  *  MathJax/extensions/FontWarnings.js
  *  
  *  Implements a font warning message window that appears when
- *  the image fonts, no fonts, or web fonts are used, informing
+ *  the images fonts, no fonts, or web fonts are used, informing
  *  the user where to download the fonts, or to update to a more
  *  modern browser.  The window will fade out automatically after
  *  a time, and the user can dismiss it by a close box.
@@ -59,7 +59,7 @@
  *             padding: "2em"
  *           },
  *           Message: {
- *             webFont: null    // no webfont messages (only image and no fonts)
+ *             webFont: null    // no webfont messages (only images and no fonts)
  *           }
  *         }
  *       });
@@ -130,7 +130,7 @@
       imageFonts: [
         ["closeBox"],
         ["imageFonts",
-          "MathJax is using its image fonts rather than local or web-based fonts. "+
+          "MathJax is using its images fonts rather than local or web-based fonts. "+
           "This will render slower than usual, and the mathematics may not print "+
           "at the full resolution of your printer."],
         ["fonts"],
@@ -141,7 +141,7 @@
         ["closeBox"],
         ["noFonts",
           "MathJax is unable to locate a font to use to display "+
-          "its mathematics, and image fonts are not available, so it "+
+          "its mathematics, and images fonts are not available, so it "+
           "is falling back on generic unicode characters in hopes that "+
           "your browser will be able to display them.  Some characters "+
           "may not show up properly, or possibly not at all."],

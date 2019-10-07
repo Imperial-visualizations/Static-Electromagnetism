@@ -76,8 +76,8 @@
         '\u224F': MO.REL,      // difference between
         '\u224F\u0338': MO.REL, // difference between with slash
         '\u2251': MO.REL,      // geometrically equal to
-        '\u2252': MO.REL,      // approximately equal to or the image of
-        '\u2253': MO.REL,      // image of or approximately equal to
+        '\u2252': MO.REL,      // approximately equal to or the images of
+        '\u2253': MO.REL,      // images of or approximately equal to
         '\u2254': MO.REL,      // colon equals
         '\u2255': MO.REL,      // equals colon
         '\u2256': MO.REL,      // ring in equal to
@@ -129,8 +129,8 @@
         '\u228B': MO.REL,      // superset of with not equal to
         '\u228C': MO.BIN4,     // multiset
         '\u228D': MO.BIN4,     // multiset multiplication
-        '\u228F': MO.REL,      // square image of
-        '\u228F\u0338': MO.REL, // square image of with slash
+        '\u228F': MO.REL,      // square images of
+        '\u228F\u0338': MO.REL, // square images of with slash
         '\u2290': MO.REL,      // square original of
         '\u2290\u0338': MO.REL, // square original of with slash
         '\u229A': MO.BIN4,     // circled ring operator
@@ -157,7 +157,7 @@
         '\u22B4': MO.REL,      // normal subgroup of or equal to
         '\u22B5': MO.REL,      // contains as normal subgroup or equal to
         '\u22B6': MO.REL,      // original of
-        '\u22B7': MO.REL,      // image of
+        '\u22B7': MO.REL,      // images of
         '\u22B8': MO.REL,      // multimap
         '\u22B9': MO.REL,      // hermitian conjugate matrix
         '\u22BA': MO.BIN4,     // intercalate
@@ -192,9 +192,9 @@
         '\u22DF': MO.REL,      // equal to or succeeds
         '\u22E0': MO.REL,      // does not precede or equal
         '\u22E1': MO.REL,      // does not succeed or equal
-        '\u22E2': MO.REL,      // not square image of or equal to
+        '\u22E2': MO.REL,      // not square images of or equal to
         '\u22E3': MO.REL,      // not square original of or equal to
-        '\u22E4': MO.REL,      // square image of or not equal to
+        '\u22E4': MO.REL,      // square images of or not equal to
         '\u22E5': MO.REL,      // square original of or not equal to
         '\u22E6': MO.REL,      // less-than but not equivalent to
         '\u22E7': MO.REL,      // greater-than but not equivalent to

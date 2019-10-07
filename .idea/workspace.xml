@@ -3,55 +3,276 @@
   <component name="ChangeListManager">
     <list default="true" id="fd5316f0-f7e1-4449-9fca-e917f6559c32" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/AM_CHTML-full.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/AM_CHTML-full.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/AM_CHTML.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/AM_CHTML.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/AM_HTMLorMML-full.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/AM_HTMLorMML-full.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/AM_HTMLorMML.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/AM_HTMLorMML.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/AM_SVG-full.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/AM_SVG-full.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/AM_SVG.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/AM_SVG.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/Accessible-full.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/Accessible-full.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/Accessible.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/Accessible.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/MML_CHTML-full.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/MML_CHTML-full.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/MML_CHTML.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/MML_CHTML.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/MML_HTMLorMML-full.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/MML_HTMLorMML-full.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/MML_HTMLorMML.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/MML_HTMLorMML.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/MML_SVG-full.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/MML_SVG-full.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/MML_SVG.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/MML_SVG.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-AMS-MML_HTMLorMML-full.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-AMS-MML_HTMLorMML-full.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-AMS-MML_HTMLorMML.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-AMS-MML_HTMLorMML.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-AMS-MML_SVG-full.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-AMS-MML_SVG-full.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-AMS-MML_SVG.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-AMS-MML_SVG.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-AMS_CHTML-full.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-AMS_CHTML-full.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-AMS_CHTML.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-AMS_CHTML.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-AMS_HTML-full.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-AMS_HTML-full.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-AMS_HTML.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-AMS_HTML.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-AMS_SVG-full.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-AMS_SVG-full.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-AMS_SVG.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-AMS_SVG.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-MML-AM_CHTML-full.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-MML-AM_CHTML-full.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-MML-AM_CHTML.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-MML-AM_CHTML.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-MML-AM_HTMLorMML-full.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-MML-AM_HTMLorMML-full.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-MML-AM_HTMLorMML.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-MML-AM_HTMLorMML.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-MML-AM_SVG-full.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-MML-AM_SVG-full.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-MML-AM_SVG.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/TeX-MML-AM_SVG.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/default.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/config/default.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/extensions/FontWarnings.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/extensions/FontWarnings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/extensions/MathMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/extensions/MathMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/extensions/a11y/mathmaps/en/symbols/math_delimiters.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/extensions/a11y/mathmaps/en/symbols/math_delimiters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/extensions/a11y/mathmaps/en/symbols/math_symbols.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/extensions/a11y/mathmaps/en/symbols/math_symbols.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/extensions/a11y/mathmaps/mathmaps_ie.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/extensions/a11y/mathmaps/mathmaps_ie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/Arrows.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/Arrows.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/BBBold.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/BBBold.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/BoxDrawing.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/BoxDrawing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/CombDiacritMarks.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/CombDiacritMarks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/Dingbats.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/Dingbats.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/EnclosedAlphanum.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/EnclosedAlphanum.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/GeneralPunctuation.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/GeneralPunctuation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/GeometricShapes.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/GeometricShapes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/GreekAndCoptic.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/GreekAndCoptic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/Latin1Supplement.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/Latin1Supplement.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/LatinExtendedA.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/LatinExtendedA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/LetterlikeSymbols.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/LetterlikeSymbols.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/MathOperators.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/MathOperators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/MiscMathSymbolsB.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/MiscMathSymbolsB.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/MiscSymbols.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/MiscSymbols.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/MiscTechnical.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/MiscTechnical.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/PUA.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/PUA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/SpacingModLetters.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/SpacingModLetters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/SuppMathOperators.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/SuppMathOperators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Caligraphic/Bold/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Caligraphic/Bold/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Caligraphic/Regular/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Caligraphic/Regular/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Fraktur/Bold/unpacked/BasicLatin.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Fraktur/Bold/unpacked/BasicLatin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Fraktur/Bold/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Fraktur/Bold/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Fraktur/Bold/unpacked/Other.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Fraktur/Bold/unpacked/Other.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Fraktur/Bold/unpacked/PUA.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Fraktur/Bold/unpacked/PUA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Fraktur/Regular/unpacked/BasicLatin.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Fraktur/Regular/unpacked/BasicLatin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Fraktur/Regular/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Fraktur/Regular/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Fraktur/Regular/unpacked/Other.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Fraktur/Regular/unpacked/Other.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Fraktur/Regular/unpacked/PUA.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Fraktur/Regular/unpacked/PUA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/Arrows.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/Arrows.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/CombDiacritMarks.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/CombDiacritMarks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/CombDiactForSymbols.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/CombDiactForSymbols.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/GeneralPunctuation.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/GeneralPunctuation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/GeometricShapes.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/GeometricShapes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/GreekAndCoptic.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/GreekAndCoptic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/Latin1Supplement.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/Latin1Supplement.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/LatinExtendedA.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/LatinExtendedA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/LatinExtendedB.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/LatinExtendedB.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/LetterlikeSymbols.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/LetterlikeSymbols.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/MathOperators.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/MathOperators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/MiscMathSymbolsA.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/MiscMathSymbolsA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/MiscSymbols.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/MiscSymbols.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/MiscTechnical.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/MiscTechnical.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/SpacingModLetters.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/SpacingModLetters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/SuppMathOperators.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/SuppMathOperators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/SupplementalArrowsA.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/SupplementalArrowsA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/CombDiacritMarks.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/CombDiacritMarks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/GeneralPunctuation.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/GeneralPunctuation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/GreekAndCoptic.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/GreekAndCoptic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/Latin1Supplement.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/Latin1Supplement.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/LatinExtendedA.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/LatinExtendedA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/LatinExtendedB.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/LatinExtendedB.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/LetterlikeSymbols.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/LetterlikeSymbols.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/Arrows.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/Arrows.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/CombDiacritMarks.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/CombDiacritMarks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/CombDiactForSymbols.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/CombDiactForSymbols.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/GeneralPunctuation.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/GeneralPunctuation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/GeometricShapes.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/GeometricShapes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/GreekAndCoptic.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/GreekAndCoptic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/Latin1Supplement.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/Latin1Supplement.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/LatinExtendedA.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/LatinExtendedA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/LatinExtendedB.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/LatinExtendedB.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/LetterlikeSymbols.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/LetterlikeSymbols.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/MathOperators.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/MathOperators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/MiscMathSymbolsA.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/MiscMathSymbolsA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/MiscSymbols.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/MiscSymbols.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/MiscTechnical.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/MiscTechnical.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/SpacingModLetters.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/SpacingModLetters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/SuppMathOperators.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/SuppMathOperators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/SupplementalArrowsA.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/SupplementalArrowsA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Math/BoldItalic/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Math/BoldItalic/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Math/Italic/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Math/Italic/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/SansSerif/Bold/unpacked/BasicLatin.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/SansSerif/Bold/unpacked/BasicLatin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/SansSerif/Bold/unpacked/CombDiacritMarks.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/SansSerif/Bold/unpacked/CombDiacritMarks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/SansSerif/Bold/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/SansSerif/Bold/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/SansSerif/Bold/unpacked/Other.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/SansSerif/Bold/unpacked/Other.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/SansSerif/Italic/unpacked/BasicLatin.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/SansSerif/Italic/unpacked/BasicLatin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/SansSerif/Italic/unpacked/CombDiacritMarks.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/SansSerif/Italic/unpacked/CombDiacritMarks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/SansSerif/Italic/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/SansSerif/Italic/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/SansSerif/Italic/unpacked/Other.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/SansSerif/Italic/unpacked/Other.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/SansSerif/Regular/unpacked/BasicLatin.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/SansSerif/Regular/unpacked/BasicLatin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/SansSerif/Regular/unpacked/CombDiacritMarks.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/SansSerif/Regular/unpacked/CombDiacritMarks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/SansSerif/Regular/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/SansSerif/Regular/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/SansSerif/Regular/unpacked/Other.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/SansSerif/Regular/unpacked/Other.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Script/Regular/unpacked/BasicLatin.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Script/Regular/unpacked/BasicLatin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Script/Regular/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Script/Regular/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Script/Regular/unpacked/Other.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Script/Regular/unpacked/Other.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Size1/Regular/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Size1/Regular/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Size2/Regular/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Size2/Regular/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Size3/Regular/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Size3/Regular/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Size4/Regular/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Size4/Regular/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Typewriter/Regular/unpacked/BasicLatin.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Typewriter/Regular/unpacked/BasicLatin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Typewriter/Regular/unpacked/CombDiacritMarks.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Typewriter/Regular/unpacked/CombDiacritMarks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Typewriter/Regular/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Typewriter/Regular/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Typewriter/Regular/unpacked/Other.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Typewriter/Regular/unpacked/Other.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/jax/output/HTML-CSS/jax.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/jax/output/HTML-CSS/jax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/localization/en/FontWarnings.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/localization/en/FontWarnings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/localization/en/HTML-CSS.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/localization/en/HTML-CSS.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/localization/en/MathMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/localization/en/MathMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/localization/fr/FontWarnings.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/localization/fr/FontWarnings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/localization/fr/HTML-CSS.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/localization/fr/HTML-CSS.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/localization/fr/MathMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/localization/fr/MathMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/localization/qqq/FontWarnings.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/localization/qqq/FontWarnings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/config/default.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/config/default.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/extensions/FontWarnings.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/extensions/FontWarnings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/extensions/MathMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/extensions/MathMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/extensions/MathZoom.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/extensions/MathZoom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/extensions/a11y/mathmaps/en/symbols/math_delimiters.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/extensions/a11y/mathmaps/en/symbols/math_delimiters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/extensions/a11y/mathmaps/en/symbols/math_symbols.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/extensions/a11y/mathmaps/en/symbols/math_symbols.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/extensions/a11y/mathmaps/mathmaps_ie.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/extensions/a11y/mathmaps/mathmaps_ie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/extensions/mml2jax.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/extensions/mml2jax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/jax/element/mml/jax.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/jax/element/mml/jax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/jax/element/mml/optable/MathOperators.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/jax/element/mml/optable/MathOperators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/jax/element/mml/optable/MiscMathSymbolsB.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/jax/element/mml/optable/MiscMathSymbolsB.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/jax/output/HTML-CSS/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/jax/output/HTML-CSS/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/jax/output/HTML-CSS/imageFonts.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/jax/output/HTML-CSS/imageFonts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/jax/output/HTML-CSS/jax.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/jax/output/HTML-CSS/jax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/localization/en/FontWarnings.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/localization/en/FontWarnings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/localization/en/HTML-CSS.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/localization/en/HTML-CSS.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/localization/en/MathMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/localization/en/MathMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/localization/fr/FontWarnings.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/localization/fr/FontWarnings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/localization/fr/HTML-CSS.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/localization/fr/HTML-CSS.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/localization/fr/MathMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/localization/fr/MathMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/localization/qqq/FontWarnings.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/MathJax-master/unpacked/localization/qqq/FontWarnings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/numeric/documentation.html" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/numeric/documentation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/numeric/src/documentation.html" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/numeric/src/documentation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/numeric/src/numeric.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/numeric/src/numeric.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/numeric/tools/excanvas.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/numeric/tools/excanvas.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/numeric/tools/jquery-1.7.1.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/numeric/tools/jquery-1.7.1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/numeric/tools/jquery.flot.image.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/numeric/tools/jquery.flot.image.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/p5.dom.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/p5.dom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/p5.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/p5.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EM/scripts/plotly-1.47.4.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/EM/scripts/plotly-1.47.4.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Upload-Ready/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/right-0Intro.html" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/right-0Intro.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/right-1aGaussLawDiff.html" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/right-1aGaussLawDiff.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/right-1bGaussLawInt.html" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/right-1bGaussLawInt.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/right-2aGaussLawMagDiff.html" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/right-2aGaussLawMagDiff.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/right-2bGaussLawMagInt.html" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/right-2bGaussLawMagInt.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/right-3aAmpereLawDiff.html" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/right-3aAmpereLawDiff.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/right-3bAmpereLawIntExample0.html" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/right-3bAmpereLawIntExample0.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/right-3bAmpereLawIntExample1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/right-3bAmpereLawIntExample1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/right-3bAmpereLawIntExample2.html" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/right-3bAmpereLawIntExample2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/right-3bAmpereLawIntExample3.html" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/right-3bAmpereLawIntExample3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/right-3bAmpereLawIntTheory.html" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/right-3bAmpereLawIntTheory.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/right-4aCirculationLawDiff.html" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/right-4aCirculationLawDiff.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/right-4bCirculationLawInt.html" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/right-4bCirculationLawInt.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/right-5aElectricPotential.html" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/right-5aElectricPotential.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/right-5bElectricField.html" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/right-5bElectricField.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/right-6Outro.html" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/right-6Outro.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/1Amperes-Law.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/1Introduction.js" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/0-Intro.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/2Examples-Ampere.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/2Gauss's_Law_for_Electrostatics.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/2Gauss's_Law_for_Electrostatics2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/2Gauss_Law_Electric.js" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/1a-GaussLawDiff.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/3Gauss's_Law_for_Magnetism copy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/3Gauss's_Law_for_Magnetism.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/3Gauss_Law_Magnetic.js" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/2a-GaussLawMagDiff.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/3aAmpereLawDiff.js" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/3a-AmpereLawDiff.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/4Amperes_Law_Magnetic.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/4aCirculationLawDiff.js" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/4a-CirculationLawDiff.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/4bCirculationLawInt.js" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/4b-CirculationLawInt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/5Ampere's_Law_Electric.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/7Electric_Field.js" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/5b-ElectricField.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/7Electric_Potential.js" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/5a-ElectricPotential.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/Amperes-Law-Electric.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/Biot_Savart.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/EM_p1.js" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/1b-GaussLawInt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/EM_p2.js" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/2b-GaussLawMagInt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/EM_p3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/EM_p4.js" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/3b-AmpereLawIntTheory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/EM_p5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/Eg_Amp_Primer1.js" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/3a-AmpereLawIntExamplePrimer1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/Eg_Amp_Primer2.js" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/3a-AmpereLawIntExamplePrimer2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/Eg_Amp_Primer3.js" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/3a-AmpereLawIntExamplePrimer3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/Eg_Amp_Vis.js" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/3b-AmpereLawIntExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/GaussLawOld.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/Static_electromegnetism_Objects.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/scripts/EM1-scripts/ToggleTemplate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload-Ready/styles/index_Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/styles/index_Style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Upload-Ready/styles/loadout_Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Upload-Ready/styles/loadout_Style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/DField.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/DField.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/Dipole_eqn_7b.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Dipole_eqn_7b.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/Electric_Potential1.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Electric_Potential1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/Electric_Potential2.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Electric_Potential2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/FarField_eqn_7b.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/FarField_eqn_7b.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/Maxwell-old.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/Maxwell-old.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/Maxwell-young.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/Maxwell-young.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/PlasmaOscillation.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/PlasmaOscillation.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/PointCharge_eqn_7b.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/PointCharge_eqn_7b.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/RHrule.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/RHrule.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/RHrule.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/RHrule.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/Solenoid.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/Solenoid.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/Solenoid.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Solenoid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/VisualisationsLogoWhite2.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/VisualisationsLogoWhite2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/die-boundary gif.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/die-boundary gif.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/gif 2.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/gif 2.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/gif 3.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/gif 3.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/right-0Intro.html" beforeDir="false" afterPath="$PROJECT_DIR$/right-0Intro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/right-5aElectricPotential.html" beforeDir="false" afterPath="$PROJECT_DIR$/right-5aElectricPotential.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/right-5bElectricField.html" beforeDir="false" afterPath="$PROJECT_DIR$/right-5bElectricField.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/Arrows.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/Arrows.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/BBBold.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/BBBold.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/BoxDrawing.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/BoxDrawing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/CombDiacritMarks.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/CombDiacritMarks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/Dingbats.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/Dingbats.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/EnclosedAlphanum.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/EnclosedAlphanum.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/GeneralPunctuation.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/GeneralPunctuation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/GeometricShapes.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/GeometricShapes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/GreekAndCoptic.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/GreekAndCoptic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/Latin1Supplement.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/Latin1Supplement.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/LatinExtendedA.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/LatinExtendedA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/LetterlikeSymbols.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/LetterlikeSymbols.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/MathOperators.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/MathOperators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/MiscMathSymbolsB.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/MiscMathSymbolsB.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/MiscSymbols.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/MiscSymbols.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/MiscTechnical.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/MiscTechnical.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/PUA.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/PUA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/SpacingModLetters.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/SpacingModLetters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/SuppMathOperators.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/AMS/Regular/unpacked/SuppMathOperators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/Arrows.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/Arrows.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/CombDiacritMarks.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/CombDiacritMarks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/CombDiactForSymbols.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/CombDiactForSymbols.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/GeneralPunctuation.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/GeneralPunctuation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/GeometricShapes.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/GeometricShapes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/GreekAndCoptic.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/GreekAndCoptic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/Latin1Supplement.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/Latin1Supplement.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/LatinExtendedA.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/LatinExtendedA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/LatinExtendedB.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/LatinExtendedB.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/LetterlikeSymbols.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/LetterlikeSymbols.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/MathOperators.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/MathOperators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/MiscMathSymbolsA.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/MiscMathSymbolsA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/MiscSymbols.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/MiscSymbols.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/MiscTechnical.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/MiscTechnical.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/SpacingModLetters.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/SpacingModLetters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/SuppMathOperators.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/SuppMathOperators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/SupplementalArrowsA.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Bold/unpacked/SupplementalArrowsA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/CombDiacritMarks.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/CombDiacritMarks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/GeneralPunctuation.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/GeneralPunctuation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/GreekAndCoptic.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/GreekAndCoptic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/Latin1Supplement.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/Latin1Supplement.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/LatinExtendedA.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/LatinExtendedA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/LatinExtendedB.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/LatinExtendedB.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/LetterlikeSymbols.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/LetterlikeSymbols.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Italic/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/Arrows.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/Arrows.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/CombDiacritMarks.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/CombDiacritMarks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/CombDiactForSymbols.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/CombDiactForSymbols.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/GeneralPunctuation.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/GeneralPunctuation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/GeometricShapes.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/GeometricShapes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/GreekAndCoptic.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/GreekAndCoptic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/Latin1Supplement.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/Latin1Supplement.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/LatinExtendedA.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/LatinExtendedA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/LatinExtendedB.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/LatinExtendedB.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/LetterlikeSymbols.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/LetterlikeSymbols.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/MathOperators.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/MathOperators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/MiscMathSymbolsA.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/MiscMathSymbolsA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/MiscSymbols.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/MiscSymbols.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/MiscTechnical.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/MiscTechnical.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/SpacingModLetters.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/SpacingModLetters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/SuppMathOperators.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/SuppMathOperators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/SupplementalArrowsA.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Main/Regular/unpacked/SupplementalArrowsA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Math/BoldItalic/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Math/BoldItalic/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Math/Italic/unpacked/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/fonts/HTML-CSS/TeX/png/Math/Italic/unpacked/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/MathJax-master/jax/output/HTML-CSS/jax.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MathJax-master/jax/output/HTML-CSS/jax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/numeric/documentation.html" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/numeric/documentation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/numeric/src/documentation.html" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/numeric/src/documentation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/numeric/src/numeric.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/numeric/src/numeric.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/numeric/tools/excanvas.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/numeric/tools/excanvas.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/numeric/tools/jquery-1.7.1.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/numeric/tools/jquery-1.7.1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/numeric/tools/jquery.flot.image.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/numeric/tools/jquery.flot.image.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/plotly-1.47.4.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/plotly-1.47.4.min.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,21 +281,20 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Upload-Ready/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="51" column="10" lean-forward="true" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="10" />
+            <state relative-caret-position="271">
+              <caret line="689" column="101" selection-start-line="689" selection-start-column="101" selection-end-line="689" selection-end-column="101" />
               <folding>
-                <element signature="n#head#0;n#html#0;n#!!top" />
                 <element signature="n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#2;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#4;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#5;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#6;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -148,6 +368,8 @@
       <replace>src='images</replace>
       <replace>src=&quot;images</replace>
       <replace>png</replace>
+      <replace>. $&lt;/span&gt;</replace>
+      <replace>, $&lt;/span&gt;</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -191,7 +413,6 @@
         <option value="$PROJECT_DIR$/Upload-Ready/right-3bAmpereLawIntExample1.html" />
         <option value="$PROJECT_DIR$/../Vector-Calculus-Concepts/Upload-Ready/styles/loadout_Style.css" />
         <option value="$PROJECT_DIR$/Upload-Ready/styles/loadout_Style.css" />
-        <option value="$PROJECT_DIR$/Upload-Ready/index.html" />
         <option value="$PROJECT_DIR$/Upload-Ready/right-0Intro.html" />
         <option value="$PROJECT_DIR$/Upload-Ready/right-1aGaussLawDiff.html" />
         <option value="$PROJECT_DIR$/Upload-Ready/right-1bGaussLawInt.html" />
@@ -207,6 +428,7 @@
         <option value="$PROJECT_DIR$/Upload-Ready/right-5aElectricPotential.html" />
         <option value="$PROJECT_DIR$/Upload-Ready/right-6Outro.html" />
         <option value="$PROJECT_DIR$/Upload-Ready/right-5bElectricField.html" />
+        <option value="$PROJECT_DIR$/Upload-Ready/index.html" />
       </list>
     </option>
   </component>
@@ -344,12 +566,15 @@
       <workItem from="1569327479255" duration="597000" />
       <workItem from="1569425127232" duration="1089000" />
       <workItem from="1569678842316" duration="299000" />
-      <workItem from="1570388478793" duration="9483000" />
+      <workItem from="1570388478793" duration="9606000" />
+      <workItem from="1570403270948" duration="95000" />
+      <workItem from="1570403405488" duration="83000" />
+      <workItem from="1570409720703" duration="64000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101142000" />
+    <option name="totallyTimeSpent" value="101507000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1096,17 +1321,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Upload-Ready/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="51" column="10" lean-forward="true" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="10" />
+        <state relative-caret-position="271">
+          <caret line="689" column="101" selection-start-line="689" selection-start-column="101" selection-end-line="689" selection-end-column="101" />
           <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" />
             <element signature="n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#2;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#3;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#4;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#5;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#6;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>

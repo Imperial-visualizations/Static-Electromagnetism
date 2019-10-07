@@ -25,7 +25,7 @@ MathJax.Localization.addTranslation("en","HTML-CSS",{
           CantLoadWebFont: "Cannot load web font %1",
           FirefoxCantLoadWebFont: "Firefox cannot load web fonts from a remote host",
           CantFindFontUsing: "Cannot find a valid font using %1",
-          WebFontsNotAvailable: "Web fonts not available. Using image fonts instead"
+          WebFontsNotAvailable: "Web fonts not available. Using images fonts instead"
         }
 });
 

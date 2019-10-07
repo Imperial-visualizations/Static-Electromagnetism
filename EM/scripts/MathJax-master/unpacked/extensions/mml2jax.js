@@ -33,7 +33,7 @@ MathJax.Extension.mml2jax = {
                             //   preview.  Set to "none" for no preview,
                             //   set to "alttext" to use the alttext attribute
                             //   of the <math> element, set to "altimg" to use
-                            //   an image described by the altimg* attributes
+                            //   an images described by the altimg* attributes
                             //   or set to an array specifying an HTML snippet
                             //   to use a fixed preview for all math
 

@@ -360,7 +360,7 @@ MathJax.Hub.Config({
     //  inserted (the math will simply disappear until it is typeset).  Set
     //  to an array containing the description of an HTML snippet in order
     //  to use the same preview for all equations on the page (e.g., you
-    //  could have it say "[math]" or load an image).
+    //  could have it say "[math]" or load an images).
     //  
     //  E.g.,     preview: ["[math]"],
     //  or        preview: [["img",{src: "http://myserver.com/images/mypic.jpg"}]]
@@ -425,7 +425,7 @@ MathJax.Hub.Config({
     //  inserted (the math will simply disappear until it is typeset).  Set
     //  to an array containing the description of an HTML snippet in order
     //  to use the same preview for all equations on the page (e.g., you
-    //  could have it say "[math]" or load an image).
+    //  could have it say "[math]" or load an images).
     //  
     //  E.g.,     preview: ["[math]"],
     //  or        preview: [["img",{src: "http://myserver.com/images/mypic.jpg"}]]
@@ -449,12 +449,12 @@ MathJax.Hub.Config({
     //  Set to "alttext", to use the  <math> tag's alttext attribute as the
     //  preview, if the tag has one.  Set to "none" to
     //  prevent the previews from being inserted (the math will simply
-    //  disappear until it is typeset). Set to "altimg" to use an image
+    //  disappear until it is typeset). Set to "altimg" to use an images
     //  described by the altimg* attributes of the <math> element.
     //  Set to an array containing the
     //  description of an HTML snippet in order to use the same preview for
     //  all equations on the page (e.g., you could have it say "[math]" or
-    //  load an image).
+    //  load an images).
     //  
     //  E.g.,     preview: ["[math]"],
     //  or        preview: [["img",{src: "http://myserver.com/images/mypic.jpg"}]]
@@ -479,7 +479,7 @@ MathJax.Hub.Config({
     //  simply disappear until it is typeset).  Set to an array containing
     //  the description of an HTML snippet in order to use the same preview
     //  for all equations on the page (e.g., you could have it say "[math]"
-    //  or load an image).
+    //  or load an images).
     //  
     //  E.g.,     preview: ["[math]"],
     //  or        preview: [["img",{src: "http://myserver.com/images/mypic.jpg"}]]
@@ -650,7 +650,7 @@ MathJax.Hub.Config({
     //  directory, where MathJax stores data about the characters available
     //  in the fonts.  Set this to ["TeX"], for example, to prevent the
     //  use of the STIX fonts, or set it to an empty list, [], if
-    //  you want to force MathJax to use web-based or image fonts.
+    //  you want to force MathJax to use web-based or images fonts.
     //
     availableFonts: ["STIX","TeX"],
     
@@ -672,20 +672,20 @@ MathJax.Hub.Config({
     webFont: "TeX",
     
     //
-    //  This is the font to use for image fallback mode (when none of the
+    //  This is the font to use for images fallback mode (when none of the
     //  fonts listed above are available and the browser doesn't support
     //  web-fonts via the @font-face CSS directive).  Note that currently
-    //  only the TeX font is available as an image font.  Set this to
+    //  only the TeX font is available as an images font.  Set this to
     //
     //      imageFont: null,
     //  
-    //  if you want to prevent the use of image fonts (e.g., you have not
-    //  installed the image fonts on your server).  In this case, only
+    //  if you want to prevent the use of images fonts (e.g., you have not
+    //  installed the images fonts on your server).  In this case, only
     //  browsers that support web-based fonts will be able to view your pages
     //  without having the fonts installed on the client computer.  The browsers
     //  that support web-based fonts include: IE6 and later, Chrome, Safari3.1
     //  and above, Firefox3.5 and later, and Opera10 and later.  Note that
-    //  Firefox3.0 is NOT on this list, so without image fonts, FF3.0 users
+    //  Firefox3.0 is NOT on this list, so without images fonts, FF3.0 users
     //  will be required to to download and install either the STIX fonts or the
     //  MathJax TeX fonts.
     //

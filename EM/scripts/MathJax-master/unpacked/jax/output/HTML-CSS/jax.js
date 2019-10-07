@@ -476,7 +476,7 @@
         this.require.push(this.fontDir+"/fontdata.js");
         if (this.imgFonts) {
           this.require.push(this.directory+"/imageFonts.js");
-          HUB.Startup.signal.Post("HTML-CSS Jax - using image fonts");
+          HUB.Startup.signal.Post("HTML-CSS Jax - using images fonts");
         }
       } else {
         MESSAGE(["CantFindFontUsing","Can't find a valid font using %1",
@@ -1769,16 +1769,16 @@
     },
     loadWebFontError: function (font,done) {
       //
-      //  After the first web font fails to load, switch to image fonts, if possible
+      //  After the first web font fails to load, switch to images fonts, if possible
       //  otherwise, give up on web fonts all together
       // 
       HUB.Startup.signal.Post("HTML-CSS Jax - disable web fonts");
       font.isWebFont = false;
       if (this.config.imageFont && this.config.imageFont === this.fontInUse) {
         this.imgFonts = true;
-        HUB.Startup.signal.Post("HTML-CSS Jax - switch to image fonts");
-        HUB.Startup.signal.Post("HTML-CSS Jax - using image fonts");
-        MESSAGE(["WebFontNotAvailable","Web-Fonts not available -- using image fonts instead"],null,3000);
+        HUB.Startup.signal.Post("HTML-CSS Jax - switch to images fonts");
+        HUB.Startup.signal.Post("HTML-CSS Jax - using images fonts");
+        MESSAGE(["WebFontNotAvailable","Web-Fonts not available -- using images fonts instead"],null,3000);
         AJAX.Require(this.directory+"/imageFonts.js",done);
       } else {
         this.allowWebFonts = false;
@@ -3261,7 +3261,7 @@
           });
         }
         if (forceImages) {
-          //  Force image mode for iOS prior to 4.2 and Droid prior to 2.2
+          //  Force images mode for iOS prior to 4.2 and Droid prior to 2.2
           var config = HUB.config["HTML-CSS"];
           if (config) {config.availableFonts = []; config.preferredFont = null}
             else {HUB.config["HTML-CSS"] = {availableFonts: [], preferredFont: null}}

@@ -1,7 +1,7 @@
 /*! p5.dom.js v0.3.4 Jan 19, 2017 */
 /**
  * <p>The web is much more than just canvas and p5.dom makes it easy to interact
- * with other HTML5 objects, including text, hyperlink, image, input, video,
+ * with other HTML5 objects, including text, hyperlink, images, input, video,
  * audio, and webcam.</p>
  * <p>There is a set of creation methods, DOM manipulation methods, and
  * an extended <a href="#/p5.Element">p5.Element</a> that supports a range of HTML elements. See the
@@ -312,9 +312,9 @@
    * appends to body.
    *
    * @method createImg
-   * @param  {String} src src path or url for image
-   * @param  {String} [alt] alternate text to be used if image does not load
-   * @param  {Function} [successCallback] callback to be called once image data is loaded
+   * @param  {String} src src path or url for images
+   * @param  {String} [alt] alternate text to be used if images does not load
+   * @param  {Function} [successCallback] callback to be called once images data is loaded
    * @return {p5.Element} pointer to <a href="#/p5.Element">p5.Element</a> holding created node
    * @example
    * <div class='norender'><code>
@@ -834,13 +834,13 @@
    *
    * function draw() {
    *   if (img) {
-   *     image(img, 0, 0, width, height);
+   *     images(img, 0, 0, width, height);
    *   }
    * }
    *
    * function handleFile(file) {
    *   print(file);
-   *   if (file.type === 'image') {
+   *   if (file.type === 'images') {
    *     img = createImg(file.data);
    *     img.hide();
    *   }
@@ -1067,7 +1067,7 @@
    * <p>Creates a new HTML5 &lt;video&gt; element that contains the audio/video
    * feed from a webcam. The element is separate from the canvas and is
    * displayed by default. The element can be hidden using .<a href="#/p5.Element/hide">hide()</a>. The feed
-   * can be drawn onto the canvas using <a href="#/p5/image">image()</a>.</p>
+   * can be drawn onto the canvas using <a href="#/p5/images">images()</a>.</p>
    * <p>More specific properties of the feed can be passing in a Constraints object.
    * See the
    * <a href='http://w3c.github.io/mediacapture-main/getusermedia.html#media-track-constraints'> W3C
@@ -1096,7 +1096,7 @@
    * }
    *
    * function draw() {
-   *   image(capture, 0, 0, width, width * capture.height / capture.width);
+   *   images(capture, 0, 0, width, width * capture.height / capture.width);
    *   filter(INVERT);
    * }
    * </code></div>
@@ -2619,7 +2619,7 @@
    * @method isModified
    * @private
    * @return {boolean} a boolean indicating whether or not the
-   * image has been updated or modified since last texture upload.
+   * images has been updated or modified since last texture upload.
    */
   p5.MediaElement.prototype.isModified = function() {
     return this._modified;
@@ -2994,10 +2994,10 @@
     this._pInst = pInst;
 
     // Splitting out the file type into two components
-    // This makes determining if image or text etc simpler
+    // This makes determining if images or text etc simpler
     var typeList = file.type.split('/');
     /**
-     * File type (image, text, etc.)
+     * File type (images, text, etc.)
      *
      * @property type
      */
@@ -3022,7 +3022,7 @@
     this.size = file.size;
 
     /**
-     * URL string containing image data.
+     * URL string containing images data.
      *
      * @property data
      */

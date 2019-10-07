@@ -1570,7 +1570,7 @@
           ITEM.RULE(),
           ITEM.RADIO(["TeXLocal","TeX (local)"],   "font", {action: MENU.Font}),
           ITEM.RADIO(["TeXWeb","TeX (web)"],       "font", {action: MENU.Font}),
-          ITEM.RADIO(["TeXImage","TeX (image)"],   "font", {action: MENU.Font}),
+          ITEM.RADIO(["TeXImage","TeX (images)"],   "font", {action: MENU.Font}),
           ITEM.RULE(),
           ITEM.RADIO(["STIXLocal","STIX (local)"], "font", {action: MENU.Font}),
           ITEM.RADIO(["STIXWeb","STIX (web)"], "font", {action: MENU.Font}),
@@ -1649,7 +1649,7 @@
 
   MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready",function () {
     if (!MathJax.OutputJax["HTML-CSS"].config.imageFont)
-      {MENU.menu.Find("Math Settings","Font Preference","TeX (image)").disabled = true}
+      {MENU.menu.Find("Math Settings","Font Preference","TeX (images)").disabled = true}
   });
 
   /*************************************************************/

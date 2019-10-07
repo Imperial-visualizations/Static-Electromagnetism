@@ -5,7 +5,7 @@
  *
  *  MathJax/jax/output/HTML-CSS/imageFonts.js
  *  
- *  Implements the image fallback fonts for the HTML-CSS OutputJax.
+ *  Implements the images fallback fonts for the HTML-CSS OutputJax.
  *
  *  ---------------------------------------------------------------------
  *  

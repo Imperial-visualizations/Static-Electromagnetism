@@ -205,6 +205,7 @@
 /* SUB-SECTION 2 */
 
 #loadout2sub2 {
+    overflow: hidden;
 }
 
 #loadout2sub2 #sketch-holder {
@@ -379,6 +380,7 @@
 /* SUB-SECTION 2 */
 
 #loadout3sub2 {
+    overflow: hidden;
 }
 
 #loadout3sub2 #sketch-holder {
@@ -1444,6 +1446,7 @@
 /* SUB-SECTION 2 */
 
 #loadout6sub2 {
+    overflow: hidden;
 }
 
 #loadout6sub2 .graph1Title {

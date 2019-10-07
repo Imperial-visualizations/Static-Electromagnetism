@@ -302,7 +302,7 @@ numeric.imageURL = function imageURL(img) {
     stream.push(66);  // CRC2
     stream.push(96);  // CRC3
     stream.push(130); // CRC4
-    return 'data:image/png;base64,'+base64(stream);
+    return 'data:images/png;base64,'+base64(stream);
 }
 
 // 2. Linear algebra with Arrays.

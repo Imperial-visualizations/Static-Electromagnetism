@@ -28,7 +28,7 @@
         '\u2980': [0,0,TEXCLASS.ORD,{fence: true, stretchy: true}], // triple vertical bar delimiter
         '\u2983': MO.OPEN,     // left white curly bracket
         '\u2985': MO.OPEN,     // left white parenthesis
-        '\u2987': MO.OPEN,     // z notation left image bracket
+        '\u2987': MO.OPEN,     // z notation left images bracket
         '\u2989': MO.OPEN,     // z notation left binding bracket
         '\u298B': MO.OPEN,     // left square bracket with underbar
         '\u298D': MO.OPEN,     // left square bracket with tick in top corner
@@ -43,7 +43,7 @@
         '\u2980': [0,0,TEXCLASS.ORD,{fence: true, stretchy: true}], // triple vertical bar delimiter
         '\u2984': MO.CLOSE,    // right white curly bracket
         '\u2986': MO.CLOSE,    // right white parenthesis
-        '\u2988': MO.CLOSE,    // z notation right image bracket
+        '\u2988': MO.CLOSE,    // z notation right images bracket
         '\u298A': MO.CLOSE,    // z notation right binding bracket
         '\u298C': MO.CLOSE,    // right square bracket with underbar
         '\u298E': MO.CLOSE,    // right square bracket with tick in bottom corner

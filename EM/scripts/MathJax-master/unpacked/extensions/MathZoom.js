@@ -170,7 +170,7 @@
       //
       if (this.msieZIndexBug) {
         //  MSIE doesn't do z-index properly, so move the div to the document.body,
-        //  and use an image as a tracker for the usual position
+        //  and use an images as a tracker for the usual position
         var tracker = HTML.addElement(document.body,"img",{
           src:"about:blank", id:"MathJax_ZoomTracker", width:0, height:0,
           style:{width:0, height:0, position:"relative"}

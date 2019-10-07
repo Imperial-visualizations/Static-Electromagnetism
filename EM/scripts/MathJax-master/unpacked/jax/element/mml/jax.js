@@ -1686,7 +1686,7 @@ MathJax.ElementJax.mml.Augment({
         '\u2286': MO.REL,      // subset of or equal to
         '\u2287': MO.REL,      // superset of or equal to
         '\u228E': MO.BIN4,     // multiset union
-        '\u2291': MO.REL,      // square image of or equal to
+        '\u2291': MO.REL,      // square images of or equal to
         '\u2292': MO.REL,      // square original of or equal to
         '\u2293': MO.BIN4,     // square cap
         '\u2294': MO.BIN4,     // square cup
