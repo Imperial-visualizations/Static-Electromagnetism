@@ -24,6 +24,7 @@ let app = new Vue({
         subSection: [false, 1, 1, 1, 1, 1, 1],
         subSubSection: 1,
         subSubSubSection: 0,
+        showJourney: true,
     },
 
     methods: {
@@ -149,6 +150,25 @@ let app = new Vue({
                 event.currentTarget.querySelectorAll('span')[0].innerHTML = "Show"
             }
         },
+
+        // toggles visibility of journey section
+        toggleJourney: function () {
+            let sectionCache = app.currentSection;
+            document.querySelectorAll("#rightloadSpace")[0].classList.add("rightLoadInterim");
+            app.showJourney = !app.showJourney;
+            setTimeout(function () {
+                if (app.showJourney === false) {
+                    document.querySelectorAll("#rightloadSpace")[0].classList.add("fullRightLoadSpace");
+                } else {
+                    document.querySelectorAll("#rightloadSpace")[0].classList.remove("fullRightLoadSpace");
+                }
+                app.currentSection = "noShow";
+            }, 500);
+            setTimeout(function () {
+                app.currentSection = sectionCache;
+                document.querySelectorAll("#rightloadSpace")[0].classList.remove("rightLoadInterim");
+            }, 525);
+        },
     },
 
     watch: {
@@ -160,6 +180,7 @@ let app = new Vue({
     },
 
     mounted() {
+
         // $nextTick ensures initial functions only run once Vue is initialised sufficiently
         this.$nextTick(function () {
             // makes n equal to total number of sections
