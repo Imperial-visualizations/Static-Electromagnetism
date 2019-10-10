@@ -36,6 +36,8 @@
     },
     "HTML-CSS": { fonts: ["TeX"] }
   });
+
+
     </script>
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
@@ -125,7 +127,8 @@
                    :max="sectionBottoms[6]" :value="scrollPos"></meter>
         </div>
         <!--    Container for text content split into sections    -->
-        <div :class="[showJourney === false ? 'hiddenJourney' : '', 'journey']" id="main-journey" @scroll.passive="scrollFunc">
+        <div :class="[showJourney === false ? 'hiddenJourney' : '', 'journey']" id="main-journey"
+             @scroll.passive="scrollFunc">
             <!--    Section Text Containers   -->
             <div class="section-container" id="sc1">
                 <div class="placeholder" id="ph1">

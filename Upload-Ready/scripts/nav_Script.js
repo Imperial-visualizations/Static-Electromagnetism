@@ -115,8 +115,7 @@ let app = new Vue({
         updateSubSubSubSection: function (section) {
             if (app.subSubSubSection !== section) {
                 app.subSubSubSection = section;
-            }
-            else {
+            } else {
                 app.subSubSubSection = 0;
             }
         },
