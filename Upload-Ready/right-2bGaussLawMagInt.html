@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--Title-->
+    <title>right-2bGaussLawMagInt</title>
+    <!--css links-->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet"
+          integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <link href="styles/style.css" rel="stylesheet">
+    <link href="styles/skeleton.css" rel="stylesheet">
+    <link href="styles/index_Style.css" rel="stylesheet">
+    <link href="styles/loadout_Style.css" rel="stylesheet">
+    <!--Required JS resources-->
+    <script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="scripts/debounce_and_throttle.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"
+            integrity="sha256-t7CAuaRhODo/cv00lxyONppujwTFFwUWGkrhD/UB1qM=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.2.2/math.min.js"
+            integrity="sha256-D/MkugLuxx4Xx0Kb92cUhpxlCMhUvQ0eOtEL8Ol23jM=" crossorigin="anonymous"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { fonts: ["TeX"] }
+  });
+
+    </script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body id="loadout3sub2">
+<!--p5 Canvas-->
+<label id="sketch-holder">
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</label>
+<!--Slider and Info Banner for Vis-->
+<div class="innerBanner">
+    <!--Text next to new charge-->
+    <h4 class="infoDisplay">
+        Drag to Add
+    </h4>
+    <div class="partial-sliders-container">
+        <!--Text next to slider for user to choose element orientation-->
+        <label class="slider-label">
+            Relative Strength:
+            <span> $ \mu $ =</span>
+            <output id="amount1" name="amount1" for="magnitude">1</output>
+        </label>
+        <!--Slider for user to choose charge strength and polarity-->
+        <label class="slider" id="magnitudeChange" value=false>
+            <span class="sliderMin">0</span>
+            <input id="magnitude" class="inputs" type="range" value="1" min="0" max="1" step="0.1"
+                   oninput="amount1.value=magnitude.value"/>
+            <span class="sliderMax">1</span>
+        </label>
+    </div>
+    <div class="partial-sliders-container">
+        <!--Text next to slider for user to choose element orientation-->
+        <label class="slider-label">
+            Orientation:
+            <output id="amount2" name="amount2" for="angle">0</output>
+            <span>°</span>
+        </label>
+        <!--Slider for user to choose charge strength and polarity-->
+        <label class="slider" id="angleChange" value=false>
+            <span class="sliderMin">0</span>
+            <input id="angle" class="inputs" onmousedown="angleChange.value=true" onmouseup="angleChange.value = false"
+                   type="range" value="0" min="0" max="360" step="1" oninput="amount2.value=angle.value"/>
+            <span class="sliderMax">360</span>
+        </label>
+    </div>
+    <!--Loop options-->
+    <div id="scroll">
+        <div class="scroll_down">
+            <strong>Select Loop: </strong>
+            <select class="form-control" id="loopOptions">
+                <option value="1">Random loop</option>
+                <option value="2">Manual loop</option>
+                <option value="3">OK</option>
+            </select>
+        </div>
+    </div>
+    <div class="separator"></div>
+    <!--Buttons for Drawing Loop-->
+    <div id="buttonContainer">
+        <button id="Draw">
+            Click to Draw
+        </button>
+        <button id="clearDrawing" onclick='clearDrawing()'>
+            Clear!
+        </button>
+    </div>
+</div>
+</body>
+<!--THE BRAINS-->
+<script src="scripts/EM1-scripts/2b-GaussLawMagInt.js"></script>
+<script src="scripts/EM1-scripts/Static_EM_Object.js"></script>
+</html>

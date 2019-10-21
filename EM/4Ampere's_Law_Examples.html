@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ampère's Law - Imperial Visualisations</title>
+
+    <link rel="stylesheet" href="styles/skeleton.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-1.47.4.min.js"></script>
+    <style id="plotly.js-style-global"></style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async=""></script>
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-129658302-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-129658302-1');
+    </script>
+     <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { fonts: ["TeX"] }
+  });
+
+    </script>
+
+
+</style></head>
+<body>
+
+ <div class="container">
+  <div class="row">
+   <div class="six columns" id="drawing-holder" style="height:70vh; padding:3vh;">
+    <h4>
+     Ampere's law equation:
+    </h4>
+    <p style="text-align:center">
+     \(\oint_C\mathbf{B.dl}=\mu_0 \mu_r \sum I\)
+    </p>
+   </div>
+   <div class="six columns" id="text-holder">
+    <ul class="tab-nav">
+     <li value="1">
+      <a class="button active" href="#singleWire">
+       Wire of current
+      </a>
+     </li>
+     <li value="2">
+      <a class="button" href="#solenoid">
+       Solenoid inductor
+      </a>
+     </li>
+     <li value="3">
+      <a class="button" href="#toroid">
+       Toroidal inductor
+      </a>
+     </li>
+    </ul>
+    <div class="tab-content">
+     <div class="tab-pane active" id="singleWire">
+      <h3>
+       Single wire of current
+      </h3>
+      <button class="play">
+       Play
+      </button>
+      <br/>
+      Realize \(\oint_C\mathbf{B.dl} = \mu _0 I.\)
+      <br/>
+      Since the field is constant at a given distance, this gives us:
+                    $$\oint_C B.dl = \mu_0 I$$
+                    $$ B\times 2 \pi r = \mu_0 I$$
+                    $$B = \frac{\mu_0 I}{2\pi r} $$
+                    This result could also have been found using Biot-Savart law, but can be easily derived using Ampere's law.
+     </div>
+     <div class="tab-pane" id="solenoid">
+      <h3>
+       Solenoid inductor
+      </h3>
+      <button class="play">
+       Play
+      </button>
+      <p>
+       Consider a solenoid inductor, composed of N loops of current-carrying wire, which can be considered infinitely long except at the edges.
+       <br/>
+       The magnetic field inside the solenoid can be found by painfully applying Biot-Savart law or by simple application of Ampere's law.
+       <br/>
+       <br/>
+       \(\mathbf{B}\) inside the solenoid can be considered as constant, 0 outside of the rings and \(\mathbf{B.dl}=0\) on the perpendicular trajectories. The only part contributing to the loop integral is the one inside the solenoid.
+       <br/>
+       On that path, \(\mathbf{B.dl}=|B||dl|\). Therefore:
+                        $$\oint_C \mathbf{B.dl}=\oint_C B\, dl = \mu_0 NI $$
+                        $$B\times L = \mu_0 NI$$
+                        $$B = \frac{\mu_0 NI}{L} = n\mu_0I$$
+      </p>
+     </div>
+     <div class="tab-pane" id="toroid">
+      <h3>
+       Toroid inductor
+      </h3>
+      <div class="row">
+       <div class="switch" id="circuit3-switch">
+        <label class="radioTitle">
+        </label>
+        <label class="radio" for="C_1">
+         <input checked="checked" id="C_1" name="circuit3-switch" type="radio" value="C_1"/>
+         <span>
+          C
+          <sub>
+           1
+          </sub>
+         </span>
+        </label>
+        <label class="radio" for="C_2">
+         <input id="C_2" name="circuit3-switch" type="radio" value="C_2"/>
+         <span>
+          C
+          <sub>
+           2
+          </sub>
+         </span>
+        </label>
+        <label class="radio" for="C_3">
+         <input id="C_3" name="circuit3-switch" type="radio" value="C_3"/>
+         <span>
+          C
+          <sub>
+           3
+          </sub>
+         </span>
+        </label>
+       </div>
+      </div>
+      <br/>
+      <button class="play">
+       Play
+      </button>
+      <button id="showHideToroid">
+       Show/Hide toroid shape
+      </button>
+      <br/>
+      <p>
+       A toroidal inductor is composed of loops of current wrapped in a donut shape - ie a wire wound around a ring N times, carrying current I.
+      </p>
+      <p>
+       For C
+       <sub>
+        1
+       </sub>
+       , there is no current comprised inside the loop.
+       <br/>
+       For C
+       <sub>
+        3
+       </sub>
+       , there are as many current wires carrying current out of the page as towards the page, and therefore the net current inside the loop is 0.
+      </p>
+      <p>
+       Therefore, for C
+       <sub>
+        1
+       </sub>
+       and C
+       <sub>
+        3
+       </sub>
+       , \(\oint \mathbf{B_1.dl}=0\).
+      </p>
+      <p>
+       For C
+       <sub>
+        2
+       </sub>
+       , a loop passing through the center of the toroid, \(\oint_{C_2}\mathbf{B_2.dl}=\mu_0 N I\). Since there are N wires carrying current I into the page and no current going out: \(\sum\limits^N{I}=N\times I\). If the radius of \(C_2\) is \(r_2\):
+      </p>
+      <p>
+       $$\oint \mathbf{B_2.dl}=2\pi r_2\times B_2= \mu_0 N I$$
+                    $$B_2=\frac{\mu_0 NI}{2\pi r_2}$$
+      </p>
+     </div>
+    </div>
+    <br/>
+   </div>
+  </div>
+ </div>
+</body>
+
+<!--Implement Scripts Here-->
+<script src="/static/visualisations/navigation.9dd413ada8d2.js"></script>
+
+    <script src="scripts/2Examples-Ampere.js"
+            type="text/javascript"></script>
+
+
+<!--  -->
+</body>
+</html>

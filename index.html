@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Title-->
+    <title>Visualisations EM 1</title>
+    <!--css links-->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet"
+        integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <link href="styles/style.css" rel="stylesheet">
+    <link href="styles/skeleton.css" rel="stylesheet">
+    <link href="styles/index_Style.css" rel="stylesheet">
+    <link href="styles/loadout_Style.css" rel="stylesheet">
+    <!--Required JS resources-->
+    <script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="scripts/debounce_and_throttle.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+    <script src="scripts/numeric/src/numeric.js"></script>
+    <script src="scripts/math.min.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { fonts: ["TeX"] }
+  });
+    </script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+
+<body>
+<div id="app">
+    <!--   Title of non-current sections to appear on hovering above respective number in navbar     -->
+    <div id="hoverTitleSpace" :style="{left: mouseX +'px'}" v-show="hoverTitle !== false">
+        {{hoverTitle}}
+    </div>
+    <!--    Left Side of Window - containing mainly text    -->
+    <div class="vis-container left" id="left-container">
+        <!--     Dynamic Navigation Bar and Section Headings       -->
+        <div class="" id="progress-container">
+            <!--    Dynamic Section Heading Text - overlaid on meters    -->
+            <!--    Also act as buttons to navigate between sections    -->
+            <div class="" id="overlay" @mousemove="hoverTitle !== false ? updateMouseX($event) : ''">
+                <button :class="[currentTitle === 1 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle1"
+                        key="sectionTitle1" data-no=1 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[0]}}
+                </button>
+                <button :class="[currentTitle === 2 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle2"
+                        key="sectionTitle2" data-no=2 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[1]}}
+                </button>
+                <button :class="[currentTitle === 3 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle3"
+                        key="sectionTitle3" data-no=3 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[2]}}
+                </button>
+                <button :class="[currentTitle === 4 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle4"
+                        key="sectionTitle4" data-no=4 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[3]}}
+                </button>
+                <button :class="[currentTitle === 5 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle5"
+                        key="sectionTitle5" data-no=5 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[4]}}
+                </button>
+                <button :class="[currentTitle === 6 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle6"
+                        key="sectionTitle6" data-no=6 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[5]}}
+                </button>
+                <button :class="[currentTitle === 7 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle7"
+                        key="sectionTitle7" data-no=7 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[6]}}
+                </button>
+            </div>
+            <!--    Dynamic meters indicating progress through each section    -->
+            <meter :class="[currentTitle === 1 ? 'activeMeter' : '']" id="m1" :min="sectionTops[0]"
+                   :max="sectionBottoms[0]" :value="scrollPos"></meter>
+            <meter :class="[currentTitle === 2 ? 'activeMeter' : '']" id="m2" :min="sectionTops[1]"
+                   :max="sectionBottoms[1]" :value="scrollPos"></meter>
+            <meter :class="[currentTitle === 3 ? 'activeMeter' : '']" id="m3" :min="sectionTops[2]"
+                   :max="sectionBottoms[2]" :value="scrollPos"></meter>
+            <meter :class="[currentTitle === 4 ? 'activeMeter' : '']" id="m4" :min="sectionTops[3]"
+                   :max="sectionBottoms[3]" :value="scrollPos"></meter>
+            <meter :class="[currentTitle === 5 ? 'activeMeter' : '']" id="m5" :min="sectionTops[4]"
+                   :max="sectionBottoms[4]" :value="scrollPos"></meter>
+            <meter :class="[currentTitle === 6 ? 'activeMeter' : '']" id="m6" :min="sectionTops[5]"
+                   :max="sectionBottoms[5]" :value="scrollPos"></meter>
+            <meter :class="[currentTitle === 7 ? 'activeMeter' : '']" id="m7" :min="sectionTops[6]"
+                   :max="sectionBottoms[6]" :value="scrollPos"></meter>
+            <div id="banner-dummy"></div>
+        </div>
+        <!--    Container for text content split into sections    -->
+        <div class="journey" id="main-journey" @scroll.passive="scrollFunc">
+            <!--    Section Text Containers   -->
+            <div class="section-container" id="sc1">
+                <div class="placeholder" id="ph1">
+                    <hr>
+                    <h2 class="text section-head" id="s1">
+                        {{sectionTitleLong[0]}}
+                    </h2>
+                    <hr>
+                </div>
+                <div class="text section-body odd" id="p1">
+                    The majority of classic electromagnetism is governed by the four Maxwell's equations.
+                    These are empirical equations based on evidence, and were not derived from other equations or principles.
+                    In their differential form, Maxwell's equations describe the rates of change of an electromagnetic field.
+                    <span class="mathJaxDisplay">
+                        $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}} $$
+                        $$ \nabla \cdot \mathbf{B} = 0 $$
+                        $$ \nabla \times \mathbf{E} = -\frac{d\mathbf{B}}{dt} $$
+                        $$ \nabla \times \mathbf{B} = \mu_{0} \mathbf{J} + \mu_{0} \epsilon_{0}\frac{d\mathbf{E}}{dt} $$
+                    </span>
+                    Where <span class="mathJaxInline">$ \mathbf{E} $</span> is an electric field, <span class="mathJaxInline">$ \mathbf{B} $</span> is a magnetic field. When all time varying terms go to 0, we are left with the static version of Maxwell's equations.
+                    <span class="mathJaxDisplay">
+                        $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}}$$
+                        $$ \nabla \cdot \mathbf{B} =  0$$
+                        $$ \nabla \times \mathbf{E} = 0$$
+                        $$ \nabla \times \mathbf{B} = \mu_{0} \mathbf{J}$$
+                    </span>
+                    Of these, Gauss's law for electrostatics, Gauss's law for magnetism, and Ampere's circulation law are the most crucial.
+                    Together they describe how sources of charge and current form electric and magnetic fields.
+                </div>
+            </div>
+            <div class="section-container" id="sc2">
+                <div class="placeholder" id="ph2">
+                    <hr>
+                    <h2 class="text section-head" id="s2">
+                        {{sectionTitleLong[1]}}
+                    </h2>
+                    <hr>
+                </div>
+                <div class="text section-body odd" id="p2">
+                    <!--    Sub-Section Tabs    -->
+                    <ul class="nav nav-tabs nav-justified">
+                        <li :class="[subSection[1] === 1 ? 'shaded' : '', 'active', 'tabLeft']">
+                            <a data-toggle="tab" href="#gaussElecDifferential" @click="subScrollTo(2); subSection[1]=1; $forceUpdate();">Differential</a>
+                        </li>
+                        <li :class="[subSection[1] === 2 ? 'shaded' : '', 'tabRight']">
+                            <a data-toggle="tab" href="#gaussElecIntegral" @click="subScrollTo(2); subSection[1]=2; $forceUpdate();">Integral</a>
+                        </li>
+                    </ul>
+                    <!--    Sub-Section Text Containers    -->
+                    <div class="tab-content">
+                        <div id="gaussElecDifferential" class="tab-pane fade in active show">
+                            Maxwell's first law states that:
+                            <span class="mathJaxDisplay">
+                                $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_0}$$
+                            </span>
+                            Where <span class="mathJaxInline">$ \nabla $</span> is the divergence operator. This law implies that electric charges exhibit divergence
+                            that is proportional to E-field density. But what does this actually mean?
+                            <br><br>
+                            A field is divergent if the field is varies along the path of the field lines. So, if one was to take an 'infinitesimal step' along a
+                            field line, then the field strength would change. In terms of electrostatics this means that electric charges are the
+                            sources of electric fields.
+                            <h3 class="section-sub-head">
+                                Visualisation Guide
+                            </h3>
+                            The visualisation on the right considers an infinitesimally small section of a charge density that causes
+                            field lines to diverge. You may investigate how the strength of the vector field varies with relative divergence.
+                            <br><br>
+                            <b>Important note:</b> We are using vector field representation here, not field lines.
+                        </div>
+                        <div id="gaussElecIntegral" class="tab-pane fade">
+                            Gauss’s law for electrostatics (integral form) can be expressed as :
+                            <span class="mathJaxDisplay">
+                                $$ {\large\bigcirc}\kern-1.55em\iint_S \mathbf {E} \cdot \mathrm {d} \mathbf {S} ={\frac {1}{\varepsilon _{0}}}\iiint _V \rho \,\mathrm {d} V $$
+                            </span>
+                            where <span class="mathJaxInline">$ V $</span> is the volume enclosed by the closed surface <span class="mathJaxInline">$ S $</span>.
+                            <br><br>
+                            Geometrically, <span class="mathJaxInline">$ \mathbf {E} \cdot \mathrm {d} \mathbf {S} $</span> represents the net <a href=“link_to_VC”>flux</a> of <span class="mathJaxInline">$ \mathbf {E} $</span> through <span class="mathJaxInline">$ \mathrm {d} \mathbf {S} $</span>. This law relates the net flux through a closed surface to the net charge contained within.
+                            <h3 class="section-sub-head">
+                                    Visualisation Guide
+                                </h3>
+                            In this visualisation, we have a 2D representation of the law.
+                            The loop, which represents a 2D slice of a surface, is generated randomly.
+                            The number in the loop is the scaled net flux through the loop.
+                            <br><br>
+                            In the ‘manual loop’ option, we have specified that the normal is pointing outwards when the loop is drawn in anticlockwise direction.
+                            <br><br>
+                            <b>Important note:</b> We are using field lines representation here, not vector field.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-container" id="sc3">
+                <div class="placeholder" id="ph3">
+                    <hr>
+                    <h2 class="text section-head" id="s3">
+                        {{sectionTitleLong[2]}}
+                    </h2>
+                    <hr>
+                </div>
+                <div class="text section-body odd" id="p3">
+                    <!--    Sub-Section Tabs    -->
+                    <ul class="nav nav-tabs nav-justified">
+                        <li :class="[subSection[2] === 1 ? 'shaded' : '', 'active', 'tabLeft']">
+                            <a data-toggle="tab" href="#gaussMagDifferential" @click="subScrollTo(3); subSection[2]=1; $forceUpdate();">Differential</a>
+                        </li>
+                        <li :class="[subSection[2] === 2 ? 'shaded' : '', 'tabRight']">
+                            <a data-toggle="tab" href="#gaussMagIntegral" @click="subScrollTo(3); subSection[2]=2; $forceUpdate();">Integral</a>
+                        </li>
+                    </ul>
+                    <!--    Sub-Section Text Containers    -->
+                    <div class="tab-content">
+                        <div id="gaussMagDifferential" class="tab-pane fade in active show">
+                            Gauss's law for magnetism (differential form) can be expressed as :
+                            <span class="mathJaxDisplay">
+                                $$ \nabla \cdot \mathbf{B} = 0 $$
+                            </span>
+                            Where <span class="mathJaxInline">$ \nabla $</span> is the divergence operator.
+                            This means that there is no beginning or ending to magnetic field lines as they are loops.
+                            <h3 class="section-sub-head">
+                                Visualisation Guide
+                            </h3>
+                            In all options, you do not see any changes in the number density of the field lines.
+                            In fact, the last option portrays the typical situation of magnetic field, where there is non-zero curl but zero divergence.
+                            <br><br>
+                            <b>Important note:</b> We are using vector field representation here, not field lines.
+                        </div>
+                        <div id="gaussMagIntegral" class="tab-pane fade">
+                            Gauss's law for magnetism (integral form) can be expressed as:
+                            <span class="mathJaxDisplay">
+                                $$ {\large\bigcirc}\kern-1.55em\iint_S \mathbf {B} \cdot \mathrm {d} \mathbf {S} = 0 $$
+                            </span>
+                            where <span class="mathJaxInline">$ S $</span> is any closed surface.
+                            <br><br>
+                            Geometrically, <span class="mathJaxInline">$ \mathbf {B} \cdot \mathrm {d} \mathbf {S} $</span> represents the net flux of <span class="mathJaxInline">$ \mathbf {B} $</span>  through <span class="mathJaxInline">$ \mathrm {d} \mathbf {S} $</span>. This law states that the net flux of any magnetic field through an arbitrary closed surface is always zero.
+                            <h3 class="section-sub-head">
+                                Visualisation Guide
+                            </h3>
+                            In this visualisation, we have a 2D representation of the law. The number in the loop is the scaled net flux through the loop.
+                            <br><br>
+                            In the ‘manual loop’ option, we have specified that the normal is pointing outwards when the loop is drawn in anticlockwise direction.
+                            <br><br>
+                            <b>Important note:</b> We are using field lines representation here, not vector field.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-container" id="sc4">
+                <div class="placeholder" id="ph4">
+                    <hr>
+                    <h2 class="text section-head" id="s4">
+                        {{sectionTitleLong[3]}}
+                    </h2>
+                    <hr>
+                </div>
+                <div class="text section-body odd" id="p4">
+                    <!--    Sub-Section Tabs    -->
+                    <ul class="nav nav-tabs nav-justified">
+                        <li :class="[subSection[3] === 1 ? 'shaded' : '', 'active', 'tabLeft']">
+                            <a data-toggle="tab" href="#ampereMagDifferential" @click="subScrollTo(4); subSection[3]=1; $forceUpdate();">Differential</a>
+                        </li>
+                        <li :class="[subSection[3] === 2 ? 'shaded' : '', 'tabRight']">
+                            <a data-toggle="tab" href="#ampereMagIntegral" @click="subScrollTo(4); subSection[3]=2; $forceUpdate();">Integral</a>
+                        </li>
+                    </ul>
+                    <!--    Sub-Section Text Containers    -->
+                    <div class="tab-content">
+                        <div id="ampereMagDifferential" class="tab-pane fade in active show">
+                            The differential form of Ampere's law is:
+                            <span class="mathJaxDisplay">
+                            $$ \nabla \times \mathbf{B} = \mu_0 \mathbf{J} $$
+                            </span>
+                            <h3 class="section-sub-head">
+                                Visualisation Guide
+                            </h3>
+                            Consider a section of a plane that contains a uniform magnetic field. The introduction of a current <span class="mathJaxInline">$ \mathbf{J} $</span>
+                            that passes through every point in this section of the plane changes the field around it such that
+                            the magnitude of the magnetic field only changes if you move in a direction that is perpendicular to the field.
+                            This is the definition of curl. The introduction of the current density has induced a curl in the magnetic
+                            field. The circle on top right of the plot indicates the strength and direction of the current density according to the Right Hand Grip Rule.
+                            <br><br>
+                            <b>Important note:</b> We are using field lines representation here, not vector field.
+
+                        </div>
+                        <div id="ampereMagIntegral" class="tab-pane fade">
+                            <ul class="nav nav-tabs nav-justified innerTab">
+                                <li :class="[subSubSection === 1 ? 'unshaded' : '', 'active', 'tabLeft']">
+                                    <a data-toggle="tab" href="#ampereMagTheory" @click="subScrollTo(4); subSubSection=1; $forceUpdate();">Theory</a>
+                                </li>
+                                <li :class="[subSubSection === 2 ? 'unshaded' : '', 'tabRight']">
+                                    <a data-toggle="tab" href="#ampereMagExamples" @click="subScrollTo(4); subSubSection=2; $forceUpdate();">Examples</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content innerTab">
+                                <div id="ampereMagTheory" class="tab-pane fade in active show ">
+                                    The integral form of Ampere's law is:
+                                    <span class="mathJaxDisplay">
+                                        $$ \oint \mathbf{B.dl} = \mu_0 I $$
+                                    </span>
+                                    Ampere's law states that when a loop is placed around a current carrying wire, the integral of the magnetic field
+                                    around the loop is equal to <span class="mathJaxInline">$ \mu_{0} $</span> multiplied by the current enclosed. If you add a loop in the visualisation
+                                    on the right then you can see, by clicking and dragging wires into and out of the loop, that this is true.
+                                    <br><br>
+                                    When there are wires near to, but outside of a loop, there is flux into and out of the loop, however the average
+                                    flux is zero, so the total integral is also zero. You can see how the magnetic flux varies around the loop
+                                    in the plot shown.
+                                    <br><br>
+                                    The reason for this can be seen by placing a wire just outside a circular loop; in this
+                                    scenario dl is in the same direction as the field for one part of the loop, and opposite to the field for the
+                                    other part. This means the resulting net contribution is zero.
+                                    <h3 class="section-sub-head">
+                                        Visualisation Guide
+                                    </h3>
+                                    Add current wires to the vector map and press play to see that the loop integral is always equal to the enclosed current.
+                                    <br><br>
+                                    <b>Important note:</b> We are using vector field representation here, not field line.
+                                </div>
+                                <div id="ampereMagExamples" class="tab-pane fade">
+                                    <div id="singleWire" class="divclass">
+                                        <button id="eg1" class="section-sub-head first-sub-head egButton" key="eg1"
+                                                @click="updateSubSubSubSection(1); subSubSubScrollTo($event)" data-toggle="collapse"
+                                                data-target="#singleWireContentContainer"
+                                                :style="subSubSubSection === 1 ? 'background-color: #eaf2ff;' : ''">
+                                            Single Wire <i class='fas fa-chevron-down'></i>
+                                        </button>
+                                        <div id="singleWireContentContainer" class="collapse show" data-parent="#ampereMagExamples">
+                                            <div id="singleWireContent" class="section-sub-content" key="singleWireContent">
+                                                Consider an infinitely long current-carrying wire. Recall the integral form of static Ampere's law:
+                                                <span class="mathJaxDisplay">
+                                                    $$ \oint \textbf{B} \cdot \textbf{dl} = \mu_0 I_{enc}, $$
+                                                </span>
+                                                and construct a circular Amperian loop (Amp loop). The loop encloses the wire. The magnetic field
+                                                generated by the wire is circular with a constant magnitude at a given distance <span class="mathJaxInline">$ r $</span>. Hence,
+                                                <span class="mathJaxDisplay">
+                                                    $$ \textbf{B} \cdot \textbf{dl} = |\textbf{B}||\textbf{dl}|\cos(\theta)= B dl $$
+                                                </span>
+                                                as the magnetic field aligns with the loop. The integral can be performed and equation for the
+                                                magnetic field strength <span class="mathJaxInline">$ B $</span> can be derived.
+                                                <span class="mathJaxDisplay">
+                                                    $$ \int B dl = 2\pi r B= \mu_0 I_{enc}. $$
+                                                </span>
+                                                Hence,
+                                                <span class="mathJaxDisplay">
+                                                    $$ B = \frac{\mu_0 I_{enc}}{2 \pi r}. $$
+                                                </span>
+                                                The direction in which the magnetic field rotates can be confirmed by using the Ampere's right-hand
+                                                grip rule. Note that the magnetic field strength falls off with distance from the wire. You can confirm
+                                                this using the visualisation on the Right.
+                                                <img class="journeyImage" src="images/RHrule.jpg">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="solenoid" class="divclass">
+                                        <button id="eg2" class="section-sub-head egButton" key="eg2"
+                                                @click="updateSubSubSubSection(2); subSubSubScrollTo($event)" data-toggle="collapse"
+                                                data-target="#solenoidContentContainer"
+                                                :style="subSubSubSection === 2 ? 'background-color: #eaf2ff;' : ''">
+                                            Solenoid <i class='fas fa-chevron-down'></i>
+                                        </button>
+                                        <div id="solenoidContentContainer" class="collapse show" data-parent="#ampereMagExamples">
+                                            <div id="solenoidWireContent" class="section-sub-content" key="solenoidContent">
+                                                A solenoid can be approximated as a series of circular loops of current with fixed separation. In this model, the solenoid is aligned
+                                                such that we can consider the current flowing into and out of the screen. Now consider a rectangular Amperian loop (Amp loop). The Amp loop
+                                                can be split into four straight lines. This allows the closed integral of static Ampere's law into four integral representing the four straight lines.
+                                                <img class="journeyImage" src="images/Solenoid.jpg">
+                                                The diagram shows this Amp loop. The length and the alignment of the sides are chosen to simplify the
+                                                integral: Side <span class="mathJaxInline">$ 2 $</span> and <span class="mathJaxInline">$ 4 $</span> align perpendicularly to the direction of the
+                                                magnetic field, hence <span class="mathJaxInline">$ \textbf{B} \cdot \textbf{dl} =0 $</span>. Side <span class="mathJaxInline">$ 3 $</span> is positioned at <span class="mathJaxInline">$ r=\infty $</span>, hence <span class="mathJaxInline">$ |\textbf{B}|=0 $</span>.
+                                                <span class="mathJaxDisplay">
+                                                    \begin{align}
+                                                    \oint \textbf{B} \cdot \textbf{dl} = \int_{a}^{b} \textbf{B} \cdot \textbf{dl} +
+                                                    \int_{b}^{c} \underbrace{\textbf{B} \cdot \textbf{dl}}_\text{=0} \\
+                                                    + \int_{c}^{d} \underbrace{\textbf{B} \cdot \textbf{dl}}_\text{=0} + \int_{d}^{a} \underbrace{\textbf{B} \cdot
+                                                    \textbf{dl}}_\text{=0}
+                                                    \end{align}
+                                                </span>
+                                                Hence,
+                                                <span class="mathJaxDisplay">
+                                                    $$ \int_{a}^{b} \textbf{B} \cdot \textbf{dl} = BL=\mu_0 I_{enc}=\mu_0 N I, $$
+                                                </span>
+                                                where <span class="mathJaxInline">$ L=b-a $</span>, <span class="mathJaxInline">$ N $</span> is the number of current loops enclosed in the loop, and <span class="mathJaxInline">$ I $</span> is the current
+                                                through each current loop. Rearranging gives the equation for the magnetic field strength within
+                                                the solenoid.
+                                                <span class="mathJaxDisplay">
+                                                    $$ B = \frac{\mu_0 N I}{L}=\mu_0 n I, $$
+                                                </span>
+                                                where <span class="mathJaxInline">$ n $</span> is the number density of the current loops, meaning the number of current loops in a unit
+                                                length of the solenoid. Note that the magnetic field strength is constant within
+                                                the solenoid. You can confirm this by using the visualisation on the right. Keep in mind that the
+                                                side outside the solenoid does not go off to infinity, however you can see how quickly the
+                                                magnetic field falls off with distance. The arrow moving around the Amp loop in the visualisation
+                                                represent the resultant magnetic field's magnitude and direction, <span class="mathJaxInline">$ \textbf{B} $</span>,
+                                                NOT <span class="mathJaxInline">$ \textbf{B}\cdot \textbf{dl} $</span>.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="toroid" class="divclass">
+                                        <button id="eg3" class="section-sub-head egButton" key="eg3"
+                                                @click="updateSubSubSubSection(3); subSubSubScrollTo($event)" data-toggle="collapse"
+                                                data-target="#toroidContentContainer"
+                                                :style="subSubSubSection === 3 ? 'background-color: #eaf2ff;' : ''">
+                                            Toroid <i class='fas fa-chevron-down'></i>
+                                        </button>
+                                        <div id="toroidContentContainer" class="collapse show" data-parent="#ampereMagExamples">
+                                            <div id="toroidWireContent" class="section-sub-content" key="toroidContent">
+                                                A toroid is simply a solenoid formed into a loop (a loop of loops!). To calculate the magnetic field
+                                                strength generated, a circular Amperian loop (Amp loop) is used to evaluated the three regions of the toroid.
+                                                At the centre and outside of the toroid, the net current enclosed is zero, therefore based on static Ampere's law,
+                                                <span class="mathJaxInline">$ |\textbf{B}| $</span> the magnetic field strength is zero. Within the toroid,
+                                                <span class="mathJaxDisplay">
+                                                    $$ \oint \textbf{B} \cdot \textbf{dl} = \oint Bdl = 2\pi rB = \mu_0 I_{enc}, $$
+                                                </span>
+                                                as the magnetic field within the toroid aligns with the Amp loop. Hence,
+                                                <span class="mathJaxDisplay">
+                                                    $$ B = \frac{\mu_0 I_{enc}}{2\pi r} = \frac{\mu_0 N I}{2\pi r} = \frac{\mu_0 (nL)I}{2\pi r}, $$
+                                                </span>
+                                                where <span class="mathJaxInline">$ n(=N/L) $</span> is the number density of the current loops, <span class="mathJaxInline">$ L $</span> is the circumference of the toroid,
+                                                and <span class="mathJaxInline">$ N $</span> is the number of current loops enclosed in the Amp loop. In the
+                                                approximation that the radius of each current loop in the toroid is negligible compared to the
+                                                radius of the Amp loop, we can assume <span class="mathJaxInline"> $L \approx 2 \pi r. $</span>
+                                                Hence, <span class="mathJaxInline">$ B = \mu_0 n I $</span> which is the same equation that was derived for the solenoid.
+                                                You can confirm this by using the visualisation on the right. Keep in mind that the visualisation calculates the net
+                                                magnetic field generated at the point the arrow is. Hence there is a small variation from the theory
+                                                when that approximation is not applied ( ie. the radius of the current loops is comparable to
+                                                the radius of the Amp loop. Also note the change in the direction of the magnetic field when the Amp
+                                                loop is slightly out of region B. You can confirm the direction using the Ampere's right-hand grip
+                                                rule.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-container" id="sc5">
+                <div class="placeholder" id="ph5">
+                    <hr>
+                    <h2 class="text section-head" id="s5">
+                        {{sectionTitleLong[4]}}
+                    </h2>
+                    <hr>
+                </div>
+                <div class="text section-body odd" id="p5">
+                    <!--    Sub-Section Tabs    -->
+                    <ul class="nav nav-tabs nav-justified">
+                        <li :class="[subSection[4] === 1 ? 'shaded' : '', 'active', 'tabLeft']">
+                            <a data-toggle="tab" href="#ampereElecDifferential" @click="subScrollTo(5); subSection[4]=1; $forceUpdate();">Differential</a>
+                        </li>
+                        <li :class="[subSection[4] === 2 ? 'shaded' : '', 'tabRight']">
+                            <a data-toggle="tab" href="#ampereElecIntegral" @click="subScrollTo(5); subSection[4]=2; $forceUpdate();">Integral</a>
+                        </li>
+                    </ul>
+                    <!--    Sub-Section Text Containers    -->
+                    <div class="tab-content">
+                            <div id="ampereElecDifferential" class="tab-pane fade in active show">
+                                The Circulation Law in differential form can be expressed as:
+                                <span class="mathJaxDisplay">
+                                    $$ \nabla \times \mathbf{E} = 0 $$
+                                </span>
+                                The curl of <span class="mathJaxInline">$ \mathbf{E} $</span> is 0 because it is a conservative field. A conservative field can be described by a potential such that
+                                <span class="mathJaxInline">$ \mathbf{E} = \nabla \phi $</span>. The curl of the gradient of a scalar field (<span class="mathJaxInline">$ \nabla \times \nabla \phi $</span>) is 0. Hence, the curl of <span class="mathJaxInline">$ \mathbf{E} $</span> is 0.
+                                <h3 class="section-sub-head">
+                                    Visualisation Guide
+                                </h3>
+                                To visualise this, we shall have a visualisation that has a hypothetical non-zero curl of <span class="mathJaxInline">$ \mathbf{E} $</span>.
+                                You can compare and contrast a non-zero curl field to a curl-free field.
+                                The circle on top right of the plot indicates the strength and direction of the current density according to the Right Hand Grip Rule.  
+                                <br><br>
+                                <b>Important note:</b> We are using field lines representation here, not vector field.
+                            </div>
+                            <div id="ampereElecIntegral" class="tab-pane fade">
+                                The Circulation Law in integral form can be expressed as:
+                                <span class="mathJaxDisplay">
+                                    $$ \oint \mathbf {E} \cdot \mathrm {d} {\boldsymbol {l}} = 0 $$
+                                </span>
+                                As you can see from the visualisation on the right the net flux through a loop in an electric field is always zero,
+                                regardless of the positions of charges or even if there is some background field: as long as the background
+                                field has no curl!
+                                <br><br>
+                                Another way of thinking about this equation is by using Stokes' Law which states:
+                                <br><br>
+                                <span class="mathJaxDisplay">
+                                    $$ \oint_{l} \mathbf{A.dl} = \iint_{S} \nabla \times \mathbf {A} \cdot d\mathbf{S} $$
+                                </span>
+                                From this it is clear that the first equation, and the fact that electric fields have no curl are identical.
+                                This also implies that electric fields are conservative, since the loop integral is always zero, and the field
+                                has no curl.
+                                <h3 class="section-sub-head">
+                                    Visualisation Guide
+                                </h3>
+                                Add charges and static electric fields to the vector map and press play to see that the loop integral is zero for any static arrangement.
+                                <br><br>
+                                <b>Important note:</b> We are using vector field representation here, not field line.
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="section-container" id="sc6">
+                <div class="placeholder" id="ph6">
+                    <hr>
+                    <h2 class="text section-head" id="s6">
+                        {{sectionTitleLong[5]}}
+                    </h2>
+                    <hr>
+                </div>
+                <div class="text section-body odd" id="p6">
+                    <!--    Sub-Section Tabs    -->
+                    <ul class="nav nav-tabs nav-justified">
+                        <li :class="[subSection[5] === 1 ? 'shaded' : '', 'active', 'tabLeft']">
+                            <a data-toggle="tab" href="#elecPotential" @click="subScrollTo(6); subSection[5]=1; $forceUpdate();">Potential</a>
+                        </li>
+                        <li :class="[subSection[5] === 2 ? 'shaded' : '', 'tabRight']">
+                            <a data-toggle="tab" href="#elecField" @click="subScrollTo(6); subSection[5]=2; $forceUpdate();">Field</a>
+                        </li>
+                    </ul>
+                    <!--    Sub-Section Text Containers    -->
+                    <div class="tab-content">
+                        <div id="elecPotential" class="tab-pane fade in active show">
+                            The differential relationship between electric potential and electric field is:
+                            <span class="mathJaxDisplay">
+                                $$ \nabla V = - \mathbf{E} $$
+                            </span>
+                            <h3 class="section-sub-head">
+                                Visualisation Guide
+                            </h3>
+                            Consider a particle with charge <span class="mathJaxInline">$ Q $</span> positioned at the origin. The graph on the right
+                            shows the potential field <span class="mathJaxInline">$ V(x,y) $</span> around the particle (when only considering a 2D
+                            slice of space passing through the centre of the charge).
+                            <br><br>
+                            Beneath it the electric field is shown, which is the negative of the gradient of the
+                            electric potential.
+                            <br><br>
+                            <b>Important note:</b> We are using vector field representation here, not field line.
+                        </div>
+                        <div id="elecField" class="tab-pane fade">
+                            The integral relationship between electric potential and electric field is:
+                            <span class="mathJaxDisplay">
+                                $$ V_B - V_A = - \int _A ^B \mathbf{E} \cdot \mathbf{ dl } $$
+                            </span>
+                            In electrostatics, all electric fields are conservative. This means that we can find out the potential difference between any two points (A and B) by performing a line integral:
+                            <span class="mathJaxDisplay">
+                                $$ \Delta V_{AB} = V_B - V_A = \frac{\Delta U_{AB} }{q} $$
+                                $$ = -\frac{1}{q} \int _A ^B \mathbf{F} \cdot \mathbf{ dl }$$
+                                $$ = -\int _A ^B \mathbf{E} \cdot \mathbf{ dl } $$
+                            </span>
+                            <h3 class="section-sub-head">
+                                Visualisation Guide
+                            </h3>
+                            <ol>
+                                <li>
+                                    <p>
+                                        On the right, you can see a electric field and the electric potential associated with this field.
+                                        Change the value of the charge, <span class="mathJaxInline">$ q $</span>, and observe the change in <span class="mathJaxInline">$ \mathbf{E} $</span> and <span class="mathJaxInline">$ V $</span>.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        As the magnitude of <span class="mathJaxInline">$ q $</span> increases, the length of the arrows in <span class="mathJaxInline">$ \mathbf{E} $</span> increases and the contour of the electric potential
+                                        <span class="mathJaxInline">$ V $</span> becomes steeper as well. Since <span class="mathJaxInline">$ \mathbf{E} = - \nabla V $</span>, the gradient vector of <span class="mathJaxInline">$ V $</span> is its electric field vector,
+                                        which points in the direction of steepest decrease of <span class="mathJaxInline">$ V $</span>.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        The line integral along the electric field,
+                                        <span class="mathJaxInline">$ \int \mathbf{E} \cdot \mathbf{ dl } $</span> is path independent. Move the path of the ball from Point A to Point B
+                                        along 2 different paths, Path 1 and Path 2.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Observe their electric potential values. Note that along the path, the value of <span class="mathJaxInline">$ V $</span> may be different.
+                                        However, when the balls reach Point B, they have the same electric potential.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        This shows that static electric fields are conservative, hence <span class="mathJaxInline">$ \mathbf{E} $</span> is only dependent on its position.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        There are a few other electric fields for you to play around with. Click the dropdown menu to find out.
+                                    </p>
+                                </li>
+                            </ol>
+                            <b>Important note:</b> We are using vector field representation here, not field line.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-container" id="sc7">
+                <div class="placeholder" id="ph7">
+                    <hr>
+                    <h2 class="text section-head" id="s7">
+                        {{sectionTitleLong[6]}}
+                    </h2>
+                    <hr>
+                </div>
+                <div class="text section-body odd" id="p7">
+                    In this suite, we have investigated Maxwell's equations in vacuum without time-varying fields.
+                    Let us restate the equations in differential form.
+                    <span class="mathJaxDisplay">
+                        $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}} $$
+                        $$ \nabla \cdot \mathbf{B} =  0 $$
+                        $$ \nabla \times \mathbf{E} = -\frac{d\mathbf{B}}{dt} $$
+                        $$ \nabla \times \mathbf{B} = \mu_{0} \mathbf{J} + \mu_{0} \epsilon_{0}\frac{d\mathbf{E}}{dt} $$
+                    </span>
+                        Without time-varying fields, we have
+                    <span class="mathJaxDisplay">
+                        $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}} $$
+                        $$ \nabla \cdot \mathbf{B} =  0 $$
+                        $$ \nabla \times \mathbf{E} = 0 $$
+                        $$ \nabla \times \mathbf{B} = \mu_{0} \mathbf{J} $$
+                    </span>
+                    In the upcoming suites, we will bring ourselves one step closer to applying Maxwell's equations in a real-world situation by asking:
+                    <br><br>
+                    <b>What happens when we have time-varying fields?</b>
+                    <br><br>
+                    <b>How do we apply Maxwell's equations to different materials or medium?</b> (add link to this)
+                    <br><br>
+                    Stay tuned!
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--    Right Side of Window - containing mainly interactive and visual content    -->
+    <div class="vis-container right" id="right-container">
+        <!--    Title Banner above Right Side    -->
+        <div class="banner">
+            <!--    Visualisation Title    -->
+            <h1 class="" id="vis-title">
+                STATIC ELECTROMAGNETISM
+            </h1>
+            <a href="https://www.imperialvisualisations.com/learn/">
+                <img id="vis-logo" src="images/VisualisationsLogoWhite2.png">
+            </a>
+        </div>
+        <!--    Space into which visualisations are loaded    -->
+        <div id="rightloadSpace">
+            <!--    fade transition tag for RHS - applied by Vue and CSS    -->
+            <transition-group name="fade" tag="div" class="transition-container">
+                <!--    Interactive Zone Containers   -->
+                <div class="rightload text odd" id='loadout1Container' key="loadout1Container" v-if="currentSection === 1">
+                    <iframe src="right-0Intro.html" class="rightload text" id="iframe1" class="rightload text"></iframe>
+                </div>
+                <div class="rightload text even" id='loadout2Container' key="loadout2Container" v-if="currentSection === 2">
+                        <!--Interactive Zone Sub Containers-->
+                        <div class="rightload text" id='loadout2sub1Container' key="loadout2sub1Container"
+                             v-if="subSection[1] === 1">
+                            <iframe src="right-1aGaussLawDiff.html"  id="iframe2-1" class="rightload text"></iframe>
+                        </div>
+                        <div class="rightload text" id='loadout2sub2Container' key="loadout2sub2Container" v-else>
+                            <iframe src="right-1bGaussLawInt.html" id="iframe2-2" class="rightload text"></iframe>
+                        </div>
+
+                </div>
+                <div class="rightload text odd" id='loadout3Container' key="loadout3Container" v-if="currentSection === 3">
+
+
+                        <!--Interactive Zone Sub Containers-->
+                        <div class="rightload text" id='loadout3sub1Container' key="loadout3sub1Container"
+                             v-if="subSection[2] === 1">
+                            <iframe src="right-2aGaussLawMagDiff.html" id="iframe3-1" class="rightload text"></iframe>
+                        </div>
+                        <div class="rightload text" id='loadout3sub2Container' key="loadout3sub2Container" v-else>
+                            <iframe src="right-2bGaussLawMagInt.html"  id="iframe3-2" class="rightload text"></iframe>
+                        </div>
+
+                </div>
+                <div class="rightload text even" id='loadout4Container' key="loadout4Container" v-if="currentSection === 4">
+                    <!--Interactive Zone Sub Containers-->
+                    <div class="rightload text" id='loadout4sub1Container' key="loadout4sub1Container"
+                         v-if="subSection[3] === 1">
+                        <iframe src="right-3aAmpereLawDiff.html" id="iframe4-1" class="rightload text"></iframe>
+                    </div>
+                    <div class="rightload text" id='loadout4sub2Container' key="loadout4sub2Container" v-else>
+                        <div class="rightload text" id='loadout4sub2sub1Container' key="loadout4sub2sub1Container" v-if="subSubSection === 1">
+                            <iframe src="right-3bAmpereLawIntTheory.html" id="iframe4-2-1" class="rightload text"></iframe>
+                        </div>
+                        <div class="rightload text" id='loadout4sub2sub2Container' key="loadout4sub2sub2Container" v-else>
+                            <div class="rightload text" id='loadout4sub2sub2sub0Container' key="loadout4sub2sub2sub0Container" v-if="subSubSubSection === 0">
+                                <iframe src="right-3bAmpereLawIntExample0.html" id="iframe4-2-2-0" class="rightload text"></iframe>
+                            </div>
+                            <div class="rightload text" id='loadout4sub2sub2sub1Container' key="loadout4sub2sub2sub1Container" v-else-if="subSubSubSection === 1">
+                                <iframe src="right-3bAmpereLawIntExample1.html" id="iframe4-2-2-1" class="rightload text"></iframe>
+                            </div>
+                            <div class="rightload text" id='loadout4sub2sub2sub2Container' key="loadout4sub2sub2sub2Container" v-else-if="subSubSubSection === 2">
+                                <iframe src="right-3bAmpereLawIntExample2.html" id="iframe4-2-2-2" class="rightload text"></iframe>
+                            </div>
+                            <div class="rightload text" id='loadout4sub2sub2sub3Container' key="loadout4sub2sub2sub3Container" v-else>
+                                <iframe src="right-3bAmpereLawIntExample3.html" id="iframe4-2-2-3" class="rightload text"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rightload text even" id='loadout5Container' key="loadout5Container" v-if="currentSection === 5">
+                    <transition name="fade">
+                        <!--Interactive Zone Sub Containers-->
+                        <div class="rightload text" id='loadout5sub1Container' key="loadout5sub1Container"
+                             v-if="subSection[4] === 1">
+                            <iframe src="right-4aCirculationLawDiff.html" id="iframe5-1" class="rightload text"></iframe>
+                        </div>
+                        <div class="rightload text" id='loadout5sub2Container' key="loadout5sub2Container" v-else>
+                            <iframe src="right-4bCirculationLawInt.html" id="iframe5-2" class="rightload text"></iframe>
+                        </div>
+                    </transition>
+                </div>
+                <div class="rightload text even" id='loadout6Container' key="loadout6Container" v-if="currentSection === 6">
+                    <transition name="fade">
+                        <!--Interactive Zone Sub Containers-->
+                        <div class="rightload text" id='loadout6sub1Container' key="loadout6sub1Container"
+                             v-if="subSection[5] === 1">
+                            <iframe src="right-5aElectricPotential.html" id="iframe6-1" class="rightload text"></iframe>
+                        </div>
+                        <div class="rightload text" id='loadout6sub2Container' key="loadout6sub2Container" v-else>
+                            <iframe src="right-5bElectricField.html" id="iframe6-2" class="rightload text"></iframe>
+                        </div>
+                    </transition>
+                </div>
+                <div class="rightload text even" id='loadout7Container' key="loadout7Container" v-if="currentSection === 7">
+                    <transition name="fade">
+                        <!--Interactive Zone Sub Containers-->
+                        <iframe src="EM/8Conclusion-gif.html" id="iframe7" class="rightload text"></iframe>
+                    </transition>
+                </div>
+            </transition-group>
+        </div>
+    </div>
+</div>
+</body>
+
+<script src="scripts/nav_Script.js"></script>
+
+</html>
