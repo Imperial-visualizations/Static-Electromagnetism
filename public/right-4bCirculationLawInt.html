@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <!--Title-->
-    <title>right-3bAmpereLawIntTheory</title>
+    <title>right-4bCirculationLawInt</title>
     <!--css links-->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet"
           integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
-    <link href="styles/style.css" rel="stylesheet">
-    <link href="styles/skeleton.css" rel="stylesheet">
-    <link href="styles/index_Style.css" rel="stylesheet">
-    <link href="styles/loadout_Style.css" rel="stylesheet">
+    <link href="/static/styles/style.css" rel="stylesheet">
+    <link href="/static/skeleton.css" rel="stylesheet">
+    <link href="/static/styles/index_Style.css" rel="stylesheet">
+    <link href="/static/styles/loadout_Style.css" rel="stylesheet">
     <!--Required JS resources-->
-    <script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="scripts/debounce_and_throttle.js"></script>
+    <script src="/static/js/debounce_and_throttle.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
@@ -40,16 +38,16 @@
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
 </head>
-<body id="loadout4sub2sub1">
+<body id="loadout5sub2">
 <!--p5 Container-->
-<h4 class="sketchTitle">Vector Field </h4>
+<h4 class="sketchTitle">Electrostatic Vector Field</h4>
 <div id="sketch-holder">
     <div class="spinner-border" role="status">
         <span class="sr-only">Loading...</span>
     </div>
 </div>
 <!--Graph Container-->
-<h4 class="graphTitle">Field Strength on Loop </h4>
+<h4 class="graphTitle">Field Strength on Loop</h4>
 <div id="graph-holder">
     <div class="spinner-border" role="status">
         <span class="sr-only">Loading...</span>
@@ -57,9 +55,9 @@
 </div>
 <!--Vis Inputs-->
 <div id="iC1" class="inputsContainer">
-    <div id="scroll">
+    <div id="scrollA">
         <div class="scroll-down">
-            <strong>Loop Type:</strong>
+            <strong>Loop<br>Type:</strong>
             <select class="form-control" id="circuitSelectList">
                 <option value="0">circle</option>
                 <option value="1">arc 1</option>
@@ -69,20 +67,31 @@
             </select>
         </div>
     </div>
+    <div id="scrollB">
+        <div class="scroll-down">
+            <strong>Background<br>Field:</strong>
+            <select class="form-control" id="fieldList">
+                <option value="0">None</option>
+                <option value="1">Constant</option>
+                <option value="2">Linear</option>
+                <option value="3">Sine Squared</option>
+            </select>
+        </div>
+    </div>
     <div id="play-pause-reset">
         <button id="buttonPlay">Play</button>
         <button id="buttonReset">Reset</button>
     </div>
     <div id="add-remove-wires">
-        <button id="buttonRemoveWires">Remove Curl Sources</button>
-        <button id="buttonAddWire">Add Curl Source</button>
+        <button id="buttonRemoveWires">Remove Charges</button>
+        <button id="buttonAddWire">Add Charge</button>
     </div>
 </div>
 <!--More Vis Inputs-->
 <div id="iC2" class="inputsContainer">
     <div class="partial-sliders-container">
         <label class="slider-label" for="currentSlider" id="tagCurrentSlider">
-            Amount of Curl: <b><span data-unit="Amps" id="currentDynamicDisplay"> 5</span></b>
+            Charge: <b><span data-unit="Coulombs" id="currentDynamicDisplay"> 5</span></b>
         </label>
         <label class="slider">
             <input id="currentSlider" class="inputs" max="10" min="-10" name="currentSlider" step="1" type="range"
@@ -102,7 +111,7 @@
 <div id="graphNoteContainer">
     <div id="B-dl-text-holder">
         $\displaystyle\oint\mathbf{B.dl}=$
-        <span id="Bdl-text">5.0*μ<sub>0<sub></sub></sub></span>
+        <span id="Bdl-text">0</span>
     </div>
     <div id="graphNote">
         We are using a Riemann sum to integrate, so the number of steps is referring to the number of steps used in
@@ -111,6 +120,6 @@
 </div>
 </body>
 <!--THE BRAINS-->
-<script src="scripts/EM1-scripts/3b-AmpereLawIntTheory.js"></script>
-<script src="scripts/EM1-scripts/Static_EM_Object.js"></script>
+<script src="js/4b-CirculationLawInt.js"></script>
+<script src="js/Static_EM_Object.js"></script>
 </html>

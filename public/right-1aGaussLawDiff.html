@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <!--Title-->
-    <title>right-AmpereLawDiff</title>
+    <title>right-1aGaussLawDiff</title>
     <!--css links-->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet"
           integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
-    <link href="styles/style.css" rel="stylesheet">
-    <link href="styles/skeleton.css" rel="stylesheet">
-    <link href="styles/index_Style.css" rel="stylesheet">
-    <link href="styles/loadout_Style.css" rel="stylesheet">
+    <link href="/static/styles/style.css" rel="stylesheet">
+    <link href="/static/styles/skeleton.css" rel="stylesheet">
+    <link href="/static/styles/index_Style.css" rel="stylesheet">
+    <link href="/static/styles/loadout_Style.css" rel="stylesheet">
     <!--Required JS resources-->
-    <script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="scripts/debounce_and_throttle.js"></script>
+    <script src="/static/js/debounce_and_throttle.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
@@ -40,10 +38,10 @@
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
 </head>
-<body id="loadout4sub1">
+<body id="loadout2sub1">
 <!-- Graph -->
 <h4 class="graphTitle">
-    Relative Curl
+    Relative Divergence
 </h4>
 <div id='graph-holder'>
     <div class="spinner-border" role="status">
@@ -54,7 +52,7 @@
 <div class="overall-sliders-container">
     <!--BEGIN Slider-->
     <label class="slider-label">
-        Current Density: $ \mathbf{j}= $
+        Charge Density: $ \rho= $
         <output id="x3ControllerDisplay" for="x3Controller">1</output>
     </label>
     <label class="slider">
@@ -66,6 +64,6 @@
 </div>
 </body>
 <!--THE BRAINS-->
-<script src="scripts/EM1-scripts/3a-AmpereLawDiff.js"></script>
-<script src="scripts/EM1-scripts/Static_EM_Object.js"></script>
+<script src=js/Static_EM_Object.js></script>
+<script src=js/1a-GaussLawDiff.js></script>
 </html>

@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <!--Title-->
-    <title>right-2bGaussLawMagInt</title>
+    <title>right-1bGaussLawInt</title>
     <!--css links-->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet"
           integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
-    <link href="styles/style.css" rel="stylesheet">
-    <link href="styles/skeleton.css" rel="stylesheet">
-    <link href="styles/index_Style.css" rel="stylesheet">
-    <link href="styles/loadout_Style.css" rel="stylesheet">
+    <link href="/static/styles/style.css" rel="stylesheet">
+    <link href="/static/styles/skeleton.css" rel="stylesheet">
+    <link href="/static/styles/index_Style.css" rel="stylesheet">
+    <link href="/static/styles/loadout_Style.css" rel="stylesheet">
     <!--Required JS resources-->
-    <script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="scripts/debounce_and_throttle.js"></script>
+    <script src="/static/js/debounce_and_throttle.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
@@ -40,7 +38,7 @@
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
 </head>
-<body id="loadout3sub2">
+<body id="loadout2sub2">
 <!--p5 Canvas-->
 <label id="sketch-holder">
     <div class="spinner-border" role="status">
@@ -56,31 +54,16 @@
     <div class="partial-sliders-container">
         <!--Text next to slider for user to choose element orientation-->
         <label class="slider-label">
-            Relative Strength:
-            <span> $ \mu $ =</span>
-            <output id="amount1" name="amount1" for="magnitude">1</output>
+            Relative Charge:
+            <span> Q =</span>
+            <output id="amount" name="amount" for="magnitude">1</output>
         </label>
         <!--Slider for user to choose charge strength and polarity-->
         <label class="slider" id="magnitudeChange" value=false>
-            <span class="sliderMin">0</span>
-            <input id="magnitude" class="inputs" type="range" value="1" min="0" max="1" step="0.1"
-                   oninput="amount1.value=magnitude.value"/>
-            <span class="sliderMax">1</span>
-        </label>
-    </div>
-    <div class="partial-sliders-container">
-        <!--Text next to slider for user to choose element orientation-->
-        <label class="slider-label">
-            Orientation:
-            <output id="amount2" name="amount2" for="angle">0</output>
-            <span>°</span>
-        </label>
-        <!--Slider for user to choose charge strength and polarity-->
-        <label class="slider" id="angleChange" value=false>
-            <span class="sliderMin">0</span>
-            <input id="angle" class="inputs" onmousedown="angleChange.value=true" onmouseup="angleChange.value = false"
-                   type="range" value="0" min="0" max="360" step="1" oninput="amount2.value=angle.value"/>
-            <span class="sliderMax">360</span>
+            <span class="sliderMin">-1</span>
+            <input id="magnitude" class="inputs" type="range" value="1" min="-1" max="1" step="0.1"
+                   oninput="amount.value=magnitude.value"/>
+            <span class="sliderMax">+1</span>
         </label>
     </div>
     <!--Loop options-->
@@ -107,6 +90,6 @@
 </div>
 </body>
 <!--THE BRAINS-->
-<script src="scripts/EM1-scripts/2b-GaussLawMagInt.js"></script>
-<script src="scripts/EM1-scripts/Static_EM_Object.js"></script>
+<script src="scripts/1b-GaussLawInt.js"></script>
+<script src="scripts/Static_EM_Object.js"></script>
 </html>
