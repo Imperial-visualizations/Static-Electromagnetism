@@ -16,7 +16,7 @@
     background: white;
 }
 
-/* SECTION 1 */
+/* ///// SECTION 1 ///// */
 
 #loadout1 {
 }
@@ -139,7 +139,9 @@
     bottom: -3.5vh;
 }
 
-/* SECTION 2 */
+/* ///// SECTION 2 ////// */
+
+/* SUB-SECTION 1 */
 
 #loadout2sub1 {
 }
@@ -172,27 +174,15 @@
     height: 10vh;
 }
 
-#loadout2sub1 .partial-sliders-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-basis: 0;
-    flex-grow: 1;
-    flex-shrink: 1;
-}
-
 #loadout2sub1 .slider-label {
     font-size: calc(10px + 0.8vw);
-    flex-basis: auto;
-    flex-grow: 0.3;
-    flex-shrink: 1;
     margin: 0;
     padding: 0;
     text-align: center;
+    flex: 1 0 auto;
 }
 
 #loadout2sub1 .slider {
-    margin-top: 10px;
     display: flex;
     align-items: center;
     flex: 1 0 auto;
@@ -212,9 +202,10 @@
     flex: 1 1 auto;
 }
 
+/* SUB-SECTION 2 */
+
 #loadout2sub2 {
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow: hidden;
 }
 
 #loadout2sub2 #sketch-holder {
@@ -339,7 +330,9 @@
     flex: 1 1 auto;
 }
 
-/* SECTION 3 */
+/* ///// SECTION 3 ///// */
+
+/* SUB-SECTION 1 */
 
 #loadout3sub1 {
 }
@@ -384,9 +377,10 @@
     margin-bottom: 10px;
 }
 
+/* SUB-SECTION 2 */
+
 #loadout3sub2 {
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow: hidden;
 }
 
 #loadout3sub2 #sketch-holder {
@@ -512,7 +506,9 @@
     flex: 1 1 auto;
 }
 
-/* SECTION 4 */
+/* ///// SECTION 4 ///// */
+
+/* SUB-SECTION 1 */
 
 #loadout4sub1 {
 }
@@ -546,23 +542,12 @@
     height: 10vh;
 }
 
-#loadout4sub1 .partial-sliders-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-basis: 0;
-    flex-grow: 1;
-    flex-shrink: 1;
-}
-
 #loadout4sub1 .slider-label {
     font-size: calc(10px + 0.8vw);
-    flex-basis: auto;
-    flex-grow: 0.3;
-    flex-shrink: 1;
     margin: 0;
     padding: 0;
     text-align: center;
+    flex: 1 0 auto;
 }
 
 #loadout4sub1 .slider {
@@ -584,6 +569,13 @@
 #loadout4sub1 .inputs {
     height: 40px;
     flex: 1 1 auto;
+}
+
+/* SUB-SECTION 2 */
+
+/* SUB-SUB-SECTION 1 */
+
+#loadout4sub2sub1 {
 }
 
 #loadout4sub2sub1 .sketchTitle {
@@ -720,9 +712,7 @@
 
 #loadout4sub2sub1 .slider-label {
     font-size: calc(9px + 0.75vw);
-    flex-basis: auto;
-    flex-grow: 0.3;
-    flex-shrink: 1;
+    flex: 0.3 1 auto;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -747,6 +737,12 @@
     height: 3.1vh;
     flex: 1 1 auto;
 }
+
+/* SUB-SECTION 2 */
+
+/* SUB-SUB-SECTION 2 */
+
+/* SUB-SUB-SUB-SECTION 0 */
 
 #loadout4sub2sub2sub0 {
 }
@@ -774,6 +770,12 @@
     margin: 0;
     padding: 0;
 }
+
+/* SUB-SECTION 2 */
+
+/* SUB-SUB-SECTION 2 */
+
+/* SUB-SUB-SUB-SECTION 1 */
 
 #loadout4sub2sub2sub1 {
 }
@@ -816,6 +818,8 @@
 #loadout4sub2sub2sub1 .overall-sliders-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
     position: absolute;
     bottom: 4vh;
     left: 2.5vw;
@@ -827,23 +831,19 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    flex-basis: 0;
-    flex-grow: 1;
-    flex-shrink: 1;
+    flex: 1 0 auto;
+    max-height: 40%;
 }
 
 #loadout4sub2sub2sub1 .slider-label {
     font-size: calc(10px + 0.8vw);
-    flex-basis: auto;
-    flex-grow: 0.3;
-    flex-shrink: 1;
+    flex: 1 0 auto;
     margin: 0;
     padding: 0;
     text-align: left;
 }
 
 #loadout4sub2sub2sub1 .slider {
-    margin-top: 10px;
     display: flex;
     align-items: center;
     flex: 1 0 auto;
@@ -862,6 +862,12 @@
     height: 40px;
     flex: 1 1 auto;
 }
+
+/* SUB-SECTION 2 */
+
+/* SUB-SUB-SECTION 2 */
+
+/* SUB-SUB-SUB-SECTION 2 */
 
 #loadout4sub2sub2sub2 {
 }
@@ -904,6 +910,8 @@
 #loadout4sub2sub2sub2 .overall-sliders-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
     position: absolute;
     bottom: 4vh;
     left: 2.5vw;
@@ -915,23 +923,19 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    flex-basis: 0;
-    flex-grow: 1;
-    flex-shrink: 1;
+    flex: 1 0 auto;
+    max-height: 25%;
 }
 
 #loadout4sub2sub2sub2 .slider-label {
     font-size: calc(10px + 0.8vw);
-    flex-basis: auto;
-    flex-grow: 0.3;
-    flex-shrink: 1;
+    flex: 1 0 auto;
     margin: 0;
     padding: 0;
     text-align: left;
 }
 
 #loadout4sub2sub2sub2 .slider {
-    margin-top: 10px;
     display: flex;
     align-items: center;
     flex: 1 0 auto;
@@ -950,6 +954,12 @@
     height: 40px;
     flex: 1 1 auto;
 }
+
+/* SUB-SECTION 2 */
+
+/* SUB-SUB-SECTION 2 */
+
+/* SUB-SUB-SUB-SECTION 3 */
 
 #loadout4sub2sub2sub3 {
 }
@@ -992,6 +1002,8 @@
 #loadout4sub2sub2sub3 .overall-sliders-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
     position: absolute;
     bottom: 4vh;
     width: 45vw;
@@ -1010,23 +1022,19 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    flex-basis: 0;
-    flex-grow: 1;
-    flex-shrink: 1;
+    flex: 1 0 auto;
+    max-height: 40%;
 }
 
 #loadout4sub2sub2sub3 .slider-label {
     font-size: calc(10px + 0.8vw);
-    flex-basis: auto;
-    flex-grow: 0.3;
-    flex-shrink: 1;
+    flex: 1 0 auto;
     margin: 0;
     padding: 0;
     text-align: left;
 }
 
 #loadout4sub2sub2sub3 .slider {
-    margin-top: 10px;
     display: flex;
     align-items: center;
     flex: 1 0 auto;
@@ -1046,7 +1054,9 @@
     flex: 1 1 auto;
 }
 
-/* SECTION 5 */
+/* ///// SECTION 5 ///// */
+
+/* SUB-SECTION 1 */
 
 #loadout5sub1 {
 }
@@ -1091,16 +1101,13 @@
 
 #loadout5sub1 .slider-label {
     font-size: calc(10px + 0.8vw);
-    flex-basis: auto;
-    flex-grow: 0.3;
-    flex-shrink: 1;
     margin: 0;
     padding: 0;
     text-align: center;
+    flex: 1 0 auto;
 }
 
 #loadout5sub1 .slider {
-    margin-top: 10px;
     display: flex;
     align-items: center;
     flex: 1 0 auto;
@@ -1127,6 +1134,11 @@
     bottom: 1.5vh;
     text-align: center;
     font-size: calc(0.6vw + 6px);
+}
+
+/* SUB-SECTION 2 */
+
+#loadout5sub2 {
 }
 
 #loadout5sub2 .sketchTitle {
@@ -1263,9 +1275,7 @@
 
 #loadout5sub2 .slider-label {
     font-size: calc(9px + 0.75vw);
-    flex-basis: auto;
-    flex-grow: 0.3;
-    flex-shrink: 1;
+    flex: 0.3 1 auto;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -1291,7 +1301,12 @@
     flex: 1 1 auto;
 }
 
-/* SECTION 6 */
+/* ///// SECTION 6 ///// */
+
+/* SUB-SECTION 1 */
+
+#loadout6sub1 {
+}
 
 #loadout6sub1 .graph1Title {
     width: 55vw;
@@ -1338,11 +1353,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 45vw;
+    width: 55vw;
     height: 25vh;
     position: absolute;
     bottom: 2.2vh;
-    left: 3.9vw;
+    left: 2.3vw;
 }
 
 #loadout6sub1 .equationContainer {
@@ -1387,27 +1402,25 @@
 #loadout6sub1 .overall-sliders-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
     width: 40vw;
 }
 
 #loadout6sub1 .partial-sliders-container {
     display: flex;
-    flex-direction: row;
-    flex-basis: 0;
-    flex-grow: 1;
-    flex-shrink: 1;
+    flex-direction: column;
+    flex: 1 0 auto;
+    max-height: 40%;
 }
 
 #loadout6sub1 .slider-label {
     font-size: calc(12px + 1vw);
-    text-align: left;
+    text-align: center;
     padding-left: 8px;
     margin: 0;
     padding-top: 0;
-    padding-bottom: 20px;
-    flex-basis: 0;
-    flex-grow: 0.5;
-    flex-shrink: 1;
+    flex: 1 0 auto;
 }
 
 #loadout6sub1 .slider {
@@ -1428,6 +1441,12 @@
 #loadout6sub1 .inputs {
     height: 40px;
     flex: 1 1 auto;
+}
+
+/* SUB-SECTION 2 */
+
+#loadout6sub2 {
+    overflow: hidden;
 }
 
 #loadout6sub2 .graph1Title {
@@ -1642,3 +1661,47 @@
     height: 40px;
     flex: 1 1 auto;
 }
+
+/* ///// SECTION 7 ///// */
+
+#loadout7 {
+}
+
+#loadout7 .overall-image-container {
+    width: 100vw;
+    height: 70.4485vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+#loadout7 .top-row {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    flex: 1 0 0;
+    min-width: 0;
+    min-height: 0;
+}
+
+#loadout7 .bottom-row {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    flex: 1 0 0;
+    min-width: 0;
+    min-height: 0;
+}
+
+#loadout7 img {
+    flex: 1 0 0;
+    margin: 1%;
+    padding: 1%;
+    border: 3px solid #37578B;
+    min-width: 0;
+    min-height: 0;
+}
+

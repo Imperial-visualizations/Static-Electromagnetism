@@ -1,8 +1,8 @@
 // Code for navigation functionality in visualisations main screen using Vue
 
-let this = new Vue({
+let app = new Vue({
 
-    el: "#this",
+    el: "#app",
 
     data: {
         // Data required including variables associated with visible sections, script paths and booleans reflecting state of vis
@@ -24,6 +24,7 @@ let this = new Vue({
         subSection: [false, 1, 1, 1, 1, 1, 1],
         subSubSection: 1,
         subSubSubSection: 0,
+        showJourney: true,
     },
 
     methods: {
@@ -31,40 +32,40 @@ let this = new Vue({
         // Function called on scrolling of of left panel to indicate distance scrolled down journey content div
         scrollFunc: function () {
             // function only works once sectionPos has run at least once (in mounted)
-            if (this.firstRunDone === true) {
-                this.scrollPos = document.querySelectorAll(".journey")[0].scrollTop;
-                this.changeTitle();
-                this.changeSec();
+            if (app.firstRunDone === true) {
+                app.scrollPos = document.querySelectorAll(".journey")[0].scrollTop;
+                app.changeTitle();
+                app.changeSec();
             }
         },
 
         handleElement: function (section) {
             // update currentSection variable if user scrolls past the top edge of its corresponding section on left side
-            if (this.scrollPos >= this.sectionTops[section - 1] && this.scrollPos < this.sectionBottoms[section - 1]) {
-                this.currentTitle = section;
+            if (app.scrollPos >= app.sectionTops[section - 1] && app.scrollPos < app.sectionBottoms[section - 1]) {
+                app.currentTitle = section;
             }
         },
 
         changeTitle: function () {
-            for (let i = 1; i <=this.n; i++) {
-               this.handleElement(i)
+            for (let i = 1; i <= app.n; i++) {
+                app.handleElement(i)
             }
         },
 
         changeSec: debounce(function () {
-           this.currentSection =this.currentTitle;
+            app.currentSection = app.currentTitle;
         }, 200),
 
         swapTitles: function (newValue, oldValue) {
-            for (let i = 1; i <=this.n; i++) {
+            for (let i = 1; i <= app.n; i++) {
                 if (i !== newValue) {
-                   this.sectionTitle[i - 1] =this.sectionTitleShort[i - 1];
+                    app.sectionTitle[i - 1] = app.sectionTitleShort[i - 1];
                 } else {
                     setTimeout(function () {
-                       this.sectionTitle[i - 1] =this.sectionTitleLong[i - 1];
+                        app.sectionTitle[i - 1] = app.sectionTitleLong[i - 1];
                     }, 20);
                     setTimeout(function () {
-                       this.$forceUpdate();
+                        app.$forceUpdate();
                     }, 100);
                 }
             }
@@ -75,17 +76,17 @@ let this = new Vue({
         sectionPos: function () {
             this.$nextTick(function () {
                 let overallTop = document.querySelectorAll("#sc1")[0].offsetTop;
-                for (let i = 1; i <= this.n; i++) {
-                    if (i < this.n) {
-                        this.sectionTops[i - 1] = (document.querySelectorAll("#" + "sc" + i)[0].offsetTop - overallTop);
-                        this.sectionBottoms[i - 1] = (this.sectionTops[i - 1] + document.querySelectorAll("#" + "sc" + i)[0].offsetHeight);
+                for (let i = 1; i <= app.n; i++) {
+                    if (i < app.n) {
+                        app.sectionTops[i - 1] = (document.querySelectorAll("#" + "sc" + i)[0].offsetTop - overallTop);
+                        app.sectionBottoms[i - 1] = (app.sectionTops[i - 1] + document.querySelectorAll("#" + "sc" + i)[0].offsetHeight);
                     } else {
-                        this.sectionTops[i - 1] = (document.querySelectorAll("#" + "sc" + i)[0].offsetTop - overallTop);
-                        this.sectionBottoms[i - 1] = (this.sectionTops[i - 1] + document.querySelectorAll("#" + "sc" + i)[0].offsetHeight - document.querySelectorAll(".journey")[0].offsetHeight);
+                        app.sectionTops[i - 1] = (document.querySelectorAll("#" + "sc" + i)[0].offsetTop - overallTop);
+                        app.sectionBottoms[i - 1] = (app.sectionTops[i - 1] + document.querySelectorAll("#" + "sc" + i)[0].offsetHeight - document.querySelectorAll(".journey")[0].offsetHeight);
                     }
                 }
-                this.firstRunDone = true;
-                this.scrollFunc();
+                app.firstRunDone = true;
+                app.scrollFunc();
             })
         },
 
@@ -96,7 +97,7 @@ let this = new Vue({
 
         // Same as above but for subsections (and sub-subsections)
         subScrollTo: function (section) {
-            if (this.currentSection !== section) {
+            if (app.currentSection !== section) {
                 let scrollTarget = document.querySelectorAll("#ph" + section)[0];
                 scrollTarget.scrollIntoView({behavior: "smooth"});
             }
@@ -105,39 +106,38 @@ let this = new Vue({
         // Same as above but for sub-sub-subsections
         subSubSubScrollTo: function (event) {
             let scrollTarget = event.currentTarget;
-            if (scrollTarget.id === "eg" + this.subSubSubSection) {
+            if (scrollTarget.id === "eg" + app.subSubSubSection) {
                 scrollTarget.scrollIntoView();
             }
         },
 
         // Updates active example in Section 4 Sub 2 Examples Section
         updateSubSubSubSection: function (section) {
-            if (this.subSubSubSection !== section) {
-                this.subSubSubSection = section;
-            }
-            else {
-                this.subSubSubSection = 0;
+            if (app.subSubSubSection !== section) {
+                app.subSubSubSection = section;
+            } else {
+                app.subSubSubSection = 0;
             }
         },
 
         // Updates number of title being hovered over in nav/progress bar in data
         hoverPosUpdate: function (event) {
-            this.hoverPos = parseFloat(event.currentTarget.dataset.no)
+            app.hoverPos = parseFloat(event.currentTarget.dataset.no)
         },
 
         // Updates if and what title show when hovering over nav/progress bar
         selectHover: function () {
-            if (this.currentTitle !== this.hoverPos) {
-                this.hoverTitle = this.sectionTitleLong[this.hoverPos - 1]
+            if (app.currentTitle !== app.hoverPos) {
+                app.hoverTitle = app.sectionTitleLong[app.hoverPos - 1]
             } else {
-                this.hoverTitle = false
+                app.hoverTitle = false
             }
         },
 
         // Updates x-position of mouse in data
         updateMouseX: function (event) {
             // pass event object, bound to mouse move with update
-            this.mouseX = event.clientX - 15;
+            app.mouseX = event.clientX - 15;
         },
 
         // Toggles button text from 'hide' to 'show' depending on state
@@ -149,30 +149,50 @@ let this = new Vue({
                 event.currentTarget.querySelectorAll('span')[0].innerHTML = "Show"
             }
         },
+
+        // toggles visibility of journey section
+        toggleJourney: function () {
+            let sectionCache = app.currentSection;
+            document.querySelectorAll("#rightloadSpace")[0].classList.add("rightLoadInterim");
+            app.showJourney = !app.showJourney;
+            setTimeout(function () {
+                if (app.showJourney === false) {
+                    document.querySelectorAll("#rightloadSpace")[0].classList.add("fullRightLoadSpace");
+                } else {
+                    document.querySelectorAll("#rightloadSpace")[0].classList.remove("fullRightLoadSpace");
+                }
+                app.currentSection = "noShow";
+            }, 500);
+            setTimeout(function () {
+                app.currentSection = sectionCache;
+                document.querySelectorAll("#rightloadSpace")[0].classList.remove("rightLoadInterim");
+            }, 525);
+        },
     },
 
     watch: {
 
         // Updates current section title to display in full in nav/progress bar whilst minimising other section titles
         currentTitle: function (newValue, oldValue) {
-            this.swapTitles(newValue, oldValue)
+            app.swapTitles(newValue, oldValue)
         },
     },
 
     mounted() {
+
         // $nextTick ensures initial functions only run once Vue is initialised sufficiently
         this.$nextTick(function () {
             // makes n equal to total number of sections
-            this.n = document.querySelectorAll(".section-container").length;
+            app.n = document.querySelectorAll(".section-container").length;
             // calculates initial div section positions in journey with respect to the top
-            this.sectionPos();
+            app.sectionPos();
             // checks if journey div height changes every x seconds
             // if it does change, re-runs sectionPos to calculate section div positions
-            this.journeyHeightOld = document.querySelectorAll(".journey")[0].scrollHeight;
+            app.journeyHeightOld = document.querySelectorAll(".journey")[0].scrollHeight;
             window.setInterval(() => {
-                this.journeyHeightNew = document.querySelectorAll(".journey")[0].scrollHeight;
-                if (this.journeyHeightOld !== this.journeyHeightNew) {
-                    this.journeyHeightOld = this.journeyHeightNew;
+                app.journeyHeightNew = document.querySelectorAll(".journey")[0].scrollHeight;
+                if (app.journeyHeightOld !== app.journeyHeightNew) {
+                    app.journeyHeightOld = app.journeyHeightNew;
                     this.sectionPos();
                 }
             }, 2000);
